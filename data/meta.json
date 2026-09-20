@@ -1,0 +1,22 @@
+{
+  "generated": "2026-09-20",
+  "generator": "scripts/import_excel.py",
+  "context": "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/schema/context.jsonld",
+  "counts": {
+    "entries": 1979,
+    "works": 1945,
+    "prints": 137,
+    "persons": 85,
+    "idsAssigned": 1979,
+    "nextId": 1980
+  },
+  "sources": [
+    {
+      "dataset": "lv-katalog",
+      "file": "Werke.xlsx",
+      "sheet": "LV-Katalog",
+      "sha256": "46d7c0e455c33e5d195f1893c0e1cf622a6e71255741a13c39f1bdae073203f5",
+      "entries": 1979
+    }
+  ]
+}

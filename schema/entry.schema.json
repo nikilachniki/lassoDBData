@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nikilachniki.github.io/lassoDBData/schema/entry.schema.json",
+  "title": "Lasso-Werkverzeichnis, Katalogeintrag",
+  "description": "Ein Eintrag entspricht einem Werk in einem Druck, nicht einem Werk. Die LV-Nummer ist nicht eindeutig, da dieselbe Komposition in mehreren Drucken erscheinen kann. Eindeutig ist allein die interne ID.",
+  "type": "object",
+  "required": ["@id", "@type", "id", "lv", "title"],
+  "additionalProperties": true,
+  "properties": {
+    "@id": {
+      "type": "string",
+      "pattern": "^entry:[0-9]{5,}$",
+      "description": "JSON-LD Bezeichner, abgeleitet aus der internen ID."
+    },
+    "@type": { "const": "CatalogueEntry" },
+    "id": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Interne laufende ID. Einmal vergeben, bleibt sie stabil."
+    },
+    "lv": {
+      "type": ["string", "null"],
+      "description": "LV-Nummer nach Boetticher und Leuchtmann, wie in der Quelle."
+    },
+    "lvBase": { "type": ["integer", "null"] },
+    "lvPart": {
+      "type": ["integer", "null"],
+      "description": "Teilsatz, etwa die secunda pars, aus einer LV-Angabe wie 1-2."
+    },
+    "lvVariant": {
+      "type": ["string", "null"],
+      "description": "Roemische Fassungsziffer aus einer LV-Angabe wie 74 (IV)."
+    },
+    "title": { "type": ["string", "null"] },
+    "titleRaw": {
+      "type": ["string", "null"],
+      "description": "Titel unveraendert aus der Quelle, inklusive Teilsatzmarke."
+    },
+    "voices": { "type": ["integer", "null"], "minimum": 1 },
+    "voicesRaw": {
+      "type": "string",
+      "description": "Nur gesetzt, wenn die Stimmenangabe keine reine Zahl war."
+    },
+    "firstPrint": {
+      "type": ["string", "null"],
+      "description": "Sigle des Erstdrucks, Jahr und laufende Nummer, etwa 1555-1."
+    },
+    "firstPrintYear": { "type": ["integer", "null"] },
+    "firstPrintNo": { "type": ["integer", "null"] },
+    "textAuthor": {
+      "type": ["string", "null"],
+      "description": "Rohwert. Schreibvarianten sind bewusst nicht zusammengefuehrt."
+    },
+    "textSource": {
+      "type": ["string", "null"],
+      "description": "Textprovenienz, etwa eine Bibelstelle wie Ps 64."
+    },
+    "completeEdition": {
+      "type": ["string", "null"],
+      "description": "Fundstelle in der Gesamtausgabe, unveraendert als Zeichenkette."
+    },
+    "note": { "type": ["string", "null"] },
+    "source": {
+      "type": "object",
+      "required": ["dataset", "file", "row", "key"],
+      "properties": {
+        "dataset": { "type": "string" },
+        "file": { "type": "string" },
+        "row": { "type": "integer" },
+        "key": {
+          "type": "string",
+          "description": "Fachlicher Wiedererkennungsschluessel fuer die ID-Registry."
+        }
+      }
+    },
+    "extra": {
+      "type": "object",
+      "description": "Spalten einer Quelle, die noch kein kanonisches Feld haben. Sie gehen nicht verloren und koennen spaeter hochgezogen werden.",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

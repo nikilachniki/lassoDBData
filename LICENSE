@@ -1,0 +1,48 @@
+Lizenzen in diesem Repository
+=============================
+
+Daten
+-----
+Die Inhalte der Ordner raw/ und data/ sowie die Dateien in schema/ stehen unter
+
+    Creative Commons Namensnennung 4.0 International (CC BY 4.0)
+
+Lizenztext:  https://creativecommons.org/licenses/by/4.0/legalcode.de
+Kurzfassung: https://creativecommons.org/licenses/by/4.0/deed.de
+
+Sie dürfen das Material teilen und bearbeiten, auch kommerziell, sofern Sie
+angemessene Urheber- und Rechteangaben machen, einen Link zur Lizenz beifügen
+und angeben, ob Änderungen vorgenommen wurden.
+
+Empfohlene Namensnennung:
+
+    Niklas Lachmann, lassoDBData. Datenbestand zum Werkverzeichnis
+    von Orlando di Lasso. https://github.com/nikilachniki/lassoDBData
+
+Die zugrunde liegenden Katalogangaben folgen dem Lasso-Verzeichnis. Bei
+wissenschaftlicher Nachnutzung ist zusätzlich die Katalogquelle zu zitieren.
+
+
+Programmcode
+------------
+Die Inhalte des Ordners scripts/ stehen unter der MIT-Lizenz.
+
+Copyright (c) 2026 Niklas Lachmann
+
+Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der
+zugehörigen Dokumentationen erhält, die Erlaubnis erteilt, sie uneingeschränkt
+zu nutzen, zu kopieren, zu verändern, zusammenzufügen, zu veröffentlichen, zu
+verbreiten, zu unterlizenzieren und zu verkaufen, und Personen, denen diese
+Software überlassen wird, diese Rechte zu verschaffen, unter den folgenden
+Bedingungen:
+
+Der obige Urheberrechtsvermerk und dieser Erlaubnisvermerk sind in allen Kopien
+oder Teilkopien der Software beizulegen.
+
+DIE SOFTWARE WIRD OHNE JEDE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GARANTIE
+BEREITGESTELLT, EINSCHLIESSLICH DER GARANTIE ZUR BENUTZUNG FÜR DEN VORGESEHENEN
+ODER EINEM BESTIMMTEN ZWECK SOWIE JEGLICHER RECHTSVERLETZUNG, JEDOCH NICHT
+DARAUF BESCHRÄNKT. IN KEINEM FALL SIND DIE AUTOREN ODER COPYRIGHTINHABER FÜR
+JEGLICHEN SCHADEN ODER SONSTIGE ANSPRÜCHE HAFTBAR ZU MACHEN, OB INFOLGE DER
+ERFÜLLUNG EINES VERTRAGES, EINES DELIKTES ODER ANDERS IM ZUSAMMENHANG MIT DER
+SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.

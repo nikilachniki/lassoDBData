@@ -1,0 +1,69 @@
+{
+  "@context": {
+    "@version": 1.1,
+
+    "lasso": "https://nikilachniki.github.io/lassoDBData/ns#",
+    "entry": "https://nikilachniki.github.io/lassoDBData/id/entry/",
+    "work": "https://nikilachniki.github.io/lassoDBData/id/work/",
+    "print": "https://nikilachniki.github.io/lassoDBData/id/print/",
+    "person": "https://nikilachniki.github.io/lassoDBData/id/person/",
+
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "items": "@graph",
+
+    "CatalogueEntry": "lasso:CatalogueEntry",
+    "Work": "lasso:Work",
+    "Print": "lasso:Print",
+    "Person": "schema:Person",
+
+    "id": { "@id": "lasso:internalId", "@type": "xsd:integer" },
+    "lv": "lasso:lv",
+    "lvBase": { "@id": "lasso:lvBase", "@type": "xsd:integer" },
+    "lvPart": { "@id": "lasso:lvPart", "@type": "xsd:integer" },
+    "lvVariant": "lasso:lvVariant",
+
+    "title": "dcterms:title",
+    "titleRaw": "lasso:titleRaw",
+    "titles": { "@id": "dcterms:title", "@container": "@set" },
+
+    "voices": { "@id": "lasso:voices", "@type": "xsd:integer" },
+    "voicesRaw": "lasso:voicesRaw",
+    "voiceCounts": { "@id": "lasso:voices", "@type": "xsd:integer", "@container": "@set" },
+
+    "firstPrint": "lasso:firstPrintSiglum",
+    "firstPrintYear": { "@id": "lasso:firstPrintYear", "@type": "xsd:gYear" },
+    "firstPrintNo": { "@id": "lasso:firstPrintNo", "@type": "xsd:integer" },
+    "prints": { "@id": "lasso:firstPrintSiglum", "@container": "@set" },
+    "siglum": "lasso:siglum",
+    "year": { "@id": "dcterms:date", "@type": "xsd:gYear" },
+    "no": { "@id": "lasso:printNo", "@type": "xsd:integer" },
+    "rism": "lasso:rismId",
+
+    "textAuthor": "lasso:textAuthor",
+    "textAuthors": { "@id": "lasso:textAuthor", "@container": "@set" },
+    "textSource": "lasso:textSource",
+    "textSources": { "@id": "lasso:textSource", "@container": "@set" },
+    "nameRaw": "schema:name",
+    "role": "lasso:role",
+    "gnd": "lasso:gnd",
+    "viaf": "lasso:viaf",
+
+    "completeEdition": "lasso:completeEdition",
+    "completeEditions": { "@id": "lasso:completeEdition", "@container": "@set" },
+
+    "note": "rdfs:comment",
+    "entries": { "@id": "lasso:hasEntry", "@type": "@id", "@container": "@set" },
+    "entryCount": { "@id": "lasso:entryCount", "@type": "xsd:integer" },
+
+    "source": "lasso:source",
+    "dataset": "lasso:dataset",
+    "file": "lasso:sourceFile",
+    "row": { "@id": "lasso:sourceRow", "@type": "xsd:integer" },
+    "key": "lasso:naturalKey",
+    "extra": "lasso:extra"
+  }
+}

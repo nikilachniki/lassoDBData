@@ -1,0 +1,770 @@
+{
+  "@context": "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/schema/context.jsonld",
+  "items": [
+    {
+      "@id": "person:a-beccuti-detto-il-coppetta",
+      "@type": "Person",
+      "nameRaw": "A. Beccuti, detto il Coppetta ?",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:anfang-von-ps-130-nachdichtung-von-clement-marot",
+      "@type": "Person",
+      "nameRaw": "Anfang von Ps 130, Nachdichtung von \nClement Marot",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:ant-cossuuino-antonius-gosswin",
+      "@type": "Person",
+      "nameRaw": "Ant. Cossuuino (= Antonius Gosswin)",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:ariost",
+      "@type": "Person",
+      "nameRaw": "Ariost",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 7
+    },
+    {
+      "@id": "person:ariosto",
+      "@type": "Person",
+      "nameRaw": "Ariosto",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 8
+    },
+    {
+      "@id": "person:asinari",
+      "@type": "Person",
+      "nameRaw": "Asinari",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:b-guarini",
+      "@type": "Person",
+      "nameRaw": "B. Guarini",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 2
+    },
+    {
+      "@id": "person:b-tasso",
+      "@type": "Person",
+      "nameRaw": "B. Tasso",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:belleau",
+      "@type": "Person",
+      "nameRaw": "Belleau",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:bembo",
+      "@type": "Person",
+      "nameRaw": "Bembo",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 2
+    },
+    {
+      "@id": "person:berno-von-cluny",
+      "@type": "Person",
+      "nameRaw": "Berno von Cluny",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 2
+    },
+    {
+      "@id": "person:besalio",
+      "@type": "Person",
+      "nameRaw": "Besalio",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:c-marot",
+      "@type": "Person",
+      "nameRaw": "C.Marot",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 3
+    },
+    {
+      "@id": "person:camilli",
+      "@type": "Person",
+      "nameRaw": "Camilli",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:cl-marot",
+      "@type": "Person",
+      "nameRaw": "Cl. Marot",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 7
+    },
+    {
+      "@id": "person:cl-ment-marot",
+      "@type": "Person",
+      "nameRaw": "Clément Marot",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 6
+    },
+    {
+      "@id": "person:de-baif",
+      "@type": "Person",
+      "nameRaw": "de Baif?",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:della-terza",
+      "@type": "Person",
+      "nameRaw": "della Terza",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:du-bellay",
+      "@type": "Person",
+      "nameRaw": "du Bellay",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 4
+    },
+    {
+      "@id": "person:f-spira",
+      "@type": "Person",
+      "nameRaw": "F. Spira",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:fiamma",
+      "@type": "Person",
+      "nameRaw": "Fiamma",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 9
+    },
+    {
+      "@id": "person:fiamme",
+      "@type": "Person",
+      "nameRaw": "Fiamme",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 17
+    },
+    {
+      "@id": "person:fileno-cornazzani",
+      "@type": "Person",
+      "nameRaw": "Fileno Cornazzani",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:francesco-da-lucca-francesco-guami",
+      "@type": "Person",
+      "nameRaw": "Francesco da Lucca (= Francesco Guami)",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:fran-ois-i-roi-de-france",
+      "@type": "Person",
+      "nameRaw": "François I roi de France",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:fulbert-v-chartres",
+      "@type": "Person",
+      "nameRaw": "Fulbert v. Chartres",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:g-gu-roult",
+      "@type": "Person",
+      "nameRaw": "G. Guéroult",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 3
+    },
+    {
+      "@id": "person:g-pontano",
+      "@type": "Person",
+      "nameRaw": "G. Pontano",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gabriel-fiamma",
+      "@type": "Person",
+      "nameRaw": "Gabriel Fiamma",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gebet",
+      "@type": "Person",
+      "nameRaw": "Gebet?",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gio-battista-da-cremona-giovanni-battista-morsselino",
+      "@type": "Person",
+      "nameRaw": "Gio. Battista da Cremona (= Giovanni Battista Morsselino)",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gio-battista-romano-giovanni-battista-tiburtino",
+      "@type": "Person",
+      "nameRaw": "Gio. Battista Romano (= Giovanni Battista Tiburtino)",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gioseppo-da-lucca-gioseffo-guami",
+      "@type": "Person",
+      "nameRaw": "Gioseppo da Lucca (= Gioseffo Guami)",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:greiter",
+      "@type": "Person",
+      "nameRaw": "Greiter",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gr-nwald",
+      "@type": "Person",
+      "nameRaw": "Grünwald",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:guidiccione",
+      "@type": "Person",
+      "nameRaw": "Guidiccione",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:hans-sachs",
+      "@type": "Person",
+      "nameRaw": "Hans Sachs",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:horaz",
+      "@type": "Person",
+      "nameRaw": "Horaz",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:hoste-da-reggio",
+      "@type": "Person",
+      "nameRaw": "Hoste da Reggio?",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:h-tzer",
+      "@type": "Person",
+      "nameRaw": "Hätzer",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:iuo-de-vento",
+      "@type": "Person",
+      "nameRaw": "Iuo de Vento",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:jean-bouchet",
+      "@type": "Person",
+      "nameRaw": "Jean Bouchet",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:johannes-agricola",
+      "@type": "Person",
+      "nameRaw": "Johannes Agricola",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:klieber",
+      "@type": "Person",
+      "nameRaw": "Klieber",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:kn-pken",
+      "@type": "Person",
+      "nameRaw": "Knöpken",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:leonardo-meldaert",
+      "@type": "Person",
+      "nameRaw": "Leonardo Meldaert",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:ludwig-helmbold",
+      "@type": "Person",
+      "nameRaw": "Ludwig Helmbold?",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 3
+    },
+    {
+      "@id": "person:luigi-cassola",
+      "@type": "Person",
+      "nameRaw": "Luigi Cassola",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:m-d-angoul-me",
+      "@type": "Person",
+      "nameRaw": "M. d'Angoulême",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:manrrique",
+      "@type": "Person",
+      "nameRaw": "Manrrique",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:marot",
+      "@type": "Person",
+      "nameRaw": "Marot",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 3
+    },
+    {
+      "@id": "person:marsi",
+      "@type": "Person",
+      "nameRaw": "Marsi",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:martin-luther",
+      "@type": "Person",
+      "nameRaw": "Martin Luther",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:massimo-troiano",
+      "@type": "Person",
+      "nameRaw": "Massimo Troiano",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:melin-de-saint-gelais",
+      "@type": "Person",
+      "nameRaw": "Melin de Saint Gelais",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 2
+    },
+    {
+      "@id": "person:minturno",
+      "@type": "Person",
+      "nameRaw": "Minturno",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 2
+    },
+    {
+      "@id": "person:n-stopio",
+      "@type": "Person",
+      "nameRaw": "N. Stopio",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:nach-villon",
+      "@type": "Person",
+      "nameRaw": "nach Villon",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:nicetas-von-remesiana",
+      "@type": "Person",
+      "nameRaw": "Nicetas von Remesiana?",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:notker-balbulus",
+      "@type": "Person",
+      "nameRaw": "Notker Balbulus",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 2
+    },
+    {
+      "@id": "person:octavien-de-saint-gelais",
+      "@type": "Person",
+      "nameRaw": "Octavien de Saint Gelais",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:olivier-de-magny",
+      "@type": "Person",
+      "nameRaw": "Olivier de Magny",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:orlando-di-lasso",
+      "@type": "Person",
+      "nameRaw": "Orlando di Lasso?",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:p-du-val",
+      "@type": "Person",
+      "nameRaw": "P. du Val",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 2
+    },
+    {
+      "@id": "person:petrarca",
+      "@type": "Person",
+      "nameRaw": "Petrarca",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 66
+    },
+    {
+      "@id": "person:pibrac",
+      "@type": "Person",
+      "nameRaw": "Pibrac",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 7
+    },
+    {
+      "@id": "person:pierre-de-ronsard",
+      "@type": "Person",
+      "nameRaw": "Pierre de Ronsard",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 2
+    },
+    {
+      "@id": "person:pierre-grognet",
+      "@type": "Person",
+      "nameRaw": "Pierre Grognet",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 2
+    },
+    {
+      "@id": "person:ps-6",
+      "@type": "Person",
+      "nameRaw": "Ps 6",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:reuchlin",
+      "@type": "Person",
+      "nameRaw": "Reuchlin",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:ronconi",
+      "@type": "Person",
+      "nameRaw": "Ronconi",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:ronsard",
+      "@type": "Person",
+      "nameRaw": "Ronsard",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 8
+    },
+    {
+      "@id": "person:s-brant",
+      "@type": "Person",
+      "nameRaw": "S. Brant",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:saint-gelais",
+      "@type": "Person",
+      "nameRaw": "Saint Gelais",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:sannazaro",
+      "@type": "Person",
+      "nameRaw": "Sannazaro",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:savonarola",
+      "@type": "Person",
+      "nameRaw": "Savonarola",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:sch-fergedicht",
+      "@type": "Person",
+      "nameRaw": "Schäfergedicht",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:seneca",
+      "@type": "Person",
+      "nameRaw": "Seneca",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:simon-gatto",
+      "@type": "Person",
+      "nameRaw": "Simon Gatto",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:stefano-tucci",
+      "@type": "Person",
+      "nameRaw": "Stefano Tucci",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 9
+    },
+    {
+      "@id": "person:tansillo",
+      "@type": "Person",
+      "nameRaw": "Tansillo",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:thomas-von-aquin",
+      "@type": "Person",
+      "nameRaw": "Thomas von Aquin",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 4
+    },
+    {
+      "@id": "person:tischgebet",
+      "@type": "Person",
+      "nameRaw": "Tischgebet",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 3
+    },
+    {
+      "@id": "person:vergil",
+      "@type": "Person",
+      "nameRaw": "Vergil",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 3
+    },
+    {
+      "@id": "person:wipo-von-burgund",
+      "@type": "Person",
+      "nameRaw": "Wipo von Burgund",
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    }
+  ]
+}
