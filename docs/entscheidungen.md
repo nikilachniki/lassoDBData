@@ -229,6 +229,60 @@ Bearbeitung über die Oberfläche. Redaktionelle Arbeit läuft über Git.
 
 ---
 
+## 11. Datenanbindung zur Bauzeit statt zur Laufzeit
+
+**Entscheidung.** Die Anwendung lädt die Daten nicht zur Laufzeit von einem
+fremden Dienst, sondern bindet sie zur Bauzeit ein. Ein Skript,
+`scripts/sync-data.mjs` in lassoDB, kopiert die JSON-LD-Dateien aus
+lassoDBData vor jedem Entwicklungs- und Build-Lauf nach `src/data/`, von wo
+Vite sie ins Bundle übernimmt. Der GitHub-Actions-Workflow in lassoDB checkt
+dafür lassoDBData zusätzlich aus und übergibt den Pfad als Umgebungsvariable.
+
+**Alternative.** Laufzeitabruf über einen Auslieferungsdienst für
+GitHub-Inhalte wie jsDelivr, damit Datenänderungen ohne Neubau der Anwendung
+sichtbar werden.
+
+**Begründung.** Der Bauzeitweg ist reproduzierbar, jeder veröffentlichte
+Stand der Anwendung ist einem genau bestimmbaren Datenstand zugeordnet und
+unabhängig von der Verfügbarkeit eines dritten Dienstes. Das war in
+Abschnitt 1 als offener Punkt benannt und ist damit entschieden. Diese damit
+verbundene Entscheidung war zugleich, keine eigene Kopie der Daten im
+Anwendungsrepository zu versionieren, `src/data/` ist entsprechend von der
+Versionsverwaltung ausgeschlossen. Eine zweite Kopie neben der eigentlichen
+Quelle hätte sonst auseinanderlaufen können.
+
+**Preis.** Eine Datenänderung wird erst nach einem Neubau der Anwendung
+sichtbar, nicht sofort. Ein lokaler Checkout ohne das Geschwisterrepository
+lassoDBData kann die Anwendung nicht bauen, das Sync-Skript bricht dann mit
+einer Fehlermeldung ab, statt still mit veralteten oder leeren Daten
+fortzufahren.
+
+---
+
+## 12. Suche über die native Filterfunktion der Datengrid-Komponente
+
+**Entscheidung.** Die Volltextsuche läuft über die in MUI X DataGrid
+eingebaute Schnellfilterfunktion, keine zusätzliche Suchbibliothek.
+
+**Alternative.** Fuse.js für eine unscharfe, tippfehlertolerante Suche, wie
+zuvor besprochen.
+
+**Begründung.** Die DataGrid-Komponente war ohnehin gesetzt, ihre eingebaute
+Filterung deckt eine einfache Stichwortsuche über alle sichtbaren Spalten ab,
+ohne eine weitere Abhängigkeit einzuführen. Fuse.js bleibt eine Option, sobald
+tatsächlich unscharfe Suche gebraucht wird, etwa über abweichende
+Schreibweisen von Textdichternamen, siehe Abschnitt 8.
+
+**Ehrlicher Nebenpunkt.** Das ausgelieferte JavaScript-Bündel ist nach
+Kompression rund 360 Kilobyte groß, spürbar mehr als die 94 Kilobyte des
+Datenbestands allein. Der überwiegende Teil davon ist MUI und die
+DataGrid-Komponente selbst, nicht die Daten. Für die angestrebte
+Projektgröße ist das weiterhin vertretbar, wird aber nicht kleiner, wenn der
+Bestand wächst, sondern bleibt konstant, weil er von der Bibliothek und nicht
+von den Daten dominiert wird.
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
@@ -249,9 +303,9 @@ Bearbeitung über die Oberfläche. Redaktionelle Arbeit läuft über Git.
 ## Offene Punkte
 
 - Die zweite Tabelle liegt noch nicht vor. Ihr Spaltenmapping steht aus.
-- Ob die Anwendung die Daten zur Bauzeit einbindet oder zur Laufzeit lädt, ist
-  noch nicht endgültig entschieden. Der Bauzeitweg ist vorgesehen, weil er
-  reproduzierbar ist und keine Abhängigkeit von einem fremden Dienst erzeugt.
+- In den Repository-Einstellungen von lassoDB muss einmalig manuell GitHub
+  Actions als Quelle für GitHub Pages eingestellt werden, das lässt sich nicht
+  aus der Anwendung heraus auslösen.
 - Die Versionspinnung zwischen Anwendung und Daten soll erst nach Stabilisierung
   des Schemas eingeführt werden.
 - Eine Veröffentlichung des Datensatzes über Zenodo mit DOI ist vorgesehen, aber
