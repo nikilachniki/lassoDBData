@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema/entries-file.schema.json",
   "@context": "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/schema/context.jsonld",
   "items": [
     {

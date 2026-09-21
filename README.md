@@ -46,12 +46,27 @@ Alle Dateien tragen einen Verweis auf `schema/context.jsonld` und sind damit als
 JSON-LD lesbar. Sie lassen sich mit Standardwerkzeugen nach RDF überführen, ohne
 dass im Alltag ein Triple Store betrieben werden muss.
 
+## Validierung
+
+`entries.json` trägt zusätzlich `$schema`, einen Verweis auf
+`schema/entries-file.schema.json`. Das ist die Hülle um die Datei, mit
+`@context` und `items`; die einzelnen Einträge darin sind über `$ref` an
+`schema/entry.schema.json` gebunden, das eigentliche Modell eines
+Katalogeintrags. Ein Editor mit JSON-Schema-Unterstützung, etwa VS Code,
+prüft `entries.json` damit beim Öffnen automatisch und live, ganz ohne
+Skriptaufruf.
+
+Das Importskript prüft zusätzlich jeden erzeugten Eintrag selbst gegen
+`entry.schema.json`, bevor es irgendetwas schreibt. Ein Mapping-Fehler bei
+einer künftigen zweiten Quelle bricht den Import damit sofort mit einer
+Fehlermeldung ab, statt still eine ungültige Datei zu erzeugen.
+
 ## Import ausführen
 
-Voraussetzung ist Python mit openpyxl.
+Voraussetzung ist Python mit openpyxl und jsonschema.
 
 ```bash
-pip install openpyxl
+pip install -r scripts/requirements.txt
 python scripts/import_excel.py
 ```
 
@@ -84,6 +99,21 @@ werden. Ein Schemawechsel oder eine Migration ist dafür nicht nötig.
   Vermutlich ein Artefakt der Vorlage.
 - Das Feld `rism` in `prints.json` ist für die Verknüpfung mit dem
   Répertoire International des Sources Musicales vorgesehen und noch leer.
+- LV 74 legt eine Lücke im automatischen Gruppieren offen: die Einträge
+  `74-4` und `74-5` tragen als einzige der ganzen Tabelle eine Bemerkung, die
+  auf einen früheren Erstdruck verweist als den der Zeile selbst. Die Titel
+  von `74 (III)` und `74 (IV)`, jeweils unter ihrem eigenen, früheren
+  Erstdruck katalogisiert, stimmen fast wörtlich mit denen von `74-4` und
+  `74-5` überein. Vermutlich sind es dieselben Stücke, einmal unter der
+  späteren Sammeldrucknummer, einmal unter der früheren Einzeldrucknummer.
+  `works.json` gruppiert aber strikt nach der wörtlichen LV-Zeichenkette und
+  hält sie deshalb für vier getrennte Werke statt für zwei. Eine inhaltliche
+  Prüfung und gegebenenfalls eine explizite Verknüpfung stehen aus.
+- Das Blatt `Hinweise` in `raw/Werke.xlsx` behauptet `Datensätze: 309`. Das
+  deckt sich mit keiner in den Daten nachvollziehbaren Zählung, weder mit den
+  1979 Zeilen insgesamt, noch mit den 1209 Hauptzeilen ohne Bindestrich, noch
+  mit den 137 Drucken oder den 1945 Werken. Vermutlich ein Überbleibsel aus
+  einem früheren Stand der Quelldatei, nicht durch den Import verursacht.
 
 ## Lizenz
 

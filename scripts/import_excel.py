@@ -18,12 +18,22 @@ import re
 from datetime import date
 from pathlib import Path
 
+import jsonschema
 import openpyxl
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = ROOT / "raw"
 OUT_DIR = ROOT / "data"
+SCHEMA_DIR = ROOT / "schema"
 REGISTRY_PATH = OUT_DIR / "id-registry.json"
+ENTRY_SCHEMA_PATH = SCHEMA_DIR / "entry.schema.json"
+
+# Pfad, unter dem entries.json ihr Schema findet. Relativ statt als GitHub-URL,
+# damit die Pruefung im Editor auch offline funktioniert und nicht von der
+# Erreichbarkeit von GitHub abhaengt. Zeigt auf das Huellenschema, nicht direkt
+# auf entry.schema.json: dieses beschreibt einen einzelnen Eintrag, nicht die
+# Datei mit @context und items drumherum.
+ENTRIES_FILE_SCHEMA_RELATIVE = "../schema/entries-file.schema.json"
 
 CONTEXT_URL = (
     "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/"
@@ -371,6 +381,38 @@ def derive_persons(entries):
     return sorted(persons.values(), key=lambda p: p["nameRaw"].lower())
 
 
+def validate_entries(entries):
+    """Prueft jeden erzeugten Eintrag gegen schema/entry.schema.json.
+
+    Bricht den Import ab, statt eine Datei zu schreiben, die dem eigenen
+    Schema widerspricht. Ohne diese Pruefung waere das Schema nur
+    Dokumentation, siehe die Diskussion dazu: ein Fehler im Mapping einer
+    kuenftigen zweiten Quelle wuerde sonst still ein ungueltiges entries.json
+    erzeugen, statt sofort aufzufallen.
+    """
+    with ENTRY_SCHEMA_PATH.open(encoding="utf-8") as handle:
+        schema = json.load(handle)
+    validator = jsonschema.Draft202012Validator(schema)
+
+    errors = []
+    for entry in entries:
+        for error in validator.iter_errors(entry):
+            errors.append((entry.get("id"), entry.get("@id"), error.message))
+
+    if errors:
+        print()
+        print("Schema-Pruefung fehlgeschlagen, {0} Fehler:".format(len(errors)))
+        for internal_id, entry_id, message in errors[:20]:
+            print("  id {0} ({1}): {2}".format(internal_id, entry_id, message))
+        if len(errors) > 20:
+            print("  ... und {0} weitere".format(len(errors) - 20))
+        raise SystemExit(1)
+
+    print("Schema-Pruefung bestanden, {0} Eintraege gegen {1}.".format(
+        len(entries), ENTRY_SCHEMA_PATH.relative_to(ROOT)
+    ))
+
+
 def write_json(filename, payload):
     """Schreibt stabil sortiertes, lesbares JSON fuer saubere Git-Diffs."""
     path = OUT_DIR / filename
@@ -413,13 +455,21 @@ def main():
         )
 
     entries.sort(key=lambda e: e["id"])
+    validate_entries(entries)
     save_registry(registry)
 
     works = derive_works(entries)
     prints = derive_prints(entries)
     persons = derive_persons(entries)
 
-    write_json("entries.json", {"@context": CONTEXT_URL, "items": entries})
+    write_json(
+        "entries.json",
+        {
+            "$schema": ENTRIES_FILE_SCHEMA_RELATIVE,
+            "@context": CONTEXT_URL,
+            "items": entries,
+        },
+    )
     write_json("works.json", {"@context": CONTEXT_URL, "items": works})
     write_json("prints.json", {"@context": CONTEXT_URL, "items": prints})
     write_json("persons.json", {"@context": CONTEXT_URL, "items": persons})

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nikilachniki.github.io/lassoDBData/schema/entries-file.schema.json",
+  "title": "Lasso-Werkverzeichnis, Datei entries.json",
+  "description": "Die Huelle um die Katalogeintraege. entry.schema.json beschreibt einen einzelnen Eintrag in items, nicht diese Datei als Ganzes, deshalb ein eigenes Schema dafuer.",
+  "type": "object",
+  "required": ["@context", "items"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "@context": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "entry.schema.json" }
+    }
+  }
+}
