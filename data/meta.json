@@ -6,7 +6,7 @@
     "entries": 1979,
     "works": 1945,
     "prints": 137,
-    "persons": 85,
+    "persons": 84,
     "idsAssigned": 1979,
     "nextId": 1980
   },
@@ -15,7 +15,7 @@
       "dataset": "lv-katalog",
       "file": "Werke.xlsx",
       "sheet": "LV-Katalog",
-      "sha256": "46d7c0e455c33e5d195f1893c0e1cf622a6e71255741a13c39f1bdae073203f5",
+      "sha256": "5b489e76b5a685d57941e8f79930475cab0034dfb842242c9c7918a2e7db162d",
       "entries": 1979
     }
   ]

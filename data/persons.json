@@ -614,15 +614,6 @@
       "entryCount": 2
     },
     {
-      "@id": "person:ps-6",
-      "@type": "Person",
-      "nameRaw": "Ps 6",
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
       "@id": "person:reuchlin",
       "@type": "Person",
       "nameRaw": "Reuchlin",

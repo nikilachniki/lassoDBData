@@ -283,6 +283,58 @@ von den Daten dominiert wird.
 
 ---
 
+## 13. Info-Dialog statt Popover für den Projekttext
+
+**Entscheidung.** Der Info-Button in der Kopfzeile öffnet einen modalen Dialog
+(MUI `Dialog`) mit drei Abschnitten statt eines kleinen, an den Button
+verankerten Popovers: eine Einordnung der Datenbank samt Quellenangabe zum
+LV-Katalog, eine Beschreibung des Digital Lab der Gesellschaft für Bayerische
+Musikgeschichte e. V. mit Verweis auf dessen Projektseite, sowie Angaben zu
+Lizenz und Repositories. Der Dialog liegt als eigene Komponente
+`src/InfoDialog.tsx` vor, nicht inline in `App.tsx`, um die ohnehin schon
+umfangreiche Wurzelkomponente nicht weiter wachsen zu lassen. Der Abschnitt
+zum Digital Lab nennt zusätzlich dessen Leitung (Dr. Moritz Kelber), dass es
+allen Interessierten zur Mitarbeit offensteht, sowie die Teamgröße seit
+Anfang 2026 (vier Wissenschaftler*innen); Personenbezeichnungen sind
+durchgängig mit Sternchen gegendert. Der erste Abschnitt beschreibt die
+gedruckte Überlieferung des LV-Katalogs und die handschriftliche
+Überlieferung der Lasso-Handschriften-Datenbank
+([lasso-handschriften.badw.de](https://lasso-handschriften.badw.de/)) als
+bereits zusammengeführt, ohne genaue Zähldaten zu nennen. Die beiden
+Quellenangaben stehen dafür nicht mehr im Fließtext, sondern als
+nummerierte Fußnoten, auf die hochgestellte Ziffern im Text verweisen.
+
+**Alternative.** Das bisherige kleine Popover mit einem einzelnen Absatz. Bei
+den Quellenangaben: ein unmarkierter Zitationsblock ohne Fußnotenziffern im
+Fließtext, verworfen, weil bei zwei Quellen zu unterschiedlichen
+Teilaussagen (Drucke, Handschriften) sonst unklar bliebe, welche Aussage
+sich auf welche Quelle stützt.
+
+**Begründung.** Der ursprüngliche Text nannte nur den Trägerverein und einen
+Link auf lassoDBData, ohne Einordnung von Lasso, Quelle der LV-Zählung oder
+Bezug zum Digital Lab. Ein einzeiliges Popover bietet dafür zu wenig Platz und
+wirkt bei mehreren Absätzen beengt. Inhaltlich orientiert sich der erste
+Abschnitt am Beschreibungstext der Lasso-Handschriften-Datenbank der
+Bayerischen Akademie der Wissenschaften, angepasst auf die gedruckte
+Überlieferung und den LV-Katalog von Leuchtmann/Schmid, die dieser
+Werkdatenbank tatsächlich zugrunde liegt. Der zweite Abschnitt paraphrasiert
+die Projektbeschreibung des Digital Lab unter
+[gfbm-online.de/laufende-editionsprojekte/digitallab](https://gfbm-online.de/laufende-editionsprojekte/digitallab/),
+das Lasso und Hassler explizit als eines seiner Einzelprojekte nennt.
+
+**Preis.** Der Dialog verdeckt beim Öffnen die gesamte Ansicht statt nur einen
+kleinen Bereich daneben, und ein Abschnitt hängt inhaltlich von einer
+externen, nicht versionierten Webseite ab und kann bei deren Überarbeitung
+veralten. Der Text zur Datenbank beschreibt die Zusammenführung von Drucken
+und Handschriften bewusst als Zielzustand des Projekts, obwohl `entries.json`
+laut Abschnitt „Datenmodell“ im README bislang ausschließlich Einträge aus
+der gedruckten Überlieferung enthält (Quelle `Werke.xlsx`, siehe `meta.json`);
+die zweite Tabelle mit den Handschriften ist als offener Punkt dort weiterhin
+vermerkt. Diese Vereinfachung ist eine bewusste redaktionelle Entscheidung
+des Projektinhabers, keine Aussage über den tatsächlichen Datenbestand.
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
