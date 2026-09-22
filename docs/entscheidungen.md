@@ -340,7 +340,8 @@ des Projektinhabers, keine Aussage über den tatsächlichen Datenbestand.
 ## 14. Handschriften als eigene Entität statt erweiterter Katalogeintrag
 
 **Entscheidung.** Die neu hinzugekommene Tabelle der Lasso-Handschriften
-(`raw/werke_aus_handschriften.xlsx`, 8961 Zeilen, 1417 Quellen aus 131
+(ursprünglich `raw/werke_aus_handschriften.xlsx`, seit Abschnitt 16 durch
+`raw/lasso_handschriften.xlsx` ersetzt, 8961 Zeilen, 1417 Quellen aus 131
 Bibliotheken) wird nicht in `entry.schema.json` eingepasst, sondern als
 eigenständige Entität `ManuscriptWitness` mit eigenem Schema
 (`schema/manuscript.schema.json`) und eigener Ausgabedatei
@@ -403,6 +404,16 @@ Schlüssel aus Werk (LV oder LVanh, ggf. mit Teilsatz) und Quelle
 (RISM-Sigel plus Signatur), damit eine Quelle mit mehreren Lasso-Stücken pro
 Zeile eine eigene, stabile ID bekommt.
 
+**Darstellung im Frontend.** Auf der Werk-Detailseite erscheinen die
+Handschriften-Zeugnisse nicht als dichte Tabelle wie die Druckfassungen,
+sondern als je ein ausklappbares Panel (Accordion) im gleichen Fact-Stil wie
+der Werkeintrag selbst, geschlossen mit Ort, Bibliothek und Signatur als
+Kurzbeschreibung. Handschriften tragen mehr uneinheitliche und teils lange
+Freitextfelder (Quellenart, Bemerkung) als Druckeinträge, bei zugleich
+typischerweise wenigen Zeugnissen pro Werk; eine Tabelle mit entsprechend
+vielen oder breiten Spalten wäre entweder abgeschnitten oder unübersichtlich
+breit.
+
 **Preis.** Zwei weitere Ebenen im Datenmodell, die erklärt werden müssen: die
 Unterscheidung Druck- und Handschriftenbezeugung, und innerhalb der
 Handschriften die Unterscheidung Haupt-LV-Katalog und LV-Anhang. Die
@@ -439,6 +450,16 @@ Vater (Rhetor) und Sohn (Philosoph und Dramatiker); ohne weitere Angabe
 wurde der Sohn gewählt, da „Seneca" ohne Zusatz in der Rezeption fast immer
 ihn meint.
 
+**Darstellung im Frontend.** Der Textdichter-Name bleibt schlichter Text; GND
+und VIAF erscheinen, wenn vorhanden, als je ein kleines Badge-Icon direkt
+daneben (`GND`/`VIAF`, verlinkt auf `d-nb.info` bzw. `viaf.org`). Nicht der
+Name selbst wird verlinkt, damit beide Verknüpfungen unabhängig voneinander
+sichtbar sind, statt sich einen von zwei möglichen Zielen zu teilen. Die
+Komponente dafür (`AuthorOrSourceText`) ist zwischen Werk-Detailseite und
+Katalog-Übersichtstabelle geteilt, sodass die Badges an beiden Stellen
+gleich aussehen und ein neu verknüpfter Textdichter nicht nur an einer davon
+sichtbar wird.
+
 **Deckungsgrad.** 36 von 84 Rohwerten sind verknüpft (mehrere Rohwerte pro
 Person bei Schreibvarianten, etwa `Marot`, `Cl. Marot`, `C.Marot` und
 `Clément Marot`), das deckt aber die meisten Nennungen ab: Petrarca allein
@@ -462,6 +483,66 @@ nicht.
 Pflege der Datei. Ein neuer, bislang unverknüpfter Textdichter-Rohwert bleibt
 ohne GND/VIAF, bis jemand ihn von Hand recherchiert und ergänzt; das
 Importskript weist nicht darauf hin, welche Rohwerte noch fehlen.
+
+---
+
+## 16. Handschriften-Quelle um sechs Spalten erweitert
+
+**Entscheidung.** Die Handschriften-Tabelle wurde durch eine umfangreichere
+Exportdatei ersetzt, `raw/lasso_handschriften.xlsx` statt
+`raw/werke_aus_handschriften.xlsx`, bei unveränderter Zeilenzahl (8961) und
+unveränderten Werten in allen bereits gemappten Spalten. Neu hinzugekommen
+sind sechs Spalten, alle in `MANUSCRIPT_SOURCES` auf neue Felder in
+`ManuscriptWitness` gemappt statt nach `extra` durchgereicht: `Datierung` auf
+`dating` (8926 von 8961 Zeilen befüllt), `Link` auf `link` (3663, überwiegend
+Verweise auf den RISM-Onlinekatalog, vereinzelt auf andere
+Bibliothekskataloge wie den der Bayerischen Staatsbibliothek), `Weitere
+Signatur` auf `shelfmarkAlt` (582), `Provenienz` auf `provenance` (3400),
+`Bemerkung (Quelle)` auf `sourceNote` (1625) und `Literatur` auf `literature`
+(5667).
+
+**Alternative.** Die neuen Spalten unklassifiziert im Feld `extra` belassen,
+wie es das Importskript für jede nicht gemappte Spalte ohnehin automatisch
+tut, siehe Abschnitt 5.
+
+**Begründung.** Alle sechs Spalten sind fachlich derselben Art wie die
+bereits gemappten Handschriften-Felder, nämlich Angaben zur Quelle selbst,
+und in mehr als der Hälfte der Fälle befüllt (bei `Datierung` in fast allen
+Zeilen). Sie im Feld `extra` zu belassen hätte sie für die Oberfläche
+faktisch unsichtbar gemacht, obwohl sie genau dort hingehören, wo bereits
+`rismSiglum`, `place`, `library` und `shelfmark` stehen. Ein eigenes Feld je
+Spalte macht sie stattdessen sortier- und darstellbar wie die übrigen
+Handschriften-Angaben.
+
+**Warum `sourceNote` und nicht `note`.** Die Spalte „Bemerkung (Quelle)“
+ist inhaltlich von der bereits vorhandenen Spalte „Weitere Teile“ (Feld
+`note`) zu unterscheiden, obwohl beide Freitext sind: `note` bezieht sich auf
+das einzelne Lasso-Stück in dieser Quelle, etwa fehlende Stimmen oder einen
+Verweis auf eine LVanh-Nummer, den `read_manuscripts` per Regex ausliest.
+„Bemerkung (Quelle)“ bezieht sich dagegen auf die Handschrift als
+physisches Objekt, etwa Schreibervermerke oder Datierungsnotizen im
+Manuskript selbst, siehe das Beispiel zu CH-Bu F. IX. 49. Ein gemeinsames
+Feld hätte diese beiden Ebenen vermischt und zugleich riskiert, den
+LVanh-Verweis-Mechanismus durch einen zweiten, unerwarteten Freitext in
+derselben Spalte zu stören.
+
+**Warum `shelfmarkAlt` und nicht ein weiteres Element in `shelfmark`.**
+„Weitere Signatur“ bezeichnet laut Quelle eine zusätzliche oder frühere
+Signatur derselben Bibliothek, keine zweite unabhängige Fundstelle. Ein
+eigenes Feld hält diese Unterscheidung sichtbar, statt sie in einer Liste zu
+verstecken, die suggerieren würde, beide Signaturen seien gleichrangig.
+
+**Preis.** `ManuscriptWitness` wächst von zwölf auf achtzehn fachliche Felder
+(ohne `@id`, `@type`, `id`, `source` und `extra` mitgezählt), was Abschnitt
+14s Argument, eine Handschrift habe „andere Felder“ als ein
+Druck, weiter verstärkt. Wie bei `sourceDescription` und `rismSiglum` werden
+auch die neuen Felder unverändert als Rohtext übernommen, ohne Zerlegung
+(`Datierung` etwa bleibt Freitext wie „um 1590 - 1605“ oder „17. Jh.“, nicht
+in Jahr oder Zeitraum geparst) und ohne Prüfung gegen eine Normdatei (`Link`
+wird nicht auf Erreichbarkeit getestet). Die ID-Registry blieb von diesem
+Import unberührt, da sich an den für den Wiedererkennungsschlüssel
+verwendeten Feldern (LV, LVanh, Unternummer, RISM-Sigel, Signatur) nichts
+geändert hat, 0 neue IDs bei 8939 unveränderten Zeugnissen.
 
 ---
 

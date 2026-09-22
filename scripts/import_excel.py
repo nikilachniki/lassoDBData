@@ -77,10 +77,16 @@ RE_LVANH = re.compile(r"LVanh\.?\s*(\d+)", re.IGNORECASE)
 # Handschriften-Quelle: andere Spalten und ein anderes Feldmodell als die
 # Drucke (RISM-Sigel/Bibliothek/Signatur statt Drucksigle), deshalb ein
 # eigenes Mapping statt eines weiteren Eintrags in SOURCES.
+#
+# "Bemerkung (Quelle)" wird bewusst nicht auf "note" gemappt, obwohl beides
+# Freitext ist: "note" (Spalte "Weitere Teile") traegt die LVanh-Verweise, auf
+# die parse_lvanh in read_manuscripts angewiesen ist, und darf durch eine
+# zweite Quelle nicht ueberschrieben oder vermischt werden, siehe Abschnitt 16
+# in docs/entscheidungen.md.
 MANUSCRIPT_SOURCES = [
     {
         "id": "handschriften",
-        "file": "werke_aus_handschriften.xlsx",
+        "file": "lasso_handschriften.xlsx",
         "sheet": "Werke",
         "columns": {
             "LV": "lv",
@@ -88,11 +94,17 @@ MANUSCRIPT_SOURCES = [
             "Titel": "title",
             "Weitere Teile": "note",
             "Stimmen": "voices",
+            "Datierung": "dating",
             "RISM-Sigel": "rismSiglum",
+            "Link": "link",
             "Ort": "place",
             "Bibliothek": "library",
             "Signatur": "shelfmark",
+            "Weitere Signatur": "shelfmarkAlt",
             "Quellenart": "sourceDescription",
+            "Provenienz": "provenance",
+            "Bemerkung (Quelle)": "sourceNote",
+            "Literatur": "literature",
         },
     },
 ]
@@ -405,11 +417,17 @@ def read_manuscripts(spec, registry):
             "lvAnh": lv_anh,
             "title": record.get("title"),
             "voices": voices,
+            "dating": record.get("dating"),
             "rismSiglum": record.get("rismSiglum"),
+            "link": record.get("link"),
             "place": record.get("place"),
             "library": record.get("library"),
             "shelfmark": record.get("shelfmark"),
+            "shelfmarkAlt": record.get("shelfmarkAlt"),
             "sourceDescription": record.get("sourceDescription"),
+            "provenance": record.get("provenance"),
+            "sourceNote": record.get("sourceNote"),
+            "literature": record.get("literature"),
             "note": note,
             "source": {
                 "dataset": spec["id"],
@@ -673,7 +691,7 @@ def write_unclassified_report(manuscripts):
     koennen, statt beim Import stillschweigend zu verschwinden.
 
     Wird bei jedem Lauf ueberschrieben. Kein Ort fuer manuelle Ergaenzungen:
-    eine Zuordnung gehoert in raw/werke_aus_handschriften.xlsx selbst, als
+    eine Zuordnung gehoert in raw/lasso_handschriften.xlsx selbst, als
     LV-Nummer oder als Verweis auf eine LVanh-Nummer in "Weitere Teile".
     """
     unclassified = [m for m in manuscripts if m["lv"] is None and m["lvAnh"] is None]
@@ -682,7 +700,7 @@ def write_unclassified_report(manuscripts):
         "",
         "Automatisch erzeugt von `scripts/import_excel.py`, bei jedem Import",
         "ueberschrieben. Nicht von Hand bearbeiten. Eine Zuordnung gehoert in",
-        "`raw/werke_aus_handschriften.xlsx`, entweder als Eintrag in der Spalte",
+        "`raw/lasso_handschriften.xlsx`, entweder als Eintrag in der Spalte",
         "LV oder als Verweis auf eine LVanh-Nummer in der Spalte 'Weitere Teile'.",
         "",
         "{0} von {1} Handschriften-Zeugnissen sind (noch) keinem Werk zugeordnet.".format(

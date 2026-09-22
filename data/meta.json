@@ -24,9 +24,9 @@
     },
     {
       "dataset": "handschriften",
-      "file": "werke_aus_handschriften.xlsx",
+      "file": "lasso_handschriften.xlsx",
       "sheet": "Werke",
-      "sha256": "dbf6bdb1db9118e411c9648bdad83aae6c97159ebf87af1b5f6fc2d4b19d2d32",
+      "sha256": "143fd5046561a004108c8cf0daa61cd836c519cb8b3eb3f535611ca4256c7e61",
       "entries": 8939
     }
   ]

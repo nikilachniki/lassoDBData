@@ -2,7 +2,7 @@
 
 Automatisch erzeugt von `scripts/import_excel.py`, bei jedem Import
 ueberschrieben. Nicht von Hand bearbeiten. Eine Zuordnung gehoert in
-`raw/werke_aus_handschriften.xlsx`, entweder als Eintrag in der Spalte
+`raw/lasso_handschriften.xlsx`, entweder als Eintrag in der Spalte
 LV oder als Verweis auf eine LVanh-Nummer in der Spalte 'Weitere Teile'.
 
 311 von 8939 Handschriften-Zeugnissen sind (noch) keinem Werk zugeordnet.

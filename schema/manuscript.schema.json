@@ -37,9 +37,17 @@
       "type": "string",
       "description": "Nur gesetzt, wenn die Stimmenangabe keine reine Zahl war."
     },
+    "dating": {
+      "type": ["string", "null"],
+      "description": "Datierung der Handschrift als Freitext (Spalte 'Datierung'), etwa '1574 - 1579' oder 'um 1598'. Nicht in Jahr/Zeitraum zerlegt, da die Angaben uneinheitlich sind (Jahrzehnte, Jahrhundertangaben, Unschaerfen wie 'um' oder '?')."
+    },
     "rismSiglum": {
       "type": ["string", "null"],
       "description": "RISM-Bibliothekssigel, unveraendert aus der Quelle. Keine Pruefung gegen eine Normdatei."
+    },
+    "link": {
+      "type": ["string", "null"],
+      "description": "Verweis auf einen externen Bibliothks- oder Quellenkatalog (Spalte 'Link'), meist der RISM-Onlinekatalog, teils auch andere Bibliothekskataloge. Unveraendert uebernommen, keine Pruefung der Erreichbarkeit."
     },
     "place": { "type": ["string", "null"] },
     "library": { "type": ["string", "null"] },
@@ -47,13 +55,29 @@
       "type": ["string", "null"],
       "description": "Signatur der Handschrift innerhalb der Bibliothek."
     },
+    "shelfmarkAlt": {
+      "type": ["string", "null"],
+      "description": "Weitere oder fruehere Signatur derselben Quelle (Spalte 'Weitere Signatur'), etwa nach einer Neusignierung durch die Bibliothek."
+    },
     "sourceDescription": {
       "type": ["string", "null"],
       "description": "Physische Beschreibung der Quelle (Spalte 'Quellenart'), unveraendert als Zeichenkette. Enthaelt teils MARC-artige Teilfelder wie $a/$b/$c, die hier nicht weiter zerlegt werden."
     },
+    "provenance": {
+      "type": ["string", "null"],
+      "description": "Herkunft der Quelle vor ihrer heutigen Aufbewahrung (Spalte 'Provenienz'), etwa eine Hofkapelle oder ein Kloster."
+    },
+    "sourceNote": {
+      "type": ["string", "null"],
+      "description": "Freitext-Anmerkung zur Quelle selbst (Spalte 'Bemerkung (Quelle)'), etwa zu Marginalien oder Datierungsvermerken im Manuskript. Getrennt von 'note', das sich auf das einzelne Lasso-Stueck bezieht, nicht auf die Quelle als Ganzes."
+    },
+    "literature": {
+      "type": ["string", "null"],
+      "description": "Literaturverweis zur Quelle (Spalte 'Literatur'), unveraendert als Zeichenkette. Nicht in einzelne Titel zerlegt, auch wenn mehrere Werke genannt sind."
+    },
     "note": {
       "type": ["string", "null"],
-      "description": "Freitext-Anmerkung zur Ueberlieferung in dieser Quelle (Spalte 'Weitere Teile'), etwa zu fehlenden Stimmen, Textabweichungen oder einem Verweis auf eine LVanh-Nummer."
+      "description": "Freitext-Anmerkung zur Ueberlieferung dieses Stuecks in dieser Quelle (Spalte 'Weitere Teile'), etwa zu fehlenden Stimmen, Textabweichungen oder einem Verweis auf eine LVanh-Nummer."
     },
     "source": {
       "type": "object",

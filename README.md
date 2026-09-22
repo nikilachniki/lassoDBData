@@ -55,7 +55,10 @@ Erzeugte Dateien:
 - `entries.json` ist der verlustfreie Kern der Drucküberlieferung, eine Zeile
   der Quelle je Datensatz.
 - `manuscripts.json` ist das Gegenstück für die handschriftliche
-  Überlieferung, ebenfalls eine Zeile der Quelle je Datensatz. Felder wie
+  Überlieferung, ebenfalls eine Zeile der Quelle je Datensatz. Neben den
+  RISM-Angaben trägt jedes Zeugnis, sofern in der Quelle vorhanden,
+  `dating`, `link`, `shelfmarkAlt`, `provenance`, `sourceNote` und
+  `literature`, siehe Abschnitt 16 in `docs/entscheidungen.md`. Felder wie
   `sourceDescription` (Spalte „Quellenart“) enthalten teils MARC-artige
   Teilfelder und werden bislang unverändert als Zeichenkette übernommen, ohne
   weitere Zerlegung.
