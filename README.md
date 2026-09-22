@@ -28,16 +28,40 @@ Das ist der wichtigste Punkt am Modell: Die LV-Nummer ist nicht eindeutig. 32
 LV-Nummern kommen mehrfach vor, weil dieselbe Komposition in mehreren Drucken
 erscheint, teils mit abweichender Stimmenzahl und abweichender Titelschreibung.
 
-Eindeutig ist allein die **interne ID**, eine fortlaufende Nummer. Sie wird in
-`data/id-registry.json` festgehalten und bleibt über alle späteren Importe
-hinweg stabil. Einmal vergebene IDs werden nie neu vergeben, auch dann nicht,
-wenn ein Datensatz später entfällt. Nur so bleiben veröffentlichte Verweise
-gültig, wenn neue Daten dazukommen.
+Analog dazu ist ein Datensatz in `manuscripts.json` **ein Werk in einer
+Handschrift**, ebenfalls nicht das Werk selbst. Eine Handschriften-Quelle
+(RISM-Sigel plus Signatur) kann mehrere Lasso-Stücke enthalten, und dasselbe
+Stück kann in mehreren Handschriften überliefert sein.
+
+Eindeutig ist allein die **interne ID**, eine fortlaufende Nummer, für Drucke
+und Handschriften gemeinsam vergeben. Sie wird in `data/id-registry.json`
+festgehalten und bleibt über alle späteren Importe hinweg stabil. Einmal
+vergebene IDs werden nie neu vergeben, auch dann nicht, wenn ein Datensatz
+später entfällt. Nur so bleiben veröffentlichte Verweise gültig, wenn neue
+Daten dazukommen.
+
+**LV-Anhang.** Nicht jedes handschriftlich überlieferte Stück steht im
+Haupt-LV-Katalog. Für diese Fälle verweist die Quelltabelle im Freitext auf
+eine Nummer aus dem LV-Anhang (Boetticher), etwa „vgl. LVanh 98“. Solche Werke
+tragen `lv: null` und stattdessen `lvAnh`, ihre `@id` beginnt mit `work:anh-`
+statt mit der LV-Nummer. Bleibt auch das aus, ist die Handschriften-Zeile
+keinem Werk zuzuordnen; sie geht dadurch nicht verloren, sondern erscheint in
+`manuscripts.json` mit `lv: null` und `lvAnh: null` sowie zusätzlich in
+[docs/handschriften-ohne-zuordnung.md](docs/handschriften-ohne-zuordnung.md),
+einer bei jedem Import neu erzeugten Liste für die spätere Zuordnung von Hand.
 
 Erzeugte Dateien:
 
-- `entries.json` ist der verlustfreie Kern, eine Zeile der Quelle je Datensatz.
-- `works.json` fasst Einträge über die LV-Nummer zu Werken zusammen.
+- `entries.json` ist der verlustfreie Kern der Drucküberlieferung, eine Zeile
+  der Quelle je Datensatz.
+- `manuscripts.json` ist das Gegenstück für die handschriftliche
+  Überlieferung, ebenfalls eine Zeile der Quelle je Datensatz. Felder wie
+  `sourceDescription` (Spalte „Quellenart“) enthalten teils MARC-artige
+  Teilfelder und werden bislang unverändert als Zeichenkette übernommen, ohne
+  weitere Zerlegung.
+- `works.json` fasst Einträge und Handschriften-Zeugnisse über die LV-Nummer
+  (oder die Anhangsnummer) zu Werken zusammen. `entries` und `manuscripts`
+  verweisen dort getrennt auf die jeweiligen Zeugnisse.
 - `prints.json` listet die Erstdrucke als eigene Entität.
 - `persons.json` listet die Textdichter, vorerst als Rohwerte.
 - `meta.json` enthält Zählungen, Erzeugungsdatum und Prüfsummen der Quellen.
@@ -61,6 +85,12 @@ Das Importskript prüft zusätzlich jeden erzeugten Eintrag selbst gegen
 einer künftigen zweiten Quelle bricht den Import damit sofort mit einer
 Fehlermeldung ab, statt still eine ungültige Datei zu erzeugen.
 
+Für `manuscripts.json` gilt dieselbe doppelte Prüfung, mit eigenem Modell in
+`schema/manuscript.schema.json` und eigener Hülle in
+`schema/manuscripts-file.schema.json`. `works.json`, `prints.json` und
+`persons.json` sind dagegen nicht schemabewehrt; sie sind rein abgeleitet und
+werden bei jedem Import ohnehin vollständig neu berechnet.
+
 ## Import ausführen
 
 Voraussetzung ist Python mit openpyxl und jsonschema.
@@ -75,7 +105,9 @@ identische Ausgaben und vergibt keine neuen IDs.
 
 ## Eine weitere Excel-Tabelle aufnehmen
 
-Tabellen mit abweichenden Spalten sind vorgesehen. Nötig sind zwei Schritte:
+Tabellen mit abweichenden Spalten sind vorgesehen, solange sie fachlich
+dasselbe sind wie die bestehenden Drucke, also ein Werk in einer Quelle mit
+LV-Nummer, Titel, Stimmen und Erstdruck. Nötig sind zwei Schritte:
 
 1. Die Datei nach `raw/` legen.
 2. In `scripts/import_excel.py` einen Eintrag zu `SOURCES` ergänzen, mit eigener
@@ -85,6 +117,17 @@ Tabellen mit abweichenden Spalten sind vorgesehen. Nötig sind zwei Schritte:
 Spalten, die im Mapping fehlen, gehen nicht verloren. Sie landen im Feld `extra`
 des jeweiligen Datensatzes und können später in das Kernmodell hochgezogen
 werden. Ein Schemawechsel oder eine Migration ist dafür nicht nötig.
+
+Trägt die Tabelle dagegen fachlich andere Informationen, wie die
+Handschriften-Überlieferung mit RISM-Sigel, Bibliothek und Signatur statt
+Drucksigle, passt sie nicht in das `CatalogueEntry`-Modell der Drucke. Dafür
+gibt es ein zweites, eigenständiges Muster: `MANUSCRIPT_SOURCES` mit
+eigenem `columns`-Mapping, eine eigene Lesefunktion (`read_manuscripts`), ein
+eigenes Schema (`manuscript.schema.json`) und eine eigene Ausgabedatei
+(`manuscripts.json`). `derive_works` verknüpft beide Quellen anschließend über
+die LV-Nummer zum gemeinsamen `Work`. Eine dritte, wiederum andersartige
+Quelle bekäme auf demselben Weg ihr eigenes Tripel aus Mapping, Schema und
+Ausgabedatei, statt eines der bestehenden Modelle zu verbiegen.
 
 ## Offene redaktionelle Punkte
 
@@ -114,6 +157,21 @@ werden. Ein Schemawechsel oder eine Migration ist dafür nicht nötig.
   1979 Zeilen insgesamt, noch mit den 1209 Hauptzeilen ohne Bindestrich, noch
   mit den 137 Drucken oder den 1945 Werken. Vermutlich ein Überbleibsel aus
   einem früheren Stand der Quelldatei, nicht durch den Import verursacht.
+- `sourceDescription` in `manuscripts.json` (Spalte „Quellenart“) enthält
+  teils MARC-artige Teilfelder, etwa `$aStimmbücher$b1$c[5]`. Diese werden
+  bislang nicht in eigene Felder zerlegt, sondern unverändert als
+  Zeichenkette übernommen. Eine Zerlegung wäre ein eigener Arbeitsschritt.
+- `rismSiglum` in `manuscripts.json` wird unverändert übernommen, ohne
+  Prüfung gegen eine RISM-Normdatei. Tippfehler oder veraltete Sigel fallen
+  dadurch nicht automatisch auf.
+- Die 161 Werke aus dem LV-Anhang (`lvAnh`, `@id` beginnend mit `work:anh-`)
+  entstehen rein aus einem Textmuster („LVanh N“) im Freitextfeld „Weitere
+  Teile“ der Handschriften-Tabelle, ohne fachliche Prüfung gegen die
+  gedruckte LV-Anhang-Literatur. Eine Verifikation steht aus.
+- 311 Handschriften-Zeugnisse ließen sich weder einer LV- noch einer
+  Anhangsnummer zuordnen und stehen in
+  [docs/handschriften-ohne-zuordnung.md](docs/handschriften-ohne-zuordnung.md)
+  zur späteren manuellen Bearbeitung.
 
 ## Lizenz
 

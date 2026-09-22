@@ -171,13 +171,15 @@ rekonstruierbar.
 ## 8. Keine automatische Normalisierung von Personennamen
 
 **Entscheidung.** Schreibvarianten bleiben nebeneinander bestehen, etwa `Marot`
-und `C.Marot`. Die Felder `gnd` und `viaf` sind vorbereitet und leer.
+und `C.Marot`. Die Felder `gnd` und `viaf` waren zum Zeitpunkt dieser
+Entscheidung vorbereitet und leer; die Verknüpfung selbst ist inzwischen
+nachgezogen, siehe Abschnitt 15.
 
 **Begründung.** Ob zwei Namensformen dieselbe Person bezeichnen, ist eine
 fachliche Feststellung und keine Zeichenkettenoperation. Eine automatische
 Zusammenführung würde eine Setzung verbergen, die begründet und belegt gehören.
 Die Verknüpfung mit Normdaten, also GND und VIAF, ist als eigener redaktioneller
-Arbeitsschritt vorgesehen.
+Arbeitsschritt vorgesehen, siehe Abschnitt 15 für dessen Umsetzung.
 
 **Preis.** Die Zahl der Textdichter ist derzeit zu hoch und nicht ohne Vorbehalt
 auswertbar.
@@ -335,6 +337,134 @@ des Projektinhabers, keine Aussage über den tatsächlichen Datenbestand.
 
 ---
 
+## 14. Handschriften als eigene Entität statt erweiterter Katalogeintrag
+
+**Entscheidung.** Die neu hinzugekommene Tabelle der Lasso-Handschriften
+(`raw/werke_aus_handschriften.xlsx`, 8961 Zeilen, 1417 Quellen aus 131
+Bibliotheken) wird nicht in `entry.schema.json` eingepasst, sondern als
+eigenständige Entität `ManuscriptWitness` mit eigenem Schema
+(`schema/manuscript.schema.json`) und eigener Ausgabedatei
+(`data/manuscripts.json`) geführt. `Work` bekommt dafür ein Feld
+`manuscripts`, parallel zu `entries`.
+
+**Alternative.** `entry.schema.json` um die Felder RISM-Sigel, Bibliothek,
+Signatur und Quellenart erweitern, wie ursprünglich erwogen.
+
+**Begründung.** `entry.schema.json` beschreibt laut eigener Definition „ein
+Werk in einem Druck“, siehe Abschnitt 6. Eine Handschrift ist keine
+Abwandlung eines Drucks, sondern eine andere Art von Quelle mit anderen
+Feldern; die meisten Druckfelder (Erstdruck-Jahr und -Nummer) wären für
+Handschriften leer, und umgekehrt die meisten Handschriftenfelder für Drucke.
+Das Projekt kennt dieses Muster bereits: `works.json`, `prints.json` und
+`persons.json` sind schon eigenständige, über IDs verknüpfte Kollektionen.
+Eine vierte fügt sich sauber ein.
+
+**Drei Fälle beim Verknüpfen mit `works.json`.** Die Analyse der Tabelle ergab
+drei Gruppen von Zeilen:
+
+1. Die meisten (7938 von 8193 Zeilen mit LV-Angabe) verweisen auf ein Werk,
+   das bereits aus dem Druckkatalog besteht.
+2. 65 weitere LV-Zeichenketten (341 Zeilen), teils ganz neue Grundnummern wie
+   105 und 106, teils zusätzliche Teilsätze bestehender Werke wie 26-2,
+   kommen im Druckkatalog nicht vor. Für sie legt der Import jetzt neue
+   Werke an, die ausschließlich handschriftlich bezeugt sind
+   (`worksFromManuscriptsOnly` in `meta.json`).
+3. 768 Zeilen tragen gar keine LV-Nummer. Davon verweisen 444 im Freitextfeld
+   „Weitere Teile“ auf eine Nummer aus dem LV-Anhang (Boetticher), erkennbar
+   am Muster „LVanh N“. Für diese 161 Anhangsnummern legt der Import
+   ebenfalls eigene Werke an (`@id` beginnend mit `work:anh-`, `lv: null`,
+   stattdessen `lvAnh` gesetzt).
+
+**Die verbleibenden 311 Zeilen bleiben bewusst unverknüpft, nicht als Werk.**
+Ohne LV- oder Anhangsnummer fehlt der fachliche Schlüssel. Eine Gruppierung
+über den Titel wurde verworfen: kurze, generische Titel wie „Laudate pueri“
+oder „Kyrie“ könnten zufällig gleich lauten, ohne dasselbe Stück zu sein, und
+eine automatische Zusammenführung würde das stillschweigend unterstellen.
+Manche dieser Zeilen sind zudem explizit mit „LV ?“ markiert, die Forschung
+selbst ist sich über die Zuschreibung an Lasso also nicht sicher. Ein
+Werk-Eintrag würde das fälschlich als gesichert ausweisen, siehe die
+Unterscheidung von Werk und Bezeugung in Abschnitt 6. Die Zeilen selbst gehen
+trotzdem nicht verloren: Sie stehen weiterhin in `manuscripts.json` (mit
+`lv: null` und `lvAnh: null`) und zusätzlich, für die redaktionelle Arbeit
+besser auffindbar, in der bei jedem Import neu erzeugten Liste
+`docs/handschriften-ohne-zuordnung.md`.
+
+**Was unverändert als Rohtext bleibt.** Die Spalte „Quellenart“ enthält
+teils MARC-artige Teilfelder (etwa `$aStimmbücher$b1$c[5]`) und wird ohne
+Zerlegung als `sourceDescription` übernommen. Das RISM-Sigel wird ohne
+Prüfung gegen eine Normdatei übernommen. Beides folgt demselben Muster wie
+die unnormalisierten Textdichter-Rohwerte in Abschnitt 8: die inhaltliche
+Aufbereitung ist ein eigener redaktioneller Arbeitsschritt, keine
+Automatisierung im Importskript.
+
+**Registry.** Handschriften-Zeugnisse erhalten ihre interne ID aus derselben
+`id-registry.json` wie Katalogeinträge, über einen eigenen fachlichen
+Schlüssel aus Werk (LV oder LVanh, ggf. mit Teilsatz) und Quelle
+(RISM-Sigel plus Signatur), damit eine Quelle mit mehreren Lasso-Stücken pro
+Zeile eine eigene, stabile ID bekommt.
+
+**Preis.** Zwei weitere Ebenen im Datenmodell, die erklärt werden müssen: die
+Unterscheidung Druck- und Handschriftenbezeugung, und innerhalb der
+Handschriften die Unterscheidung Haupt-LV-Katalog und LV-Anhang. Die
+Zuordnung der 161 Anhangswerke beruht bislang allein auf dem Textmuster
+„LVanh N“ im Quelldokument, nicht auf einer eigenen fachlichen Prüfung gegen
+die zugrunde liegende Literatur.
+
+---
+
+## 15. Manuell kuratierte GND/VIAF-Verknüpfung statt automatischer Auflösung
+
+**Entscheidung.** `raw/personen_normdaten.json` ordnet einzelnen
+Textdichter-Rohwerten aus `persons.json` eine GND- und VIAF-ID zu. Die Datei
+wird von Hand gepflegt, nicht vom Importskript erzeugt; `derive_persons` liest
+sie nur und reichert `data/persons.json` beim Import damit an.
+
+**Alternative.** Automatischer Abgleich aller 84 Rohwerte gegen die
+GND-Suche, etwa nach bestem Treffer.
+
+**Begründung.** Eine Normdatenverknüpfung ist, wie in Abschnitt 8 festgehalten,
+eine fachliche Feststellung über eine bestimmte historische Person, keine
+Zeichenkettenoperation. Das gilt für eine automatische GND-Zuordnung
+genauso wie für das Zusammenführen von Schreibvarianten, mit einem
+zusätzlichen Risiko: Die GND enthält für gängige Namen oft mehrere
+Personen, und ein automatisch gewählter „bester Treffer" kann die falsche
+Person eindeutig und dauerhaft mit dem Werk verknüpfen. Jede der 36
+aufgenommenen Zuordnungen wurde deshalb einzeln über die GND-Suche
+(lobid.org) geprüft, anhand von Lebensdaten und Beruf gegen das mögliche
+Wirkungsfenster Lassos (1532–1594) abgeglichen. Zwei Beispiele für die dabei
+aufgetretene Mehrdeutigkeit: Zu „B. Guarini" existieren in der GND zwei
+Personen dieses Namens, ein Humanist (1435–1505) und der Dichter und
+Librettist (1538–1612); nur letzterer passt zeitlich. Zu „Seneca" existieren
+Vater (Rhetor) und Sohn (Philosoph und Dramatiker); ohne weitere Angabe
+wurde der Sohn gewählt, da „Seneca" ohne Zusatz in der Rezeption fast immer
+ihn meint.
+
+**Deckungsgrad.** 36 von 84 Rohwerten sind verknüpft (mehrere Rohwerte pro
+Person bei Schreibvarianten, etwa `Marot`, `Cl. Marot`, `C.Marot` und
+`Clément Marot`), das deckt aber die meisten Nennungen ab: Petrarca allein
+66 von rund 260 zugeordneten Einträgen. Zwei Fälle wurden geprüft und
+bewusst nicht aufgenommen: „Berno von Cluny" findet in der GND keinen
+passenden Treffer unter diesem Namen, nur einen gleichnamigen Abt von
+Reichenau (Berno Augiensis, 978–1048) unter abweichender Zuschreibung, was
+eine Verwechslung im Ausgangsmaterial nahelegt, aber nicht sicher auflöst.
+„Pierre Grognet" findet nur einen Treffer unter der abweichenden Schreibung
+„Grosnet", ebenfalls nicht sicher genug für eine Gleichsetzung. Beide Fälle
+sind hier festgehalten, damit sie bei einer künftigen Prüfung nicht erneut
+von vorn recherchiert werden müssen.
+
+**Warum keine Datei in `data/`.** `personen_normdaten.json` liegt in `raw/`,
+nicht in `data/`, weil sie wie `bibel_abkuerzungen.json` eine kuratierte
+Referenz ist und keine automatisch erzeugte Ausgabe; Abschnitt 5s Regel, dass
+Dateien in `data/` nicht von Hand bearbeitet werden dürfen, gilt für sie
+nicht.
+
+**Preis.** Die Zuordnung ist nur so vollständig und aktuell wie die manuelle
+Pflege der Datei. Ein neuer, bislang unverknüpfter Textdichter-Rohwert bleibt
+ohne GND/VIAF, bis jemand ihn von Hand recherchiert und ergänzt; das
+Importskript weist nicht darauf hin, welche Rohwerte noch fehlen.
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
@@ -346,15 +476,18 @@ des Projektinhabers, keine Aussage über den tatsächlichen Datenbestand.
   Manifestation wurde gleichwohl übernommen, siehe Abschnitt 6.
 - **Triplestore und SPARQL** wurden aufgeschoben. Der JSON-LD-Kontext hält den
   Weg dorthin offen, ohne ihn jetzt gehen zu müssen.
-- **RISM, GND und VIAF** sind als Felder vorgesehen und noch unbefüllt. Die
-  Verknüpfung ist ein eigener Arbeitsschritt und setzt redaktionelle
-  Entscheidungen voraus.
+- **GND und VIAF** sind für Textdichter mittlerweile für 36 von 84 Rohwerten
+  manuell verknüpft, siehe Abschnitt 15; die übrigen bleiben offen, teils
+  mangels eindeutigem GND-Treffer, teils schlicht noch ungeprüft. Das Feld
+  `rism` auf `Print`-Entitäten (Drucke) ist weiterhin leer. Das RISM-Sigel
+  der Handschriften (`rismSiglum`, Abschnitt 14) wird dagegen bereits
+  übernommen, allerdings ungeprüft als Rohtext, nicht gegen eine Normdatei
+  validiert.
 
 ---
 
 ## Offene Punkte
 
-- Die zweite Tabelle liegt noch nicht vor. Ihr Spaltenmapping steht aus.
 - In den Repository-Einstellungen von lassoDB muss einmalig manuell GitHub
   Actions als Quelle für GitHub Pages eingestellt werden, das lässt sich nicht
   aus der Anwendung heraus auslösen.
@@ -364,6 +497,16 @@ des Projektinhabers, keine Aussage über den tatsächlichen Datenbestand.
   noch nicht eingerichtet.
 - Einzelne Titel enthalten Zeichen aus der TeX-Vorlage, deren Bedeutung zu klären
   ist, etwa ein nachgestelltes Kreuz und eine auffällige Leerstelle.
+- 48 von 84 Textdichter-Rohwerten haben noch keine GND/VIAF-Verknüpfung in
+  `raw/personen_normdaten.json` (Abschnitt 15), meist weil sie noch nicht
+  geprüft wurden, teils weil kein eindeutiger GND-Treffer vorlag. Zwei davon,
+  „Berno von Cluny" und „Pierre Grognet", wurden geprüft und bewusst
+  zurückgestellt, siehe Abschnitt 15.
+- Die MARC-artigen Teilfelder in `sourceDescription` sowie das RISM-Sigel der
+  Handschriften sind unzerlegt bzw. ungeprüft, siehe Abschnitt 14.
+- 311 Handschriften-Zeugnisse und die Zuordnung der 161 LV-Anhang-Werke
+  warten auf fachliche Prüfung, siehe Abschnitt 14 und
+  `docs/handschriften-ohne-zuordnung.md`.
 
 ---
 

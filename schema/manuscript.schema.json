@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nikilachniki.github.io/lassoDBData/schema/manuscript.schema.json",
+  "title": "Lasso-Werkverzeichnis, Handschriften-Zeugnis",
+  "description": "Ein Zeugnis entspricht einem Lasso-Stueck in einer Handschrift, nicht dem Werk selbst. Dieselbe Komposition kann in mehreren Handschriften ueberliefert sein, und eine Handschrift kann mehrere Stuecke enthalten. Eindeutig ist allein die interne ID.",
+  "type": "object",
+  "required": ["@id", "@type", "id", "title"],
+  "additionalProperties": true,
+  "properties": {
+    "@id": {
+      "type": "string",
+      "pattern": "^manuscript:[0-9]{5,}$",
+      "description": "JSON-LD Bezeichner, abgeleitet aus der internen ID."
+    },
+    "@type": { "const": "ManuscriptWitness" },
+    "id": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Interne laufende ID, aus derselben Registry wie bei entry.schema.json. Einmal vergeben, bleibt sie stabil."
+    },
+    "lv": {
+      "type": ["string", "null"],
+      "description": "LV-Nummer wie in works.json, sofern die Handschrift einem Werk aus dem Haupt-LV-Katalog zugeordnet werden konnte. Zusammengesetzt aus lvBase und lvPart, etwa '105-2'."
+    },
+    "lvBase": { "type": ["integer", "null"] },
+    "lvPart": {
+      "type": ["integer", "null"],
+      "description": "Teilsatznummer aus der Spalte 'Unternummer' der Quelltabelle."
+    },
+    "lvAnh": {
+      "type": ["integer", "null"],
+      "description": "Nummer im LV-Anhang (Boetticher) fuer Stuecke, die nicht im Haupt-LV-Katalog stehen. Aus einem Verweis wie 'LVanh 98' im Freitextfeld 'Weitere Teile' erkannt. lv und lvAnh schliessen sich gegenseitig aus."
+    },
+    "title": { "type": ["string", "null"] },
+    "voices": { "type": ["integer", "null"], "minimum": 1 },
+    "voicesRaw": {
+      "type": "string",
+      "description": "Nur gesetzt, wenn die Stimmenangabe keine reine Zahl war."
+    },
+    "rismSiglum": {
+      "type": ["string", "null"],
+      "description": "RISM-Bibliothekssigel, unveraendert aus der Quelle. Keine Pruefung gegen eine Normdatei."
+    },
+    "place": { "type": ["string", "null"] },
+    "library": { "type": ["string", "null"] },
+    "shelfmark": {
+      "type": ["string", "null"],
+      "description": "Signatur der Handschrift innerhalb der Bibliothek."
+    },
+    "sourceDescription": {
+      "type": ["string", "null"],
+      "description": "Physische Beschreibung der Quelle (Spalte 'Quellenart'), unveraendert als Zeichenkette. Enthaelt teils MARC-artige Teilfelder wie $a/$b/$c, die hier nicht weiter zerlegt werden."
+    },
+    "note": {
+      "type": ["string", "null"],
+      "description": "Freitext-Anmerkung zur Ueberlieferung in dieser Quelle (Spalte 'Weitere Teile'), etwa zu fehlenden Stimmen, Textabweichungen oder einem Verweis auf eine LVanh-Nummer."
+    },
+    "source": {
+      "type": "object",
+      "required": ["dataset", "file", "row", "key"],
+      "properties": {
+        "dataset": { "type": "string" },
+        "file": { "type": "string" },
+        "row": { "type": "integer" },
+        "key": {
+          "type": "string",
+          "description": "Fachlicher Wiedererkennungsschluessel fuer die ID-Registry."
+        }
+      }
+    },
+    "extra": {
+      "type": "object",
+      "description": "Spalten der Quelle, die noch kein kanonisches Feld haben.",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

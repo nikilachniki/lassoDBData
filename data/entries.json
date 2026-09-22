@@ -1892,7 +1892,7 @@
       "firstPrintYear": 1555,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Ps 85,1+4",
+      "textSource": "Psalmus 85,1+4",
       "completeEdition": "GA III 104",
       "note": null,
       "source": {
@@ -2067,7 +2067,7 @@
       "firstPrintYear": 1556,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 130",
+      "textSource": "Psalmus 130",
       "completeEdition": "GA VII 246",
       "note": null,
       "source": {
@@ -2167,7 +2167,7 @@
       "firstPrintYear": 1556,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 24, 1-2, 7, 4-5",
+      "textSource": "Psalmus 24, 1-2, 7, 4-5",
       "completeEdition": "GA IX 282",
       "note": null,
       "source": {
@@ -2217,7 +2217,7 @@
       "firstPrintYear": 1556,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 33, 9-10, 11",
+      "textSource": "Psalmus 33, 9-10, 11",
       "completeEdition": "GA V 181",
       "note": null,
       "source": {
@@ -2317,7 +2317,7 @@
       "firstPrintYear": 1556,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 138, 1-3, 5-6",
+      "textSource": "Psalmus 138, 1-3, 5-6",
       "completeEdition": "GA IX 259",
       "note": null,
       "source": {
@@ -2367,7 +2367,7 @@
       "firstPrintYear": 1556,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 93, 11 Ps 58, 17+18",
+      "textSource": "Psalmus 93, 11 Psalmus 58, 17+18",
       "completeEdition": "GA IX 278",
       "note": null,
       "source": {
@@ -2392,7 +2392,7 @@
       "firstPrintYear": 1556,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "nach Io 11, 33-35, 43",
+      "textSource": "nach Ioannes 11, 33-35, 43",
       "completeEdition": "GA XV 378",
       "note": null,
       "source": {
@@ -4117,7 +4117,7 @@
       "firstPrintYear": 1562,
       "firstPrintNo": 5,
       "textAuthor": null,
-      "textSource": "Ps 104,1-3",
+      "textSource": "Psalmus 104,1-3",
       "completeEdition": "GA VII 242",
       "note": null,
       "source": {
@@ -4342,7 +4342,7 @@
       "firstPrintYear": 1562,
       "firstPrintNo": 5,
       "textAuthor": null,
-      "textSource": "Ct 5,1",
+      "textSource": "Canticum canticorum 5,1",
       "completeEdition": "GA V 197",
       "note": null,
       "source": {
@@ -4542,7 +4542,7 @@
       "firstPrintYear": 1562,
       "firstPrintNo": 5,
       "textAuthor": null,
-      "textSource": "nach Lm 3,25-26; Ps 17,31",
+      "textSource": "nach Lamentationes 3,25-26; Psalmus 17,31",
       "completeEdition": "GA IX 258",
       "note": null,
       "source": {
@@ -4592,7 +4592,7 @@
       "firstPrintYear": 1562,
       "firstPrintNo": 5,
       "textAuthor": null,
-      "textSource": "nach Ps 87,17 u. Ps 37,11,18,22",
+      "textSource": "nach Psalmus 87,17 u. Psalmus 37,11,18,22",
       "completeEdition": "GA IX 263",
       "note": null,
       "source": {
@@ -4617,7 +4617,7 @@
       "firstPrintYear": 1562,
       "firstPrintNo": 5,
       "textAuthor": null,
-      "textSource": "Ps 126",
+      "textSource": "Psalmus 126",
       "completeEdition": "GA IX 267",
       "note": null,
       "source": {
@@ -4692,7 +4692,7 @@
       "firstPrintYear": 1562,
       "firstPrintNo": 5,
       "textAuthor": null,
-      "textSource": "Ps 118,33-34",
+      "textSource": "Psalmus 118,33-34",
       "completeEdition": "GA IX 268",
       "note": null,
       "source": {
@@ -4842,7 +4842,7 @@
       "firstPrintYear": 1562,
       "firstPrintNo": 5,
       "textAuthor": null,
-      "textSource": "Ps 118,78,80",
+      "textSource": "Psalmus 118,78,80",
       "completeEdition": "GA IX 283",
       "note": null,
       "source": {
@@ -5916,7 +5916,7 @@
       "firstPrint": "1564-2",
       "firstPrintYear": 1564,
       "firstPrintNo": 2,
-      "textAuthor": "Anfang von Ps 130, Nachdichtung von \nClement Marot",
+      "textAuthor": "Anfang von Psalmus 130, Nachdichtung von \nClement Marot",
       "textSource": null,
       "completeEdition": "GA 2 XVI,IV 1",
       "note": null,
@@ -6767,7 +6767,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Prv 17,16,20; vgl.: Eccle 1,2",
+      "textSource": "Proverbia 17,16,20; vgl.: Ecclesiastes 1,2",
       "completeEdition": "GA VII 221",
       "note": null,
       "source": {
@@ -6792,7 +6792,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Lc 15,18-19",
+      "textSource": "Lucas 15,18-19",
       "completeEdition": "GA VII 217",
       "note": null,
       "source": {
@@ -6867,7 +6867,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 5,
       "textAuthor": null,
-      "textSource": "Ps 137,1-3",
+      "textSource": "Psalmus 137,1-3",
       "completeEdition": "GA XXI 504",
       "note": null,
       "source": {
@@ -6967,7 +6967,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Lc 6,36-38",
+      "textSource": "Lucas 6,36-38",
       "completeEdition": "GA XIX 478",
       "note": null,
       "source": {
@@ -6992,7 +6992,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 30,1-6",
+      "textSource": "Psalmus 30,1-6",
       "completeEdition": "GA XVII 440†",
       "note": null,
       "source": {
@@ -7042,7 +7042,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 54,6; 56,2; 60,2; 30,4,18",
+      "textSource": "Psalmus 54,6; 56,2; 60,2; 30,4,18",
       "completeEdition": "GA XIX 458",
       "note": null,
       "source": {
@@ -7092,7 +7092,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "frei nach Gn 45,3-4,9,25-28",
+      "textSource": "frei nach Genesis 45,3-4,9,25-28",
       "completeEdition": "GA XV 389",
       "note": null,
       "source": {
@@ -7142,7 +7142,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Io 1,14",
+      "textSource": "Ioannes 1,14",
       "completeEdition": "GA XI 329",
       "note": null,
       "source": {
@@ -7167,7 +7167,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 91,6,7;93,12",
+      "textSource": "Psalmus 91,6,7;93,12",
       "completeEdition": "GA XVII 420",
       "note": null,
       "source": {
@@ -7292,7 +7292,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Lc 2,48,49",
+      "textSource": "Lucas 2,48,49",
       "completeEdition": "GA VII 215",
       "note": null,
       "source": {
@@ -7442,7 +7442,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 64",
+      "textSource": "Psalmus 64",
       "completeEdition": "GA III 110",
       "note": null,
       "source": {
@@ -7492,7 +7492,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Io 5,24",
+      "textSource": "Ioannes 5,24",
       "completeEdition": "GA I 68",
       "note": null,
       "source": {
@@ -7517,7 +7517,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Eccli 24,17-20",
+      "textSource": "Ecclesiasticus Sirach 24,17-20",
       "completeEdition": "GA I 58",
       "note": null,
       "source": {
@@ -7542,7 +7542,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ct 2,10-14",
+      "textSource": "Canticum canticorum 2,10-14",
       "completeEdition": "GA XIII 369",
       "note": null,
       "source": {
@@ -7567,7 +7567,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ct 2,10-14",
+      "textSource": "Canticum canticorum 2,10-14",
       "completeEdition": "GA XIII 369",
       "note": null,
       "source": {
@@ -7592,7 +7592,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "aus Ps 41",
+      "textSource": "aus Psalmus 41",
       "completeEdition": "GA XVII 421",
       "note": null,
       "source": {
@@ -7617,7 +7617,7 @@
       "firstPrintYear": 1564,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Eccli 41,1-4",
+      "textSource": "Ecclesiasticus Sirach 41,1-4",
       "completeEdition": "GA XV 387",
       "note": null,
       "source": {
@@ -8317,7 +8317,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Lc 1,26-38",
+      "textSource": "Lucas 1,26-38",
       "completeEdition": "GA VII 216",
       "note": null,
       "source": {
@@ -8442,7 +8442,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 97,1-4",
+      "textSource": "Psalmus 97,1-4",
       "completeEdition": "GA VII 244",
       "note": null,
       "source": {
@@ -8517,7 +8517,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 143,9;91,5",
+      "textSource": "Psalmus 143,9;91,5",
       "completeEdition": "GA VII 248",
       "note": null,
       "source": {
@@ -8567,7 +8567,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 45,2",
+      "textSource": "Psalmus 45,2",
       "completeEdition": "GA IX 279",
       "note": null,
       "source": {
@@ -8842,7 +8842,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 147",
+      "textSource": "Psalmus 147",
       "completeEdition": "GA XVII 437",
       "note": null,
       "source": {
@@ -9092,7 +9092,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 118,75,77",
+      "textSource": "Psalmus 118,75,77",
       "completeEdition": "GA I 83",
       "note": null,
       "source": {
@@ -9142,7 +9142,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 118,113-115",
+      "textSource": "Psalmus 118,113-115",
       "completeEdition": "GA III 93",
       "note": null,
       "source": {
@@ -9192,7 +9192,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 53,3-9",
+      "textSource": "Psalmus 53,3-9",
       "completeEdition": "GA III 111",
       "note": null,
       "source": {
@@ -9242,7 +9242,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 111",
+      "textSource": "Psalmus 111",
       "completeEdition": "GA III 113",
       "note": null,
       "source": {
@@ -9517,7 +9517,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 148;150",
+      "textSource": "Psalmus 148;150",
       "completeEdition": "GA IX 285",
       "note": null,
       "source": {
@@ -9642,7 +9642,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "nach Mt 27,38",
+      "textSource": "nach Matthaeus 27,38",
       "completeEdition": "GA V 172",
       "note": null,
       "source": {
@@ -9667,7 +9667,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Dn 3,57-88,56",
+      "textSource": "Daniel 3,57-88,56",
       "completeEdition": "GA IX 272",
       "note": null,
       "source": {
@@ -9767,7 +9767,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 45,2",
+      "textSource": "Psalmus 45,2",
       "completeEdition": "GA IX 279",
       "note": null,
       "source": {
@@ -9792,7 +9792,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "nach Eccli 32,7",
+      "textSource": "nach Ecclesiasticus Sirach 32,7",
       "completeEdition": "GA XI 312",
       "note": null,
       "source": {
@@ -9842,7 +9842,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 118,65,68",
+      "textSource": "Psalmus 118,65,68",
       "completeEdition": "GA IX 254",
       "note": null,
       "source": {
@@ -9867,7 +9867,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 127",
+      "textSource": "Psalmus 127",
       "completeEdition": "GA VII 243",
       "note": null,
       "source": {
@@ -10117,7 +10117,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "nach Ps 24,16,18 u. Ps 85,1",
+      "textSource": "nach Psalmus 24,16,18 u. Psalmus 85,1",
       "completeEdition": "GA V 185",
       "note": null,
       "source": {
@@ -10142,7 +10142,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Mt 6,9-13",
+      "textSource": "Matthaeus 6,9-13",
       "completeEdition": "GA XIII 352†",
       "note": null,
       "source": {
@@ -10167,7 +10167,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 99,1-5",
+      "textSource": "Psalmus 99,1-5",
       "completeEdition": "GA XVII 454",
       "note": null,
       "source": {
@@ -10217,7 +10217,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 40,1-5",
+      "textSource": "Psalmus 40,1-5",
       "completeEdition": "GA XVII 444",
       "note": null,
       "source": {
@@ -10267,7 +10267,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Eccli 24,11-13",
+      "textSource": "Ecclesiasticus Sirach 24,11-13",
       "completeEdition": "GA XIX 482",
       "note": null,
       "source": {
@@ -10317,7 +10317,7 @@
       "firstPrintYear": 1565,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 125",
+      "textSource": "Psalmus 125",
       "completeEdition": null,
       "note": null,
       "source": {
@@ -10392,7 +10392,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Luc 19,5-6",
+      "textSource": "Lucas 19,5-6",
       "completeEdition": null,
       "note": null,
       "source": {
@@ -10417,7 +10417,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Ps 51,3-9",
+      "textSource": "Psalmus 51,3-9",
       "completeEdition": "GA IX 270",
       "note": null,
       "source": {
@@ -10542,7 +10542,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Io 1,1-14",
+      "textSource": "Ioannes 1,1-14",
       "completeEdition": "GA XV 376",
       "note": null,
       "source": {
@@ -10617,7 +10617,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Mt 2,1-12",
+      "textSource": "Matthaeus 2,1-12",
       "completeEdition": "GA XI 326",
       "note": null,
       "source": {
@@ -10692,7 +10692,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 5,9-11",
+      "textSource": "Psalmus 5,9-11",
       "completeEdition": "GA XVII 425",
       "note": null,
       "source": {
@@ -10742,7 +10742,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Io 2,1-11",
+      "textSource": "Ioannes 2,1-11",
       "completeEdition": "GA XV 379",
       "note": null,
       "source": {
@@ -10842,7 +10842,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 36,25-28,37",
+      "textSource": "Psalmus 36,25-28,37",
       "completeEdition": "GA XV 397",
       "note": null,
       "source": {
@@ -10992,7 +10992,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 48,13",
+      "textSource": "Psalmus 48,13",
       "completeEdition": "GA XV 393",
       "note": null,
       "source": {
@@ -11092,7 +11092,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 117,6-9",
+      "textSource": "Psalmus 117,6-9",
       "completeEdition": "GA XVII 434",
       "note": null,
       "source": {
@@ -11217,7 +11217,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 89,9-10",
+      "textSource": "Psalmus 89,9-10",
       "completeEdition": "GA XV 382",
       "note": null,
       "source": {
@@ -11242,7 +11242,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 66",
+      "textSource": "Psalmus 66",
       "completeEdition": "GA XXI 500",
       "note": null,
       "source": {
@@ -11267,7 +11267,7 @@
       "firstPrintYear": 1566,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 120",
+      "textSource": "Psalmus 120",
       "completeEdition": "GA XXI 506",
       "note": null,
       "source": {
@@ -13292,7 +13292,7 @@
       "firstPrintYear": 1567,
       "firstPrintNo": 10,
       "textAuthor": null,
-      "textSource": "Ps 136,1",
+      "textSource": "Psalmus 136,1",
       "completeEdition": "GA IX 280",
       "note": null,
       "source": {
@@ -13342,7 +13342,7 @@
       "firstPrintYear": 1567,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 1",
+      "textSource": "Psalmus 1",
       "completeEdition": "GA XV 417",
       "note": null,
       "source": {
@@ -13367,7 +13367,7 @@
       "firstPrintYear": 1567,
       "firstPrintNo": 13,
       "textAuthor": null,
-      "textSource": "Ps 24,12-13",
+      "textSource": "Psalmus 24,12-13",
       "completeEdition": "GA IX 264",
       "note": null,
       "source": {
@@ -13392,7 +13392,7 @@
       "firstPrintYear": 1567,
       "firstPrintNo": 13,
       "textAuthor": null,
-      "textSource": "Gn 4,9-10",
+      "textSource": "Genesis 4,9-10",
       "completeEdition": "GA VII 231",
       "note": null,
       "source": {
@@ -13417,7 +13417,7 @@
       "firstPrintYear": 1567,
       "firstPrintNo": 13,
       "textAuthor": null,
-      "textSource": "aus Mt 16,13-18",
+      "textSource": "aus Matthaeus 16,13-18",
       "completeEdition": "GA VII 213",
       "note": null,
       "source": {
@@ -13442,7 +13442,7 @@
       "firstPrintYear": 1567,
       "firstPrintNo": 13,
       "textAuthor": null,
-      "textSource": "aus Mt 16,13-18",
+      "textSource": "aus Matthaeus 16,13-18",
       "completeEdition": "GA VII 213",
       "note": null,
       "source": {
@@ -13792,7 +13792,7 @@
       "firstPrintYear": 1568,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Ps 38,5; Ps 85,11",
+      "textSource": "Psalmus 38,5; Psalmus 85,11",
       "completeEdition": "GA XVII 435",
       "note": null,
       "source": {
@@ -13842,7 +13842,7 @@
       "firstPrintYear": 1568,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Ps 1",
+      "textSource": "Psalmus 1",
       "completeEdition": "GA XV 417†",
       "note": null,
       "source": {
@@ -14292,7 +14292,7 @@
       "firstPrintYear": 1568,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Ps 112",
+      "textSource": "Psalmus 112",
       "completeEdition": "GA XIX 480",
       "note": null,
       "source": {
@@ -14317,7 +14317,7 @@
       "firstPrintYear": 1568,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Ps 146",
+      "textSource": "Psalmus 146",
       "completeEdition": "GA XIX 483",
       "note": null,
       "source": {
@@ -14642,7 +14642,7 @@
       "firstPrintYear": 1568,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 32,1-4",
+      "textSource": "Psalmus 32,1-4",
       "completeEdition": "GA III 92",
       "note": null,
       "source": {
@@ -14967,7 +14967,7 @@
       "firstPrintYear": 1569,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Ps 115",
+      "textSource": "Psalmus 115",
       "completeEdition": "GA IX 256",
       "note": null,
       "source": {
@@ -15117,7 +15117,7 @@
       "firstPrintYear": 1569,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Ps 36,35-36",
+      "textSource": "Psalmus 36,35-36",
       "completeEdition": "GA IX 277",
       "note": null,
       "source": {
@@ -15342,7 +15342,7 @@
       "firstPrintYear": 1569,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Ps 41,2-3",
+      "textSource": "Psalmus 41,2-3",
       "completeEdition": "GA XIX 461",
       "note": null,
       "source": {
@@ -15367,7 +15367,7 @@
       "firstPrintYear": 1569,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 114,3 Mitte-5 und 7-8",
+      "textSource": "Psalmus 114,3 Mitte-5 und 7-8",
       "completeEdition": "GA III 94",
       "note": null,
       "source": {
@@ -15417,7 +15417,7 @@
       "firstPrintYear": 1569,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 95,11-13 Mitte",
+      "textSource": "Psalmus 95,11-13 Mitte",
       "completeEdition": "GA III 127",
       "note": null,
       "source": {
@@ -15467,7 +15467,7 @@
       "firstPrintYear": 1569,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "I. Pe 5,8-9 Anfang",
+      "textSource": "I. Epistola Petri 5,8-9 Anfang",
       "completeEdition": "GA I 73",
       "note": null,
       "source": {
@@ -16742,7 +16742,7 @@
       "firstPrintYear": 1570,
       "firstPrintNo": 10,
       "textAuthor": null,
-      "textSource": "Ps 102",
+      "textSource": "Psalmus 102",
       "completeEdition": "GA XV 418",
       "note": null,
       "source": {
@@ -17017,7 +17017,7 @@
       "firstPrintYear": 1570,
       "firstPrintNo": 10,
       "textAuthor": null,
-      "textSource": "Ps 106,13-15",
+      "textSource": "Psalmus 106,13-15",
       "completeEdition": "GA XVII 426",
       "note": null,
       "source": {
@@ -17042,7 +17042,7 @@
       "firstPrintYear": 1570,
       "firstPrintNo": 10,
       "textAuthor": null,
-      "textSource": "Ps 4",
+      "textSource": "Psalmus 4",
       "completeEdition": "GA XVII 431",
       "note": null,
       "source": {
@@ -17142,7 +17142,7 @@
       "firstPrintYear": 1570,
       "firstPrintNo": 10,
       "textAuthor": null,
-      "textSource": "Ps 122",
+      "textSource": "Psalmus 122",
       "completeEdition": "GA XVII 449",
       "note": null,
       "source": {
@@ -17192,7 +17192,7 @@
       "firstPrintYear": 1570,
       "firstPrintNo": 10,
       "textAuthor": null,
-      "textSource": "Ps 109",
+      "textSource": "Psalmus 109",
       "completeEdition": "GA XXI 499",
       "note": null,
       "source": {
@@ -17792,7 +17792,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 5,2-6",
+      "textSource": "Psalmus 5,2-6",
       "completeEdition": "GA VII 239",
       "note": null,
       "source": {
@@ -17842,7 +17842,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Luc 16,24-25",
+      "textSource": "Lucas 16,24-25",
       "completeEdition": "GA VII 212",
       "note": null,
       "source": {
@@ -17892,7 +17892,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Mt 11,28-30",
+      "textSource": "Matthaeus 11,28-30",
       "completeEdition": "GA VII 224",
       "note": null,
       "source": {
@@ -17917,7 +17917,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Prv 31,4-7",
+      "textSource": "Proverbia 31,4-7",
       "completeEdition": "GA VII 223",
       "note": null,
       "source": {
@@ -17992,7 +17992,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "nach Mt 28,5-6",
+      "textSource": "nach Matthaeus 28,5-6",
       "completeEdition": "GA V 173",
       "note": null,
       "source": {
@@ -18017,7 +18017,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Sap 5,1-5",
+      "textSource": "Sapientia 5,1-5",
       "completeEdition": "GA VII 227",
       "note": null,
       "source": {
@@ -18117,7 +18117,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ct 7,11-12",
+      "textSource": "Canticum canticorum 7,11-12",
       "completeEdition": "GA V 198",
       "note": null,
       "source": {
@@ -18167,7 +18167,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 7,12-16",
+      "textSource": "Psalmus 7,12-16",
       "completeEdition": "GA IX 266",
       "note": null,
       "source": {
@@ -18267,7 +18267,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Mt 16,26-27",
+      "textSource": "Matthaeus 16,26-27",
       "completeEdition": "GA VII 229",
       "note": null,
       "source": {
@@ -18317,7 +18317,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 71,6-11",
+      "textSource": "Psalmus 71,6-11",
       "completeEdition": "GA V 162",
       "note": null,
       "source": {
@@ -18392,7 +18392,7 @@
       "firstPrintYear": 1571,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Mt 11,11 u. Mc 1,2/Luc 7,21",
+      "textSource": "Matthaeus 11,11 u. Marcus 1,2/Lucas 7,21",
       "completeEdition": "GA V 204",
       "note": null,
       "source": {
@@ -19792,7 +19792,7 @@
       "firstPrintYear": 1572,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Mt 5,3-12",
+      "textSource": "Matthaeus 5,3-12",
       "completeEdition": "NR2 1,3-4",
       "note": null,
       "source": {
@@ -19842,7 +19842,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Ps 42,5",
+      "textSource": "Psalmus 42,5",
       "completeEdition": "GA I 86",
       "note": null,
       "source": {
@@ -19917,7 +19917,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Prv 31,30",
+      "textSource": "Proverbia 31,30",
       "completeEdition": "GA I 81",
       "note": null,
       "source": {
@@ -19942,7 +19942,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Ps 142,9-10 Mitte",
+      "textSource": "Psalmus 142,9-10 Mitte",
       "completeEdition": "GA I 84",
       "note": null,
       "source": {
@@ -19967,7 +19967,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Heb 13,4",
+      "textSource": "ad Hebraeos 13,4",
       "completeEdition": "GA I 70",
       "note": null,
       "source": {
@@ -20567,7 +20567,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Mt 6,9-13",
+      "textSource": "Matthaeus 6,9-13",
       "completeEdition": "GA I 62",
       "note": null,
       "source": {
@@ -20692,7 +20692,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 145,2-3",
+      "textSource": "Psalmus 145,2-3",
       "completeEdition": "GA III 126",
       "note": null,
       "source": {
@@ -20717,7 +20717,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 87,16",
+      "textSource": "Psalmus 87,16",
       "completeEdition": "GA III 128",
       "note": null,
       "source": {
@@ -20742,7 +20742,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 67",
+      "textSource": "Psalmus 67",
       "completeEdition": "GA IX 273",
       "note": null,
       "source": {
@@ -20817,7 +20817,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 88,2",
+      "textSource": "Psalmus 88,2",
       "completeEdition": "GA IX 252",
       "note": null,
       "source": {
@@ -20842,7 +20842,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 144,15-18",
+      "textSource": "Psalmus 144,15-18",
       "completeEdition": "GA VII 240",
       "note": null,
       "source": {
@@ -20892,7 +20892,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 140",
+      "textSource": "Psalmus 140",
       "completeEdition": "GA IX 281",
       "note": null,
       "source": {
@@ -21117,7 +21117,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "aus Is 43,10 und 45,23",
+      "textSource": "aus Isaias 43,10 und 45,23",
       "completeEdition": "GA XI 323",
       "note": null,
       "source": {
@@ -21142,7 +21142,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Tb 13,3-6 Mitte",
+      "textSource": "Tobias 13,3-6 Mitte",
       "completeEdition": "GA XVII 438",
       "note": null,
       "source": {
@@ -21217,7 +21217,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 61,8-9",
+      "textSource": "Psalmus 61,8-9",
       "completeEdition": "GA XVII 452",
       "note": null,
       "source": {
@@ -21367,7 +21367,7 @@
       "firstPrintYear": 1573,
       "firstPrintNo": 10,
       "textAuthor": null,
-      "textSource": "Ps 116",
+      "textSource": "Psalmus 116",
       "completeEdition": "GA XXI 516",
       "note": null,
       "source": {
@@ -21492,7 +21492,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "nach Ez 47,1 und9",
+      "textSource": "nach Ezechiel 47,1 und9",
       "completeEdition": "NR 23,1",
       "note": null,
       "source": {
@@ -21567,7 +21567,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 117,1",
+      "textSource": "Psalmus 117,1",
       "completeEdition": "NR 23,1",
       "note": null,
       "source": {
@@ -21667,7 +21667,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 50,9",
+      "textSource": "Psalmus 50,9",
       "completeEdition": "NR 23,2",
       "note": null,
       "source": {
@@ -21742,7 +21742,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 50,3",
+      "textSource": "Psalmus 50,3",
       "completeEdition": "NR 23,2",
       "note": null,
       "source": {
@@ -21842,7 +21842,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 50,9",
+      "textSource": "Psalmus 50,9",
       "completeEdition": "NR 23,3",
       "note": null,
       "source": {
@@ -21942,7 +21942,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 50,3",
+      "textSource": "Psalmus 50,3",
       "completeEdition": "NR 23,3",
       "note": null,
       "source": {
@@ -22017,7 +22017,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "nach Is 9,6",
+      "textSource": "nach Isaias 9,6",
       "completeEdition": "NR 23,4",
       "note": null,
       "source": {
@@ -22067,7 +22067,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 97,1",
+      "textSource": "Psalmus 97,1",
       "completeEdition": "NR 23,4",
       "note": null,
       "source": {
@@ -22342,7 +22342,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "aus Ps 97,3",
+      "textSource": "aus Psalmus 97,3",
       "completeEdition": "NR 23,7",
       "note": null,
       "source": {
@@ -22367,7 +22367,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "aus Ps 138,18 und 5-6",
+      "textSource": "aus Psalmus 138,18 und 5-6",
       "completeEdition": "NR 23,8",
       "note": null,
       "source": {
@@ -22417,7 +22417,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 138,2",
+      "textSource": "Psalmus 138,2",
       "completeEdition": "NR 23,8",
       "note": null,
       "source": {
@@ -22442,7 +22442,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 117,24",
+      "textSource": "Psalmus 117,24",
       "completeEdition": "NR 23,9",
       "note": null,
       "source": {
@@ -22492,7 +22492,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "aus I Gor 5, 1",
+      "textSource": "aus I ad Corinthios 5, 1",
       "completeEdition": "NR 23,10",
       "note": null,
       "source": {
@@ -22617,7 +22617,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "aus I Gor 5, 7-8",
+      "textSource": "aus I ad Corinthios 5, 7-8",
       "completeEdition": "NR 23,12",
       "note": null,
       "source": {
@@ -22667,7 +22667,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Sap 1,8",
+      "textSource": "Sapientia 1,8",
       "completeEdition": "NR 23,13",
       "note": null,
       "source": {
@@ -22717,7 +22717,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "aus Ps 67,29-30)",
+      "textSource": "aus Psalmus 67,29-30)",
       "completeEdition": "NR 23,13",
       "note": null,
       "source": {
@@ -22967,7 +22967,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Act 2,2,4 und 11",
+      "textSource": "Actus Apostolorum 2,2,4 und 11",
       "completeEdition": "NR 23,16",
       "note": null,
       "source": {
@@ -23017,7 +23017,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 80,17 und 2",
+      "textSource": "Psalmus 80,17 und 2",
       "completeEdition": "NR 23,17",
       "note": null,
       "source": {
@@ -23442,7 +23442,7 @@
       "firstPrintYear": 1574,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Io 6,51",
+      "textSource": "Ioannes 6,51",
       "completeEdition": "NR 23,20",
       "note": null,
       "source": {
@@ -23592,7 +23592,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 130",
+      "textSource": "Psalmus 130",
       "completeEdition": "GA I 31",
       "note": null,
       "source": {
@@ -23642,7 +23642,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus Io 11,25-26",
+      "textSource": "aus Ioannes 11,25-26",
       "completeEdition": "GA I 26",
       "note": null,
       "source": {
@@ -23667,7 +23667,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 121",
+      "textSource": "Psalmus 121",
       "completeEdition": "GA I 34",
       "note": null,
       "source": {
@@ -23767,7 +23767,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 68,6-7 Mitte",
+      "textSource": "Psalmus 68,6-7 Mitte",
       "completeEdition": "GA I 35",
       "note": null,
       "source": {
@@ -23792,7 +23792,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 68,30-31",
+      "textSource": "Psalmus 68,30-31",
       "completeEdition": "GA I 37",
       "note": null,
       "source": {
@@ -23842,7 +23842,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 68,17",
+      "textSource": "Psalmus 68,17",
       "completeEdition": "GA I 38",
       "note": null,
       "source": {
@@ -23867,7 +23867,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 54,2-4 Mitte",
+      "textSource": "Psalmus 54,2-4 Mitte",
       "completeEdition": "GA I 41",
       "note": null,
       "source": {
@@ -23942,7 +23942,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 95,1-2",
+      "textSource": "Psalmus 95,1-2",
       "completeEdition": "GA I 36",
       "note": null,
       "source": {
@@ -23992,7 +23992,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus Rom 6,9-10",
+      "textSource": "aus ad Romanos 6,9-10",
       "completeEdition": "GA I 27",
       "note": null,
       "source": {
@@ -24017,7 +24017,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 40,5",
+      "textSource": "Psalmus 40,5",
       "completeEdition": "GA I 42",
       "note": null,
       "source": {
@@ -24092,7 +24092,7 @@
       "firstPrintYear": 1575,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 127",
+      "textSource": "Psalmus 127",
       "completeEdition": "GA I 40",
       "note": null,
       "source": {
@@ -25617,7 +25617,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Eccli 14,22",
+      "textSource": "Ecclesiasticus Sirach 14,22",
       "completeEdition": "GA I 1",
       "note": null,
       "source": {
@@ -25642,7 +25642,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Prv 3,13-14",
+      "textSource": "Proverbia 3,13-14",
       "completeEdition": "GA I 2",
       "note": null,
       "source": {
@@ -25667,7 +25667,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "aus I. Cor 2,9",
+      "textSource": "aus I. ad Corinthios 2,9",
       "completeEdition": "GA I 3",
       "note": null,
       "source": {
@@ -25692,7 +25692,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Eccli 39,6",
+      "textSource": "Ecclesiasticus Sirach 39,6",
       "completeEdition": "GA I 4",
       "note": null,
       "source": {
@@ -25717,7 +25717,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Prv 10,28-29",
+      "textSource": "Proverbia 10,28-29",
       "completeEdition": "GA I 5",
       "note": null,
       "source": {
@@ -25742,7 +25742,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "aus Io 8,12",
+      "textSource": "aus Ioannes 8,12",
       "completeEdition": "GA I 6",
       "note": null,
       "source": {
@@ -25767,7 +25767,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "aus Sap 10,19-20",
+      "textSource": "aus Sapientia 10,19-20",
       "completeEdition": "GA I 7",
       "note": null,
       "source": {
@@ -25817,7 +25817,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Mt 16,24",
+      "textSource": "Matthaeus 16,24",
       "completeEdition": "GA I 9",
       "note": null,
       "source": {
@@ -25842,7 +25842,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Mt 25,23",
+      "textSource": "Matthaeus 25,23",
       "completeEdition": "GA I 10",
       "note": null,
       "source": {
@@ -25867,7 +25867,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Sap 3,7 und Mt 13,43",
+      "textSource": "nach Sapientia 3,7 und Matthaeus 13,43",
       "completeEdition": "GA I 11",
       "note": null,
       "source": {
@@ -25917,7 +25917,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Ps 7,2",
+      "textSource": "Psalmus 7,2",
       "completeEdition": "GA I 32",
       "note": null,
       "source": {
@@ -25942,7 +25942,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Ps 118,137-138",
+      "textSource": "Psalmus 118,137-138",
       "completeEdition": "GA I 33",
       "note": null,
       "source": {
@@ -25967,7 +25967,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Ps 17,2-3 Mitte",
+      "textSource": "Psalmus 17,2-3 Mitte",
       "completeEdition": "GA I 39",
       "note": null,
       "source": {
@@ -26292,7 +26292,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "aus Tb 3,3 und Ps 84,6",
+      "textSource": "aus Tobias 3,3 und Psalmus 84,6",
       "completeEdition": "GA I 64",
       "note": null,
       "source": {
@@ -26617,7 +26617,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Ps 33,20-21 Anfang",
+      "textSource": "Psalmus 33,20-21 Anfang",
       "completeEdition": "GA XV 386",
       "note": null,
       "source": {
@@ -26642,7 +26642,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Io 14,15-17 Anfang",
+      "textSource": "Ioannes 14,15-17 Anfang",
       "completeEdition": "GA XV 377",
       "note": null,
       "source": {
@@ -26667,7 +26667,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Ps 8",
+      "textSource": "Psalmus 8",
       "completeEdition": "GA XVII 430",
       "note": null,
       "source": {
@@ -26742,7 +26742,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "aus Tb 3,3 und Ps 84,6",
+      "textSource": "aus Tobias 3,3 und Psalmus 84,6",
       "completeEdition": "GA XIX 475",
       "note": null,
       "source": {
@@ -26767,7 +26767,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Ps 38,2-4",
+      "textSource": "Psalmus 38,2-4",
       "completeEdition": "GA XXI 502",
       "note": null,
       "source": {
@@ -26792,7 +26792,7 @@
       "firstPrintYear": 1577,
       "firstPrintNo": 8,
       "textAuthor": null,
-      "textSource": "Io 11,21-27",
+      "textSource": "Ioannes 11,21-27",
       "completeEdition": "GA XXI 510",
       "note": null,
       "source": {
@@ -26917,7 +26917,7 @@
       "firstPrintYear": 1579,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Ps 138,23-24",
+      "textSource": "Psalmus 138,23-24",
       "completeEdition": "GA III 109",
       "note": null,
       "source": {
@@ -27767,7 +27767,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Job 7,16-21",
+      "textSource": "Iob 7,16-21",
       "completeEdition": "NR 19, S.101",
       "note": null,
       "source": {
@@ -27842,7 +27842,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Job 10,1-1",
+      "textSource": "Iob 10,1-1",
       "completeEdition": "NR 19, S.105",
       "note": null,
       "source": {
@@ -27917,7 +27917,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Job 10,8-12",
+      "textSource": "Iob 10,8-12",
       "completeEdition": "NR 19, S.109",
       "note": null,
       "source": {
@@ -27992,7 +27992,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Job 13,22-28",
+      "textSource": "Iob 13,22-28",
       "completeEdition": "NR 19, S.112",
       "note": null,
       "source": {
@@ -28067,7 +28067,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Job 14,1-6",
+      "textSource": "Iob 14,1-6",
       "completeEdition": "NR 19, S.116",
       "note": null,
       "source": {
@@ -28142,7 +28142,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Job 14,13-16",
+      "textSource": "Iob 14,13-16",
       "completeEdition": "NR 19, S.120",
       "note": null,
       "source": {
@@ -28217,7 +28217,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Job 11,11-15",
+      "textSource": "Iob 11,11-15",
       "completeEdition": "NR 19, S.123",
       "note": null,
       "source": {
@@ -28292,7 +28292,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Job 19,20-21",
+      "textSource": "Iob 19,20-21",
       "completeEdition": "NR 19, S.127",
       "note": null,
       "source": {
@@ -28367,7 +28367,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Job 10,18-20",
+      "textSource": "Iob 10,18-20",
       "completeEdition": "NR 19, S.131",
       "note": null,
       "source": {
@@ -28492,7 +28492,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 90,4-5 Mitte",
+      "textSource": "Psalmus 90,4-5 Mitte",
       "completeEdition": "GA III 95",
       "note": null,
       "source": {
@@ -28517,7 +28517,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 29,2-3",
+      "textSource": "Psalmus 29,2-3",
       "completeEdition": "GA III 115",
       "note": null,
       "source": {
@@ -28542,7 +28542,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 118,18,26 und 73",
+      "textSource": "Psalmus 118,18,26 und 73",
       "completeEdition": "GA III 105",
       "note": null,
       "source": {
@@ -28567,7 +28567,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "aus Ps 118,107 und 125",
+      "textSource": "aus Psalmus 118,107 und 125",
       "completeEdition": "GA III 129",
       "note": null,
       "source": {
@@ -28592,7 +28592,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 30,15-16 Anfang",
+      "textSource": "Psalmus 30,15-16 Anfang",
       "completeEdition": "GA III 130",
       "note": null,
       "source": {
@@ -28617,7 +28617,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 26,2 Mitte - 4 Mitte",
+      "textSource": "Psalmus 26,2 Mitte - 4 Mitte",
       "completeEdition": "GA I 82",
       "note": null,
       "source": {
@@ -28667,7 +28667,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 118,47-48 Mitte",
+      "textSource": "Psalmus 118,47-48 Mitte",
       "completeEdition": "GA III 131",
       "note": null,
       "source": {
@@ -28692,7 +28692,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 33,8-9 Mitte",
+      "textSource": "Psalmus 33,8-9 Mitte",
       "completeEdition": "GA III 122",
       "note": null,
       "source": {
@@ -28717,7 +28717,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Gal 5,14 Mitte - 24",
+      "textSource": "ad Galatas 5,14 Mitte - 24",
       "completeEdition": "GA I 67",
       "note": null,
       "source": {
@@ -28867,7 +28867,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Eccli 31,8-9",
+      "textSource": "Ecclesiasticus Sirach 31,8-9",
       "completeEdition": "GA IX 275",
       "note": null,
       "source": {
@@ -28892,7 +28892,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Io 6,51-52",
+      "textSource": "Ioannes 6,51-52",
       "completeEdition": "GA V 180",
       "note": null,
       "source": {
@@ -28917,7 +28917,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 117,13-15",
+      "textSource": "Psalmus 117,13-15",
       "completeEdition": "GA IX 274",
       "note": null,
       "source": {
@@ -28942,7 +28942,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 117,13-15",
+      "textSource": "Psalmus 117,13-15",
       "completeEdition": "GA IX 274",
       "note": null,
       "source": {
@@ -28967,7 +28967,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 118,121-124",
+      "textSource": "Psalmus 118,121-124",
       "completeEdition": "GA IX 276",
       "note": null,
       "source": {
@@ -29017,7 +29017,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Sap 3,1, und aus 2 und 3",
+      "textSource": "Sapientia 3,1, und aus 2 und 3",
       "completeEdition": "GA V 201",
       "note": null,
       "source": {
@@ -29092,7 +29092,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Mi 6,3",
+      "textSource": "Michaeus 6,3",
       "completeEdition": "GA V 169",
       "note": null,
       "source": {
@@ -29117,7 +29117,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Mi 6,3",
+      "textSource": "Michaeus 6,3",
       "completeEdition": "GA V 169",
       "note": null,
       "source": {
@@ -29142,7 +29142,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Luc 24,17-19",
+      "textSource": "Lucas 24,17-19",
       "completeEdition": "GA VII 214",
       "note": null,
       "source": {
@@ -29167,7 +29167,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Luc 24,17-19",
+      "textSource": "Lucas 24,17-19",
       "completeEdition": "GA VII 214",
       "note": null,
       "source": {
@@ -29192,7 +29192,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ct 5,6 Mitte - 8",
+      "textSource": "Canticum canticorum 5,6 Mitte - 8",
       "completeEdition": "GA IX 261",
       "note": null,
       "source": {
@@ -29242,7 +29242,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 84,2-3 Mitte",
+      "textSource": "Psalmus 84,2-3 Mitte",
       "completeEdition": "GA IX 287",
       "note": null,
       "source": {
@@ -29267,7 +29267,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 84,7-8",
+      "textSource": "Psalmus 84,7-8",
       "completeEdition": "GA IX 262",
       "note": null,
       "source": {
@@ -29292,7 +29292,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "aus III Rg 19,6-8",
+      "textSource": "aus III Regum 19,6-8",
       "completeEdition": "GA V 207",
       "note": null,
       "source": {
@@ -29317,7 +29317,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Rom 6,9-10",
+      "textSource": "ad Romanos 6,9-10",
       "completeEdition": "GA V 174",
       "note": null,
       "source": {
@@ -29392,7 +29392,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 68,30-31",
+      "textSource": "Psalmus 68,30-31",
       "completeEdition": "GA IX 284",
       "note": null,
       "source": {
@@ -29517,7 +29517,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "I Cor 13,11-13",
+      "textSource": "I ad Corinthios 13,11-13",
       "completeEdition": "GA XV 388",
       "note": null,
       "source": {
@@ -29567,7 +29567,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ct 4,9-10",
+      "textSource": "Canticum canticorum 4,9-10",
       "completeEdition": "GA XIII 368",
       "note": null,
       "source": {
@@ -29617,7 +29617,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 9",
+      "textSource": "Psalmus 9",
       "completeEdition": "GA XVII 445",
       "note": null,
       "source": {
@@ -29742,7 +29742,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 95,1-9 Mitte",
+      "textSource": "Psalmus 95,1-9 Mitte",
       "completeEdition": "GA XIX 460",
       "note": null,
       "source": {
@@ -29792,7 +29792,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Rom 11,33-36",
+      "textSource": "ad Romanos 11,33-36",
       "completeEdition": "GA XI 324",
       "note": null,
       "source": {
@@ -29867,7 +29867,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 24,1-3",
+      "textSource": "Psalmus 24,1-3",
       "completeEdition": "GA XVII 448",
       "note": null,
       "source": {
@@ -29967,7 +29967,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus I Par 29,17-18",
+      "textSource": "aus I Paralipomenon 29,17-18",
       "completeEdition": "GA XVII 455",
       "note": null,
       "source": {
@@ -29992,7 +29992,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Apc 7,12",
+      "textSource": "Apocalypsis 7,12",
       "completeEdition": "GA XI 325",
       "note": null,
       "source": {
@@ -30017,7 +30017,7 @@
       "firstPrintYear": 1582,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 69",
+      "textSource": "Psalmus 69",
       "completeEdition": "GA XVII 456",
       "note": null,
       "source": {
@@ -31117,7 +31117,7 @@
       "firstPrintYear": 1583,
       "firstPrintNo": 9,
       "textAuthor": null,
-      "textSource": "Ps 67,29-30",
+      "textSource": "Psalmus 67,29-30",
       "completeEdition": "GA XVII 441",
       "note": null,
       "source": {
@@ -31892,7 +31892,7 @@
       "firstPrintYear": 1584,
       "firstPrintNo": 3,
       "textAuthor": "A. Beccuti, detto il Coppetta ?",
-      "textSource": "nach Ps. 6",
+      "textSource": "nach Psalmus. 6",
       "completeEdition": "GA 2 VI,II 9",
       "note": null,
       "source": {
@@ -32367,7 +32367,7 @@
       "firstPrintYear": 1584,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 6",
+      "textSource": "Psalmus 6",
       "completeEdition": "NR 26,1",
       "note": null,
       "source": {
@@ -32667,7 +32667,7 @@
       "firstPrintYear": 1584,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 31",
+      "textSource": "Psalmus 31",
       "completeEdition": "NR 26,2",
       "note": null,
       "source": {
@@ -33067,7 +33067,7 @@
       "firstPrintYear": 1584,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 37",
+      "textSource": "Psalmus 37",
       "completeEdition": "NR 26,3",
       "note": null,
       "source": {
@@ -33692,7 +33692,7 @@
       "firstPrintYear": 1584,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 50",
+      "textSource": "Psalmus 50",
       "completeEdition": "NR 26,4",
       "note": null,
       "source": {
@@ -34242,7 +34242,7 @@
       "firstPrintYear": 1584,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 101",
+      "textSource": "Psalmus 101",
       "completeEdition": "NR 26,5",
       "note": null,
       "source": {
@@ -35017,7 +35017,7 @@
       "firstPrintYear": 1584,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 129",
+      "textSource": "Psalmus 129",
       "completeEdition": "NR 26,6",
       "note": null,
       "source": {
@@ -35267,7 +35267,7 @@
       "firstPrintYear": 1584,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "Ps 142",
+      "textSource": "Psalmus 142",
       "completeEdition": "NR 26,7",
       "note": null,
       "source": {
@@ -36367,7 +36367,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Lm 1,1-3",
+      "textSource": "Lamentationes 1,1-3",
       "completeEdition": "NR 22,S.3",
       "note": null,
       "source": {
@@ -36392,7 +36392,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Lm 1,7-9",
+      "textSource": "Lamentationes 1,7-9",
       "completeEdition": "NR 22,S.14",
       "note": null,
       "source": {
@@ -36417,7 +36417,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "(Lm 1,12-14",
+      "textSource": "(Lamentationes 1,12-14",
       "completeEdition": "NR 22,S.25",
       "note": null,
       "source": {
@@ -36442,7 +36442,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Lm 2,8-10",
+      "textSource": "Lamentationes 2,8-10",
       "completeEdition": "NR 22,S.37",
       "note": null,
       "source": {
@@ -36467,7 +36467,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Lm 2,13-15",
+      "textSource": "Lamentationes 2,13-15",
       "completeEdition": "NR 22,S.50",
       "note": null,
       "source": {
@@ -36492,7 +36492,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Lm 3,1-2,4-5,7,9",
+      "textSource": "Lamentationes 3,1-2,4-5,7,9",
       "completeEdition": "NR 22,S.63",
       "note": null,
       "source": {
@@ -36517,7 +36517,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Lm 3,22-23,25-30",
+      "textSource": "Lamentationes 3,22-23,25-30",
       "completeEdition": "NR 22,S.76",
       "note": null,
       "source": {
@@ -36542,7 +36542,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Lm 4,1-3",
+      "textSource": "Lamentationes 4,1-3",
       "completeEdition": "NR 22,S.89",
       "note": null,
       "source": {
@@ -36567,7 +36567,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Lm 5,1-6",
+      "textSource": "Lamentationes 5,1-6",
       "completeEdition": "NR 22,S.100",
       "note": null,
       "source": {
@@ -36592,7 +36592,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Eccle 2,1-4",
+      "textSource": "Ecclesiastes 2,1-4",
       "completeEdition": "GA VII 238",
       "note": null,
       "source": {
@@ -36617,7 +36617,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Eccle 2,1-4",
+      "textSource": "Ecclesiastes 2,1-4",
       "completeEdition": "GA VII 238",
       "note": null,
       "source": {
@@ -36642,7 +36642,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Eccle 2,1-4",
+      "textSource": "Ecclesiastes 2,1-4",
       "completeEdition": "GA VII 238",
       "note": null,
       "source": {
@@ -36717,7 +36717,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 3,
       "textAuthor": null,
-      "textSource": "Ier 32,18",
+      "textSource": "Ieremias 32,18",
       "completeEdition": "GA VII 232",
       "note": null,
       "source": {
@@ -36842,7 +36842,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Mt 6,9-13",
+      "textSource": "Matthaeus 6,9-13",
       "completeEdition": "GA XIII 351",
       "note": null,
       "source": {
@@ -36867,7 +36867,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Mt 6,9-13",
+      "textSource": "Matthaeus 6,9-13",
       "completeEdition": "GA XIII 351",
       "note": null,
       "source": {
@@ -36942,7 +36942,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 118,49-50",
+      "textSource": "Psalmus 118,49-50",
       "completeEdition": "GA XVII 427",
       "note": null,
       "source": {
@@ -36967,7 +36967,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Mt 28,2 und 5-6",
+      "textSource": "Matthaeus 28,2 und 5-6",
       "completeEdition": "GA XIII 336",
       "note": null,
       "source": {
@@ -37017,7 +37017,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 130",
+      "textSource": "Psalmus 130",
       "completeEdition": "GA XVII 447",
       "note": null,
       "source": {
@@ -37092,7 +37092,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Eccle 3,13",
+      "textSource": "Ecclesiastes 3,13",
       "completeEdition": "GA XV 384",
       "note": null,
       "source": {
@@ -37117,7 +37117,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 24,15-18",
+      "textSource": "Psalmus 24,15-18",
       "completeEdition": "GA XVII 422",
       "note": null,
       "source": {
@@ -37142,7 +37142,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ct 7,6-9",
+      "textSource": "Canticum canticorum 7,6-9",
       "completeEdition": "GA XIII 367",
       "note": null,
       "source": {
@@ -37192,7 +37192,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Ps 59,13-14",
+      "textSource": "Psalmus 59,13-14",
       "completeEdition": "GA XVII 423",
       "note": null,
       "source": {
@@ -37217,7 +37217,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Philp 4,4-7",
+      "textSource": "ad Philippenses 4,4-7",
       "completeEdition": "GA XV 396",
       "note": null,
       "source": {
@@ -37392,7 +37392,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 4,
       "textAuthor": null,
-      "textSource": "Eccle 3,1-8",
+      "textSource": "Ecclesiastes 3,1-8",
       "completeEdition": "GA XXI 507",
       "note": null,
       "source": {
@@ -37492,7 +37492,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus Ps 118,7,17 und 25",
+      "textSource": "aus Psalmus 118,7,17 und 25",
       "completeEdition": "GA III 97",
       "note": null,
       "source": {
@@ -37517,7 +37517,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 6,5",
+      "textSource": "Psalmus 6,5",
       "completeEdition": "GA III 98",
       "note": null,
       "source": {
@@ -37542,7 +37542,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 5,3-4 Mitte",
+      "textSource": "Psalmus 5,3-4 Mitte",
       "completeEdition": "GA III 99",
       "note": null,
       "source": {
@@ -37567,7 +37567,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 54,2-3 Mitte",
+      "textSource": "Psalmus 54,2-3 Mitte",
       "completeEdition": "GA III 100",
       "note": null,
       "source": {
@@ -37592,7 +37592,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 68,21-22",
+      "textSource": "Psalmus 68,21-22",
       "completeEdition": "GA III 101",
       "note": null,
       "source": {
@@ -37617,7 +37617,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 58,2",
+      "textSource": "Psalmus 58,2",
       "completeEdition": "GA III 116",
       "note": null,
       "source": {
@@ -37642,7 +37642,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 99,2-3 Mitte",
+      "textSource": "Psalmus 99,2-3 Mitte",
       "completeEdition": "GA III 117",
       "note": null,
       "source": {
@@ -37667,7 +37667,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 108,21",
+      "textSource": "Psalmus 108,21",
       "completeEdition": "GA III 118",
       "note": null,
       "source": {
@@ -37692,7 +37692,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 118,12,121 und 42",
+      "textSource": "Psalmus 118,12,121 und 42",
       "completeEdition": "GA III 119",
       "note": null,
       "source": {
@@ -37717,7 +37717,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 50,17",
+      "textSource": "Psalmus 50,17",
       "completeEdition": "GA III 120",
       "note": null,
       "source": {
@@ -37742,7 +37742,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "nach Ex 32,11 und 13-14",
+      "textSource": "nach Exodus 32,11 und 13-14",
       "completeEdition": "GA III 102",
       "note": null,
       "source": {
@@ -37767,7 +37767,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 17,28 und aus 32",
+      "textSource": "Psalmus 17,28 und aus 32",
       "completeEdition": "GA III 121",
       "note": null,
       "source": {
@@ -37792,7 +37792,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 136,1",
+      "textSource": "Psalmus 136,1",
       "completeEdition": "GA III 103",
       "note": null,
       "source": {
@@ -37817,7 +37817,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 118,133",
+      "textSource": "Psalmus 118,133",
       "completeEdition": "GA III 123",
       "note": null,
       "source": {
@@ -37842,7 +37842,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus Ps 17,3",
+      "textSource": "aus Psalmus 17,3",
       "completeEdition": "GA III 132",
       "note": null,
       "source": {
@@ -37867,7 +37867,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus Ps 17,3",
+      "textSource": "aus Psalmus 17,3",
       "completeEdition": "GA III 132",
       "note": null,
       "source": {
@@ -37892,7 +37892,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 16,5-7",
+      "textSource": "Psalmus 16,5-7",
       "completeEdition": "GA III 133",
       "note": null,
       "source": {
@@ -37917,7 +37917,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 139,5,1. Teil",
+      "textSource": "Psalmus 139,5,1. Teil",
       "completeEdition": "GA III 134",
       "note": null,
       "source": {
@@ -37942,7 +37942,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "nach Is 35,4",
+      "textSource": "nach Isaias 35,4",
       "completeEdition": "GA III 135",
       "note": null,
       "source": {
@@ -37967,7 +37967,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 87,2-3 Mitte",
+      "textSource": "Psalmus 87,2-3 Mitte",
       "completeEdition": "GA III 136",
       "note": null,
       "source": {
@@ -37992,7 +37992,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 39,14 Mitte - 15 Mitte",
+      "textSource": "Psalmus 39,14 Mitte - 15 Mitte",
       "completeEdition": "GA III 137",
       "note": null,
       "source": {
@@ -38017,7 +38017,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 102,2 und 5 Ende",
+      "textSource": "Psalmus 102,2 und 5 Ende",
       "completeEdition": "GA I 85",
       "note": null,
       "source": {
@@ -38067,7 +38067,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus Ps 50,3",
+      "textSource": "aus Psalmus 50,3",
       "completeEdition": "GA III 106",
       "note": null,
       "source": {
@@ -38092,7 +38092,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus Ps 69,2-4",
+      "textSource": "aus Psalmus 69,2-4",
       "completeEdition": "GA III 107",
       "note": null,
       "source": {
@@ -38117,7 +38117,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 101,2-3 Anfang",
+      "textSource": "Psalmus 101,2-3 Anfang",
       "completeEdition": "GA III 108",
       "note": null,
       "source": {
@@ -38142,7 +38142,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus Ps 39,2-4",
+      "textSource": "aus Psalmus 39,2-4",
       "completeEdition": "GA III 124",
       "note": null,
       "source": {
@@ -38167,7 +38167,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 118,12-13",
+      "textSource": "Psalmus 118,12-13",
       "completeEdition": "GA III 112",
       "note": null,
       "source": {
@@ -38192,7 +38192,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 15,7 Anfang und 8",
+      "textSource": "Psalmus 15,7 Anfang und 8",
       "completeEdition": "GA III 125",
       "note": null,
       "source": {
@@ -38217,7 +38217,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "aus Ps 9,11-13",
+      "textSource": "aus Psalmus 9,11-13",
       "completeEdition": "GA I 87",
       "note": null,
       "source": {
@@ -38242,7 +38242,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 65,8,9 und 20",
+      "textSource": "Psalmus 65,8,9 und 20",
       "completeEdition": "GA I 88",
       "note": null,
       "source": {
@@ -38267,7 +38267,7 @@
       "firstPrintYear": 1585,
       "firstPrintNo": 7,
       "textAuthor": null,
-      "textSource": "Ps 117,1-17",
+      "textSource": "Psalmus 117,1-17",
       "completeEdition": "GA I 89",
       "note": null,
       "source": {
@@ -38542,7 +38542,7 @@
       "firstPrintYear": 1586,
       "firstPrintNo": 5,
       "textAuthor": null,
-      "textSource": "Ps 33,12-16",
+      "textSource": "Psalmus 33,12-16",
       "completeEdition": "GA VII 230",
       "note": null,
       "source": {
@@ -40142,7 +40142,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 1",
+      "textSource": "nach Psalmus 1",
       "completeEdition": "GA 2 XX,VI 1",
       "note": null,
       "source": {
@@ -40192,7 +40192,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 3",
+      "textSource": "nach Psalmus 3",
       "completeEdition": "GA 2 XX,VI 2",
       "note": null,
       "source": {
@@ -40242,7 +40242,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 5",
+      "textSource": "nach Psalmus 5",
       "completeEdition": "GA 2 XX,VI 3",
       "note": null,
       "source": {
@@ -40292,7 +40292,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 7",
+      "textSource": "nach Psalmus 7",
       "completeEdition": "GA 2 XX,VI 4",
       "note": null,
       "source": {
@@ -40342,7 +40342,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 9",
+      "textSource": "nach Psalmus 9",
       "completeEdition": "GA 2 XX,VI 5",
       "note": null,
       "source": {
@@ -40392,7 +40392,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 11",
+      "textSource": "nach Psalmus 11",
       "completeEdition": "GA 2 XX,VI 6",
       "note": null,
       "source": {
@@ -40442,7 +40442,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 13",
+      "textSource": "nach Psalmus 13",
       "completeEdition": "GA 2 XX,VI 7",
       "note": null,
       "source": {
@@ -40492,7 +40492,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 15",
+      "textSource": "nach Psalmus 15",
       "completeEdition": "GA 2 XX,VI 8",
       "note": null,
       "source": {
@@ -40542,7 +40542,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 17",
+      "textSource": "nach Psalmus 17",
       "completeEdition": "GA 2 XX,VI 9",
       "note": null,
       "source": {
@@ -40592,7 +40592,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 19",
+      "textSource": "nach Psalmus 19",
       "completeEdition": "GA 2 XX,VI 10",
       "note": null,
       "source": {
@@ -40642,7 +40642,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 21",
+      "textSource": "nach Psalmus 21",
       "completeEdition": "GA 2 XX,VI 11",
       "note": null,
       "source": {
@@ -40692,7 +40692,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 23",
+      "textSource": "nach Psalmus 23",
       "completeEdition": "GA 2 XX,VI 12",
       "note": null,
       "source": {
@@ -40742,7 +40742,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 25",
+      "textSource": "nach Psalmus 25",
       "completeEdition": "GA 2 XX,VI 13",
       "note": null,
       "source": {
@@ -40792,7 +40792,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 27",
+      "textSource": "nach Psalmus 27",
       "completeEdition": "GA 2 XX,VI 14",
       "note": null,
       "source": {
@@ -40842,7 +40842,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 29",
+      "textSource": "nach Psalmus 29",
       "completeEdition": "GA 2 XX,VI 15",
       "note": null,
       "source": {
@@ -40892,7 +40892,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 31",
+      "textSource": "nach Psalmus 31",
       "completeEdition": "GA 2 XX,VI 16",
       "note": null,
       "source": {
@@ -40942,7 +40942,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 33",
+      "textSource": "nach Psalmus 33",
       "completeEdition": "GA 2 XX,VI 17",
       "note": null,
       "source": {
@@ -40992,7 +40992,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 35",
+      "textSource": "nach Psalmus 35",
       "completeEdition": "GA 2 XX,VI 18",
       "note": null,
       "source": {
@@ -41042,7 +41042,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 37",
+      "textSource": "nach Psalmus 37",
       "completeEdition": "GA 2 XX,VI 19",
       "note": null,
       "source": {
@@ -41092,7 +41092,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 39",
+      "textSource": "nach Psalmus 39",
       "completeEdition": "GA 2 XX,VI 20",
       "note": null,
       "source": {
@@ -41142,7 +41142,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 41",
+      "textSource": "nach Psalmus 41",
       "completeEdition": "GA 2 XX,VI 21",
       "note": null,
       "source": {
@@ -41192,7 +41192,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 43",
+      "textSource": "nach Psalmus 43",
       "completeEdition": "GA 2 XX,VI 22",
       "note": null,
       "source": {
@@ -41242,7 +41242,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 45",
+      "textSource": "nach Psalmus 45",
       "completeEdition": "GA 2 XX,VI 23",
       "note": null,
       "source": {
@@ -41292,7 +41292,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 47",
+      "textSource": "nach Psalmus 47",
       "completeEdition": "GA 2 XX,VI 24",
       "note": null,
       "source": {
@@ -41342,7 +41342,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 49",
+      "textSource": "nach Psalmus 49",
       "completeEdition": "GA 2 XX,VI 25",
       "note": null,
       "source": {
@@ -41417,7 +41417,7 @@
       "firstPrintYear": 1588,
       "firstPrintNo": 11,
       "textAuthor": null,
-      "textSource": "Ps 67,2",
+      "textSource": "Psalmus 67,2",
       "completeEdition": "GA III 91",
       "note": null,
       "source": {
@@ -41742,7 +41742,7 @@
       "firstPrintYear": 1590,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "nach Ps 129",
+      "textSource": "nach Psalmus 129",
       "completeEdition": "GA 2 XX,VII 2",
       "note": null,
       "source": {
@@ -41942,7 +41942,7 @@
       "firstPrintYear": 1590,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "nach Luc 1,28 und 42",
+      "textSource": "nach Lucas 1,28 und 42",
       "completeEdition": "GA 2 XX,VII 5",
       "note": null,
       "source": {
@@ -42117,7 +42117,7 @@
       "firstPrintYear": 1590,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "nach Ps 20,2-4",
+      "textSource": "nach Psalmus 20,2-4",
       "completeEdition": "GA 2 XX,VII 8",
       "note": null,
       "source": {
@@ -42267,7 +42267,7 @@
       "firstPrintYear": 1590,
       "firstPrintNo": 6,
       "textAuthor": null,
-      "textSource": "aus Is 60,6 und Ps 71,10",
+      "textSource": "aus Isaias 60,6 und Psalmus 71,10",
       "completeEdition": "GA XXI 493",
       "note": null,
       "source": {
@@ -42317,7 +42317,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Eccle 8,13 und Ps 31,3",
+      "textSource": "nach Ecclesiastes 8,13 und Psalmus 31,3",
       "completeEdition": "GA XVII 419",
       "note": null,
       "source": {
@@ -42392,7 +42392,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "II Par 6,18 Mitte - 19 Mitte",
+      "textSource": "II Paralipomenon 6,18 Mitte - 19 Mitte",
       "completeEdition": "GA XV 401",
       "note": null,
       "source": {
@@ -42417,7 +42417,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "nach Ps 30,11",
+      "textSource": "nach Psalmus 30,11",
       "completeEdition": "GA XVII 424",
       "note": null,
       "source": {
@@ -42442,7 +42442,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Eccli 15,1-2 Mitte",
+      "textSource": "Ecclesiasticus Sirach 15,1-2 Mitte",
       "completeEdition": "GA XV 383",
       "note": null,
       "source": {
@@ -42492,7 +42492,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Gn 28,16 Mitte - 17",
+      "textSource": "Genesis 28,16 Mitte - 17",
       "completeEdition": "GA XV 402",
       "note": null,
       "source": {
@@ -42517,7 +42517,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Ps 145,1-4",
+      "textSource": "Psalmus 145,1-4",
       "completeEdition": "GA XVII 428",
       "note": null,
       "source": {
@@ -42542,7 +42542,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Prv 5,21-23",
+      "textSource": "Proverbia 5,21-23",
       "completeEdition": "GA XVII 429",
       "note": null,
       "source": {
@@ -42567,7 +42567,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "aus Apc 2,17",
+      "textSource": "aus Apocalypsis 2,17",
       "completeEdition": "GA XIII 345",
       "note": null,
       "source": {
@@ -42617,7 +42617,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Prv 20,1",
+      "textSource": "Proverbia 20,1",
       "completeEdition": "GA XV 391",
       "note": null,
       "source": {
@@ -42642,7 +42642,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Prv 1,7-8",
+      "textSource": "Proverbia 1,7-8",
       "completeEdition": "GA XV 392",
       "note": null,
       "source": {
@@ -42667,7 +42667,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Ps 119",
+      "textSource": "Psalmus 119",
       "completeEdition": "GA XVII 432",
       "note": null,
       "source": {
@@ -42717,7 +42717,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Eccle 4,1-4",
+      "textSource": "Ecclesiastes 4,1-4",
       "completeEdition": "GA XVII 433",
       "note": null,
       "source": {
@@ -42792,7 +42792,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Eccli 25,15-16",
+      "textSource": "Ecclesiasticus Sirach 25,15-16",
       "completeEdition": "GA XVII 442",
       "note": null,
       "source": {
@@ -42842,7 +42842,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Heb 1-4",
+      "textSource": "ad Hebraeos 1-4",
       "completeEdition": "GA XI 330",
       "note": null,
       "source": {
@@ -42867,7 +42867,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Ps 85,14",
+      "textSource": "Psalmus 85,14",
       "completeEdition": "GA XVII 446",
       "note": null,
       "source": {
@@ -42942,7 +42942,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Apc 15,3-4",
+      "textSource": "Apocalypsis 15,3-4",
       "completeEdition": "GA XVII 450",
       "note": null,
       "source": {
@@ -42992,7 +42992,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "I Cor 9,24",
+      "textSource": "I ad Corinthios 9,24",
       "completeEdition": "GA XV 395",
       "note": null,
       "source": {
@@ -43042,7 +43042,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Ps 72,1-6",
+      "textSource": "Psalmus 72,1-6",
       "completeEdition": "GA XIX 457",
       "note": null,
       "source": {
@@ -43092,7 +43092,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Ps 85,12",
+      "textSource": "Psalmus 85,12",
       "completeEdition": "GA XIX 462",
       "note": null,
       "source": {
@@ -43142,7 +43142,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Ps 17,2-4",
+      "textSource": "Psalmus 17,2-4",
       "completeEdition": "GA XVII 436",
       "note": null,
       "source": {
@@ -43167,7 +43167,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Ps 29,2-4",
+      "textSource": "Psalmus 29,2-4",
       "completeEdition": "GA XVII 451",
       "note": null,
       "source": {
@@ -43217,7 +43217,7 @@
       "firstPrintYear": 1594,
       "firstPrintNo": 2,
       "textAuthor": null,
-      "textSource": "Ps 15,1-4 Anfang",
+      "textSource": "Psalmus 15,1-4 Anfang",
       "completeEdition": "GA XVII 443",
       "note": null,
       "source": {
@@ -44367,7 +44367,7 @@
       "firstPrintYear": 1597,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 67,31",
+      "textSource": "Psalmus 67,31",
       "completeEdition": "GA IX 289",
       "note": null,
       "source": {
@@ -45042,7 +45042,7 @@
       "firstPrintYear": 1601,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 17,5-6",
+      "textSource": "Psalmus 17,5-6",
       "completeEdition": "GA XV 398",
       "note": null,
       "source": {
@@ -45392,7 +45392,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 4,9-10",
+      "textSource": "Psalmus 4,9-10",
       "completeEdition": "GA I 47",
       "note": null,
       "source": {
@@ -45692,7 +45692,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "aus Apc 19,1-2",
+      "textSource": "aus Apocalypsis 19,1-2",
       "completeEdition": "GA I 51",
       "note": null,
       "source": {
@@ -45792,7 +45792,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "( frei zusammengestellt aus Ct 4, 1-8, 10-11 und aus 2,10-13)",
+      "textSource": "( frei zusammengestellt aus Canticum canticorum 4, 1-8, 10-11 und aus 2,10-13)",
       "completeEdition": "GA I 59",
       "note": null,
       "source": {
@@ -45817,7 +45817,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 12,4 Mitte - 5 Mitte",
+      "textSource": "Psalmus 12,4 Mitte - 5 Mitte",
       "completeEdition": "GA I 63",
       "note": null,
       "source": {
@@ -45942,7 +45942,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "aus Lc 1,13,15,14",
+      "textSource": "aus Lucas 1,13,15,14",
       "completeEdition": "GA I 77",
       "note": null,
       "source": {
@@ -46042,7 +46042,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "nach Ps 150",
+      "textSource": "nach Psalmus 150",
       "completeEdition": "GA III 114",
       "note": null,
       "source": {
@@ -46317,7 +46317,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "nach Lc 1,28",
+      "textSource": "nach Lucas 1,28",
       "completeEdition": "GA V 196",
       "note": null,
       "source": {
@@ -47092,7 +47092,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Eph 4,5-6",
+      "textSource": "ad Ephesios 4,5-6",
       "completeEdition": "GA XV 404",
       "note": null,
       "source": {
@@ -47117,7 +47117,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "II Cor 10,17-18",
+      "textSource": "II ad Corinthios 10,17-18",
       "completeEdition": "GA XV 405",
       "note": null,
       "source": {
@@ -47192,7 +47192,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Eccli 9,14-15",
+      "textSource": "Ecclesiasticus Sirach 9,14-15",
       "completeEdition": "GA XV 408",
       "note": null,
       "source": {
@@ -47217,7 +47217,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Prv 14,29",
+      "textSource": "Proverbia 14,29",
       "completeEdition": "GA XV 409",
       "note": null,
       "source": {
@@ -47242,7 +47242,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Eccli 9,2",
+      "textSource": "Ecclesiasticus Sirach 9,2",
       "completeEdition": "GA XV 410",
       "note": null,
       "source": {
@@ -47267,7 +47267,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Prv 17,27-28",
+      "textSource": "Proverbia 17,27-28",
       "completeEdition": "GA XV 411",
       "note": null,
       "source": {
@@ -47292,7 +47292,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Rom 5,3-5 Anfang",
+      "textSource": "ad Romanos 5,3-5 Anfang",
       "completeEdition": "GA XV 412",
       "note": null,
       "source": {
@@ -47317,7 +47317,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Eccli 1,11-12",
+      "textSource": "Ecclesiasticus Sirach 1,11-12",
       "completeEdition": "GA XV 413",
       "note": null,
       "source": {
@@ -47367,7 +47367,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Eccle 8,15",
+      "textSource": "Ecclesiastes 8,15",
       "completeEdition": "GA XV 415",
       "note": null,
       "source": {
@@ -47392,7 +47392,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 116",
+      "textSource": "Psalmus 116",
       "completeEdition": "GA XV 416",
       "note": null,
       "source": {
@@ -47417,7 +47417,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 76,2-6",
+      "textSource": "Psalmus 76,2-6",
       "completeEdition": "GA XIX 459",
       "note": null,
       "source": {
@@ -47667,7 +47667,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 15,8-10 Mitte",
+      "textSource": "Psalmus 15,8-10 Mitte",
       "completeEdition": "GA XIX 481",
       "note": null,
       "source": {
@@ -47692,7 +47692,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 133",
+      "textSource": "Psalmus 133",
       "completeEdition": "GA XIX 484",
       "note": null,
       "source": {
@@ -47842,7 +47842,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 88,12 und 15 Anfang",
+      "textSource": "Psalmus 88,12 und 15 Anfang",
       "completeEdition": "GA XXI 494",
       "note": null,
       "source": {
@@ -47942,7 +47942,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Eccli 51,8-12",
+      "textSource": "Ecclesiasticus Sirach 51,8-12",
       "completeEdition": "GA XXI 501",
       "note": null,
       "source": {
@@ -47967,7 +47967,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 132",
+      "textSource": "Psalmus 132",
       "completeEdition": "GA XXI 503",
       "note": null,
       "source": {
@@ -47992,7 +47992,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 85,1-4",
+      "textSource": "Psalmus 85,1-4",
       "completeEdition": "GA XXI 511",
       "note": null,
       "source": {
@@ -48067,7 +48067,7 @@
       "firstPrintYear": 1604,
       "firstPrintNo": 1,
       "textAuthor": null,
-      "textSource": "Ps 3",
+      "textSource": "Psalmus 3",
       "completeEdition": "GA XXI 515",
       "note": null,
       "source": {

@@ -27,6 +27,7 @@ OUT_DIR = ROOT / "data"
 SCHEMA_DIR = ROOT / "schema"
 REGISTRY_PATH = OUT_DIR / "id-registry.json"
 ENTRY_SCHEMA_PATH = SCHEMA_DIR / "entry.schema.json"
+MANUSCRIPT_SCHEMA_PATH = SCHEMA_DIR / "manuscript.schema.json"
 
 # Pfad, unter dem entries.json ihr Schema findet. Relativ statt als GitHub-URL,
 # damit die Pruefung im Editor auch offline funktioniert und nicht von der
@@ -34,6 +35,7 @@ ENTRY_SCHEMA_PATH = SCHEMA_DIR / "entry.schema.json"
 # auf entry.schema.json: dieses beschreibt einen einzelnen Eintrag, nicht die
 # Datei mit @context und items drumherum.
 ENTRIES_FILE_SCHEMA_RELATIVE = "../schema/entries-file.schema.json"
+MANUSCRIPTS_FILE_SCHEMA_RELATIVE = "../schema/manuscripts-file.schema.json"
 
 CONTEXT_URL = (
     "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/"
@@ -69,6 +71,31 @@ RE_LV_PLAIN = re.compile(r"^(\d+)$")
 RE_PRINT = re.compile(r"^(\d{4})-(\d+)$")
 # Fuehrende Teilsatz-Markierung im Titel, z.B. "[2] Tengan dunque"
 RE_TITLE_PART = re.compile(r"^\[(\d+)\]\s*")
+# Verweis auf eine Nummer im LV-Anhang im Freitext, z.B. "vgl. LVanh 98"
+RE_LVANH = re.compile(r"LVanh\.?\s*(\d+)", re.IGNORECASE)
+
+# Handschriften-Quelle: andere Spalten und ein anderes Feldmodell als die
+# Drucke (RISM-Sigel/Bibliothek/Signatur statt Drucksigle), deshalb ein
+# eigenes Mapping statt eines weiteren Eintrags in SOURCES.
+MANUSCRIPT_SOURCES = [
+    {
+        "id": "handschriften",
+        "file": "werke_aus_handschriften.xlsx",
+        "sheet": "Werke",
+        "columns": {
+            "LV": "lv",
+            "Unternummer": "lvPart",
+            "Titel": "title",
+            "Weitere Teile": "note",
+            "Stimmen": "voices",
+            "RISM-Sigel": "rismSiglum",
+            "Ort": "place",
+            "Bibliothek": "library",
+            "Signatur": "shelfmark",
+            "Quellenart": "sourceDescription",
+        },
+    },
+]
 
 
 def clean(value):
@@ -142,6 +169,35 @@ def natural_key(dataset, lv, first_print, seen):
     """
     base = "{0}|{1}|{2}".format(
         dataset, lv or "ohne-lv", first_print or "ohne-druck"
+    )
+    key = base
+    counter = 2
+    while key in seen:
+        key = "{0}|{1}".format(base, counter)
+        counter += 1
+    seen.add(key)
+    return key
+
+
+def natural_key_manuscript(dataset, lv, lv_anh, lv_part, rism, shelfmark, seen):
+    """Fachlicher Wiedererkennungsschluessel einer Handschriften-Zeile.
+
+    Eine physische Quelle (RISM-Sigel plus Signatur) kann mehrere
+    Lasso-Stuecke enthalten, und dasselbe Stueck kann in mehreren Quellen
+    ueberliefert sein. Erst das Werk (LV oder LVanh, ggf. mit Teilsatz)
+    zusammen mit der Quelle identifiziert eine Zeile eindeutig und bleibt
+    ueber spaetere Importe hinweg stabil. Eigene Funktion statt Wiederverwendung
+    von natural_key: die Felder unterscheiden sich, und eine Aenderung an
+    natural_key wuerde sonst versehentlich auch die laengst vergebenen
+    Schluessel der Drucke verschieben.
+    """
+    base = "{0}|{1}|{2}|{3}|{4}|{5}".format(
+        dataset,
+        lv or "ohne-lv",
+        lv_anh if lv_anh is not None else "ohne-anh",
+        lv_part if lv_part is not None else "ohne-teil",
+        rism or "ohne-rism",
+        shelfmark or "ohne-signatur",
     )
     key = base
     counter = 2
@@ -270,11 +326,119 @@ def read_source(spec, registry):
     return entries, new_ids
 
 
-def derive_works(entries):
-    """Gruppiert die Eintraege zu Werken.
+def read_manuscripts(spec, registry):
+    """Liest eine registrierte Handschriften-Quelle und liefert Zeugnisse.
 
-    Schluessel ist die LV-Nummer, die dieselbe Komposition ueber mehrere
-    Drucke hinweg zusammenhaelt.
+    Anders als bei den Drucken steckt die Teilsatznummer nicht in der
+    LV-Schreibweise ("100-2"), sondern in einer eigenen Spalte (Unternummer),
+    und es gibt keine Fassungskennzeichnung wie "74 (IV)". Fehlt die
+    LV-Nummer, verweist das Freitextfeld "Weitere Teile" manchmal auf eine
+    Nummer im LV-Anhang (etwa "vgl. LVanh 98"); die wird hier erkannt, damit
+    auch diese Stuecke spaeter zu einem Werk gruppiert werden koennen. Fehlen
+    beide, bleibt die Zeile unverknuepft, wird aber nicht verworfen, siehe
+    write_unclassified_report.
+    """
+    path = RAW_DIR / spec["file"]
+    workbook = openpyxl.load_workbook(path, data_only=True, read_only=True)
+    sheet = workbook[spec["sheet"]]
+    rows = sheet.iter_rows(values_only=True)
+    header = [clean(c) for c in next(rows)]
+
+    mapping = spec["columns"]
+    unmapped = [h for h in header if h and h not in mapping]
+    if unmapped:
+        print("  Hinweis: nicht gemappte Spalten nach 'extra': {0}".format(unmapped))
+
+    manuscripts = []
+    seen_keys = set()
+    new_ids = 0
+    for row_no, row in enumerate(rows, start=2):
+        record = {}
+        extra = {}
+        for column, value in zip(header, row):
+            if column is None:
+                continue
+            cleaned = clean(value)
+            if column in mapping:
+                record[mapping[column]] = cleaned
+            elif cleaned is not None:
+                extra[column] = cleaned
+
+        if not record.get("title"):
+            continue  # vollstaendig leere Zeile
+
+        lv_base = int(record["lv"]) if record.get("lv") else None
+        lv_part = int(record["lvPart"]) if record.get("lvPart") else None
+        lv = None
+        if lv_base is not None:
+            lv = "{0}-{1}".format(lv_base, lv_part) if lv_part else str(lv_base)
+
+        note = record.get("note")
+        lv_anh = None
+        if lv is None and note:
+            match = RE_LVANH.search(note)
+            if match:
+                lv_anh = int(match.group(1))
+
+        voices, voices_raw = parse_voices(record.get("voices"))
+
+        key = natural_key_manuscript(
+            spec["id"],
+            lv,
+            lv_anh,
+            lv_part,
+            record.get("rismSiglum"),
+            record.get("shelfmark"),
+            seen_keys,
+        )
+        internal_id, is_new = assign_id(registry, key)
+        if is_new:
+            new_ids += 1
+
+        manuscript = {
+            "@id": "manuscript:{0:05d}".format(internal_id),
+            "@type": "ManuscriptWitness",
+            "id": internal_id,
+            "lv": lv,
+            "lvBase": lv_base,
+            "lvPart": lv_part,
+            "lvAnh": lv_anh,
+            "title": record.get("title"),
+            "voices": voices,
+            "rismSiglum": record.get("rismSiglum"),
+            "place": record.get("place"),
+            "library": record.get("library"),
+            "shelfmark": record.get("shelfmark"),
+            "sourceDescription": record.get("sourceDescription"),
+            "note": note,
+            "source": {
+                "dataset": spec["id"],
+                "file": spec["file"],
+                "row": row_no,
+                "key": key,
+            },
+        }
+        if voices_raw:
+            manuscript["voicesRaw"] = voices_raw
+        if extra:
+            manuscript["extra"] = extra
+        manuscripts.append(manuscript)
+
+    workbook.close()
+    return manuscripts, new_ids
+
+
+def derive_works(entries, manuscripts):
+    """Gruppiert Eintraege und Handschriften-Zeugnisse zu Werken.
+
+    Schluessel ist zunaechst die LV-Nummer aus den Drucken, wie bisher. Zwei
+    Faelle kommen durch die Handschriften hinzu: eine LV-Nummer, die im
+    Druckkatalog gar nicht vorkommt (das Werk ist nur handschriftlich
+    ueberliefert, erhaelt hier aber trotzdem einen Wertrag, wie im Katalog
+    selbst ueblich), oder eine Nummer aus dem LV-Anhang fuer Stuecke ganz
+    ausserhalb des Haupt-LV-Katalogs. Handschriften ohne LV und ohne
+    Anhangsnummer bleiben unverknuepft; sie stehen trotzdem in
+    manuscripts.json, siehe write_unclassified_report.
     """
     works = {}
     collect = (
@@ -286,28 +450,34 @@ def derive_works(entries):
         ("completeEdition", "completeEditions"),
     )
 
+    def new_work(lv, lv_base, lv_part, lv_variant, lv_anh):
+        slug_source = lv if lv is not None else "anh-{0}".format(lv_anh)
+        slug = re.sub(r"[^A-Za-z0-9]+", "-", slug_source).strip("-")
+        return {
+            "@id": "work:" + slug,
+            "@type": "Work",
+            "lv": lv,
+            "lvBase": lv_base,
+            "lvPart": lv_part,
+            "lvVariant": lv_variant,
+            "lvAnh": lv_anh,
+            "titles": [],
+            "voiceCounts": [],
+            "prints": [],
+            "textAuthors": [],
+            "textSources": [],
+            "completeEditions": [],
+            "entries": [],
+            "manuscripts": [],
+        }
+
     for entry in entries:
         key = entry["lv"]
         if key is None:
             continue
         work = works.get(key)
         if work is None:
-            slug = re.sub(r"[^A-Za-z0-9]+", "-", key).strip("-")
-            work = {
-                "@id": "work:" + slug,
-                "@type": "Work",
-                "lv": key,
-                "lvBase": entry["lvBase"],
-                "lvPart": entry["lvPart"],
-                "lvVariant": entry["lvVariant"],
-                "titles": [],
-                "voiceCounts": [],
-                "prints": [],
-                "textAuthors": [],
-                "textSources": [],
-                "completeEditions": [],
-                "entries": [],
-            }
+            work = new_work(key, entry["lvBase"], entry["lvPart"], entry["lvVariant"], None)
             works[key] = work
         for field, target in collect:
             value = entry.get(field)
@@ -315,13 +485,47 @@ def derive_works(entries):
                 work[target].append(value)
         work["entries"].append(entry["@id"])
 
+    by_anh = {}
+    for manuscript in manuscripts:
+        key = manuscript["lv"]
+        if key is not None:
+            work = works.get(key)
+            if work is None:
+                work = new_work(key, manuscript["lvBase"], manuscript["lvPart"], None, None)
+                works[key] = work
+        elif manuscript["lvAnh"] is not None:
+            lv_anh = manuscript["lvAnh"]
+            work = by_anh.get(lv_anh)
+            if work is None:
+                work = new_work(None, None, None, None, lv_anh)
+                by_anh[lv_anh] = work
+        else:
+            continue  # keiner Nummer zuzuordnen, bleibt unverknuepft
+
+        title = manuscript["title"]
+        if title and title not in work["titles"]:
+            work["titles"].append(title)
+        voices = manuscript["voices"]
+        if voices is not None and voices not in work["voiceCounts"]:
+            work["voiceCounts"].append(voices)
+        work["manuscripts"].append(manuscript["@id"])
+
+    for work in by_anh.values():
+        works[work["@id"]] = work  # eigener Namensraum (work:anh-*), keine Kollision mit LV-Schluesseln
+
     for work in works.values():
         work["entryCount"] = len(work["entries"])
         work["voiceCounts"].sort()
 
     return sorted(
         works.values(),
-        key=lambda w: (w["lvBase"] or 0, w["lvPart"] or 0, w["lvVariant"] or ""),
+        key=lambda w: (
+            0 if w["lvAnh"] is None else 1,
+            w["lvBase"] or 0,
+            w["lvPart"] or 0,
+            w["lvVariant"] or "",
+            w["lvAnh"] or 0,
+        ),
     )
 
 
@@ -350,13 +554,34 @@ def derive_prints(entries):
     )
 
 
+PERSON_AUTHORITIES_PATH = RAW_DIR / "personen_normdaten.json"
+
+
+def load_person_authorities():
+    """Laedt die manuell kuratierte GND/VIAF-Zuordnung fuer Textdichter.
+
+    Eine reine Namensform-Zusammenfuehrung waere eine Zeichenkettenoperation;
+    eine Normdatenverknuepfung ist dagegen eine fachliche Feststellung ueber
+    eine bestimmte historische Person und wird deshalb nicht automatisch aus
+    den Rohwerten erraten, siehe die Begruendung in docs/entscheidungen.md.
+    Fehlt die Datei, laeuft der Import trotzdem durch, nur ohne Verknuepfung.
+    """
+    if not PERSON_AUTHORITIES_PATH.exists():
+        return {}
+    with PERSON_AUTHORITIES_PATH.open(encoding="utf-8") as handle:
+        data = json.load(handle)
+    return {key: value for key, value in data.items() if not key.startswith("$")}
+
+
 def derive_persons(entries):
     """Sammelt die Textdichter als Rohwerte.
 
     Abweichende Schreibweisen werden bewusst nicht automatisch zusammengefuehrt.
-    Das bleibt eine redaktionelle Entscheidung und gehoert spaeter in eine
-    gepflegte Normdatei mit GND- und VIAF-Verknuepfung.
+    Das bleibt eine redaktionelle Entscheidung. Fuer namentlich eindeutig
+    identifizierte Personen liefert personen_normdaten.json GND und VIAF,
+    siehe load_person_authorities.
     """
+    authorities = load_person_authorities()
     persons = {}
     for entry in entries:
         name = entry.get("textAuthor")
@@ -367,13 +592,14 @@ def derive_persons(entries):
             continue
         item = persons.get(slug)
         if item is None:
+            authority = authorities.get(name, {})
             item = {
                 "@id": "person:" + slug,
                 "@type": "Person",
                 "nameRaw": name,
                 "role": "textAuthor",
-                "gnd": None,
-                "viaf": None,
+                "gnd": authority.get("gnd"),
+                "viaf": authority.get("viaf"),
                 "entryCount": 0,
             }
             persons[slug] = item
@@ -411,6 +637,76 @@ def validate_entries(entries):
     print("Schema-Pruefung bestanden, {0} Eintraege gegen {1}.".format(
         len(entries), ENTRY_SCHEMA_PATH.relative_to(ROOT)
     ))
+
+
+def validate_manuscripts(manuscripts):
+    """Prueft jedes Handschriften-Zeugnis gegen schema/manuscript.schema.json.
+
+    Analog zu validate_entries, siehe dort fuer die Begruendung.
+    """
+    with MANUSCRIPT_SCHEMA_PATH.open(encoding="utf-8") as handle:
+        schema = json.load(handle)
+    validator = jsonschema.Draft202012Validator(schema)
+
+    errors = []
+    for manuscript in manuscripts:
+        for error in validator.iter_errors(manuscript):
+            errors.append((manuscript.get("id"), manuscript.get("@id"), error.message))
+
+    if errors:
+        print()
+        print("Schema-Pruefung (Handschriften) fehlgeschlagen, {0} Fehler:".format(len(errors)))
+        for internal_id, manuscript_id, message in errors[:20]:
+            print("  id {0} ({1}): {2}".format(internal_id, manuscript_id, message))
+        if len(errors) > 20:
+            print("  ... und {0} weitere".format(len(errors) - 20))
+        raise SystemExit(1)
+
+    print("Schema-Pruefung (Handschriften) bestanden, {0} Zeugnisse gegen {1}.".format(
+        len(manuscripts), MANUSCRIPT_SCHEMA_PATH.relative_to(ROOT)
+    ))
+
+
+def write_unclassified_report(manuscripts):
+    """Schreibt eine Liste der Handschriften-Zeilen ohne LV- oder
+    Anhangsnummer nach docs/, damit sie spaeter von Hand zugeordnet werden
+    koennen, statt beim Import stillschweigend zu verschwinden.
+
+    Wird bei jedem Lauf ueberschrieben. Kein Ort fuer manuelle Ergaenzungen:
+    eine Zuordnung gehoert in raw/werke_aus_handschriften.xlsx selbst, als
+    LV-Nummer oder als Verweis auf eine LVanh-Nummer in "Weitere Teile".
+    """
+    unclassified = [m for m in manuscripts if m["lv"] is None and m["lvAnh"] is None]
+    lines = [
+        "# Handschriften ohne LV- oder Anhangsnummer",
+        "",
+        "Automatisch erzeugt von `scripts/import_excel.py`, bei jedem Import",
+        "ueberschrieben. Nicht von Hand bearbeiten. Eine Zuordnung gehoert in",
+        "`raw/werke_aus_handschriften.xlsx`, entweder als Eintrag in der Spalte",
+        "LV oder als Verweis auf eine LVanh-Nummer in der Spalte 'Weitere Teile'.",
+        "",
+        "{0} von {1} Handschriften-Zeugnissen sind (noch) keinem Werk zugeordnet.".format(
+            len(unclassified), len(manuscripts)
+        ),
+        "",
+        "| Titel | Ort | Bibliothek | Signatur | Stimmen |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for manuscript in sorted(unclassified, key=lambda m: (m["title"] or "").lower()):
+        lines.append(
+            "| {0} | {1} | {2} | {3} | {4} |".format(
+                (manuscript["title"] or "").replace("|", "\\|"),
+                (manuscript["place"] or "").replace("|", "\\|"),
+                (manuscript["library"] or "").replace("|", "\\|"),
+                (manuscript["shelfmark"] or "").replace("|", "\\|"),
+                manuscript["voices"] if manuscript["voices"] is not None else "",
+            )
+        )
+
+    path = ROOT / "docs" / "handschriften-ohne-zuordnung.md"
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write("\n".join(lines) + "\n")
+    return path, len(unclassified)
 
 
 def write_json(filename, payload):
@@ -454,13 +750,37 @@ def main():
             }
         )
 
+    manuscripts = []
+    for spec in MANUSCRIPT_SOURCES:
+        path = RAW_DIR / spec["file"]
+        print("Lese {0} / {1}".format(spec["file"], spec["sheet"]))
+        source_manuscripts, new_ids = read_manuscripts(spec, registry)
+        print(
+            "  {0} Zeugnisse, davon {1} mit neu vergebener ID".format(
+                len(source_manuscripts), new_ids
+            )
+        )
+        manuscripts.extend(source_manuscripts)
+        provenance.append(
+            {
+                "dataset": spec["id"],
+                "file": spec["file"],
+                "sheet": spec["sheet"],
+                "sha256": file_digest(path),
+                "entries": len(source_manuscripts),
+            }
+        )
+
     entries.sort(key=lambda e: e["id"])
+    manuscripts.sort(key=lambda m: m["id"])
     validate_entries(entries)
+    validate_manuscripts(manuscripts)
     save_registry(registry)
 
-    works = derive_works(entries)
+    works = derive_works(entries, manuscripts)
     prints = derive_prints(entries)
     persons = derive_persons(entries)
+    report_path, unclassified_count = write_unclassified_report(manuscripts)
 
     write_json(
         "entries.json",
@@ -468,6 +788,14 @@ def main():
             "$schema": ENTRIES_FILE_SCHEMA_RELATIVE,
             "@context": CONTEXT_URL,
             "items": entries,
+        },
+    )
+    write_json(
+        "manuscripts.json",
+        {
+            "$schema": MANUSCRIPTS_FILE_SCHEMA_RELATIVE,
+            "@context": CONTEXT_URL,
+            "items": manuscripts,
         },
     )
     write_json("works.json", {"@context": CONTEXT_URL, "items": works})
@@ -481,7 +809,13 @@ def main():
             "context": CONTEXT_URL,
             "counts": {
                 "entries": len(entries),
+                "manuscripts": len(manuscripts),
+                "manuscriptsUnclassified": unclassified_count,
                 "works": len(works),
+                "worksFromManuscriptsOnly": len(
+                    [w for w in works if not w["entries"] and w["manuscripts"]]
+                ),
+                "worksInAppendix": len([w for w in works if w["lvAnh"] is not None]),
                 "prints": len(prints),
                 "persons": len(persons),
                 "idsAssigned": len(registry["assigned"]),
@@ -492,17 +826,21 @@ def main():
     )
 
     multi = [w for w in works if w["entryCount"] > 1]
+    with_manuscripts = [w for w in works if w["manuscripts"]]
     print()
-    print("Eintraege   : {0}".format(len(entries)))
+    print("Eintraege     : {0}".format(len(entries)))
+    print("Handschriften : {0}, davon {1} ohne Zuordnung ({2})".format(
+        len(manuscripts), unclassified_count, report_path.relative_to(ROOT)
+    ))
     print(
-        "Werke       : {0}, davon {1} in mehreren Drucken".format(
-            len(works), len(multi)
+        "Werke         : {0}, davon {1} in mehreren Drucken, {2} mit Handschriften bezeugt".format(
+            len(works), len(multi), len(with_manuscripts)
         )
     )
-    print("Drucke      : {0}".format(len(prints)))
-    print("Textdichter : {0}".format(len(persons)))
+    print("Drucke        : {0}".format(len(prints)))
+    print("Textdichter   : {0}".format(len(persons)))
     print(
-        "Interne IDs : {0} vergeben, {1} davon neu, naechste freie ID {2}".format(
+        "Interne IDs   : {0} vergeben, {1} davon neu, naechste freie ID {2}".format(
             len(registry["assigned"]),
             len(registry["assigned"]) - known_before,
             registry["nextId"],
