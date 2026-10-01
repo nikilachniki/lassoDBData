@@ -546,6 +546,87 @@ geändert hat, 0 neue IDs bei 8939 unveränderten Zeugnissen.
 
 ---
 
+## 17. Fassungen als Expression statt als eigenes Werk
+
+**Entscheidung.** Einträge mit Fassungskennzeichnung, etwa `74 (IV)` oder
+`193 (II)`, bilden kein eigenes Werk mehr. Sie werden als `Expression` in der
+neuen Datei `expressions.json` geführt und verweisen über `realizationOf` auf
+das Werk mit der Grundnummer. Das Werk listet seine Fassungen umgekehrt in
+`expressions`. Das Feld `lvVariant` entfällt in `works.json`, in
+`entries.json` bleibt es als Teil der zeilengetreuen Quelle erhalten.
+
+**Befund.** Die römische Ziffer zählt nicht Fassungen durch, sondern
+bezeichnet den Teil (Pars) des Werks, von dem eine abweichende Fassung
+existiert, jeweils in einem anderen Druck und mit anderer Stimmenzahl.
+`193 (II)` ist der zweite Teil von LV 193 sechsstimmig im Druck 1564-7,
+`193-2` derselbe Teil fünfstimmig im Druck 1566-8. Ebenso entspricht
+`326 (II)` dreistimmig dem sechsstimmigen `326-2`. Betroffen sind 9 Einträge
+zu 7 Werken (LV 74, 100, 182, 193, 246, 326, 327).
+
+**Begründung.** Bisher erschien jede Fassung als eigenes Werk mit eigener
+Detailseite, obwohl sie fachlich dieselbe Komposition in anderer Gestalt ist.
+FRBR und IFLA LRM fassen genau das als Expression: eine bestimmte
+Realisierung eines Werks, hier in abweichender Besetzung. Damit wird nach
+Werk und Manifestation (Abschnitt 6) eine weitere Ebene des Modells
+übernommen, beschränkt auf den Fall, den die Quelle ausdrücklich kennzeichnet.
+
+**Zuordnung zum Gesamtwerk.** Die Expression verweist auf das Gesamtwerk,
+nicht auf den einzelnen Teil-Datensatz, und behält die Ziffer als `pars`. Die
+Ziffer lässt sich nicht verlässlich auf eine Teilnummer abbilden: Bei LV 74
+ist der Datensatz `74` die Überschrift „Sestina:“, sodass `74 (III)`
+(„Secchi vedransi“) nicht `74-3` entspricht, sondern `74-4`. Eine Zuordnung
+über den Titel wurde aus demselben Grund wie in Abschnitt 7 verworfen.
+
+**Alternativen.** Eine Expression für jedes Werk, auch ohne Fassung, wie es
+FRBR streng genommen verlangt. Das hätte rund 2000 inhaltsleere Datensätze
+erzeugt. Ebenso ließen sich die 32 LV-Nummern, die in mehreren Drucken mit
+abweichender Stimmenzahl stehen (Abschnitt 6, etwa LV 90), als Expressions
+fassen. Das bleibt offen, weil die Quelle diese Fälle nicht als Fassung
+kennzeichnet und die Abgrenzung fachlich zu prüfen ist.
+
+**Preis.** Die Kennung `@id` der neun früheren Fassungs-Werke (etwa
+`work:74-IV`) entfällt; sie heißen jetzt `expression:74-IV`. Interne IDs der
+Einträge sind nicht betroffen, die Registry bleibt unverändert. Wer Werke
+zählt, erhält 2161 statt bisher 2170.
+
+---
+
+## 18. Teil-Beziehung und bevorzugter Titel ausdrücklich im Datensatz
+
+**Entscheidung.** Zwei Angaben, die sich bisher nur erschließen ließen,
+stehen jetzt ausdrücklich in `works.json`:
+
+- **Teil-Beziehung.** Ein Teilsatz wie `100-2` trägt `isPartOf: "work:100"`,
+  das Gesamtwerk umgekehrt `hasPart` mit seinen Teilen in Katalogreihenfolge.
+  Beide Felder sind auf `dcterms:isPartOf` und `dcterms:hasPart` abgebildet.
+- **Bevorzugter Titel.** Die Titelliste `titles` ist ersetzt durch
+  `preferredTitle` und `variantTitles`, in `works.json` wie in
+  `expressions.json`. Bevorzugt ist der Titel des frühesten Drucks, nach Jahr
+  und laufender Nummer im Jahr, bei Werken ohne Druck der Titel der ersten
+  Handschrift. Alle übrigen Titel stehen als Varianten in Quellreihenfolge.
+
+**Begründung.** FRBR und IFLA LRM sehen Beziehungen zwischen Werken als
+eigene Aussage vor, nicht als Folgerung aus einer Nummernsyntax. Bisher
+musste jede Anwendung die Logik von `lvBase` und `lvPart` selbst nachbauen,
+die Oberfläche tat das an drei Stellen. Ebenso verlangt das Modell einen
+bevorzugten Titel neben den Varianten. Der Haupttitel ergab sich bisher nur
+daraus, dass der Import zuerst die Titel der Drucke einsammelt, eine
+Eigenschaft der Schleifenreihenfolge, die eine spätere Änderung des Skripts
+stillschweigend hätte brechen können.
+
+**Ergebnis.** Alle 803 Teile haben ein Gesamtwerk. Fehlt es künftig einmal,
+bricht der Import ab, statt einen Teil ohne Bezug zu schreiben. Die Regel für
+den bevorzugten Titel liefert beim derzeitigen Bestand für alle 2161 Werke
+denselben Titel wie bisher `titles[0]`; sie macht die geltende Praxis
+ausdrücklich, ohne sie zu ändern.
+
+**Preis.** `lvBase` und `lvPart` bleiben zusätzlich erhalten, die Teil-
+Beziehung steht also doppelt im Datensatz. Das ist gewollt: Die Nummern sind
+Teil der Katalogangabe und werden für Sortierung und Anzeige gebraucht. Wer
+`titles` gelesen hat, muss auf die beiden neuen Felder umstellen.
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
@@ -554,7 +635,9 @@ geändert hat, 0 neue IDs bei 8939 unveränderten Zeugnissen.
 - **CIDOC-CRM und FRBRoo** zielen auf sammlungsübergreifende Interoperabilität
   von Institutionen. Der Modellierungsaufwand steht für ein Projekt dieser Größe
   in keinem Verhältnis. Die zugrunde liegende Unterscheidung von Werk und
-  Manifestation wurde gleichwohl übernommen, siehe Abschnitt 6.
+  Manifestation wurde gleichwohl übernommen, siehe Abschnitt 6, für
+  ausdrücklich gekennzeichnete Fassungen auch die Expression, siehe
+  Abschnitt 17.
 - **Triplestore und SPARQL** wurden aufgeschoben. Der JSON-LD-Kontext hält den
   Weg dorthin offen, ohne ihn jetzt gehen zu müssen.
 - **GND und VIAF** sind für Textdichter mittlerweile für 36 von 84 Rohwerten

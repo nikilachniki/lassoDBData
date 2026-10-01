@@ -8,6 +8,7 @@
     "print": "https://nikilachniki.github.io/lassoDBData/id/print/",
     "person": "https://nikilachniki.github.io/lassoDBData/id/person/",
     "manuscript": "https://nikilachniki.github.io/lassoDBData/id/manuscript/",
+    "expression": "https://nikilachniki.github.io/lassoDBData/id/expression/",
 
     "dcterms": "http://purl.org/dc/terms/",
     "schema": "https://schema.org/",
@@ -21,6 +22,7 @@
     "Print": "lasso:Print",
     "Person": "schema:Person",
     "ManuscriptWitness": "lasso:ManuscriptWitness",
+    "Expression": "lasso:Expression",
 
     "id": { "@id": "lasso:internalId", "@type": "xsd:integer" },
     "lv": "lasso:lv",
@@ -32,6 +34,8 @@
     "title": "dcterms:title",
     "titleRaw": "lasso:titleRaw",
     "titles": { "@id": "dcterms:title", "@container": "@set" },
+    "preferredTitle": "lasso:preferredTitle",
+    "variantTitles": { "@id": "lasso:variantTitle", "@container": "@set" },
 
     "voices": { "@id": "lasso:voices", "@type": "xsd:integer" },
     "voicesRaw": "lasso:voicesRaw",
@@ -62,6 +66,11 @@
     "entries": { "@id": "lasso:hasEntry", "@type": "@id", "@container": "@set" },
     "entryCount": { "@id": "lasso:entryCount", "@type": "xsd:integer" },
     "manuscripts": { "@id": "lasso:hasManuscriptWitness", "@type": "@id", "@container": "@set" },
+    "expressions": { "@id": "lasso:hasExpression", "@type": "@id", "@container": "@set" },
+    "realizationOf": { "@id": "lasso:realizationOf", "@type": "@id" },
+    "isPartOf": { "@id": "dcterms:isPartOf", "@type": "@id" },
+    "hasPart": { "@id": "dcterms:hasPart", "@type": "@id", "@container": "@set" },
+    "pars": "lasso:pars",
 
     "rismSiglum": "lasso:rismSiglum",
     "place": "lasso:place",

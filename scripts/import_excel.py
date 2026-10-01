@@ -457,18 +457,14 @@ def derive_works(entries, manuscripts):
     ausserhalb des Haupt-LV-Katalogs. Handschriften ohne LV und ohne
     Anhangsnummer bleiben unverknuepft; sie stehen trotzdem in
     manuscripts.json, siehe write_unclassified_report.
+
+    Eintraege mit Fassungskennzeichnung wie "74 (IV)" bilden kein eigenes
+    Werk, sondern eine Expression (FRBR) des Werks mit der Grundnummer, siehe
+    derive_expressions und docs/entscheidungen.md, Abschnitt 17.
     """
     works = {}
-    collect = (
-        ("title", "titles"),
-        ("voices", "voiceCounts"),
-        ("firstPrint", "prints"),
-        ("textAuthor", "textAuthors"),
-        ("textSource", "textSources"),
-        ("completeEdition", "completeEditions"),
-    )
 
-    def new_work(lv, lv_base, lv_part, lv_variant, lv_anh):
+    def new_work(lv, lv_base, lv_part, lv_anh):
         slug_source = lv if lv is not None else "anh-{0}".format(lv_anh)
         slug = re.sub(r"[^A-Za-z0-9]+", "-", slug_source).strip("-")
         return {
@@ -477,8 +473,9 @@ def derive_works(entries, manuscripts):
             "lv": lv,
             "lvBase": lv_base,
             "lvPart": lv_part,
-            "lvVariant": lv_variant,
             "lvAnh": lv_anh,
+            "isPartOf": None,
+            "hasPart": [],
             "titles": [],
             "voiceCounts": [],
             "prints": [],
@@ -487,21 +484,28 @@ def derive_works(entries, manuscripts):
             "completeEditions": [],
             "entries": [],
             "manuscripts": [],
+            "expressions": [],
         }
 
     for entry in entries:
         key = entry["lv"]
-        if key is None:
-            continue
+        if key is None or entry["lvVariant"] is not None:
+            continue  # Fassungen werden in derive_expressions behandelt
         work = works.get(key)
         if work is None:
-            work = new_work(key, entry["lvBase"], entry["lvPart"], entry["lvVariant"], None)
+            work = new_work(key, entry["lvBase"], entry["lvPart"], None)
             works[key] = work
-        for field, target in collect:
-            value = entry.get(field)
-            if value is not None and value not in work[target]:
-                work[target].append(value)
+        collect_values(work, entry)
         work["entries"].append(entry["@id"])
+
+    # Jede Fassung braucht ihr Werk, auch wenn die Grundnummer selbst in
+    # keinem Druck vorkommt. Derzeit ist das nie der Fall, der Fall wird
+    # trotzdem abgedeckt, damit keine Fassung ohne Werk bleibt.
+    for entry in entries:
+        if entry["lvVariant"] is not None:
+            key = str(entry["lvBase"])
+            if key not in works:
+                works[key] = new_work(key, entry["lvBase"], None, None)
 
     by_anh = {}
     for manuscript in manuscripts:
@@ -509,13 +513,13 @@ def derive_works(entries, manuscripts):
         if key is not None:
             work = works.get(key)
             if work is None:
-                work = new_work(key, manuscript["lvBase"], manuscript["lvPart"], None, None)
+                work = new_work(key, manuscript["lvBase"], manuscript["lvPart"], None)
                 works[key] = work
         elif manuscript["lvAnh"] is not None:
             lv_anh = manuscript["lvAnh"]
             work = by_anh.get(lv_anh)
             if work is None:
-                work = new_work(None, None, None, None, lv_anh)
+                work = new_work(None, None, None, lv_anh)
                 by_anh[lv_anh] = work
         else:
             continue  # keiner Nummer zuzuordnen, bleibt unverknuepft
@@ -535,16 +539,160 @@ def derive_works(entries, manuscripts):
         work["entryCount"] = len(work["entries"])
         work["voiceCounts"].sort()
 
-    return sorted(
+    result = sorted(
         works.values(),
         key=lambda w: (
             0 if w["lvAnh"] is None else 1,
             w["lvBase"] or 0,
             w["lvPart"] or 0,
-            w["lvVariant"] or "",
             w["lvAnh"] or 0,
         ),
     )
+    link_parts(result)
+    entry_by_id = {entry["@id"]: entry for entry in entries}
+    manuscript_by_id = {manuscript["@id"]: manuscript for manuscript in manuscripts}
+    return [split_titles(work, entry_by_id, manuscript_by_id) for work in result]
+
+
+def link_parts(works):
+    """Haelt die Teil-Beziehung ausdruecklich fest: isPartOf und hasPart.
+
+    Ein Teilsatz wie "100-2" gehoert zum Werk mit der Grundnummer, "100".
+    Bisher ergab sich das nur aus der Nummernlogik (lvBase/lvPart), die jeder
+    Leser selbst nachbauen musste. Die Werke muessen bereits nach Teilnummer
+    sortiert sein, damit hasPart in Katalogreihenfolge steht.
+    """
+    by_id = {work["@id"]: work for work in works}
+    for work in works:
+        if work["lvPart"] is None:
+            continue
+        base_id = "work:{0}".format(work["lvBase"])
+        base = by_id.get(base_id)
+        if base is None:
+            raise ValueError(
+                "Teil {0} ohne Gesamtwerk {1}".format(work["@id"], base_id)
+            )
+        work["isPartOf"] = base_id
+        base["hasPart"].append(work["@id"])
+
+
+def split_titles(item, entry_by_id, manuscript_by_id):
+    """Ersetzt die Titelliste durch bevorzugten Titel und Varianten.
+
+    Bevorzugt ist der Titel des fruehesten Drucks (nach Jahr, dann laufender
+    Nummer im Jahr), bei Werken ohne Druck der Titel der ersten Handschrift.
+    Alle uebrigen Titel bleiben als Varianten in Quellreihenfolge erhalten.
+    Gibt ein neues Objekt zurueck, damit die beiden Felder an der Stelle der
+    bisherigen Titelliste stehen und die Ausgabe lesbar bleibt.
+    """
+    printed = sorted(
+        (entry_by_id[entry_id] for entry_id in item["entries"]),
+        key=lambda e: (
+            e["firstPrintYear"] if e["firstPrintYear"] is not None else float("inf"),
+            e["firstPrintNo"] if e["firstPrintNo"] is not None else float("inf"),
+        ),
+    )
+    handwritten = [manuscript_by_id[m_id] for m_id in item.get("manuscripts", [])]
+    candidates = [e["title"] for e in printed] + [m["title"] for m in handwritten]
+    preferred = next((title for title in candidates if title), None)
+
+    result = {}
+    for key, value in item.items():
+        if key == "titles":
+            result["preferredTitle"] = preferred
+            result["variantTitles"] = [title for title in value if title != preferred]
+        else:
+            result[key] = value
+    return result
+
+
+# Felder eines Eintrags, die Werk und Expression als Liste ohne Dubletten
+# sammeln: Eintragsfeld -> Listenfeld.
+AGGREGATED_FIELDS = (
+    ("title", "titles"),
+    ("voices", "voiceCounts"),
+    ("firstPrint", "prints"),
+    ("textAuthor", "textAuthors"),
+    ("textSource", "textSources"),
+    ("completeEdition", "completeEditions"),
+)
+
+
+def collect_values(target, entry):
+    """Uebernimmt die mehrwertigen Felder eines Eintrags ohne Dubletten."""
+    for field, key in AGGREGATED_FIELDS:
+        value = entry.get(field)
+        if value is not None and value not in target[key]:
+            target[key].append(value)
+
+
+def derive_expressions(entries, works):
+    """Bildet die Fassungen als Expressions (FRBR) und haengt sie ans Werk.
+
+    Die Quelle kennzeichnet Fassungen mit einer roemischen Ziffer hinter der
+    Grundnummer, etwa "193 (II)". Die Ziffer bezeichnet den Teil (Pars) des
+    Werks, von dem eine abweichende Fassung existiert, meist in einem anderen
+    Druck und mit anderer Stimmenzahl: "193 (II)" ist der zweite Teil von LV
+    193 in sechsstimmiger Fassung von 1564, waehrend "193-2" denselben Teil
+    fuenfstimmig im Druck von 1566 bringt.
+
+    Die Expression verweist auf das Gesamtwerk (realizationOf), nicht auf den
+    einzelnen Teil-Datensatz: Die Ziffer laesst sich nicht verlaesslich auf
+    eine Teilnummer abbilden. Bei LV 74 etwa ist der Datensatz "74" die
+    Ueberschrift "Sestina:", sodass "74 (III)" dem Teil "74-3" nicht
+    entspricht, sondern "74-4". Die Ziffer bleibt als pars erhalten.
+    """
+    works_by_id = {work["@id"]: work for work in works}
+    expressions = {}
+
+    for entry in entries:
+        variant = entry["lvVariant"]
+        if variant is None:
+            continue
+        key = entry["lv"]
+        expression = expressions.get(key)
+        if expression is None:
+            work_id = "work:{0}".format(entry["lvBase"])
+            expression = {
+                "@id": "expression:{0}-{1}".format(entry["lvBase"], variant),
+                "@type": "Expression",
+                "lv": key,
+                "lvBase": entry["lvBase"],
+                "pars": variant,
+                "realizationOf": work_id,
+                "titles": [],
+                "voiceCounts": [],
+                "prints": [],
+                "textAuthors": [],
+                "textSources": [],
+                "completeEditions": [],
+                "entries": [],
+            }
+            expressions[key] = expression
+        collect_values(expression, entry)
+        expression["entries"].append(entry["@id"])
+
+    result = sorted(
+        expressions.values(),
+        key=lambda e: (e["lvBase"], roman_to_int(e["pars"])),
+    )
+    # Erst nach dem Sortieren verknuepfen, damit das Werk seine Fassungen in
+    # Teilreihenfolge auflistet (III vor IV) statt in Quellreihenfolge.
+    for expression in result:
+        expression["voiceCounts"].sort()
+        works_by_id[expression["realizationOf"]]["expressions"].append(expression["@id"])
+    entry_by_id = {entry["@id"]: entry for entry in entries}
+    return [split_titles(expression, entry_by_id, {}) for expression in result]
+
+
+def roman_to_int(numeral):
+    """Wandelt eine roemische Ziffer in eine Zahl, fuer die Sortierung."""
+    values = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100}
+    total = 0
+    for current, following in zip(numeral, numeral[1:] + " "):
+        value = values[current]
+        total += -value if values.get(following, 0) > value else value
+    return total
 
 
 def derive_prints(entries):
@@ -796,6 +944,7 @@ def main():
     save_registry(registry)
 
     works = derive_works(entries, manuscripts)
+    expressions = derive_expressions(entries, works)
     prints = derive_prints(entries)
     persons = derive_persons(entries)
     report_path, unclassified_count = write_unclassified_report(manuscripts)
@@ -817,6 +966,7 @@ def main():
         },
     )
     write_json("works.json", {"@context": CONTEXT_URL, "items": works})
+    write_json("expressions.json", {"@context": CONTEXT_URL, "items": expressions})
     write_json("prints.json", {"@context": CONTEXT_URL, "items": prints})
     write_json("persons.json", {"@context": CONTEXT_URL, "items": persons})
     write_json(
@@ -834,6 +984,7 @@ def main():
                     [w for w in works if not w["entries"] and w["manuscripts"]]
                 ),
                 "worksInAppendix": len([w for w in works if w["lvAnh"] is not None]),
+                "expressions": len(expressions),
                 "prints": len(prints),
                 "persons": len(persons),
                 "idsAssigned": len(registry["assigned"]),
@@ -855,6 +1006,9 @@ def main():
             len(works), len(multi), len(with_manuscripts)
         )
     )
+    print("Fassungen     : {0} (Expressions zu {1} Werken)".format(
+        len(expressions), len({e["realizationOf"] for e in expressions})
+    ))
     print("Drucke        : {0}".format(len(prints)))
     print("Textdichter   : {0}".format(len(persons)))
     print(

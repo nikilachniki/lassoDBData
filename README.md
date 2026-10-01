@@ -64,7 +64,16 @@ Erzeugte Dateien:
   weitere Zerlegung.
 - `works.json` fasst Einträge und Handschriften-Zeugnisse über die LV-Nummer
   (oder die Anhangsnummer) zu Werken zusammen. `entries` und `manuscripts`
-  verweisen dort getrennt auf die jeweiligen Zeugnisse.
+  verweisen dort getrennt auf die jeweiligen Zeugnisse, `expressions` auf die
+  Fassungen des Werks. Teilsätze wie `100-2` verweisen mit `isPartOf` auf ihr
+  Gesamtwerk, das sie in `hasPart` auflistet. Jedes Werk trägt einen
+  `preferredTitle`, den Titel des frühesten Drucks, und die übrigen Titel als
+  `variantTitles`. Siehe Abschnitt 18 in `docs/entscheidungen.md`.
+- `expressions.json` enthält die Fassungen, die die Quelle mit einer römischen
+  Ziffer kennzeichnet, etwa `193 (II)`, als Expression im Sinne von FRBR. Jede
+  verweist über `realizationOf` auf ihr Werk und trägt die Ziffer als `pars`,
+  den Teil des Werks, den sie in abweichender Gestalt bringt. Siehe Abschnitt
+  17 in `docs/entscheidungen.md`.
 - `prints.json` listet die Erstdrucke als eigene Entität.
 - `persons.json` listet die Textdichter, vorerst als Rohwerte.
 - `meta.json` enthält Zählungen, Erzeugungsdatum und Prüfsummen der Quellen.

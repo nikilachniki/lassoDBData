@@ -1,14 +1,15 @@
 {
-  "generated": "2026-09-22",
+  "generated": "2026-10-01",
   "generator": "scripts/import_excel.py",
   "context": "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/schema/context.jsonld",
   "counts": {
     "entries": 1979,
     "manuscripts": 8939,
     "manuscriptsUnclassified": 311,
-    "works": 2170,
+    "works": 2161,
     "worksFromManuscriptsOnly": 225,
     "worksInAppendix": 161,
+    "expressions": 9,
     "prints": 137,
     "persons": 84,
     "idsAssigned": 10918,
