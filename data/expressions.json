@@ -1,0 +1,229 @@
+{
+  "@context": "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/schema/context.jsonld",
+  "items": [
+    {
+      "@id": "expression:74-III",
+      "@type": "Expression",
+      "lv": "74 (III)",
+      "lvBase": 74,
+      "pars": "III",
+      "realizationOf": "work:74",
+      "preferredTitle": "Secchi vedransi tutt'i",
+      "variantTitles": [],
+      "voiceCounts": [
+        1
+      ],
+      "prints": [
+        "1562-8"
+      ],
+      "textAuthors": [],
+      "textSources": [],
+      "completeEditions": [
+        "GA 2 IV,I 2"
+      ],
+      "entries": [
+        "entry:00202"
+      ]
+    },
+    {
+      "@id": "expression:74-IV",
+      "@type": "Expression",
+      "lv": "74 (IV)",
+      "lvBase": 74,
+      "pars": "IV",
+      "realizationOf": "work:74",
+      "preferredTitle": "Io uò fugedo",
+      "variantTitles": [],
+      "voiceCounts": [
+        4
+      ],
+      "prints": [
+        "1558-1"
+      ],
+      "textAuthors": [],
+      "textSources": [],
+      "completeEditions": [
+        "GA 2 IV,I 2"
+      ],
+      "entries": [
+        "entry:00123"
+      ]
+    },
+    {
+      "@id": "expression:100-I",
+      "@type": "Expression",
+      "lv": "100 (I)",
+      "lvBase": 100,
+      "pars": "I",
+      "realizationOf": "work:100",
+      "preferredTitle": "Tytyre tu patulæ†",
+      "variantTitles": [],
+      "voiceCounts": [
+        5
+      ],
+      "prints": [
+        "1560-4"
+      ],
+      "textAuthors": [
+        "Vergil"
+      ],
+      "textSources": [],
+      "completeEditions": [
+        "GA XIX 473"
+      ],
+      "entries": [
+        "entry:00150"
+      ]
+    },
+    {
+      "@id": "expression:182-I",
+      "@type": "Expression",
+      "lv": "182 (I)",
+      "lvBase": 182,
+      "pars": "I",
+      "realizationOf": "work:182",
+      "preferredTitle": "I'endure tourment",
+      "variantTitles": [],
+      "voiceCounts": [
+        5
+      ],
+      "prints": [
+        "1564-3"
+      ],
+      "textAuthors": [],
+      "textSources": [],
+      "completeEditions": [
+        "GA 2 XIV,I 66"
+      ],
+      "entries": [
+        "entry:00267"
+      ]
+    },
+    {
+      "@id": "expression:193-I",
+      "@type": "Expression",
+      "lv": "193 (I)",
+      "lvBase": 193,
+      "pars": "I",
+      "realizationOf": "work:193",
+      "preferredTitle": "In te Domine speraui",
+      "variantTitles": [],
+      "voiceCounts": [
+        6
+      ],
+      "prints": [
+        "1564-7"
+      ],
+      "textAuthors": [],
+      "textSources": [
+        "Psalmus 30,1-6"
+      ],
+      "completeEditions": [
+        "GA XVII 440†"
+      ],
+      "entries": [
+        "entry:00280"
+      ]
+    },
+    {
+      "@id": "expression:193-II",
+      "@type": "Expression",
+      "lv": "193 (II)",
+      "lvBase": 193,
+      "pars": "II",
+      "realizationOf": "work:193",
+      "preferredTitle": "Quoniam fortitudo mea",
+      "variantTitles": [],
+      "voiceCounts": [
+        6
+      ],
+      "prints": [
+        "1564-7"
+      ],
+      "textAuthors": [],
+      "textSources": [],
+      "completeEditions": [],
+      "entries": [
+        "entry:00281"
+      ]
+    },
+    {
+      "@id": "expression:246-I",
+      "@type": "Expression",
+      "lv": "246 (I)",
+      "lvBase": 246,
+      "pars": "I",
+      "realizationOf": "work:246",
+      "preferredTitle": "Pater noster",
+      "variantTitles": [],
+      "voiceCounts": [
+        4
+      ],
+      "prints": [
+        "1565-11"
+      ],
+      "textAuthors": [],
+      "textSources": [
+        "Matthaeus 6,9-13"
+      ],
+      "completeEditions": [
+        "GA XIII 352†"
+      ],
+      "entries": [
+        "entry:00406"
+      ]
+    },
+    {
+      "@id": "expression:326-II",
+      "@type": "Expression",
+      "lv": "326 (II)",
+      "lvBase": 326,
+      "pars": "II",
+      "realizationOf": "work:326",
+      "preferredTitle": "Pungentem capiti",
+      "variantTitles": [],
+      "voiceCounts": [
+        3
+      ],
+      "prints": [
+        "1567-11"
+      ],
+      "textAuthors": [],
+      "textSources": [
+        "geistl. Dichtung auf Christus"
+      ],
+      "completeEditions": [
+        "GA XI 334"
+      ],
+      "entries": [
+        "entry:00533"
+      ]
+    },
+    {
+      "@id": "expression:327-III",
+      "@type": "Expression",
+      "lv": "327 (III)",
+      "lvBase": 327,
+      "pars": "III",
+      "realizationOf": "work:327",
+      "preferredTitle": "Et erit tanquam lignum",
+      "variantTitles": [],
+      "voiceCounts": [
+        3
+      ],
+      "prints": [
+        "1567-11"
+      ],
+      "textAuthors": [],
+      "textSources": [
+        "Psalmus 1"
+      ],
+      "completeEditions": [
+        "GA XV 417"
+      ],
+      "entries": [
+        "entry:00534"
+      ]
+    }
+  ]
+}
