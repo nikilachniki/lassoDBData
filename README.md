@@ -75,7 +75,11 @@ Erzeugte Dateien:
   den Teil des Werks, den sie in abweichender Gestalt bringt. Siehe Abschnitt
   17 in `docs/entscheidungen.md`.
 - `prints.json` listet die Erstdrucke als eigene Entität.
-- `persons.json` listet die Textdichter, vorerst als Rohwerte.
+- `persons.json` listet die Textdichter als Personen. Schreibvarianten mit
+  kuratierter GND-Zuordnung sind zu einer Person mit festgelegter
+  `preferredName` und `variantNames` zusammengeführt; die Einträge behalten
+  den Rohwert in `textAuthor` und verweisen über `textAuthorPerson` auf die
+  Person. Siehe Abschnitt 19 in `docs/entscheidungen.md`.
 - `meta.json` enthält Zählungen, Erzeugungsdatum und Prüfsummen der Quellen.
 
 Alle Dateien tragen einen Verweis auf `schema/context.jsonld` und sind damit als
@@ -143,10 +147,11 @@ Ausgabedatei, statt eines der bestehenden Modelle zu verbiegen.
 
 ## Offene redaktionelle Punkte
 
-- Textdichter stehen als Rohwerte nebeneinander, etwa `Marot` und `C.Marot`.
+- Textdichter ohne GND-Zuordnung stehen weiter als Rohwerte nebeneinander.
   Eine automatische Zusammenführung wäre eine inhaltliche Entscheidung und
-  unterbleibt bewusst. Die Felder `gnd` und `viaf` in `persons.json` sind für
-  die spätere Normdatenverknüpfung vorbereitet und derzeit leer.
+  unterbleibt bewusst; zusammengeführt wird nur über
+  `raw/personen_normdaten.json`, siehe Abschnitte 15 und 19 in
+  `docs/entscheidungen.md`.
 - Einzelne Titel enthalten ein Kreuzzeichen aus der TeX-Vorlage, etwa
   `Moresca quarta D'orlando.†`. Die Bedeutung ist zu klären, bevor es entfernt
   wird.

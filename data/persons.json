@@ -4,7 +4,8 @@
     {
       "@id": "person:a-beccuti-detto-il-coppetta",
       "@type": "Person",
-      "nameRaw": "A. Beccuti, detto il Coppetta ?",
+      "preferredName": "A. Beccuti, detto il Coppetta ?",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -13,7 +14,8 @@
     {
       "@id": "person:anfang-von-psalmus-130-nachdichtung-von-clement-marot",
       "@type": "Person",
-      "nameRaw": "Anfang von Psalmus 130, Nachdichtung von \nClement Marot",
+      "preferredName": "Anfang von Psalmus 130, Nachdichtung von \nClement Marot",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -22,79 +24,72 @@
     {
       "@id": "person:ant-cossuuino-antonius-gosswin",
       "@type": "Person",
-      "nameRaw": "Ant. Cossuuino (= Antonius Gosswin)",
+      "preferredName": "Ant. Cossuuino (= Antonius Gosswin)",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:ariost",
+      "@id": "person:gnd-100214037",
       "@type": "Person",
-      "nameRaw": "Ariost",
+      "preferredName": "Antonio Sebastiano Minturno",
+      "variantNames": [
+        "Minturno"
+      ],
       "role": "textAuthor",
-      "gnd": "118503952",
-      "viaf": "71386455",
-      "entryCount": 7
-    },
-    {
-      "@id": "person:ariosto",
-      "@type": "Person",
-      "nameRaw": "Ariosto",
-      "role": "textAuthor",
-      "gnd": "118503952",
-      "viaf": "71386455",
-      "entryCount": 8
+      "gnd": "100214037",
+      "viaf": "29685362",
+      "entryCount": 2
     },
     {
       "@id": "person:asinari",
       "@type": "Person",
-      "nameRaw": "Asinari",
+      "preferredName": "Asinari",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:b-guarini",
+      "@id": "person:b-tasso",
       "@type": "Person",
-      "nameRaw": "B. Guarini",
+      "preferredName": "B. Tasso",
+      "variantNames": [],
+      "role": "textAuthor",
+      "gnd": null,
+      "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gnd-118698753",
+      "@type": "Person",
+      "preferredName": "Battista Guarini",
+      "variantNames": [
+        "B. Guarini"
+      ],
       "role": "textAuthor",
       "gnd": "118698753",
       "viaf": "54142932",
       "entryCount": 2
     },
     {
-      "@id": "person:b-tasso",
-      "@type": "Person",
-      "nameRaw": "B. Tasso",
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
       "@id": "person:belleau",
       "@type": "Person",
-      "nameRaw": "Belleau",
+      "preferredName": "Belleau",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
-    },
-    {
-      "@id": "person:bembo",
-      "@type": "Person",
-      "nameRaw": "Bembo",
-      "role": "textAuthor",
-      "gnd": "118658115",
-      "viaf": "54144140",
-      "entryCount": 2
     },
     {
       "@id": "person:berno-von-cluny",
       "@type": "Person",
-      "nameRaw": "Berno von Cluny",
+      "preferredName": "Berno von Cluny",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -103,52 +98,42 @@
     {
       "@id": "person:besalio",
       "@type": "Person",
-      "nameRaw": "Besalio",
+      "preferredName": "Besalio",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
-    },
-    {
-      "@id": "person:c-marot",
-      "@type": "Person",
-      "nameRaw": "C.Marot",
-      "role": "textAuthor",
-      "gnd": "118731122",
-      "viaf": "59086239",
-      "entryCount": 3
     },
     {
       "@id": "person:camilli",
       "@type": "Person",
-      "nameRaw": "Camilli",
+      "preferredName": "Camilli",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:cl-marot",
+      "@id": "person:gnd-118731122",
       "@type": "Person",
-      "nameRaw": "Cl. Marot",
+      "preferredName": "Clément Marot",
+      "variantNames": [
+        "C.Marot",
+        "Cl. Marot",
+        "Marot"
+      ],
       "role": "textAuthor",
       "gnd": "118731122",
       "viaf": "59086239",
-      "entryCount": 7
-    },
-    {
-      "@id": "person:cl-ment-marot",
-      "@type": "Person",
-      "nameRaw": "Clément Marot",
-      "role": "textAuthor",
-      "gnd": "118731122",
-      "viaf": "59086239",
-      "entryCount": 6
+      "entryCount": 19
     },
     {
       "@id": "person:de-baif",
       "@type": "Person",
-      "nameRaw": "de Baif?",
+      "preferredName": "de Baif?",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -157,52 +142,28 @@
     {
       "@id": "person:della-terza",
       "@type": "Person",
-      "nameRaw": "della Terza",
+      "preferredName": "della Terza",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
-    },
-    {
-      "@id": "person:du-bellay",
-      "@type": "Person",
-      "nameRaw": "du Bellay",
-      "role": "textAuthor",
-      "gnd": "118527649",
-      "viaf": "39447168",
-      "entryCount": 4
     },
     {
       "@id": "person:f-spira",
       "@type": "Person",
-      "nameRaw": "F. Spira",
+      "preferredName": "F. Spira",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:fiamma",
-      "@type": "Person",
-      "nameRaw": "Fiamma",
-      "role": "textAuthor",
-      "gnd": "130088730",
-      "viaf": "88878886",
-      "entryCount": 9
-    },
-    {
-      "@id": "person:fiamme",
-      "@type": "Person",
-      "nameRaw": "Fiamme",
-      "role": "textAuthor",
-      "gnd": "130088730",
-      "viaf": "88878886",
-      "entryCount": 17
-    },
-    {
       "@id": "person:fileno-cornazzani",
       "@type": "Person",
-      "nameRaw": "Fileno Cornazzani",
+      "preferredName": "Fileno Cornazzani",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -211,16 +172,32 @@
     {
       "@id": "person:francesco-da-lucca-francesco-guami",
       "@type": "Person",
-      "nameRaw": "Francesco da Lucca (= Francesco Guami)",
+      "preferredName": "Francesco da Lucca (= Francesco Guami)",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:fran-ois-i-roi-de-france",
+      "@id": "person:gnd-118593234",
       "@type": "Person",
-      "nameRaw": "François I roi de France",
+      "preferredName": "Francesco Petrarca",
+      "variantNames": [
+        "Petrarca"
+      ],
+      "role": "textAuthor",
+      "gnd": "118593234",
+      "viaf": "39382430",
+      "entryCount": 66
+    },
+    {
+      "@id": "person:gnd-118534947",
+      "@type": "Person",
+      "preferredName": "Franz I. von Frankreich",
+      "variantNames": [
+        "François I roi de France"
+      ],
       "role": "textAuthor",
       "gnd": "118534947",
       "viaf": "88805531",
@@ -229,43 +206,42 @@
     {
       "@id": "person:fulbert-v-chartres",
       "@type": "Person",
-      "nameRaw": "Fulbert v. Chartres",
+      "preferredName": "Fulbert v. Chartres",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
-    },
-    {
-      "@id": "person:g-gu-roult",
-      "@type": "Person",
-      "nameRaw": "G. Guéroult",
-      "role": "textAuthor",
-      "gnd": "124384927",
-      "viaf": "202471443",
-      "entryCount": 3
     },
     {
       "@id": "person:g-pontano",
       "@type": "Person",
-      "nameRaw": "G. Pontano",
+      "preferredName": "G. Pontano",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:gabriel-fiamma",
+      "@id": "person:gnd-130088730",
       "@type": "Person",
-      "nameRaw": "Gabriel Fiamma",
+      "preferredName": "Gabriele Fiamma",
+      "variantNames": [
+        "Fiamma",
+        "Fiamme",
+        "Gabriel Fiamma"
+      ],
       "role": "textAuthor",
       "gnd": "130088730",
       "viaf": "88878886",
-      "entryCount": 1
+      "entryCount": 27
     },
     {
       "@id": "person:gebet",
       "@type": "Person",
-      "nameRaw": "Gebet?",
+      "preferredName": "Gebet?",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -274,7 +250,8 @@
     {
       "@id": "person:gio-battista-da-cremona-giovanni-battista-morsselino",
       "@type": "Person",
-      "nameRaw": "Gio. Battista da Cremona (= Giovanni Battista Morsselino)",
+      "preferredName": "Gio. Battista da Cremona (= Giovanni Battista Morsselino)",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -283,7 +260,8 @@
     {
       "@id": "person:gio-battista-romano-giovanni-battista-tiburtino",
       "@type": "Person",
-      "nameRaw": "Gio. Battista Romano (= Giovanni Battista Tiburtino)",
+      "preferredName": "Gio. Battista Romano (= Giovanni Battista Tiburtino)",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -292,16 +270,42 @@
     {
       "@id": "person:gioseppo-da-lucca-gioseffo-guami",
       "@type": "Person",
-      "nameRaw": "Gioseppo da Lucca (= Gioseffo Guami)",
+      "preferredName": "Gioseppo da Lucca (= Gioseffo Guami)",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
+      "@id": "person:gnd-118719297",
+      "@type": "Person",
+      "preferredName": "Giovanni Guidiccioni",
+      "variantNames": [
+        "Guidiccione"
+      ],
+      "role": "textAuthor",
+      "gnd": "118719297",
+      "viaf": "88331",
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gnd-118605933",
+      "@type": "Person",
+      "preferredName": "Girolamo Savonarola",
+      "variantNames": [
+        "Savonarola"
+      ],
+      "role": "textAuthor",
+      "gnd": "118605933",
+      "viaf": "74117553",
+      "entryCount": 1
+    },
+    {
       "@id": "person:greiter",
       "@type": "Person",
-      "nameRaw": "Greiter",
+      "preferredName": "Greiter",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -310,34 +314,53 @@
     {
       "@id": "person:gr-nwald",
       "@type": "Person",
-      "nameRaw": "Grünwald",
+      "preferredName": "Grünwald",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:guidiccione",
+      "@id": "person:gnd-124384927",
       "@type": "Person",
-      "nameRaw": "Guidiccione",
+      "preferredName": "Guillaume Guéroult",
+      "variantNames": [
+        "G. Guéroult",
+        "G.Guéroult"
+      ],
       "role": "textAuthor",
-      "gnd": "118719297",
-      "viaf": "88331",
-      "entryCount": 1
+      "gnd": "124384927",
+      "viaf": "202471443",
+      "entryCount": 3
     },
     {
-      "@id": "person:hans-sachs",
+      "@id": "person:gnd-120054981",
       "@type": "Person",
-      "nameRaw": "Hans Sachs",
+      "preferredName": "Guy du Faur de Pibrac",
+      "variantNames": [
+        "Pibrac"
+      ],
+      "role": "textAuthor",
+      "gnd": "120054981",
+      "viaf": "39467880",
+      "entryCount": 7
+    },
+    {
+      "@id": "person:gnd-132638134",
+      "@type": "Person",
+      "preferredName": "Hans Sachs",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": "132638134",
       "viaf": "15937295",
       "entryCount": 1
     },
     {
-      "@id": "person:horaz",
+      "@id": "person:gnd-118553569",
       "@type": "Person",
-      "nameRaw": "Horaz",
+      "preferredName": "Horaz",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": "118553569",
       "viaf": "100227522",
@@ -346,7 +369,8 @@
     {
       "@id": "person:hoste-da-reggio",
       "@type": "Person",
-      "nameRaw": "Hoste da Reggio?",
+      "preferredName": "Hoste da Reggio?",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -355,7 +379,8 @@
     {
       "@id": "person:h-tzer",
       "@type": "Person",
-      "nameRaw": "Hätzer",
+      "preferredName": "Hätzer",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -364,34 +389,74 @@
     {
       "@id": "person:iuo-de-vento",
       "@type": "Person",
-      "nameRaw": "Iuo de Vento",
+      "preferredName": "Iuo de Vento",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gnd-118794469",
+      "@type": "Person",
+      "preferredName": "Jacopo Sannazaro",
+      "variantNames": [
+        "Sannazaro"
+      ],
+      "role": "textAuthor",
+      "gnd": "118794469",
+      "viaf": "87990970",
       "entryCount": 1
     },
     {
       "@id": "person:jean-bouchet",
       "@type": "Person",
-      "nameRaw": "Jean Bouchet",
+      "preferredName": "Jean Bouchet",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:johannes-agricola",
+      "@id": "person:gnd-118527649",
       "@type": "Person",
-      "nameRaw": "Johannes Agricola",
+      "preferredName": "Joachim du Bellay",
+      "variantNames": [
+        "du Bellay"
+      ],
+      "role": "textAuthor",
+      "gnd": "118527649",
+      "viaf": "39447168",
+      "entryCount": 4
+    },
+    {
+      "@id": "person:gnd-118501070",
+      "@type": "Person",
+      "preferredName": "Johannes Agricola",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": "118501070",
       "viaf": "46803216",
       "entryCount": 1
     },
     {
+      "@id": "person:gnd-118744658",
+      "@type": "Person",
+      "preferredName": "Johannes Reuchlin",
+      "variantNames": [
+        "Reuchlin"
+      ],
+      "role": "textAuthor",
+      "gnd": "118744658",
+      "viaf": "66542815",
+      "entryCount": 1
+    },
+    {
       "@id": "person:klieber",
       "@type": "Person",
-      "nameRaw": "Klieber",
+      "preferredName": "Klieber",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -400,7 +465,8 @@
     {
       "@id": "person:kn-pken",
       "@type": "Person",
-      "nameRaw": "Knöpken",
+      "preferredName": "Knöpken",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -409,16 +475,45 @@
     {
       "@id": "person:leonardo-meldaert",
       "@type": "Person",
-      "nameRaw": "Leonardo Meldaert",
+      "preferredName": "Leonardo Meldaert",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:ludwig-helmbold",
+      "@id": "person:gnd-118613200",
       "@type": "Person",
-      "nameRaw": "Ludwig Helmbold?",
+      "preferredName": "Lucius Annaeus Seneca",
+      "variantNames": [
+        "Seneca"
+      ],
+      "role": "textAuthor",
+      "gnd": "118613200",
+      "viaf": "90637919",
+      "entryCount": 1
+    },
+    {
+      "@id": "person:gnd-118503952",
+      "@type": "Person",
+      "preferredName": "Ludovico Ariosto",
+      "variantNames": [
+        "Ariost",
+        "Ariosto"
+      ],
+      "role": "textAuthor",
+      "gnd": "118503952",
+      "viaf": "71386455",
+      "entryCount": 15
+    },
+    {
+      "@id": "person:gnd-124661122",
+      "@type": "Person",
+      "preferredName": "Ludwig Helmbold",
+      "variantNames": [
+        "Ludwig Helmbold?"
+      ],
       "role": "textAuthor",
       "gnd": "124661122",
       "viaf": "69867276",
@@ -427,7 +522,8 @@
     {
       "@id": "person:luigi-cassola",
       "@type": "Person",
-      "nameRaw": "Luigi Cassola",
+      "preferredName": "Luigi Cassola",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -436,7 +532,8 @@
     {
       "@id": "person:m-d-angoul-me",
       "@type": "Person",
-      "nameRaw": "M. d'Angoulême",
+      "preferredName": "M. d'Angoulême",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -445,34 +542,28 @@
     {
       "@id": "person:manrrique",
       "@type": "Person",
-      "nameRaw": "Manrrique",
+      "preferredName": "Manrrique",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
-    },
-    {
-      "@id": "person:marot",
-      "@type": "Person",
-      "nameRaw": "Marot",
-      "role": "textAuthor",
-      "gnd": "118731122",
-      "viaf": "59086239",
-      "entryCount": 3
     },
     {
       "@id": "person:marsi",
       "@type": "Person",
-      "nameRaw": "Marsi",
+      "preferredName": "Marsi",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:martin-luther",
+      "@id": "person:gnd-118575449",
       "@type": "Person",
-      "nameRaw": "Martin Luther",
+      "preferredName": "Martin Luther",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": "118575449",
       "viaf": "14773105",
@@ -481,34 +572,31 @@
     {
       "@id": "person:massimo-troiano",
       "@type": "Person",
-      "nameRaw": "Massimo Troiano",
+      "preferredName": "Massimo Troiano",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:melin-de-saint-gelais",
+      "@id": "person:gnd-118750801",
       "@type": "Person",
-      "nameRaw": "Melin de Saint Gelais",
+      "preferredName": "Mellin de Saint-Gelais",
+      "variantNames": [
+        "Melin de Saint Gelais",
+        "Saint Gelais"
+      ],
       "role": "textAuthor",
       "gnd": "118750801",
       "viaf": "64045845",
-      "entryCount": 2
-    },
-    {
-      "@id": "person:minturno",
-      "@type": "Person",
-      "nameRaw": "Minturno",
-      "role": "textAuthor",
-      "gnd": "100214037",
-      "viaf": "29685362",
-      "entryCount": 2
+      "entryCount": 3
     },
     {
       "@id": "person:n-stopio",
       "@type": "Person",
-      "nameRaw": "N. Stopio",
+      "preferredName": "N. Stopio",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -517,7 +605,8 @@
     {
       "@id": "person:nach-villon",
       "@type": "Person",
-      "nameRaw": "nach Villon",
+      "preferredName": "nach Villon",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -526,16 +615,18 @@
     {
       "@id": "person:nicetas-von-remesiana",
       "@type": "Person",
-      "nameRaw": "Nicetas von Remesiana?",
+      "preferredName": "Nicetas von Remesiana?",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:notker-balbulus",
+      "@id": "person:gnd-118588850",
       "@type": "Person",
-      "nameRaw": "Notker Balbulus",
+      "preferredName": "Notker Balbulus",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": "118588850",
       "viaf": "27863792",
@@ -544,7 +635,8 @@
     {
       "@id": "person:octavien-de-saint-gelais",
       "@type": "Person",
-      "nameRaw": "Octavien de Saint Gelais",
+      "preferredName": "Octavien de Saint Gelais",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -553,7 +645,8 @@
     {
       "@id": "person:olivier-de-magny",
       "@type": "Person",
-      "nameRaw": "Olivier de Magny",
+      "preferredName": "Olivier de Magny",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -562,7 +655,8 @@
     {
       "@id": "person:orlando-di-lasso",
       "@type": "Person",
-      "nameRaw": "Orlando di Lasso?",
+      "preferredName": "Orlando di Lasso?",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
@@ -571,142 +665,92 @@
     {
       "@id": "person:p-du-val",
       "@type": "Person",
-      "nameRaw": "P. du Val",
+      "preferredName": "P. du Val",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 2
     },
     {
-      "@id": "person:petrarca",
+      "@id": "person:gnd-118602519",
       "@type": "Person",
-      "nameRaw": "Petrarca",
-      "role": "textAuthor",
-      "gnd": "118593234",
-      "viaf": "39382430",
-      "entryCount": 66
-    },
-    {
-      "@id": "person:pibrac",
-      "@type": "Person",
-      "nameRaw": "Pibrac",
-      "role": "textAuthor",
-      "gnd": "120054981",
-      "viaf": "39467880",
-      "entryCount": 7
-    },
-    {
-      "@id": "person:pierre-de-ronsard",
-      "@type": "Person",
-      "nameRaw": "Pierre de Ronsard",
+      "preferredName": "Pierre de Ronsard",
+      "variantNames": [
+        "Ronsard"
+      ],
       "role": "textAuthor",
       "gnd": "118602519",
       "viaf": "61551687",
-      "entryCount": 2
+      "entryCount": 10
     },
     {
       "@id": "person:pierre-grognet",
       "@type": "Person",
-      "nameRaw": "Pierre Grognet",
+      "preferredName": "Pierre Grognet",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 2
     },
     {
-      "@id": "person:reuchlin",
+      "@id": "person:gnd-118658115",
       "@type": "Person",
-      "nameRaw": "Reuchlin",
+      "preferredName": "Pietro Bembo",
+      "variantNames": [
+        "Bembo"
+      ],
       "role": "textAuthor",
-      "gnd": "118744658",
-      "viaf": "66542815",
-      "entryCount": 1
+      "gnd": "118658115",
+      "viaf": "54144140",
+      "entryCount": 2
     },
     {
       "@id": "person:ronconi",
       "@type": "Person",
-      "nameRaw": "Ronconi",
+      "preferredName": "Ronconi",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
-    },
-    {
-      "@id": "person:ronsard",
-      "@type": "Person",
-      "nameRaw": "Ronsard",
-      "role": "textAuthor",
-      "gnd": "118602519",
-      "viaf": "61551687",
-      "entryCount": 8
     },
     {
       "@id": "person:s-brant",
       "@type": "Person",
-      "nameRaw": "S. Brant",
+      "preferredName": "S. Brant",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:saint-gelais",
-      "@type": "Person",
-      "nameRaw": "Saint Gelais",
-      "role": "textAuthor",
-      "gnd": "118750801",
-      "viaf": "64045845",
-      "entryCount": 1
-    },
-    {
-      "@id": "person:sannazaro",
-      "@type": "Person",
-      "nameRaw": "Sannazaro",
-      "role": "textAuthor",
-      "gnd": "118794469",
-      "viaf": "87990970",
-      "entryCount": 1
-    },
-    {
-      "@id": "person:savonarola",
-      "@type": "Person",
-      "nameRaw": "Savonarola",
-      "role": "textAuthor",
-      "gnd": "118605933",
-      "viaf": "74117553",
       "entryCount": 1
     },
     {
       "@id": "person:sch-fergedicht",
       "@type": "Person",
-      "nameRaw": "Schäfergedicht",
+      "preferredName": "Schäfergedicht",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:seneca",
-      "@type": "Person",
-      "nameRaw": "Seneca",
-      "role": "textAuthor",
-      "gnd": "118613200",
-      "viaf": "90637919",
       "entryCount": 1
     },
     {
       "@id": "person:simon-gatto",
       "@type": "Person",
-      "nameRaw": "Simon Gatto",
+      "preferredName": "Simon Gatto",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:stefano-tucci",
+      "@id": "person:gnd-124214169",
       "@type": "Person",
-      "nameRaw": "Stefano Tucci",
+      "preferredName": "Stefano Tucci",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": "124214169",
       "viaf": "95293442",
@@ -715,16 +759,18 @@
     {
       "@id": "person:tansillo",
       "@type": "Person",
-      "nameRaw": "Tansillo",
+      "preferredName": "Tansillo",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 1
     },
     {
-      "@id": "person:thomas-von-aquin",
+      "@id": "person:gnd-118622110",
       "@type": "Person",
-      "nameRaw": "Thomas von Aquin",
+      "preferredName": "Thomas von Aquin",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": "118622110",
       "viaf": "100910150",
@@ -733,25 +779,28 @@
     {
       "@id": "person:tischgebet",
       "@type": "Person",
-      "nameRaw": "Tischgebet",
+      "preferredName": "Tischgebet",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
       "viaf": null,
       "entryCount": 3
     },
     {
-      "@id": "person:vergil",
+      "@id": "person:gnd-118626574",
       "@type": "Person",
-      "nameRaw": "Vergil",
+      "preferredName": "Vergil",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": "118626574",
       "viaf": "8194433",
       "entryCount": 3
     },
     {
-      "@id": "person:wipo-von-burgund",
+      "@id": "person:gnd-118807633",
       "@type": "Person",
-      "nameRaw": "Wipo von Burgund",
+      "preferredName": "Wipo von Burgund",
+      "variantNames": [],
       "role": "textAuthor",
       "gnd": "118807633",
       "viaf": "89474915",

@@ -59,6 +59,8 @@ SOURCES = [
             "Textprovenienz": "textSource",
             "Gesamtausgabe": "completeEdition",
             "Bemerkung": "note",
+            "Gattung": "genre",
+            "Sprache": "language",
         },
     },
 ]
@@ -318,9 +320,14 @@ def read_source(spec, registry):
             "firstPrintYear": print_parts["firstPrintYear"],
             "firstPrintNo": print_parts["firstPrintNo"],
             "textAuthor": record.get("textAuthor"),
+            # Gesetzt von derive_persons, hier nur fuer die Feldreihenfolge.
+            "textAuthorPerson": None,
+            "textAuthorUncertain": False,
             "textSource": record.get("textSource"),
             "completeEdition": record.get("completeEdition"),
             "note": record.get("note"),
+            "genre": record.get("genre"),
+            "language": record.get("language"),
             "source": {
                 "dataset": spec["id"],
                 "file": spec["file"],
@@ -480,8 +487,11 @@ def derive_works(entries, manuscripts):
             "voiceCounts": [],
             "prints": [],
             "textAuthors": [],
+            "uncertainTextAuthors": [],
             "textSources": [],
             "completeEditions": [],
+            "genres": [],
+            "languages": [],
             "entries": [],
             "manuscripts": [],
             "expressions": [],
@@ -551,7 +561,28 @@ def derive_works(entries, manuscripts):
     link_parts(result)
     entry_by_id = {entry["@id"]: entry for entry in entries}
     manuscript_by_id = {manuscript["@id"]: manuscript for manuscript in manuscripts}
+    for work in result:
+        mark_uncertain_authors(work, entry_by_id)
     return [split_titles(work, entry_by_id, manuscript_by_id) for work in result]
+
+
+def mark_uncertain_authors(item, entry_by_id):
+    """Fuellt uncertainTextAuthors mit den Personen, deren Zuschreibung in
+    allen Eintraegen des Werks bzw. der Fassung unsicher ist.
+
+    textAuthors fuehrt Personen-IDs, nicht Rohwerte, und verliert damit das
+    Fragezeichen aus einem Rohwert wie "Ludwig Helmbold?". Diese Liste haelt
+    die Unsicherheit auf Werkebene fest. Bestaetigt auch nur ein Eintrag die
+    Zuschreibung ohne Vorbehalt, gilt sie fuer das Werk als sicher.
+    """
+    for person_id in item["textAuthors"]:
+        flags = [
+            entry_by_id[entry_id]["textAuthorUncertain"]
+            for entry_id in item["entries"]
+            if entry_by_id[entry_id]["textAuthorPerson"] == person_id
+        ]
+        if flags and all(flags):
+            item["uncertainTextAuthors"].append(person_id)
 
 
 def link_parts(works):
@@ -612,9 +643,11 @@ AGGREGATED_FIELDS = (
     ("title", "titles"),
     ("voices", "voiceCounts"),
     ("firstPrint", "prints"),
-    ("textAuthor", "textAuthors"),
+    ("textAuthorPerson", "textAuthors"),
     ("textSource", "textSources"),
     ("completeEdition", "completeEditions"),
+    ("genre", "genres"),
+    ("language", "languages"),
 )
 
 
@@ -664,8 +697,11 @@ def derive_expressions(entries, works):
                 "voiceCounts": [],
                 "prints": [],
                 "textAuthors": [],
+                "uncertainTextAuthors": [],
                 "textSources": [],
                 "completeEditions": [],
+                "genres": [],
+                "languages": [],
                 "entries": [],
             }
             expressions[key] = expression
@@ -682,6 +718,8 @@ def derive_expressions(entries, works):
         expression["voiceCounts"].sort()
         works_by_id[expression["realizationOf"]]["expressions"].append(expression["@id"])
     entry_by_id = {entry["@id"]: entry for entry in entries}
+    for expression in result:
+        mark_uncertain_authors(expression, entry_by_id)
     return [split_titles(expression, entry_by_id, {}) for expression in result]
 
 
@@ -740,37 +778,89 @@ def load_person_authorities():
 
 
 def derive_persons(entries):
-    """Sammelt die Textdichter als Rohwerte.
+    """Bildet die Textdichter als Personen und verknuepft die Eintraege damit.
 
-    Abweichende Schreibweisen werden bewusst nicht automatisch zusammengefuehrt.
-    Das bleibt eine redaktionelle Entscheidung. Fuer namentlich eindeutig
-    identifizierte Personen liefert personen_normdaten.json GND und VIAF,
-    siehe load_person_authorities.
+    Rohwerte, die personen_normdaten.json einer GND zuordnet, werden zu einer
+    Person mit festgelegter Anzeigeform (preferredName) zusammengefuehrt; ihre
+    Schreibweisen aus der Quelle bleiben als variantNames erhalten. Die
+    Zusammenfuehrung folgt allein dieser kuratierten Zuordnung, nie einem
+    Namensvergleich, siehe docs/entscheidungen.md, Abschnitte 8, 15 und 19.
+    Rohwerte ohne Zuordnung bleiben je eine eigene Person.
+
+    Setzt an jedem Eintrag textAuthorPerson (Personen-ID) und
+    textAuthorUncertain (Rohwert mit nachgestelltem "?"). Der Rohwert selbst
+    bleibt in textAuthor unveraendert stehen.
     """
-    authorities = load_person_authorities()
+    person_by_raw = {}
     persons = {}
+    for gnd, authority in load_person_authorities().items():
+        person = {
+            "@id": "person:gnd-" + gnd,
+            "@type": "Person",
+            "preferredName": authority["preferredName"],
+            "variantNames": [],
+            "role": "textAuthor",
+            "gnd": gnd,
+            "viaf": authority.get("viaf"),
+            "entryCount": 0,
+        }
+        persons[person["@id"]] = person
+        for variant in authority["variants"]:
+            if variant in person_by_raw:
+                raise SystemExit(
+                    "Rohwert {0!r} ist in personen_normdaten.json mehreren "
+                    "Personen zugeordnet".format(variant)
+                )
+            person_by_raw[variant] = person
+
+    used_raw = set()
     for entry in entries:
         name = entry.get("textAuthor")
+        entry["textAuthorPerson"] = None
+        entry["textAuthorUncertain"] = bool(name) and name.rstrip().endswith("?")
         if not name:
             continue
-        slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-        if not slug:
-            continue
-        item = persons.get(slug)
-        if item is None:
-            authority = authorities.get(name, {})
-            item = {
-                "@id": "person:" + slug,
-                "@type": "Person",
-                "nameRaw": name,
-                "role": "textAuthor",
-                "gnd": authority.get("gnd"),
-                "viaf": authority.get("viaf"),
-                "entryCount": 0,
-            }
-            persons[slug] = item
-        item["entryCount"] += 1
-    return sorted(persons.values(), key=lambda p: p["nameRaw"].lower())
+        used_raw.add(name)
+        person = person_by_raw.get(name)
+        if person is None:
+            # Ohne kuratierte Zuordnung: eine Person je Rohwert. Zwei Rohwerte,
+            # die auf dieselbe ID fielen (etwa "G. Guéroult" und "G.Guéroult"),
+            # wuerden sonst stillschweigend verschmolzen, daher der Abbruch.
+            slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+            person_id = "person:" + slug
+            person = persons.get(person_id)
+            if person is None:
+                person = {
+                    "@id": person_id,
+                    "@type": "Person",
+                    "preferredName": name,
+                    "variantNames": [],
+                    "role": "textAuthor",
+                    "gnd": None,
+                    "viaf": None,
+                    "entryCount": 0,
+                }
+                persons[person_id] = person
+                person_by_raw[name] = person
+            elif person["preferredName"] != name:
+                raise SystemExit(
+                    "Rohwerte {0!r} und {1!r} ergeben dieselbe Personen-ID {2}; "
+                    "bitte in personen_normdaten.json zuordnen".format(
+                        person["preferredName"], name, person_id
+                    )
+                )
+        if name != person["preferredName"] and name not in person["variantNames"]:
+            person["variantNames"].append(name)
+        person["entryCount"] += 1
+        entry["textAuthorPerson"] = person["@id"]
+
+    unused = sorted(set(person_by_raw) - used_raw)
+    if unused:
+        print("  Hinweis: Rohwerte aus personen_normdaten.json ohne Eintrag: {0}".format(unused))
+    result = [person for person in persons.values() if person["entryCount"] > 0]
+    for person in result:
+        person["variantNames"].sort(key=str.lower)
+    return sorted(result, key=lambda p: p["preferredName"].lower())
 
 
 def validate_entries(entries):
@@ -939,6 +1029,9 @@ def main():
 
     entries.sort(key=lambda e: e["id"])
     manuscripts.sort(key=lambda m: m["id"])
+    # Vor der Schema-Pruefung, weil derive_persons die Personenfelder an den
+    # Eintraegen setzt und diese mitgeprueft werden sollen.
+    persons = derive_persons(entries)
     validate_entries(entries)
     validate_manuscripts(manuscripts)
     save_registry(registry)
@@ -946,7 +1039,6 @@ def main():
     works = derive_works(entries, manuscripts)
     expressions = derive_expressions(entries, works)
     prints = derive_prints(entries)
-    persons = derive_persons(entries)
     report_path, unclassified_count = write_unclassified_report(manuscripts)
 
     write_json(

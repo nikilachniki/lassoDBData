@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-01",
+  "generated": "2026-10-08",
   "generator": "scripts/import_excel.py",
   "context": "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/schema/context.jsonld",
   "counts": {
@@ -11,7 +11,7 @@
     "worksInAppendix": 161,
     "expressions": 9,
     "prints": 137,
-    "persons": 84,
+    "persons": 76,
     "idsAssigned": 10918,
     "nextId": 10919
   },
@@ -20,7 +20,7 @@
       "dataset": "lv-katalog",
       "file": "Werke.xlsx",
       "sheet": "LV-Katalog",
-      "sha256": "f39a506d2d790668e935f634e2b7ebb291df04e701c7a9fdca8f0ac2e5c6ef9f",
+      "sha256": "b935a3795e7fcb7b6fedf41e8ce205f5b4ecf8c1778785f361b176dcb40a015a",
       "entries": 1979
     },
     {

@@ -17,9 +17,14 @@
         "1562-8"
       ],
       "textAuthors": [],
+      "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
         "GA 2 IV,I 2"
+      ],
+      "genres": [],
+      "languages": [
+        "Italienisch"
       ],
       "entries": [
         "entry:00202"
@@ -41,9 +46,14 @@
         "1558-1"
       ],
       "textAuthors": [],
+      "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
         "GA 2 IV,I 2"
+      ],
+      "genres": [],
+      "languages": [
+        "Italienisch"
       ],
       "entries": [
         "entry:00123"
@@ -65,11 +75,16 @@
         "1560-4"
       ],
       "textAuthors": [
-        "Vergil"
+        "person:gnd-118626574"
       ],
+      "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
         "GA XIX 473"
+      ],
+      "genres": [],
+      "languages": [
+        "Latein"
       ],
       "entries": [
         "entry:00150"
@@ -91,9 +106,14 @@
         "1564-3"
       ],
       "textAuthors": [],
+      "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
         "GA 2 XIV,I 66"
+      ],
+      "genres": [],
+      "languages": [
+        "Französisch"
       ],
       "entries": [
         "entry:00267"
@@ -115,11 +135,16 @@
         "1564-7"
       ],
       "textAuthors": [],
+      "uncertainTextAuthors": [],
       "textSources": [
         "Psalmus 30,1-6"
       ],
       "completeEditions": [
         "GA XVII 440†"
+      ],
+      "genres": [],
+      "languages": [
+        "Latein"
       ],
       "entries": [
         "entry:00280"
@@ -141,8 +166,13 @@
         "1564-7"
       ],
       "textAuthors": [],
+      "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [],
+      "genres": [],
+      "languages": [
+        "Latein"
+      ],
       "entries": [
         "entry:00281"
       ]
@@ -163,11 +193,16 @@
         "1565-11"
       ],
       "textAuthors": [],
+      "uncertainTextAuthors": [],
       "textSources": [
         "Matthaeus 6,9-13"
       ],
       "completeEditions": [
         "GA XIII 352†"
+      ],
+      "genres": [],
+      "languages": [
+        "Latein"
       ],
       "entries": [
         "entry:00406"
@@ -189,11 +224,16 @@
         "1567-11"
       ],
       "textAuthors": [],
+      "uncertainTextAuthors": [],
       "textSources": [
         "geistl. Dichtung auf Christus"
       ],
       "completeEditions": [
         "GA XI 334"
+      ],
+      "genres": [],
+      "languages": [
+        "Latein"
       ],
       "entries": [
         "entry:00533"
@@ -215,11 +255,16 @@
         "1567-11"
       ],
       "textAuthors": [],
+      "uncertainTextAuthors": [],
       "textSources": [
         "Psalmus 1"
       ],
       "completeEditions": [
         "GA XV 417"
+      ],
+      "genres": [],
+      "languages": [
+        "Latein"
       ],
       "entries": [
         "entry:00534"

@@ -184,6 +184,12 @@ Arbeitsschritt vorgesehen, siehe Abschnitt 15 für dessen Umsetzung.
 **Preis.** Die Zahl der Textdichter ist derzeit zu hoch und nicht ohne Vorbehalt
 auswertbar.
 
+**Nachtrag.** Für Personen mit kuratierter GND-Zuordnung sind die
+Schreibvarianten inzwischen zu einer Person mit festgelegter Anzeigeform
+zusammengeführt, siehe Abschnitt 19. Die Entscheidung gegen eine
+*automatische* Normalisierung gilt weiter: Zusammengeführt wird nur, was
+`raw/personen_normdaten.json` ausdrücklich zuordnet.
+
 ---
 
 ## 9. Oberfläche mit React, MUI und Vite
@@ -428,7 +434,9 @@ die zugrunde liegende Literatur.
 **Entscheidung.** `raw/personen_normdaten.json` ordnet einzelnen
 Textdichter-Rohwerten aus `persons.json` eine GND- und VIAF-ID zu. Die Datei
 wird von Hand gepflegt, nicht vom Importskript erzeugt; `derive_persons` liest
-sie nur und reichert `data/persons.json` beim Import damit an.
+sie nur und reichert `data/persons.json` beim Import damit an. Seit Abschnitt
+19 ist die Datei nach GND geordnet und nennt je Person eine Anzeigeform und
+die zugehörigen Rohwerte.
 
 **Alternative.** Automatischer Abgleich aller 84 Rohwerte gegen die
 GND-Suche, etwa nach bestem Treffer.
@@ -627,6 +635,100 @@ Teil der Katalogangabe und werden für Sortierung und Anzeige gebraucht. Wer
 
 ---
 
+## 19. Festgelegte Schreibweise je Person, Rohwert bleibt am Eintrag
+
+**Entscheidung.** Rohwerte, die `raw/personen_normdaten.json` derselben GND
+zuordnet, bilden in `persons.json` eine einzige Person. Sie trägt die ID
+`person:gnd-<GND>`, eine festgelegte Anzeigeform `preferredName` und die
+abweichenden Schreibweisen der Quelle als `variantNames`. Die Normdatei ist
+dafür nach GND geordnet:
+
+```json
+"118731122": {
+  "preferredName": "Clément Marot",
+  "viaf": "59086239",
+  "variants": ["Cl. Marot", "C.Marot", "Marot", "Clément Marot"]
+}
+```
+
+Der Katalogeintrag behält den Rohwert in `textAuthor` und verweist zusätzlich
+über `textAuthorPerson` auf die Person. Werk und Fassung führen in
+`textAuthors` Personen-IDs statt Rohwerte. Rohwerte ohne Zuordnung bleiben je
+eine eigene Person, mit dem Rohwert als `preferredName`.
+
+**Anlass.** Werk und Fassung sammeln die Textdichter ihrer Einträge. Stand
+ein Name in zwei Drucken verschieden, hatte das Werk scheinbar zwei
+Textdichter: LV 90 und 94 (`Marot` und `C.Marot`), LV 98 (`G. Guéroult` und
+`G.Guéroult`). Kein Werk hat tatsächlich mehrere Textdichter. Dabei fiel ein
+Fehler auf: Die Personen-ID wurde aus dem Rohwert gebildet, wobei alles außer
+a–z und 0–9 zu `-` wurde. `G. Guéroult` und `G.Guéroult` ergaben dieselbe ID,
+die zweite Schreibweise verschwand stillschweigend aus `persons.json` und
+konnte so auch keine GND erhalten.
+
+**Alternativen.** Die Rohwerte im Eintrag durch die Anzeigeform ersetzen.
+Oder die Varianten erst in der Oberfläche über die GND gruppieren.
+
+**Begründung.** Abschnitt 8 lehnt eine *automatische* Normalisierung ab, weil
+die Gleichsetzung zweier Namensformen eine fachliche Feststellung ist. Mit
+der kuratierten GND-Zuordnung aus Abschnitt 15 ist diese Feststellung für die
+verknüpften Personen getroffen und belegt; die Zusammenführung folgt allein
+dieser Datei, nie einem Namensvergleich. Das entspricht dem Modell der
+Normdaten (FRAD, IFLA LRM): eine Person mit einer bevorzugten und mehreren
+abweichenden Namensformen. Den Rohwert zu ersetzen, hätte die Quellentreue
+aus Abschnitt 4 verletzt, denn wie ein Druck den Namen schreibt, ist selbst
+eine Angabe. Eine Gruppierung nur in der Oberfläche hätte jede weitere
+Anwendung der Daten das Problem erneut lösen lassen.
+
+**Anzeigeform.** Natürliche Reihenfolge (Vorname Name), im Deutschen übliche
+Formen wie „Horaz“, „Vergil“ und „Thomas von Aquin“. Die GND-Ansetzung
+(„Marot, Clément“, „Horatius Flaccus, Quintus“) ist für eine Werkliste
+schlechter lesbar und bleibt über den GND-Link erreichbar.
+
+**Unsichere Zuschreibung.** Ein Rohwert mit nachgestelltem Fragezeichen wie
+„Ludwig Helmbold?“ setzt am Eintrag `textAuthorUncertain`. Weil Werk und
+Fassung nur noch Personen-IDs führen, ginge das Fragezeichen dort verloren;
+`uncertainTextAuthors` hält deshalb die Personen fest, deren Zuschreibung in
+allen Einträgen des Werks unsicher ist.
+
+**Absicherung.** Der Import bricht ab, wenn zwei verschiedene Rohwerte ohne
+Zuordnung dieselbe Personen-ID ergäben oder ein Rohwert mehreren Personen
+zugeordnet ist. Rohwerte in der Normdatei, die in keinem Eintrag vorkommen,
+meldet er als Hinweis.
+
+**Preis.** Die Personen-IDs der zusammengeführten Rohwerte, etwa
+`person:c-marot` und `person:marot`, entfallen zugunsten von
+`person:gnd-118731122`; eine Weiterleitung gibt es nicht, da die IDs bisher
+nirgends referenziert waren. `nameRaw` in `persons.json` ist durch
+`preferredName` und `variantNames` ersetzt. Die Anzeigeformen sind eine
+redaktionelle Setzung und bei Bedarf in der Normdatei zu korrigieren.
+
+---
+
+## 20. Gattung und Sprache als Rohwerte am Eintrag
+
+**Entscheidung.** Die neuen Spalten „Gattung“ und „Sprache“ in
+`raw/Werke.xlsx` werden als `genre` und `language` an den Katalogeintrag
+übernommen, unverändert wie in der Quelle. Werk und Fassung sammeln sie wie
+Textprovenienz und Gesamtausgabe als Listen ohne Dubletten (`genres`,
+`languages`).
+
+**Alternative.** Ein festes Vokabular (Aufzählung im Schema) oder
+Sprachcodes nach ISO 639.
+
+**Begründung.** Die Spalten sind beim Anlegen noch leer, die tatsächlich
+vorkommenden Werte stehen also noch nicht fest. Ein Vokabular vorab
+festzulegen, hieße die Erfassung vorwegzunehmen. Wie bei den übrigen Feldern
+(Abschnitt 4) bleibt der Rohwert erhalten; eine Normalisierung kann folgen,
+sobald die Daten vorliegen.
+
+**Preis.** Werte in mehreren Schreibweisen (etwa „lat.“ und „Latein“) oder
+mehrere Sprachen in einer Zelle erscheinen als verschiedene Werte, auch im
+Filter der Oberfläche. Werke, die nur handschriftlich überliefert sind,
+haben vorerst keine Gattung und Sprache, da die Handschriften-Quelle diese
+Spalten nicht führt.
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
@@ -661,7 +763,7 @@ Teil der Katalogangabe und werden für Sortierung und Anzeige gebraucht. Wer
   noch nicht eingerichtet.
 - Einzelne Titel enthalten Zeichen aus der TeX-Vorlage, deren Bedeutung zu klären
   ist, etwa ein nachgestelltes Kreuz und eine auffällige Leerstelle.
-- 48 von 84 Textdichter-Rohwerten haben noch keine GND/VIAF-Verknüpfung in
+- 48 von 85 Textdichter-Rohwerten haben noch keine GND/VIAF-Verknüpfung in
   `raw/personen_normdaten.json` (Abschnitt 15), meist weil sie noch nicht
   geprüft wurden, teils weil kein eindeutiger GND-Treffer vorlag. Zwei davon,
   „Berno von Cluny" und „Pierre Grognet", wurden geprüft und bewusst
