@@ -2,6 +2,24 @@
   "@context": "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/schema/context.jsonld",
   "items": [
     {
+      "@id": "print:1575-3/I",
+      "@type": "Print",
+      "siglum": "1575-3/I",
+      "year": null,
+      "no": null,
+      "rism": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "print:1575-3/III",
+      "@type": "Print",
+      "siglum": "1575-3/III",
+      "year": null,
+      "no": null,
+      "rism": null,
+      "entryCount": 14
+    },
+    {
       "@id": "print:1555-1",
       "@type": "Print",
       "siglum": "1555-1",
@@ -110,13 +128,13 @@
       "entryCount": 1
     },
     {
-      "@id": "print:1560-10",
+      "@id": "print:1561-1",
       "@type": "Print",
-      "siglum": "1560-10",
-      "year": 1560,
-      "no": 10,
+      "siglum": "1561-1",
+      "year": 1561,
+      "no": 1,
       "rism": null,
-      "entryCount": 1
+      "entryCount": 2
     },
     {
       "@id": "print:1561-2",
@@ -353,13 +371,22 @@
       "entryCount": 1
     },
     {
+      "@id": "print:1566-13",
+      "@type": "Print",
+      "siglum": "1566-13",
+      "year": 1566,
+      "no": 13,
+      "rism": null,
+      "entryCount": 1
+    },
+    {
       "@id": "print:1567-2",
       "@type": "Print",
       "siglum": "1567-2",
       "year": 1567,
       "no": 2,
       "rism": null,
-      "entryCount": 16
+      "entryCount": 24
     },
     {
       "@id": "print:1567-4",
@@ -737,7 +764,7 @@
       "year": 1577,
       "no": 2,
       "rism": null,
-      "entryCount": 12
+      "entryCount": 24
     },
     {
       "@id": "print:1577-3",
@@ -846,6 +873,15 @@
       "no": 7,
       "rism": null,
       "entryCount": 24
+    },
+    {
+      "@id": "print:1582-8",
+      "@type": "Print",
+      "siglum": "1582-8",
+      "year": 1582,
+      "no": 8,
+      "rism": null,
+      "entryCount": 1
     },
     {
       "@id": "print:1583-4",
@@ -1204,6 +1240,15 @@
       "siglum": "1607-1",
       "year": 1607,
       "no": 1,
+      "rism": null,
+      "entryCount": 1
+    },
+    {
+      "@id": "print:1607-3",
+      "@type": "Print",
+      "siglum": "1607-3",
+      "year": 1607,
+      "no": 3,
       "rism": null,
       "entryCount": 1
     },

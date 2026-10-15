@@ -67,8 +67,10 @@ Erzeugte Dateien:
   verweisen dort getrennt auf die jeweiligen Zeugnisse, `expressions` auf die
   Fassungen des Werks. Teilsätze wie `100-2` verweisen mit `isPartOf` auf ihr
   Gesamtwerk, das sie in `hasPart` auflistet. Jedes Werk trägt einen
-  `preferredTitle`, den Titel des frühesten Drucks, und die übrigen Titel als
-  `variantTitles`. Siehe Abschnitt 18 in `docs/entscheidungen.md`.
+  `preferredTitle`, den normalisierten Werktitel nach MGG oder, wo keiner
+  vorliegt, den Titel des frühesten Drucks (`preferredTitleBasis` sagt,
+  welcher), und die Titel der Drucke und Handschriften als `variantTitles`.
+  Siehe Abschnitte 18 und 21 in `docs/entscheidungen.md`.
 - `expressions.json` enthält die Fassungen, die die Quelle mit einer römischen
   Ziffer kennzeichnet, etwa `193 (II)`, als Expression im Sinne von FRBR. Jede
   verweist über `realizationOf` auf ihr Werk und trägt die Ziffer als `pars`,

@@ -729,6 +729,73 @@ Spalten nicht führt.
 
 ---
 
+## 21. Normalisierter Werktitel nach MGG, Drucktitel bleibt am Eintrag
+
+**Entscheidung.** `raw/Werke.xlsx` erhält die Spalten „Titel normalisiert“
+und „Titel normalisiert (Grundlage)“. Der Import übernimmt sie als
+`normalizedTitle` und `normalizedTitleBasis` an den Katalogeintrag. Das Werk
+(und die Fassung) trägt diesen Titel als `preferredTitle`, sofern alle seine
+Einträge mit normalisiertem Titel denselben haben; `preferredTitleBasis`
+nennt dann `normalized`, sonst `earliestSource` mit der Regel aus
+Abschnitt 18. Der Eintrag behält seinen Titel in der Schreibung des Drucks,
+alle Drucktitel stehen am Werk als `variantTitles`.
+
+**Begründung.** Der Eintrag beschreibt ein Werk in einem bestimmten Druck
+(Abschnitt 6), sein Titel ist Teil dieser Überlieferung und wird nicht
+angetastet. Das Werk dagegen ist eine Abstraktion über alle Drucke und
+Handschriften; ihm steht ein einheitlicher Titel zu, wie ihn IFLA LRM als
+bevorzugten Namen (nomen) und die Bibliothekspraxis als Werktitel kennen. Der
+Titel des frühesten Drucks taugte dafür nur bedingt: Er folgt der Orthographie
+des 16. Jahrhunderts (`Gvarda'l mio stat'a`), ist oft abgekürzt und mitunter
+eine Überschrift statt eines Titels (`Sestina:`, `Lectio prima.`).
+
+**Quelle.** Grundlage ist `raw/Werke_MK.xlsx`, eine zeilengleiche
+Arbeitskopie von `Werke.xlsx`, in der jeder LV-Nummer der Eintrag aus dem
+Werkverzeichnis der MGG zugeordnet und dieser mit Grove abgeglichen ist. Die
+Zuordnung zu MGG läuft über die LV-Nummer, nicht über den Titel. MGG wurde
+dem früheren Abgleich mit IMSLP (`scripts/match_imslp.py`) vorgezogen, weil
+dieser nur heuristisch über Titel, Band und Jahr zuordnen konnte und IMSLP
+selbst Grove folgt, also keine eigenständige Quelle ist.
+
+**Ableitungsregeln** (`scripts/normalize_titles.py`):
+
+- Der MGG-Titel wird ohne Anführungszeichen und ohne vorangestellte MGG-
+  Zählnummer übernommen (`6. Litaniae …` wird `Litaniae …`).
+- Messen erhalten „Missa“ vorangestellt, da MGG nur den Beinamen nennt
+  (`Iager` wird `Missa Iager`). Magnificat, Nunc dimittis und Benedictus,
+  die MGG nur mit der Tonart führt (`Primi toni`), erhalten den Namen des
+  Canticums (`Magnificat primi toni`).
+- Teile, die MGG nicht einzeln führt, werden in der Teilangabe des
+  Gesamtwerks gesucht, ersatzweise in der Teilangabe von Grove, und zwar über
+  den Titel, nicht über die Teilnummer. Die Teilnummer im LV deckt sich nicht
+  verlässlich mit der Pars-Zählung in MGG, weil der LV mitunter eine
+  Überschrift als eigene Zeile führt (Abschnitt 17). Aus demselben Grund
+  ordnet das Skript 28 Teile neu zu, bei denen `Werke_MK.xlsx` über die
+  Nummer einen benachbarten Teil getroffen hatte (etwa LV 74-4
+  „Secchi vedransi“, dort „Io vo fuggendo“).
+- Für die zwölf untextierten Bicinien nennt MGG nur den Sammeltitel; sie
+  bleiben ohne normalisierten Titel.
+
+**Alternativen.** Den Werktitel in einer eigenen Werktabelle pflegen statt
+als Spalte an jeder Druckzeile. Das wäre sauberer, weil der Titel dann nur
+einmal je Werk stünde, verlangt aber eine zweite Tabelle mit eigener Pflege;
+die Spalte hält die Erfassung bei einer Datei. Widersprechen sich die Zeilen
+eines Werks, fällt der Import auf die bisherige Regel zurück, statt einen
+Titel zu wählen. Ebenso verworfen wurde, Titel ohne Treffer automatisch aus
+dem Drucktitel zu normalisieren (u/v, i/j, Abkürzungen): Das wäre eine eigene
+Edition und keine Übernahme einer zitierfähigen Quelle.
+
+**Preis.** 303 Zeilen bleiben ohne normalisierten Titel, überwiegend die
+Abschnitte von Offizien, Matthäuspassion, Bußpsalmen, Stabat mater und
+Litanei, die MGG nicht einzeln nennt; 492 Werke behalten deshalb den Titel des
+frühesten Drucks. Die normalisierte Schreibung ist die der MGG, mit deren
+Eigenheiten und gelegentlichen Fehlern (LV 122-2 „Cum dederit delictis
+suis“). Alle offenen und auffälligen Fälle stehen in
+`docs/titel-normalisierung.md`, ebenso die Abweichungen bei Stimmenzahl und
+Erstdruck gegenüber MGG und Grove, die `Werke_MK.xlsx` ausweist.
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
@@ -770,6 +837,10 @@ Spalten nicht führt.
   zurückgestellt, siehe Abschnitt 15.
 - Die MARC-artigen Teilfelder in `sourceDescription` sowie das RISM-Sigel der
   Handschriften sind unzerlegt bzw. ungeprüft, siehe Abschnitt 14.
+- 303 Katalogzeilen ohne normalisierten Titel, 87 mit stark vom Drucktitel
+  abweichendem Titel sowie die Abweichungen bei Stimmenzahl und Erstdruck
+  gegenüber MGG warten auf fachliche Prüfung, siehe Abschnitt 21 und
+  `docs/titel-normalisierung.md`.
 - 311 Handschriften-Zeugnisse und die Zuordnung der 161 LV-Anhang-Werke
   warten auf fachliche Prüfung, siehe Abschnitt 14 und
   `docs/handschriften-ohne-zuordnung.md`.

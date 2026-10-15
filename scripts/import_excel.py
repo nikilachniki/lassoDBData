@@ -61,6 +61,8 @@ SOURCES = [
             "Bemerkung": "note",
             "Gattung": "genre",
             "Sprache": "language",
+            "Titel normalisiert": "normalizedTitle",
+            "Titel normalisiert (Grundlage)": "normalizedTitleBasis",
         },
     },
 ]
@@ -315,6 +317,8 @@ def read_source(spec, registry):
             "lvVariant": lv_parts["lvVariant"],
             "title": title,
             "titleRaw": title_raw,
+            "normalizedTitle": record.get("normalizedTitle"),
+            "normalizedTitleBasis": record.get("normalizedTitleBasis"),
             "voices": voices,
             "firstPrint": print_parts["firstPrint"],
             "firstPrintYear": print_parts["firstPrintYear"],
@@ -610,9 +614,12 @@ def link_parts(works):
 def split_titles(item, entry_by_id, manuscript_by_id):
     """Ersetzt die Titelliste durch bevorzugten Titel und Varianten.
 
-    Bevorzugt ist der Titel des fruehesten Drucks (nach Jahr, dann laufender
-    Nummer im Jahr), bei Werken ohne Druck der Titel der ersten Handschrift.
-    Alle uebrigen Titel bleiben als Varianten in Quellreihenfolge erhalten.
+    Bevorzugt ist der normalisierte Titel der Eintraege, sofern alle
+    Eintraege mit einem solchen Titel denselben tragen (Abschnitt 21).
+    Andernfalls gilt der Titel des fruehesten Drucks (nach Jahr, dann
+    laufender Nummer im Jahr), bei Werken ohne Druck der Titel der ersten
+    Handschrift (Abschnitt 18). Die Titel der Drucke und Handschriften bleiben
+    vollstaendig als Varianten in Quellreihenfolge erhalten.
     Gibt ein neues Objekt zurueck, damit die beiden Felder an der Stelle der
     bisherigen Titelliste stehen und die Ausgabe lesbar bleibt.
     """
@@ -626,11 +633,17 @@ def split_titles(item, entry_by_id, manuscript_by_id):
     handwritten = [manuscript_by_id[m_id] for m_id in item.get("manuscripts", [])]
     candidates = [e["title"] for e in printed] + [m["title"] for m in handwritten]
     preferred = next((title for title in candidates if title), None)
+    basis = "earliestSource" if preferred else None
+    normalized = {e["normalizedTitle"] for e in printed if e.get("normalizedTitle")}
+    if len(normalized) == 1:
+        preferred = normalized.pop()
+        basis = "normalized"
 
     result = {}
     for key, value in item.items():
         if key == "titles":
             result["preferredTitle"] = preferred
+            result["preferredTitleBasis"] = basis
             result["variantTitles"] = [title for title in value if title != preferred]
         else:
             result[key] = value

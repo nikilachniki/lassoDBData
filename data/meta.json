@@ -1,27 +1,27 @@
 {
-  "generated": "2026-10-08",
+  "generated": "2026-10-15",
   "generator": "scripts/import_excel.py",
   "context": "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/schema/context.jsonld",
   "counts": {
-    "entries": 1979,
+    "entries": 2063,
     "manuscripts": 8939,
     "manuscriptsUnclassified": 311,
-    "works": 2161,
-    "worksFromManuscriptsOnly": 225,
+    "works": 2211,
+    "worksFromManuscriptsOnly": 189,
     "worksInAppendix": 161,
     "expressions": 9,
-    "prints": 137,
+    "prints": 142,
     "persons": 76,
-    "idsAssigned": 10918,
-    "nextId": 10919
+    "idsAssigned": 11005,
+    "nextId": 11006
   },
   "sources": [
     {
       "dataset": "lv-katalog",
       "file": "Werke.xlsx",
       "sheet": "LV-Katalog",
-      "sha256": "b935a3795e7fcb7b6fedf41e8ce205f5b4ecf8c1778785f361b176dcb40a015a",
-      "entries": 1979
+      "sha256": "0e424aad02dee3fb3026d86658359ef2190448efea2154cc8fead665551fa21f",
+      "entries": 2063
     },
     {
       "dataset": "handschriften",

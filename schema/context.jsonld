@@ -35,6 +35,9 @@
     "titleRaw": "lasso:titleRaw",
     "titles": { "@id": "dcterms:title", "@container": "@set" },
     "preferredTitle": "lasso:preferredTitle",
+    "preferredTitleBasis": "lasso:preferredTitleBasis",
+    "normalizedTitle": "lasso:normalizedTitle",
+    "normalizedTitleBasis": "lasso:normalizedTitleBasis",
     "variantTitles": { "@id": "lasso:variantTitle", "@container": "@set" },
 
     "voices": { "@id": "lasso:voices", "@type": "xsd:integer" },

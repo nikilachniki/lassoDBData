@@ -36,6 +36,14 @@
       "type": ["string", "null"],
       "description": "Titel unveraendert aus der Quelle, inklusive Teilsatzmarke."
     },
+    "normalizedTitle": {
+      "type": ["string", "null"],
+      "description": "Werktitel in normalisierter Schreibung (nach MGG), Spalte 'Titel normalisiert'."
+    },
+    "normalizedTitleBasis": {
+      "type": ["string", "null"],
+      "description": "Woraus der normalisierte Titel abgeleitet ist, etwa 'MGG' oder 'MGG, Teilangabe zu LV 74'."
+    },
     "voices": { "type": ["integer", "null"], "minimum": 1 },
     "voicesRaw": {
       "type": "string",
