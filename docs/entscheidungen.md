@@ -866,6 +866,212 @@ einer Zuordnungsliste alter auf neue IDs vertretbar.
 
 ---
 
+## 23. Drucknachweise als eigene Quelle, Zuordnung zu RISM über den Inhalt
+
+**Entscheidung.** Drei zusammenhängende Festlegungen:
+
+1. **Drucknachweise als eigene Quelle.** Die aus dem Gesamtregister
+   (`raw/LASSTEST.TEX`) abgeleitete Tabelle `raw/Gesamtregister_Drucke.xlsx`
+   wird als dritte Quelle importiert, nicht in `Werke.xlsx` übertragen. Jedes
+   Werk erhält `printAppearances` (Druck und Stücknummer), `prints.json`
+   führt alle 479 Drucke statt nur der 142 Erstdrucke.
+2. **Redaktionelle Entscheidungen in eigener Datei.** Die 23 Erstdruck-Siglen,
+   die `Werke.xlsx` anders zählt als das Register, werden in
+   `raw/siglen_konkordanz.json` entschieden (`gleicherDruck`,
+   `geltendeSigle`), nicht in der erzeugten Tabelle.
+3. **RISM-Zuordnung über den Inhalt.** Die RISM-Kennung eines Drucks wird
+   nicht über das Druckeverzeichnis oder die Sigle gesucht, sondern über die
+   Menge der enthaltenen LV-Nummern im selben Jahr. Vorschläge stehen in
+   `raw/drucke_rism.json` und werden erst nach Bestätigung importiert.
+
+**Begründung zu 1.** Werk und Druck stehen in einer n:m-Beziehung: 7669
+Nachweise zu 1175 Werken, im Schnitt sechs bis sieben Drucke je Werk. In
+`Werke.xlsx`, eine Zeile je Werk, ließe sich das nur durch vervielfachte
+Zeilen oder Listen in einer Zelle abbilden. Zudem ist `Werke.xlsx` von Hand
+gepflegt, die Drucknachweise sind maschinell abgeleitet; vermischt ließe sich
+die Ableitung nicht mehr neu erzeugen, ohne Handarbeit zu überschreiben
+(Abschnitte 4 und 5). Die Nachweise sind keine eigenen Datensätze, sondern
+Angaben am Werk, und erhalten deshalb keine ID in der Registry (Abschnitt 7).
+Das Register führt Werke nur mit der Grundnummer; die Nachweise hängen daher
+am Gesamtwerk, nicht an den Teilen.
+
+**Begründung zu 2.** `Gesamtregister_Drucke.xlsx` wird bei jedem Lauf neu
+geschrieben. Eine Entscheidung in einer Spalte dieser Tabelle ginge beim
+nächsten Lauf verloren. Das Muster folgt `raw/personen_normdaten.json`
+(Abschnitt 15): Das Skript ergänzt offene Fälle, Entscheidungen trifft und
+ändert nur die Redaktion. Bestätigt `gleicherDruck` eine Gleichsetzung,
+führen Import und Register beide Siglen als einen Druck unter der geltenden
+Sigle, die andere steht in `siglumVariants`. 1069 der 1128 rot markierten
+Zeilen der Registertabelle gehen allein auf diese 23 Fälle zurück.
+
+**Begründung zu 3.** Das Druckeverzeichnis nennt zu jedem Druck die
+RISM-Nummer, liegt aber nur als fehlerbehaftete Texterkennung vor (verlorene
+hochgestellte Ziffern der B/I-Zählung). Die Siglen des Verzeichnisses
+(etwa 1600-4) zählen anders als RISM B/I (1600/18) und lassen sich nicht
+umrechnen. RISM selbst führt die Lasso-Drucke dagegen mit LV-Nummern an den
+Einzelstücken (etwa A/I L 955 mit LV 848–879). Die Menge der LV-Nummern ist
+damit ein Schlüssel, der in beiden Quellen unabhängig vorliegt und von
+Schreibweisen nicht abhängt. Stücke, die RISM ohne LV-Nummer führt, zählen,
+wenn die ersten drei Wörter ihres Titels mit einem Titel eines Werks im
+jeweiligen Registerdruck übereinstimmen; verglichen wird nur innerhalb des
+Paares, nicht gegen den ganzen Katalog, um Fehltreffer bei häufigen
+Textanfängen gering zu halten. Maß ist der Jaccard-Index; eindeutig ist ein
+Treffer ab 0,8 mit mindestens 0,15 Abstand zum zweitbesten Kandidaten, und
+nur, wenn derselbe RISM-Druck nicht auch einem anderen Registerdruck am
+besten entspricht.
+
+**Datenstand.** Die RISM-Daten werden über die Such-API von RISM Online
+(JSON-LD) abgerufen und als datierter Auszug in
+`raw/rism/rism_lasso_drucke.json` abgelegt (`scripts/harvest_rism.py`), damit
+der Abgleich auf einem festen, zitierbaren Stand beruht. RISM-Daten stehen
+unter CC BY 4.0.
+
+**Alternativen.** Die RISM-Nummern aus dem Druckeverzeichnis herauszulösen,
+verworfen wegen der Fehler der Texterkennung; als Gegenprobe bleibt der Weg
+offen. Der monatliche MARCXML-Gesamtexport von RISM wäre unabhängig von der
+Erreichbarkeit der API, umfasst aber weit über eine Million Datensätze, von
+denen 340 gebraucht werden. Eine Zuordnung über Titel und Drucker der
+Druckausgabe scheitert daran, dass das Register keine Drucktitel enthält.
+
+**Ergebnis (Stand 23.10.2026).** RISM liefert 340 Drucke mit Lasso als
+Komponist von 1550 bis 1700, davon 282 mit A/I- und 99 mit B/I-Nummer. Von
+den 478 Registerdrucken sind 75 eindeutig, 18 geteilt, 39 teilweise und 53
+schwach zuzuordnen, 293 ohne Kandidaten. Für 7 der 23 Siglen-Fälle zeigt
+RISM, dass beide Siglen denselben Druck meinen. Einzelheiten in
+`docs/rism-abgleich.md`.
+
+**Preis.** 193 RISM-Drucke führen ihren Inhalt nicht stückweise und lassen
+sich über den Inhalt nicht vergleichen; sie bleiben der Handarbeit
+überlassen, der Bericht nennt sie als Anhaltspunkt beim jeweiligen Jahr.
+Nachdrucke mit gleichem Inhalt im selben Jahr sind am Inhalt nicht zu
+unterscheiden. Die Drucknachweise werden importiert, obwohl die
+Registertabelle noch nicht durchgesehen ist; ihre Prüfhinweise werden nicht
+mit übernommen. `works.json` wächst dadurch von rund 2,0 auf 2,7 MB.
+
+---
+
+## 24. Erstdruck-Siglen in Werke.xlsx nach dem Register korrigiert
+
+**Entscheidung.** Bei abweichend gezählten Erstdruck-Siglen (Abschnitt 23)
+gilt die Sigle des Gesamtregisters. Die Korrektur erfolgt in `Werke.xlsx`
+selbst, nicht über `raw/siglen_konkordanz.json`. Ein Teil wurde von Hand
+korrigiert (u. a. 1560-1, 1562-5, 1585-7), 146 Zeilen per Skript:
+Ersterscheinung 1566-10, 1567-2, 1567-8, 1567-11, 1569-12, 1570-20, 1581-4,
+1582-4, 1585-1, 1586-7, 1590-1 und 1607-1 jeweils um eins erhöht, dazu
+einzeln LV 508 (1573-9 → 1574-5), LV 743 (1583-4 → 1583-3) und LV 1148
+(1610-1 → 1610-2). Geprüft wurde, dass sich außer diesen Zellen der Spalte
+Ersterscheinung nichts geändert hat.
+
+**Befund.** Die Abweichungen sind keine Verschiebung ganzer Jahrgänge,
+sondern betreffen jeweils einen einzelnen Druck, dessen Nummer um eins zu
+niedrig ist, während die Nachbarn stimmen (1582-3, 1582-6, 1582-7 gleich,
+1582-4 statt 1582-5). Die richtige Nummer kommt in `Werke.xlsx` nie vor, und
+die falsche hat dort kein einziges korrekt zugeordnetes Werk. Für sieben
+Fälle bestätigt RISM über den Inhalt, dass beide Siglen denselben Druck
+meinen (Abschnitt 23).
+
+**Vermutete Ursache.** `Werke.xlsx` wurde maschinell aus dem nach
+Erstdrucken geordneten LV-TeX (`LVTEX1.TEX`) erzeugt, mit der Regel „Eine
+neue Drucknummer beendet die Gruppe“. Erkennt das Umwandlungsskript die
+Überschrift eines Drucks nicht, erhalten dessen Werke die Nummer der
+vorangehenden Überschrift, typischerweise eines Nachdrucks ohne eigene
+Erstdrucke. Das erklärt beide Beobachtungen. Belegt ist es nicht, da
+`LVTEX1.TEX` nicht vorliegt; mit der Datei ließe sich prüfen, ob dieselbe
+Ursache weitere, bislang unauffällige Fehler erzeugt hat.
+
+**Begründung.** Die Korrektur in der Quelle statt über eine Gleichsetzung in
+`siglen_konkordanz.json` ist angemessen, weil es sich um Fehler der
+Umwandlung handelt, nicht um zwei gleichberechtigte Zählungen. Bei den drei
+Einzelfällen wäre eine Gleichsetzung zudem falsch: 1573-9, 1583-4 und 1610-1
+sind echte Drucke mit weiteren, korrekt zugeordneten Werken; falsch war nur
+die Zuordnung je eines Werks.
+
+**Gleichgesetzt statt korrigiert.** Für LV 535–537 nennt das Register den
+Druck 1575-3 ohne Band, `Werke.xlsx` 1575-3/III. Es ist derselbe Druck; die
+Stückangabe des Registers („III/1“) bestätigt den dritten Band. Hier ist
+`Werke.xlsx` genauer und bleibt unverändert; `siglen_konkordanz.json` setzt
+beide Siglen gleich, mit 1575-3/III als geltender Sigle. Die Gleichsetzung
+wirkt nur auf diese drei Werke, da 1575-3 ohne Band im Register sonst nicht
+vorkommt.
+
+**Einzeln geprüft.** Bei drei Fällen war der Vorschlag des Skripts keine
+Angabe des Registers, sondern nur der früheste Druck, den das Register für die
+Werke nennt. Sie wurden am Druckeverzeichnis geprüft, statt den Vorschlag zu
+übernehmen:
+
+- LV 1048–1060 (1599-4 → 1600-1) und LV 1066–1070 (1601-3 → 1602-1): Das
+  Jahr wechselt, es handelt sich um Umdatierungen. Das Register hat recht;
+  `Werke.xlsx` wurde korrigiert.
+- LV 182: `Werke.xlsx` nannte 1570-4 als ersten vollständigen Druck, der
+  Vorschlag 1564-3 ist nur der Druck des ersten Teils (Fassung `182 (I)`).
+  Das Register führt 1570-4 bei LV 182 aber gar nicht; 1570-4 enthält dort
+  ältere Werke (LV 74, 137–148), und die LV-Nummer ordnet das Werk den
+  Drucken um 1564/65 zu, nicht 1570. Nach Prüfung am Druckeverzeichnis gilt
+  1570-5, das auch das Register nennt. Der Fall zeigt, dass ein Wert aus
+  `Werke.xlsx` wegen ihrer maschinellen Herkunft kein unabhängiger Beleg ist.
+
+**Preis.** Da der Erstdruck zum Wiedererkennungsschlüssel gehört (Abschnitt
+7), erhielten die korrigierten Zeilen neue interne IDs, zusammen mit den
+übrigen Korrekturen dieses Arbeitsgangs 253; die alten IDs verwaisen. Die
+roten Prüfhinweise der Registertabelle gingen von 1128 auf 0 zurück; jede
+Erstdruck-Sigle aus `Werke.xlsx` kommt nun beim jeweiligen Werk auch im
+Register vor.
+
+---
+
+## 25. Vorverarbeitung abgeschlossen, Excel-Tabellen sind die gepflegte Quelle
+
+**Entscheidung.** Die Vorverarbeitung, aus der die Excel-Tabellen
+entstanden sind, gilt als abgeschlossen und wird nicht mehr reproduziert. Im
+Repository liegen nur noch die Dateien, die der Import liest: `Werke.xlsx`,
+`Drucke.xlsx`, `lasso_handschriften.xlsx` und `personen_normdaten.json`.
+Korrekturen werden unmittelbar in diesen Tabellen vorgenommen.
+
+**Was entfiel.** Die Hilfsskripte `normalize_titles.py` und `match_imslp.py`
+(Abschnitt 21), `parse_gesamtregister.py`, `harvest_rism.py` und
+`match_rism.py` (Abschnitt 23), ihre Berichte (`titel-normalisierung.md`,
+`imslp-abgleich.md`, `rism-abgleich.md`), ihre Ausgangsmaterialien
+(`LASSTEST.TEX`, `Werke_MK.xlsx`, `Werke aus MGG.docx`,
+`imslp_worklist.wiki`, der RISM-Abruf) sowie die Zwischendateien
+`siglen_konkordanz.json` und `drucke_rism.json`. Ebenso
+`bibel_abkuerzungen.json`, die weder Import noch Oberfläche lesen. Die
+Abschnitte 21, 23 und 24 beschreiben diese Schritte weiterhin, als Nachweis,
+wie die Tabellen entstanden sind; die genannten Skripte und Dateien sind nicht
+versioniert, sondern außerhalb des Repositorys archiviert.
+
+**Neue Datei `Drucke.xlsx`.** Sie ersetzt `Gesamtregister_Drucke.xlsx` und
+die beiden JSON-Dateien zu Drucken:
+
+- Blatt *Drucknachweise*: die Registertabelle ohne Prüfspalten, Farben und
+  TeX-Zeilennummern, nur mit den Spalten, die fachlich etwas aussagen. Jahr
+  und Nummer stehen nicht mehr gesondert, sondern nur in der Sigle, damit sie
+  nicht auseinanderlaufen können. Zwei Korrekturen sind eingearbeitet: bei
+  LV 388 „1504-2“ zu 1604-2 (Tippfehler der Vorlage; der Eintrag steht dort
+  zwischen 1596 und 1609, gehört zur Nachdruckreihe 1592-1, 1596-1, 1612-1
+  mit Stück 77, und im Druck 1604-2 fehlt genau Stück 77), bei LV 535–537
+  1575-3 zu 1575-3/III (Abschnitt 24). Damit entfällt auch die Gleichsetzung
+  über `siglen_konkordanz.json` und das Feld `siglumVariants`.
+- Blatt *Drucke*: eine Zeile je Druck (477) mit der RISM-Zuordnung. Die 75
+  eindeutigen Treffer aus Abschnitt 23 stehen mit RISM-Status „Vorschlag“
+  und ihrer Grundlage darin, für weitere Drucke die Kandidaten als Hilfe zur
+  Prüfung. Der Import übernimmt nur Zeilen mit RISM-Status „bestätigt“.
+
+**Begründung.** Die Vorverarbeitung hat ihren Zweck erfüllt: Die Abweichungen
+zwischen den Quellen sind geklärt (Abschnitt 24), weitere Korrekturen sind
+fachliche Einzelentscheidungen am Datensatz und gehören in die Tabelle, nicht
+in eine Korrekturliste, die bei jedem Neuaufbau angewendet werden müsste.
+Eine Tabelle je Gegenstand ist für die redaktionelle Arbeit übersichtlicher
+als eine Mischung aus Excel- und JSON-Dateien, und die Prüfung der
+RISM-Vorschläge geschieht dort, wo auch die übrigen Angaben gepflegt werden.
+
+**Preis.** Die Herleitung der Tabellen aus TeX-Vorlage, MGG, IMSLP und RISM
+lässt sich aus dem Repository heraus nicht mehr nachvollziehen; Abschnitt 4
+(Quelldateien bleiben unverändert erhalten) gilt nur noch für den Zustand der
+Tabellen selbst, den Git versioniert. Ein erneuter RISM-Abruf, etwa nach
+Ergänzungen bei RISM, müsste neu aufgesetzt werden.
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
@@ -909,8 +1115,9 @@ einer Zuordnungsliste alter auf neue IDs vertretbar.
   Handschriften sind unzerlegt bzw. ungeprüft, siehe Abschnitt 14.
 - 280 Katalogzeilen ohne normalisierten Titel, 84 mit stark vom Drucktitel
   abweichendem Titel sowie die Abweichungen bei Stimmenzahl und Erstdruck
-  gegenüber MGG warten auf fachliche Prüfung, siehe Abschnitt 21 und
-  `docs/titel-normalisierung.md`.
+  gegenüber MGG warten auf fachliche Prüfung, siehe Abschnitt 21.
+- 75 RISM-Vorschläge im Blatt *Drucke* von `raw/Drucke.xlsx` warten auf
+  Bestätigung, siehe Abschnitte 23 und 25.
 - 311 Handschriften-Zeugnisse und die Zuordnung der 161 LV-Anhang-Werke
   warten auf fachliche Prüfung, siehe Abschnitt 14 und
   `docs/handschriften-ohne-zuordnung.md`.

@@ -1,14 +1,14 @@
 # lassoDBData
 
 Datenbestand zum Werkverzeichnis von Orlando di Lasso. Dieses Repository enthält
-ausschließlich die Daten, die Importwerkzeuge und das Schema. Die Weboberfläche
+ausschließlich die Daten, das Importskript und das Schema. Die Weboberfläche
 liegt getrennt in [lassoDB](https://github.com/nikilachniki/lassoDB).
 
 ## Aufbau
 
 | Ordner    | Inhalt                                                          |
 | --------- | --------------------------------------------------------------- |
-| `raw/`    | Original-Excel-Dateien, unverändert als Quellennachweis          |
+| `raw/`    | Quelldateien des Imports: drei Excel-Tabellen und die GND-Zuordnung |
 | `scripts/`| Importskript, das aus `raw/` die Dateien in `data/` erzeugt      |
 | `schema/` | JSON-LD-Kontext und JSON-Schema                                  |
 | `data/`   | Erzeugte JSON-LD-Dateien, der eigentliche Datenbestand           |
@@ -121,6 +121,23 @@ python scripts/import_excel.py
 Das Skript ist wiederholbar. Ein erneuter Lauf über unveränderte Quellen erzeugt
 identische Ausgaben und vergibt keine neuen IDs.
 
+## Quelldateien
+
+Der Import liest genau diese Dateien aus `raw/`; alle werden von Hand gepflegt:
+
+| Datei | Blatt | Inhalt |
+| --- | --- | --- |
+| `Werke.xlsx` | LV-Katalog | eine Zeile je Werk in seinem Erstdruck |
+| `Drucke.xlsx` | Drucknachweise | eine Zeile je Werk und Druck, auch Nachdrucke |
+| `Drucke.xlsx` | Drucke | eine Zeile je Druck mit der Zuordnung zu RISM |
+| `lasso_handschriften.xlsx` | Werke | eine Zeile je Werk in einer Handschrift |
+| `personen_normdaten.json` | – | GND/VIAF-Zuordnung der Textdichter |
+
+Im Blatt *Drucke* stehen für 75 Drucke RISM-Vorschläge (RISM-Status
+„Vorschlag“), für weitere Kandidaten zur Prüfung. Übernommen wird eine
+Zuordnung erst, wenn der RISM-Status auf „bestätigt“ steht. Begründung in
+`docs/entscheidungen.md`, Abschnitte 23 bis 25.
+
 ## Eine weitere Excel-Tabelle aufnehmen
 
 Tabellen mit abweichenden Spalten sind vorgesehen, solange sie fachlich
@@ -159,8 +176,8 @@ Ausgabedatei, statt eines der bestehenden Modelle zu verbiegen.
   wird.
 - Ein Titel enthält eine auffällige Leerstelle, `Rendz moy mo cœ ur à cinq`.
   Vermutlich ein Artefakt der Vorlage.
-- Das Feld `rism` in `prints.json` ist für die Verknüpfung mit dem
-  Répertoire International des Sources Musicales vorgesehen und noch leer.
+- Das Feld `rism` in `prints.json` wird aus den bestätigten Zuordnungen im
+  Blatt *Drucke* von `raw/Drucke.xlsx` gefüllt. Bisher ist keine bestätigt.
 - LV 74 legt eine Lücke im automatischen Gruppieren offen: die Einträge
   `74-4` und `74-5` tragen als einzige der ganzen Tabelle eine Bemerkung, die
   auf einen früheren Erstdruck verweist als den der Zeile selbst. Die Titel

@@ -67,12 +67,33 @@ SOURCES = [
     },
 ]
 
+# Drucke.xlsx, Blatt Drucknachweise: eine Zeile je Werk und Druck, auch
+# Nachdrucke, nach dem Gesamtregister der Werke Lassos. Eigene Quelle statt
+# Spalten in Werke.xlsx, weil die Beziehung Werk-Druck n:m ist, siehe
+# docs/entscheidungen.md, Abschnitt 23. Die Zeilen sind keine Datensaetze mit
+# eigener ID, sondern Angaben am Werk, deshalb kein Eintrag in der Registry.
+PRINT_APPEARANCE_SOURCE = {
+    "id": "drucknachweise",
+    "file": "Drucke.xlsx",
+    "sheet": "Drucknachweise",
+}
+# Drucke.xlsx, Blatt Drucke: eine Zeile je Druck mit der Zuordnung zu RISM.
+# Uebernommen wird sie nur bei RISM-Status "bestätigt"; Vorschlaege und
+# Kandidaten stehen dort zur Pruefung, siehe Abschnitt 25.
+PRINT_SOURCE = {
+    "id": "drucke",
+    "file": "Drucke.xlsx",
+    "sheet": "Drucke",
+}
+RISM_CONFIRMED = "bestätigt"
+
 # LV-Nummer: Grundnummer, optionaler Teilsatz (1-2), optionale Fassung (74 (IV))
 RE_LV_PART = re.compile(r"^(\d+)-(\d+)$")
 RE_LV_VARIANT = re.compile(r"^(\d+)\s*\(([IVXLC]+)\)$")
 RE_LV_PLAIN = re.compile(r"^(\d+)$")
-# Erstdruck-Sigle: Jahr und laufende Nummer innerhalb des Jahres, z.B. 1555-1
-RE_PRINT = re.compile(r"^(\d{4})-(\d+)$")
+# Druck-Sigle: Jahr, laufende Nummer innerhalb des Jahres und optional der
+# Teil eines mehrbaendigen Drucks, z.B. 1555-1 oder 1575-3/I
+RE_PRINT = re.compile(r"^(\d{4})-(\d+)(?:/([IVX]+))?$")
 # Fuehrende Teilsatz-Markierung im Titel, z.B. "[2] Tengan dunque"
 RE_TITLE_PART = re.compile(r"^\[(\d+)\]\s*")
 # Verweis auf eine Nummer im LV-Anhang im Freitext, z.B. "vgl. LVanh 98"
@@ -144,16 +165,21 @@ def parse_lv(raw):
 
 
 def parse_print(raw):
-    """Zerlegt die Erstdruck-Sigle in Jahr und laufende Nummer."""
+    """Zerlegt die Druck-Sigle in Jahr, laufende Nummer und Teil.
+
+    "part" (etwa "I" in 1575-3/I) wird nur von derive_prints gebraucht und
+    nicht an den Eintrag uebernommen.
+    """
     if not raw:
-        return {"firstPrint": None, "firstPrintYear": None, "firstPrintNo": None}
+        return {"firstPrint": None, "firstPrintYear": None, "firstPrintNo": None, "part": None}
     match = RE_PRINT.match(raw)
     if not match:
-        return {"firstPrint": raw, "firstPrintYear": None, "firstPrintNo": None}
+        return {"firstPrint": raw, "firstPrintYear": None, "firstPrintNo": None, "part": None}
     return {
         "firstPrint": raw,
         "firstPrintYear": int(match.group(1)),
         "firstPrintNo": int(match.group(2)),
+        "part": match.group(3),
     }
 
 
@@ -457,6 +483,92 @@ def read_manuscripts(spec, registry):
     return manuscripts, new_ids
 
 
+def read_print_appearances(spec):
+    """Liest die Drucknachweise: welches Werk in welchem Druck.
+
+    Das Register fuehrt Werke nur mit der Grundnummer, nicht mit Teilsaetzen;
+    die Nachweise gehoeren daher zum Gesamtwerk. Zeilen ohne Drucksigle
+    (Handschriften o. Ae. in der Druckspalte) werden uebergangen.
+    """
+    path = RAW_DIR / spec["file"]
+    workbook = openpyxl.load_workbook(path, data_only=True, read_only=True)
+    rows = workbook[spec["sheet"]].iter_rows(values_only=True)
+    header = [clean(c) for c in next(rows)]
+    appearances = []
+    for row in rows:
+        record = dict(zip(header, (clean(v) for v in row)))
+        siglum = record.get("Sigle")
+        if not siglum:
+            continue
+        appearances.append({
+            "lv": record.get("LV"),
+            "lvAnh": int(record["LV-Anhang"]) if record.get("LV-Anhang") else None,
+            "siglum": siglum,
+            "piece": record.get("Stück"),
+            "approximate": record.get("Datierung") == "ca.",
+            "note": record.get("Zusatz"),
+        })
+    workbook.close()
+    return appearances
+
+
+def read_print_rism(spec):
+    """Liefert Sigle -> RISM-Angaben aus dem Blatt Drucke, nur fuer bestaetigte.
+
+    Die Zuordnung zu RISM ist eine fachliche Feststellung; Vorschlaege
+    (RISM-Status leer oder "Vorschlag") werden deshalb nicht uebernommen.
+    """
+    path = RAW_DIR / spec["file"]
+    workbook = openpyxl.load_workbook(path, data_only=True, read_only=True)
+    rows = workbook[spec["sheet"]].iter_rows(values_only=True)
+    header = [clean(c) for c in next(rows)]
+    confirmed = {}
+    for row in rows:
+        record = dict(zip(header, (clean(v) for v in row)))
+        if record.get("Sigle") and record.get("RISM-Status") == RISM_CONFIRMED and record.get("RISM"):
+            series = [s.strip() for s in (record.get("RISM-Reihe") or "").split(";") if s.strip()]
+            confirmed[record["Sigle"]] = {"rism": record["RISM"], "rismSeries": series}
+    workbook.close()
+    return confirmed
+
+
+def attach_print_appearances(works, appearances):
+    """Haengt die Drucknachweise als printAppearances an das jeweilige Werk.
+
+    Gibt die Nachweise zurueck, deren Werk es nicht gibt (LV weder in
+    Werke.xlsx noch in den Handschriften); sie werden nur gezaehlt.
+    """
+    by_id = {work["@id"]: work for work in works}
+    unattached = []
+    for item in appearances:
+        if item["lv"]:
+            work_id = "work:" + item["lv"]
+        else:
+            work_id = "work:anh-{0}".format(item["lvAnh"])
+        work = by_id.get(work_id)
+        if work is None:
+            unattached.append(item)
+            continue
+        appearance = {"inPrint": "print:" + item["siglum"], "piece": item["piece"]}
+        if item["note"]:
+            appearance["note"] = item["note"]
+        work["printAppearances"].append(appearance)
+    for work in works:
+        work["printAppearances"].sort(key=lambda a: print_sort_key(a["inPrint"][6:]))
+    return unattached
+
+
+def print_sort_key(siglum):
+    """Sortiert Siglen nach Jahr, laufender Nummer und Teil."""
+    parsed = parse_print(siglum)
+    return (
+        parsed["firstPrintYear"] or 0,
+        parsed["firstPrintNo"] or 0,
+        roman_to_int(parsed["part"]) if parsed["part"] else 0,
+        siglum,
+    )
+
+
 def derive_works(entries, manuscripts):
     """Gruppiert Eintraege und Handschriften-Zeugnisse zu Werken.
 
@@ -490,6 +602,7 @@ def derive_works(entries, manuscripts):
             "titles": [],
             "voiceCounts": [],
             "prints": [],
+            "printAppearances": [],
             "textAuthors": [],
             "uncertainTextAuthors": [],
             "textSources": [],
@@ -746,29 +859,50 @@ def roman_to_int(numeral):
     return total
 
 
-def derive_prints(entries):
-    """Sammelt die Erstdrucke als eigene Entitaet."""
+def derive_prints(entries, appearances, rism):
+    """Sammelt die Drucke als eigene Entitaet.
+
+    Grundlage sind die Erstdrucke aus Werke.xlsx (entryCount) und alle Drucke
+    aus den Drucknachweisen (workCount, auch Nachdrucke). rism und rismSeries
+    kommen aus den bestaetigten Zuordnungen im Blatt Drucke.
+    """
     prints = {}
-    for entry in entries:
-        siglum = entry.get("firstPrint")
-        if not siglum:
-            continue
+
+    def get(siglum):
         item = prints.get(siglum)
         if item is None:
+            parsed = parse_print(siglum)
             item = {
                 "@id": "print:" + siglum,
                 "@type": "Print",
                 "siglum": siglum,
-                "year": entry.get("firstPrintYear"),
-                "no": entry.get("firstPrintNo"),
+                "year": parsed["firstPrintYear"],
+                "no": parsed["firstPrintNo"],
+                "part": parsed["part"],
+                "dateApproximate": False,
                 "rism": None,
+                "rismSeries": [],
                 "entryCount": 0,
+                "workCount": 0,
+                "works": set(),
             }
+            if siglum in rism:
+                item["rism"] = rism[siglum]["rism"]
+                item["rismSeries"] = rism[siglum]["rismSeries"]
             prints[siglum] = item
-        item["entryCount"] += 1
-    return sorted(
-        prints.values(), key=lambda p: (p["year"] or 0, p["no"] or 0, p["siglum"])
-    )
+        return item
+
+    for entry in entries:
+        if entry.get("firstPrint"):
+            get(entry["firstPrint"])["entryCount"] += 1
+    for appearance in appearances:
+        item = get(appearance["siglum"])
+        item["works"].add((appearance["lv"], appearance["lvAnh"]))
+        if appearance["approximate"]:
+            item["dateApproximate"] = True
+    for item in prints.values():
+        item["workCount"] = len(item.pop("works"))
+    return sorted(prints.values(), key=lambda p: print_sort_key(p["siglum"]))
 
 
 PERSON_AUTHORITIES_PATH = RAW_DIR / "personen_normdaten.json"
@@ -1040,6 +1174,34 @@ def main():
             }
         )
 
+    spec = PRINT_APPEARANCE_SOURCE
+    path = RAW_DIR / spec["file"]
+    print("Lese {0} / {1}".format(spec["file"], spec["sheet"]))
+    appearances = read_print_appearances(spec)
+    print("  {0} Drucknachweise".format(len(appearances)))
+    provenance.append(
+        {
+            "dataset": spec["id"],
+            "file": spec["file"],
+            "sheet": spec["sheet"],
+            "sha256": file_digest(path),
+            "entries": len(appearances),
+        }
+    )
+    spec = PRINT_SOURCE
+    print("Lese {0} / {1}".format(spec["file"], spec["sheet"]))
+    print_rism = read_print_rism(spec)
+    print("  {0} Drucke mit bestaetigter RISM-Zuordnung".format(len(print_rism)))
+    provenance.append(
+        {
+            "dataset": spec["id"],
+            "file": spec["file"],
+            "sheet": spec["sheet"],
+            "sha256": file_digest(RAW_DIR / spec["file"]),
+            "entries": len(print_rism),
+        }
+    )
+
     entries.sort(key=lambda e: e["id"])
     manuscripts.sort(key=lambda m: m["id"])
     # Vor der Schema-Pruefung, weil derive_persons die Personenfelder an den
@@ -1051,7 +1213,8 @@ def main():
 
     works = derive_works(entries, manuscripts)
     expressions = derive_expressions(entries, works)
-    prints = derive_prints(entries)
+    unattached = attach_print_appearances(works, appearances)
+    prints = derive_prints(entries, appearances, print_rism)
     report_path, unclassified_count = write_unclassified_report(manuscripts)
 
     write_json(
@@ -1091,6 +1254,8 @@ def main():
                 "worksInAppendix": len([w for w in works if w["lvAnh"] is not None]),
                 "expressions": len(expressions),
                 "prints": len(prints),
+                "printAppearances": len(appearances) - len(unattached),
+                "printAppearancesUnattached": len(unattached),
                 "persons": len(persons),
                 "idsAssigned": len(registry["assigned"]),
                 "nextId": registry["nextId"],
@@ -1114,7 +1279,13 @@ def main():
     print("Fassungen     : {0} (Expressions zu {1} Werken)".format(
         len(expressions), len({e["realizationOf"] for e in expressions})
     ))
-    print("Drucke        : {0}".format(len(prints)))
+    print("Drucke        : {0}, davon {1} Erstdrucke lt. Werke.xlsx".format(
+        len(prints), len([p for p in prints if p["entryCount"]])
+    ))
+    print("Drucknachweise: {0} an Werken, {1} ohne Werk ({2})".format(
+        len(appearances) - len(unattached), len(unattached),
+        ", ".join(sorted({a["lv"] or "anh-{0}".format(a["lvAnh"]) for a in unattached})[:10]) or "-",
+    ))
     print("Textdichter   : {0}".format(len(persons)))
     print(
         "Interne IDs   : {0} vergeben, {1} davon neu, naechste freie ID {2}".format(

@@ -10,17 +10,19 @@
     "worksFromManuscriptsOnly": 189,
     "worksInAppendix": 161,
     "expressions": 9,
-    "prints": 142,
+    "prints": 477,
+    "printAppearances": 7669,
+    "printAppearancesUnattached": 0,
     "persons": 66,
-    "idsAssigned": 11051,
-    "nextId": 11052
+    "idsAssigned": 11304,
+    "nextId": 11305
   },
   "sources": [
     {
       "dataset": "lv-katalog",
       "file": "Werke.xlsx",
       "sheet": "LV-Katalog",
-      "sha256": "ff9e7f5e9be593c78abd66c91fff17497b78d42eb523136b9bafd9a0ed207ca4",
+      "sha256": "8365172a696442d8460fd0ab3f54a1ba1a5362c88eec989160124cebe7a1936f",
       "entries": 2043
     },
     {
@@ -29,6 +31,20 @@
       "sheet": "Werke",
       "sha256": "143fd5046561a004108c8cf0daa61cd836c519cb8b3eb3f535611ca4256c7e61",
       "entries": 8939
+    },
+    {
+      "dataset": "drucknachweise",
+      "file": "Drucke.xlsx",
+      "sheet": "Drucknachweise",
+      "sha256": "bb1c5693b4f5219d4808fb18e0e1ce1849511b748a0c451ed673a9aad52ccfdd",
+      "entries": 7669
+    },
+    {
+      "dataset": "drucke",
+      "file": "Drucke.xlsx",
+      "sheet": "Drucke",
+      "sha256": "bb1c5693b4f5219d4808fb18e0e1ce1849511b748a0c451ed673a9aad52ccfdd",
+      "entries": 0
     }
   ]
 }
