@@ -5616,13 +5616,12 @@
         "work:74-3",
         "work:74-4",
         "work:74-5",
-        "work:74-6",
-        "work:74-7"
+        "work:74-6"
       ],
       "preferredTitle": "Non ha tante serene stelle",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Sestina:"
+        "Non ha tante serene"
       ],
       "voiceCounts": [
         5
@@ -5660,12 +5659,11 @@
       "lvAnh": null,
       "isPartOf": "work:74",
       "hasPart": [],
-      "preferredTitle": "Non ha tante serene stelle",
+      "preferredTitle": "In sonno eterno",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Non ha tante serene",
-        "In sonne eterno",
-        "In sonno eterno"
+        "In sonn' eterno",
+        "In sonne eterno"
       ],
       "voiceCounts": [
         5
@@ -5676,9 +5674,7 @@
       "textAuthors": [],
       "uncertainTextAuthors": [],
       "textSources": [],
-      "completeEditions": [
-        "GA2 IV,I 2"
-      ],
+      "completeEditions": [],
       "genres": [],
       "languages": [
         "Italienisch"
@@ -5702,12 +5698,9 @@
       "lvAnh": null,
       "isPartOf": "work:74",
       "hasPart": [],
-      "preferredTitle": "In sonno eterno",
+      "preferredTitle": "Secchi vedransi",
       "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "In sonn' eterno",
-        "Secchi vedransi"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3,
         5
@@ -5742,10 +5735,10 @@
       "lvAnh": null,
       "isPartOf": "work:74",
       "hasPart": [],
-      "preferredTitle": "Secchi vedransi",
+      "preferredTitle": "Io vo fuggendo",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Io vo fuggendo"
+        "Io vò fuggendo"
       ],
       "voiceCounts": [
         4,
@@ -5781,10 +5774,10 @@
       "lvAnh": null,
       "isPartOf": "work:74",
       "hasPart": [],
-      "preferredTitle": "Io vo fuggendo",
+      "preferredTitle": "Deh che fuss’io",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Io vò fuggendo",
+        "Deh che fuß'io",
         "Deh che fuss'io"
       ],
       "voiceCounts": [
@@ -5820,11 +5813,10 @@
       "lvAnh": null,
       "isPartOf": "work:74",
       "hasPart": [],
-      "preferredTitle": "Deh che fuss’io",
+      "preferredTitle": "Ma sarò spento",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Deh che fuß'io",
-        "Ma sarò spento"
+        "Ma saro spent'"
       ],
       "voiceCounts": [
         5,
@@ -5848,41 +5840,6 @@
         "manuscript:02450",
         "manuscript:02456"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:74-7",
-      "@type": "Work",
-      "lv": "74-7",
-      "lvBase": 74,
-      "lvPart": 7,
-      "lvAnh": null,
-      "isPartOf": "work:74",
-      "hasPart": [],
-      "preferredTitle": "Ma sarò spento",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Ma saro spent'"
-      ],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1563-1"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00215"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -19788,7 +19745,9 @@
       ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
+      "textSources": [
+        "nach Lc 1,28"
+      ],
       "completeEditions": [
         "GA XIII 352"
       ],
@@ -20029,13 +19988,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:249-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "In omnibus requiem quaesivi",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "In omnibus requiem"
+        "In omnibus requiem quęsiui"
       ],
       "voiceCounts": [
         4,
@@ -20071,43 +20028,6 @@
         "manuscript:04865",
         "manuscript:04866"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:249-2",
-      "@type": "Work",
-      "lv": "249-2",
-      "lvBase": 249,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:249",
-      "hasPart": [],
-      "preferredTitle": "qu esiui",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        4
-      ],
-      "prints": [
-        "1565-11"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA XIX 482"
-      ],
-      "genres": [
-        "Motette"
-      ],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:00412"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -28007,13 +27927,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:339-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Nunc gaudere licet […] bibendum",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Nunc gaudere licet ...",
+        "Nunc gaudere licet … bibendum",
         "Nunc gaudere licet ... bibendum",
         "Nunc gaudere licet [...] bibendum"
       ],
@@ -28025,7 +27943,9 @@
       ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
+      "textSources": [
+        "Trinklied"
+      ],
       "completeEditions": [
         "GA XIX 472"
       ],
@@ -28045,43 +27965,6 @@
         "manuscript:06121",
         "manuscript:06122"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:339-2",
-      "@type": "Work",
-      "lv": "339-2",
-      "lvBase": 339,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:339",
-      "hasPart": [],
-      "preferredTitle": "bibendum",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        6
-      ],
-      "prints": [
-        "1568-3"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA XIX 472"
-      ],
-      "genres": [
-        "Motette"
-      ],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:00569"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -30497,20 +30380,7 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:370-2",
-        "work:370-3",
-        "work:370-4",
-        "work:370-5",
-        "work:370-6",
-        "work:370-7",
-        "work:370-8",
-        "work:370-9",
-        "work:370-10",
-        "work:370-11",
-        "work:370-12",
-        "work:370-13"
-      ],
+      "hasPart": [],
       "preferredTitle": "Al dolce suon",
       "preferredTitleBasis": "normalized",
       "variantTitles": [],
@@ -30534,448 +30404,6 @@
       ],
       "entries": [
         "entry:00621"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-2",
-      "@type": "Work",
-      "lv": "370-2",
-      "lvBase": 370,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Mai non si vide",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:gioseppo-da-lucca-gioseffo-guami"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00622"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-3",
-      "@type": "Work",
-      "lv": "370-3",
-      "lvBase": 370,
-      "lvPart": 3,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Perche lontana",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:simon-gatto"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00623"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-4",
-      "@type": "Work",
-      "lv": "370-4",
-      "lvBase": 370,
-      "lvPart": 4,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Qval naue scorta",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:fileno-cornazzani"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00624"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-5",
-      "@type": "Work",
-      "lv": "370-5",
-      "lvBase": 370,
-      "lvPart": 5,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Et hor veggio",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:francesco-da-lucca-francesco-guami"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00625"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-6",
-      "@type": "Work",
-      "lv": "370-6",
-      "lvBase": 370,
-      "lvPart": 6,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Di color mille variate",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:gio-battista-da-cremona-giovanni-battista-morsselino"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00626"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-7",
-      "@type": "Work",
-      "lv": "370-7",
-      "lvBase": 370,
-      "lvPart": 7,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Eolo crudel",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:ant-cossuuino-antonius-gosswin"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [
-        "Motette"
-      ],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:00627"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-8",
-      "@type": "Work",
-      "lv": "370-8",
-      "lvBase": 370,
-      "lvPart": 8,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Oscur' abisso",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:iuo-de-vento"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00628"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-9",
-      "@type": "Work",
-      "lv": "370-9",
-      "lvBase": 370,
-      "lvPart": 9,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Ne piu riueggio",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:gio-battista-romano-giovanni-battista-tiburtino"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00629"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-10",
-      "@type": "Work",
-      "lv": "370-10",
-      "lvBase": 370,
-      "lvPart": 10,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Dvolsi Giunon",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:leonardo-meldaert"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00630"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-11",
-      "@type": "Work",
-      "lv": "370-11",
-      "lvBase": 370,
-      "lvPart": 11,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Lvngi dal mio",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [
-        "person:massimo-troiano"
-      ],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00631"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-12",
-      "@type": "Work",
-      "lv": "370-12",
-      "lvBase": 370,
-      "lvPart": 12,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Qvando fia",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00632"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:370-13",
-      "@type": "Work",
-      "lv": "370-13",
-      "lvBase": 370,
-      "lvPart": 13,
-      "lvAnh": null,
-      "isPartOf": "work:370",
-      "hasPart": [],
-      "preferredTitle": "Sv per l'onde",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR2 1, Anh.6"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:00633"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -31180,13 +30608,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:374-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Chanter je veux la gente damoiselle",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Canzon franzese. Chanter"
+        "Canzon franzese. Chanter ie veux"
       ],
       "voiceCounts": [
         5
@@ -31208,43 +30634,6 @@
       ],
       "entries": [
         "entry:00639"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:374-2",
-      "@type": "Work",
-      "lv": "374-2",
-      "lvBase": 374,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:374",
-      "hasPart": [],
-      "preferredTitle": "ie veux",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1569-14"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XIV,I 69"
-      ],
-      "genres": [
-        "Chanson"
-      ],
-      "languages": [
-        "Französisch"
-      ],
-      "entries": [
-        "entry:00640"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -33841,14 +33230,12 @@
       "lvAnh": null,
       "isPartOf": null,
       "hasPart": [
-        "work:419-2",
-        "work:419-3",
         "work:419-4"
       ],
       "preferredTitle": "Multarum hic resonat",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Orlande. Eidem Illustrissimo ac"
+        "Orlande. Eidern Illustrissimo ac Excellentissimo Principi operis dedicatio."
       ],
       "voiceCounts": [
         5
@@ -33858,7 +33245,9 @@
       ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
+      "textSources": [
+        "Huldigung"
+      ],
       "completeEditions": [
         "GA III 149"
       ],
@@ -33874,80 +33263,6 @@
       "manuscripts": [
         "manuscript:06715"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:419-2",
-      "@type": "Work",
-      "lv": "419-2",
-      "lvBase": 419,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:419",
-      "hasPart": [],
-      "preferredTitle": "Excellentissimo Principi",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1571-4"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA III 149"
-      ],
-      "genres": [
-        "Motette"
-      ],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:00708"
-      ],
-      "manuscripts": [],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:419-3",
-      "@type": "Work",
-      "lv": "419-3",
-      "lvBase": 419,
-      "lvPart": 3,
-      "lvAnh": null,
-      "isPartOf": "work:419",
-      "hasPart": [],
-      "preferredTitle": "operis dedicatio.",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1571-4"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA III 149"
-      ],
-      "genres": [
-        "Motette"
-      ],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:00709"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -41531,6 +40846,7 @@
       "lvAnh": null,
       "isPartOf": null,
       "hasPart": [
+        "work:530-1",
         "work:530-2",
         "work:530-3",
         "work:530-4",
@@ -41548,10 +40864,52 @@
       "preferredTitle": "Officium Natalis Christi",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Introitus. [gregor.] Puer natus est nobis",
         "Puer natus est nobis",
         "Officium Natalis Christi: \"Puer natus est nobis\", Intr., \"Alleluia. Dies sanctificatus\", All., \"Natus ante saecula\", Sequ., \"Viderunt omnes fines terrae\", Comm."
       ],
+      "voiceCounts": [
+        5
+      ],
+      "prints": [
+        "1574-4"
+      ],
+      "textAuthors": [],
+      "uncertainTextAuthors": [],
+      "textSources": [],
+      "completeEditions": [
+        "NR 23,4"
+      ],
+      "genres": [
+        "Motette"
+      ],
+      "languages": [
+        "Latein"
+      ],
+      "entries": [
+        "entry:00881"
+      ],
+      "manuscripts": [
+        "manuscript:07304",
+        "manuscript:07306",
+        "manuscript:07308",
+        "manuscript:07309",
+        "manuscript:07310"
+      ],
+      "expressions": [],
+      "entryCount": 1
+    },
+    {
+      "@id": "work:530-1",
+      "@type": "Work",
+      "lv": "530-1",
+      "lvBase": 530,
+      "lvPart": 1,
+      "lvAnh": null,
+      "isPartOf": "work:530",
+      "hasPart": [],
+      "preferredTitle": "Introitus. [gregor.] Puer natus est nobis",
+      "preferredTitleBasis": "earliestSource",
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -41573,15 +40931,9 @@
         "Latein"
       ],
       "entries": [
-        "entry:00881"
+        "entry:11006"
       ],
-      "manuscripts": [
-        "manuscript:07304",
-        "manuscript:07306",
-        "manuscript:07308",
-        "manuscript:07309",
-        "manuscript:07310"
-      ],
+      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -42086,6 +41438,7 @@
       "lvAnh": null,
       "isPartOf": null,
       "hasPart": [
+        "work:531-1",
         "work:531-2",
         "work:531-3",
         "work:531-4",
@@ -42101,9 +41454,48 @@
       "preferredTitle": "Officium Paschale",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Introitus. [gregor.] Resurrexi",
+        "Officivm paschale",
         "Officium Paschale: \"Resurrexi\", Intr., \"Haec dies\", Grad., \"Alleluia. Pascha nostrum\", All., Victimae paschali laudes\", Sequ., \"Factus est repente\", Comm"
       ],
+      "voiceCounts": [
+        5
+      ],
+      "prints": [
+        "1574-4"
+      ],
+      "textAuthors": [],
+      "uncertainTextAuthors": [],
+      "textSources": [],
+      "completeEditions": [
+        "NR 23,8"
+      ],
+      "genres": [
+        "Motette"
+      ],
+      "languages": [
+        "Latein"
+      ],
+      "entries": [
+        "entry:00895"
+      ],
+      "manuscripts": [
+        "manuscript:07312"
+      ],
+      "expressions": [],
+      "entryCount": 1
+    },
+    {
+      "@id": "work:531-1",
+      "@type": "Work",
+      "lv": "531-1",
+      "lvBase": 531,
+      "lvPart": 1,
+      "lvAnh": null,
+      "isPartOf": "work:531",
+      "hasPart": [],
+      "preferredTitle": "Introitus. [gregor.] Resurrexi",
+      "preferredTitleBasis": "earliestSource",
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -42125,11 +41517,9 @@
         "Latein"
       ],
       "entries": [
-        "entry:00895"
+        "entry:11007"
       ],
-      "manuscripts": [
-        "manuscript:07312"
-      ],
+      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -42559,6 +41949,7 @@
       "lvAnh": null,
       "isPartOf": null,
       "hasPart": [
+        "work:532-1",
         "work:532-2",
         "work:532-3",
         "work:532-4",
@@ -42576,10 +41967,50 @@
       "preferredTitle": "Officium Pentecostes",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Introitus. [gregor.] Spiritus Domini",
+        "Officivm pentecostes",
         "Veni Pater Pauperum",
         "Officium Pentecostes: \"Spiritus Domini\", Intr., \"Alleluia. Veni Sancte Spiritus\", All., \"Veni Sancte Spiritus\", Sequ., \"Factus est repente\", Comm."
       ],
+      "voiceCounts": [
+        5
+      ],
+      "prints": [
+        "1574-4"
+      ],
+      "textAuthors": [],
+      "uncertainTextAuthors": [],
+      "textSources": [],
+      "completeEditions": [
+        "NR 23,13"
+      ],
+      "genres": [
+        "Motette"
+      ],
+      "languages": [
+        "Latein"
+      ],
+      "entries": [
+        "entry:00907"
+      ],
+      "manuscripts": [
+        "manuscript:07313",
+        "manuscript:07314"
+      ],
+      "expressions": [],
+      "entryCount": 1
+    },
+    {
+      "@id": "work:532-1",
+      "@type": "Work",
+      "lv": "532-1",
+      "lvBase": 532,
+      "lvPart": 1,
+      "lvAnh": null,
+      "isPartOf": "work:532",
+      "hasPart": [],
+      "preferredTitle": "Introitus. [gregor.] Spiritus Domini",
+      "preferredTitleBasis": "earliestSource",
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -42601,12 +42032,9 @@
         "Latein"
       ],
       "entries": [
-        "entry:00907"
+        "entry:11008"
       ],
-      "manuscripts": [
-        "manuscript:07313",
-        "manuscript:07314"
-      ],
+      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -43106,6 +42534,7 @@
       "lvAnh": null,
       "isPartOf": null,
       "hasPart": [
+        "work:533-1",
         "work:533-2",
         "work:533-3",
         "work:533-4",
@@ -43128,9 +42557,48 @@
       "preferredTitle": "Officium Corporis Christi",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "[gregor.] Cibauit eos",
+        "Officivm corporis Christi",
         "Officium Corporis Christi: \"Cibavit eos\", Intr., \"Alleluia. Caro mea vere est cibus\", All., \"Lauda Sion Salvatorem\", Sequ., \"Qui manducat carnem meam\", Comm."
       ],
+      "voiceCounts": [
+        5
+      ],
+      "prints": [
+        "1574-4"
+      ],
+      "textAuthors": [],
+      "uncertainTextAuthors": [],
+      "textSources": [],
+      "completeEditions": [
+        "NR 23,17"
+      ],
+      "genres": [
+        "Motette"
+      ],
+      "languages": [
+        "Latein"
+      ],
+      "entries": [
+        "entry:00921"
+      ],
+      "manuscripts": [
+        "manuscript:07315"
+      ],
+      "expressions": [],
+      "entryCount": 1
+    },
+    {
+      "@id": "work:533-1",
+      "@type": "Work",
+      "lv": "533-1",
+      "lvBase": 533,
+      "lvPart": 1,
+      "lvAnh": null,
+      "isPartOf": "work:533",
+      "hasPart": [],
+      "preferredTitle": "[gregor.] Cibauit eos",
+      "preferredTitleBasis": "earliestSource",
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -43152,11 +42620,9 @@
         "Latein"
       ],
       "entries": [
-        "entry:00921"
+        "entry:11009"
       ],
-      "manuscripts": [
-        "manuscript:07315"
-      ],
+      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -43943,15 +43409,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,55"
+      ],
+      "completeEditions": [
+        "NR 2,2"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10937"
+        "entry:11010"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -43970,15 +43442,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,56"
+      ],
+      "completeEditions": [
+        "NR 2,3"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10938"
+        "entry:11011"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -43997,15 +43475,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,57"
+      ],
+      "completeEditions": [
+        "NR 2,4"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10939"
+        "entry:11012"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44024,15 +43508,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,58"
+      ],
+      "completeEditions": [
+        "NR 2,5"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10940"
+        "entry:11013"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44051,15 +43541,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,59"
+      ],
+      "completeEditions": [
+        "NR 2,6"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10941"
+        "entry:11014"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44078,15 +43574,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,60"
+      ],
+      "completeEditions": [
+        "NR 2,7"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10942"
+        "entry:11015"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44105,15 +43607,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,61"
+      ],
+      "completeEditions": [
+        "NR 2,8"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10943"
+        "entry:11016"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44132,15 +43640,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,62"
+      ],
+      "completeEditions": [
+        "NR 2,9"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10944"
+        "entry:11017"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44159,15 +43673,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,63"
+      ],
+      "completeEditions": [
+        "NR 2,10"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10945"
+        "entry:11018"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44186,15 +43706,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,64"
+      ],
+      "completeEditions": [
+        "NR 2,11"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10946"
+        "entry:11019"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44213,15 +43739,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,65"
+      ],
+      "completeEditions": [
+        "NR 2,12"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10947"
+        "entry:11020"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44240,15 +43772,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,66"
+      ],
+      "completeEditions": [
+        "NR 2,13"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10948"
+        "entry:11021"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44267,15 +43805,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,67"
+      ],
+      "completeEditions": [
+        "NR 2,14"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10949"
+        "entry:11022"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44294,15 +43838,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,68"
+      ],
+      "completeEditions": [
+        "NR 2,15"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10950"
+        "entry:11023"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44321,15 +43871,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,69"
+      ],
+      "completeEditions": [
+        "NR 2,16"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10951"
+        "entry:11024"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44348,15 +43904,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,70"
+      ],
+      "completeEditions": [
+        "NR 2,17"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10952"
+        "entry:11025"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44375,15 +43937,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,71"
+      ],
+      "completeEditions": [
+        "NR 2,18"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10953"
+        "entry:11026"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44402,15 +43970,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,72"
+      ],
+      "completeEditions": [
+        "NR 2,19"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10954"
+        "entry:11027"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44429,15 +44003,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,73"
+      ],
+      "completeEditions": [
+        "NR 2,20"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10955"
+        "entry:11028"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44456,15 +44036,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,74"
+      ],
+      "completeEditions": [
+        "NR 2,21"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10956"
+        "entry:11029"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44483,15 +44069,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,75"
+      ],
+      "completeEditions": [
+        "NR 2,22"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10957"
+        "entry:11030"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44510,15 +44102,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,76"
+      ],
+      "completeEditions": [
+        "NR 2,23"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10958"
+        "entry:11031"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44537,15 +44135,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,77"
+      ],
+      "completeEditions": [
+        "NR 2,24"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10959"
+        "entry:11032"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44564,15 +44168,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,78"
+      ],
+      "completeEditions": [
+        "NR 2,25"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10960"
+        "entry:11033"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44591,15 +44201,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,79"
+      ],
+      "completeEditions": [
+        "NR 2,26"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10961"
+        "entry:11034"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44618,15 +44234,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,80"
+      ],
+      "completeEditions": [
+        "NR 2,27"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10962"
+        "entry:11035"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44645,15 +44267,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,81"
+      ],
+      "completeEditions": [
+        "NR 2,28"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10963"
+        "entry:11036"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44672,15 +44300,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,82"
+      ],
+      "completeEditions": [
+        "NR 2,29"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10964"
+        "entry:11037"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44699,15 +44333,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,83"
+      ],
+      "completeEditions": [
+        "NR 2,30"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10965"
+        "entry:11038"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44726,15 +44366,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,84"
+      ],
+      "completeEditions": [
+        "NR 2,31"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10966"
+        "entry:11039"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44753,15 +44399,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,85"
+      ],
+      "completeEditions": [
+        "NR 2,32"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10967"
+        "entry:11040"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44780,15 +44432,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,86"
+      ],
+      "completeEditions": [
+        "NR 2,33"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10968"
+        "entry:11041"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44807,15 +44465,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,87"
+      ],
+      "completeEditions": [
+        "NR 2,34"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10969"
+        "entry:11042"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44834,15 +44498,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,88"
+      ],
+      "completeEditions": [
+        "NR 2,35"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10970"
+        "entry:11043"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44861,15 +44531,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,89"
+      ],
+      "completeEditions": [
+        "NR 2,36"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10971"
+        "entry:11044"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44888,15 +44564,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,90"
+      ],
+      "completeEditions": [
+        "NR 2,37"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10972"
+        "entry:11045"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44915,15 +44597,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,91"
+      ],
+      "completeEditions": [
+        "NR 2,38"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10973"
+        "entry:11046"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44942,15 +44630,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,92"
+      ],
+      "completeEditions": [
+        "NR 2,39"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10974"
+        "entry:11047"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44969,15 +44663,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,93"
+      ],
+      "completeEditions": [
+        "NR 2,40"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10975"
+        "entry:11048"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -44996,15 +44696,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,94"
+      ],
+      "completeEditions": [
+        "NR 2,41"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10976"
+        "entry:11049"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -45023,15 +44729,21 @@
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [],
-      "prints": [],
+      "prints": [
+        "1575-3/I"
+      ],
       "textAuthors": [],
       "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [],
+      "textSources": [
+        "Mt 26,5-21,95"
+      ],
+      "completeEditions": [
+        "NR 2,42"
+      ],
       "genres": [],
       "languages": [],
       "entries": [
-        "entry:10977"
+        "entry:11050"
       ],
       "manuscripts": [],
       "expressions": [],
@@ -51780,13 +51492,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:644-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Ave Maria, alta stirps",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Ad aequales. Aue Iesu Christe",
+        "Ad aequales. Aue Iesu Christe alta stirps",
         "Ave Maria alta stirps"
       ],
       "voiceCounts": [
@@ -51819,43 +51529,6 @@
         "manuscript:07812",
         "manuscript:07813"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:644-2",
-      "@type": "Work",
-      "lv": "644-2",
-      "lvBase": 644,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:644",
-      "hasPart": [],
-      "preferredTitle": "alta stirps",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1579-3"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA I 61"
-      ],
-      "genres": [
-        "Motette"
-      ],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:01076"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -66478,13 +66151,12 @@
         "work:800-13",
         "work:800-14",
         "work:800-15",
-        "work:800-16",
-        "work:800-17"
+        "work:800-16"
       ],
       "preferredTitle": "Psalmus poenitentialis Domine exaudi orationem meam: auribus",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Domine exaudi orationem meam:",
+        "Domine exaudi orationem meam: Auribus",
         "7. Psalmus poenitentialis \"Domine exaudi orationem meam: auribus\"",
         "Domine exaudi orationem meam: auribus (= 7. Psalmus poenitentialis)",
         "Domine exaudi orationem meam: auribus (7. Psalmus poenitentialis)",
@@ -66537,11 +66209,9 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Auribus",
+      "preferredTitle": "Et non intres in iudicium",
       "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Et non intres in iudicium"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -66552,7 +66222,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,8"
+        "NR 26,9"
       ],
       "genres": [
         "Motette"
@@ -66580,7 +66250,7 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Et non intres in iudicium",
+      "preferredTitle": "Qvia persecutus est",
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [
         "Quia persecutus est"
@@ -66596,7 +66266,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,9"
+        "NR 26,10"
       ],
       "genres": [
         "Motette"
@@ -66624,7 +66294,7 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Qvia persecutus est",
+      "preferredTitle": "Collocauit me",
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [
         "Collocavit me"
@@ -66639,7 +66309,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,10"
+        "NR 26,11"
       ],
       "genres": [
         "Motette"
@@ -66667,11 +66337,9 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Collocauit me",
+      "preferredTitle": "Memor fui",
       "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Memor fui"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -66682,7 +66350,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,11"
+        "NR 26,12"
       ],
       "genres": [
         "Motette"
@@ -66710,11 +66378,9 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Memor fui",
+      "preferredTitle": "Expandi manus",
       "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Expandi manus"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         2,
         5
@@ -66726,7 +66392,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,12"
+        "NR 26,13"
       ],
       "genres": [
         "Motette"
@@ -66754,11 +66420,9 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Expandi manus",
+      "preferredTitle": "Velociter exaudi me",
       "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Velociter exaudi me"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -66769,7 +66433,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,13"
+        "NR 26,14"
       ],
       "genres": [
         "Motette"
@@ -66797,7 +66461,7 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Velociter exaudi me",
+      "preferredTitle": "Non auertas faciem",
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [
         "Non avertas faciem",
@@ -66813,7 +66477,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,14"
+        "NR 26,15"
       ],
       "genres": [
         "Motette"
@@ -66841,7 +66505,7 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Non auertas faciem",
+      "preferredTitle": "Avditam fac mihi",
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [
         "Auditam fac mihi"
@@ -66856,7 +66520,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,15"
+        "NR 26,16"
       ],
       "genres": [
         "Motette"
@@ -66884,11 +66548,9 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Avditam fac mihi",
+      "preferredTitle": "Notam fac mihi",
       "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Notam fac mihi"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -66899,7 +66561,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,16"
+        "NR 26,17"
       ],
       "genres": [
         "Motette"
@@ -66927,11 +66589,9 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Notam fac mihi",
+      "preferredTitle": "Eripe me de inimicis meis",
       "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Eripe me de inimicis meis"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3,
         5
@@ -66943,7 +66603,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,17"
+        "NR 26,18"
       ],
       "genres": [
         "Motette"
@@ -66971,11 +66631,9 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Eripe me de inimicis meis",
+      "preferredTitle": "Spiritus tuus",
       "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Spiritus tuus"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         4,
         5
@@ -66987,7 +66645,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,18"
+        "NR 26,19"
       ],
       "genres": [
         "Motette"
@@ -67015,7 +66673,7 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Spiritus tuus",
+      "preferredTitle": "Educes: De tribulatione",
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [
         "Educes de tribulatione"
@@ -67030,7 +66688,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,19"
+        "NR 26,20"
       ],
       "genres": [
         "Motette"
@@ -67058,11 +66716,9 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Educes: De tribulatione",
+      "preferredTitle": "Et perdes omnes",
       "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Et perdes omnes"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -67073,7 +66729,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,20"
+        "NR 26,21"
       ],
       "genres": [
         "Motette"
@@ -67101,11 +66757,9 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Et perdes omnes",
+      "preferredTitle": "Gloria Patri",
       "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Gloria Patri"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         5
       ],
@@ -67116,7 +66770,7 @@
       "uncertainTextAuthors": [],
       "textSources": [],
       "completeEditions": [
-        "NR 26,21"
+        "NR 26,22"
       ],
       "genres": [
         "Motette"
@@ -67144,55 +66798,12 @@
       "lvAnh": null,
       "isPartOf": "work:800",
       "hasPart": [],
-      "preferredTitle": "Gloria Patri",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [
-        "Sicut erat"
-      ],
-      "voiceCounts": [
-        5,
-        6
-      ],
-      "prints": [
-        "1584-6"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR 26,22"
-      ],
-      "genres": [
-        "Motette"
-      ],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:01426"
-      ],
-      "manuscripts": [
-        "manuscript:08965",
-        "manuscript:08981",
-        "manuscript:08997"
-      ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:800-17",
-      "@type": "Work",
-      "lv": "800-17",
-      "lvBase": 800,
-      "lvPart": 17,
-      "lvAnh": null,
-      "isPartOf": "work:800",
-      "hasPart": [],
       "preferredTitle": "Sicut erat",
       "preferredTitleBasis": "earliestSource",
       "variantTitles": [],
       "voiceCounts": [
-        5
+        5,
+        6
       ],
       "prints": [
         "1584-6"
@@ -67210,9 +66821,13 @@
         "Latein"
       ],
       "entries": [
-        "entry:01427"
+        "entry:01426"
       ],
-      "manuscripts": [],
+      "manuscripts": [
+        "manuscript:08965",
+        "manuscript:08981",
+        "manuscript:08997"
+      ],
       "expressions": [],
       "entryCount": 1
     },
@@ -71013,9 +70628,7 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:862-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Factus est Dominus",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
@@ -71052,45 +70665,6 @@
         "manuscript:09231",
         "manuscript:09232"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:862-2",
-      "@type": "Work",
-      "lv": "862-2",
-      "lvBase": 862,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:862",
-      "hasPart": [],
-      "preferredTitle": "[sic! statt Dominus]",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        2
-      ],
-      "prints": [
-        "1585-7"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [
-        "aus Psalmus 17,3"
-      ],
-      "completeEditions": [
-        "GA III 132"
-      ],
-      "genres": [
-        "Motette"
-      ],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:01515"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -74297,8 +73871,7 @@
       "lvAnh": null,
       "isPartOf": null,
       "hasPart": [
-        "work:914-2",
-        "work:914-3"
+        "work:914-2"
       ],
       "preferredTitle": "Tanto e quel ben",
       "preferredTitleBasis": "normalized",
@@ -74344,7 +73917,7 @@
       "preferredTitle": "E puro bene",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "E puro bene e Ben"
+        "E puro bene e Ben perfetto e tale"
       ],
       "voiceCounts": [
         5,
@@ -74370,41 +73943,6 @@
         "manuscript:09442",
         "manuscript:09444"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:914-3",
-      "@type": "Work",
-      "lv": "914-3",
-      "lvBase": 914,
-      "lvPart": 3,
-      "lvAnh": null,
-      "isPartOf": "work:914",
-      "hasPart": [],
-      "preferredTitle": "perfetto e tale",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        6
-      ],
-      "prints": [
-        "1587-8"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 VI,II 19"
-      ],
-      "genres": [],
-      "languages": [
-        "Italienisch"
-      ],
-      "entries": [
-        "entry:01591"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -77380,13 +76918,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:960-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Missa Qual donna attende",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Missa qvinqve vocvm. Super Qual donna",
+        "Missa qvinqve vocvm. Super Qual donna attende a gloriosa fama",
         "Missa super Qual donna attende"
       ],
       "voiceCounts": [
@@ -77427,41 +76963,6 @@
         "manuscript:09551",
         "manuscript:09552"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:960-2",
-      "@type": "Work",
-      "lv": "960-2",
-      "lvBase": 960,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:960",
-      "hasPart": [],
-      "preferredTitle": "attende á gloriosa fama",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        4
-      ],
-      "prints": [
-        "1589-1"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR 6,26"
-      ],
-      "genres": [],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:01664"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -81984,9 +81485,7 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:1044-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Congregati sunt inimici",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
@@ -82021,43 +81520,6 @@
         "manuscript:09711",
         "manuscript:09712"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:1044-2",
-      "@type": "Work",
-      "lv": "1044-2",
-      "lvBase": 1044,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:1044",
-      "hasPart": [],
-      "preferredTitle": "(C: Dissipa gentes)",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [
-        5
-      ],
-      "prints": [
-        "1597-1"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [
-        "Psalmus 67,31"
-      ],
-      "completeEditions": [
-        "GA IX 289"
-      ],
-      "genres": [],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:01775"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -82758,6 +82220,7 @@
       "lvAnh": null,
       "isPartOf": null,
       "hasPart": [
+        "work:1061-1",
         "work:1061-2",
         "work:1061-3",
         "work:1061-4",
@@ -82771,7 +82234,7 @@
       "preferredTitle": "Litaniae Beatae Mariae Virginis",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Kyrie eleison",
+        "Litanice B. M. Virginis Orlandi Lassi Quatuor voc.",
         "Litaniae Beatae Mariae Virginis (Litaniae Lauretanae), Nr. 2",
         "Kyrie eleison - Pater de caelis (Litaniae Beatae Mariae Virginis)"
       ],
@@ -82799,6 +82262,43 @@
         "manuscript:09730",
         "manuscript:09731"
       ],
+      "expressions": [],
+      "entryCount": 1
+    },
+    {
+      "@id": "work:1061-1",
+      "@type": "Work",
+      "lv": "1061-1",
+      "lvBase": 1061,
+      "lvPart": 1,
+      "lvAnh": null,
+      "isPartOf": "work:1061",
+      "hasPart": [],
+      "preferredTitle": "Litaniae Beatae Mariae Virginis",
+      "preferredTitleBasis": "normalized",
+      "variantTitles": [
+        "Kyrie eleison"
+      ],
+      "voiceCounts": [
+        4
+      ],
+      "prints": [
+        "1600-4"
+      ],
+      "textAuthors": [],
+      "uncertainTextAuthors": [],
+      "textSources": [],
+      "completeEditions": [
+        "NR 25,2"
+      ],
+      "genres": [],
+      "languages": [
+        "Latein"
+      ],
+      "entries": [
+        "entry:11051"
+      ],
+      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },
@@ -88748,13 +88248,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:1150-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Missa Deus in adiutorium",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Missa qvinta. Sex vocvm Ad imitationem. Deus in adiutorium",
+        "Missa qvinta. Sex vocvm Ad imitationem. Deus in adiutorium meum intende",
         "Missa super Deus in adiutorium"
       ],
       "voiceCounts": [
@@ -88787,41 +88285,6 @@
         "manuscript:10027",
         "manuscript:10028"
       ],
-      "expressions": [],
-      "entryCount": 1
-    },
-    {
-      "@id": "work:1150-2",
-      "@type": "Work",
-      "lv": "1150-2",
-      "lvBase": 1150,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:1150",
-      "hasPart": [],
-      "preferredTitle": "meum intende",
-      "preferredTitleBasis": "earliestSource",
-      "variantTitles": [],
-      "voiceCounts": [],
-      "prints": [
-        "1610-1"
-      ],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "NR 8,41"
-      ],
-      "genres": [
-        "Messvertonung"
-      ],
-      "languages": [
-        "Latein"
-      ],
-      "entries": [
-        "entry:01931"
-      ],
-      "manuscripts": [],
       "expressions": [],
       "entryCount": 1
     },

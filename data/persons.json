@@ -22,16 +22,6 @@
       "entryCount": 1
     },
     {
-      "@id": "person:ant-cossuuino-antonius-gosswin",
-      "@type": "Person",
-      "preferredName": "Ant. Cossuuino (= Antonius Gosswin)",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
       "@id": "person:gnd-100214037",
       "@type": "Person",
       "preferredName": "Antonio Sebastiano Minturno",
@@ -160,26 +150,6 @@
       "entryCount": 1
     },
     {
-      "@id": "person:fileno-cornazzani",
-      "@type": "Person",
-      "preferredName": "Fileno Cornazzani",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:francesco-da-lucca-francesco-guami",
-      "@type": "Person",
-      "preferredName": "Francesco da Lucca (= Francesco Guami)",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
       "@id": "person:gnd-118593234",
       "@type": "Person",
       "preferredName": "Francesco Petrarca",
@@ -241,36 +211,6 @@
       "@id": "person:gebet",
       "@type": "Person",
       "preferredName": "Gebet?",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:gio-battista-da-cremona-giovanni-battista-morsselino",
-      "@type": "Person",
-      "preferredName": "Gio. Battista da Cremona (= Giovanni Battista Morsselino)",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:gio-battista-romano-giovanni-battista-tiburtino",
-      "@type": "Person",
-      "preferredName": "Gio. Battista Romano (= Giovanni Battista Tiburtino)",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:gioseppo-da-lucca-gioseffo-guami",
-      "@type": "Person",
-      "preferredName": "Gioseppo da Lucca (= Gioseffo Guami)",
       "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
@@ -386,16 +326,6 @@
       "entryCount": 1
     },
     {
-      "@id": "person:iuo-de-vento",
-      "@type": "Person",
-      "preferredName": "Iuo de Vento",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
       "@id": "person:gnd-118794469",
       "@type": "Person",
       "preferredName": "Jacopo Sannazaro",
@@ -465,16 +395,6 @@
       "@id": "person:kn-pken",
       "@type": "Person",
       "preferredName": "Knöpken",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:leonardo-meldaert",
-      "@type": "Person",
-      "preferredName": "Leonardo Meldaert",
       "variantNames": [],
       "role": "textAuthor",
       "gnd": null,
@@ -566,16 +486,6 @@
       "role": "textAuthor",
       "gnd": "118575449",
       "viaf": "14773105",
-      "entryCount": 1
-    },
-    {
-      "@id": "person:massimo-troiano",
-      "@type": "Person",
-      "preferredName": "Massimo Troiano",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
       "entryCount": 1
     },
     {
@@ -729,16 +639,6 @@
       "@id": "person:sch-fergedicht",
       "@type": "Person",
       "preferredName": "Schäfergedicht",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:simon-gatto",
-      "@type": "Person",
-      "preferredName": "Simon Gatto",
       "variantNames": [],
       "role": "textAuthor",
       "gnd": null,

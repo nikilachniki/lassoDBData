@@ -581,9 +581,12 @@ Werk und Manifestation (Abschnitt 6) eine weitere Ebene des Modells
 **Zuordnung zum Gesamtwerk.** Die Expression verweist auf das Gesamtwerk,
 nicht auf den einzelnen Teil-Datensatz, und behält die Ziffer als `pars`. Die
 Ziffer lässt sich nicht verlässlich auf eine Teilnummer abbilden: Bei LV 74
-ist der Datensatz `74` die Überschrift „Sestina:“, sodass `74 (III)`
-(„Secchi vedransi“) nicht `74-3` entspricht, sondern `74-4`. Eine Zuordnung
-über den Titel wurde aus demselben Grund wie in Abschnitt 7 verworfen.
+war der Datensatz `74` die Überschrift „Sestina:“, sodass `74 (III)`
+(„Secchi vedransi“) nicht `74-3` entsprach, sondern `74-4`. Seit die
+Überschriftzeile entfernt ist (Abschnitt 21), stimmen beide überein; die
+Zuordnung zum Gesamtwerk bleibt dennoch, weil dieselbe Verschiebung bei
+künftigen Korrekturen erneut auftreten kann. Eine Zuordnung über den Titel
+wurde aus demselben Grund wie in Abschnitt 7 verworfen.
 
 **Alternativen.** Eine Expression für jedes Werk, auch ohne Fassung, wie es
 FRBR streng genommen verlangt. Das hätte rund 2000 inhaltsleere Datensätze
@@ -757,6 +760,17 @@ dem früheren Abgleich mit IMSLP (`scripts/match_imslp.py`) vorgezogen, weil
 dieser nur heuristisch über Titel, Band und Jahr zuordnen konnte und IMSLP
 selbst Grove folgt, also keine eigenständige Quelle ist.
 
+Nach der Übernahme wurde `Werke.xlsx` von Hand korrigiert: Zeilen, die nur
+ein beim Umbruch der TeX-Vorlage abgetrennter Titelrest (249-2 „qu esiui“)
+oder eine Überschrift (74 „Sestina:“) waren, sind entfernt und die
+Folgezeilen neu nummeriert. Damit ist `Werke.xlsx` nicht mehr zeilengleich
+mit `Werke_MK.xlsx` und für die normalisierten Titel maßgeblich. Das Skript
+schreibt seither nicht mehr in `Werke.xlsx`, sondern leitet die Titel nur
+noch zur Kontrolle ab; MGG und Grove ordnet es dazu wie die Formeln in
+`Werke_MK.xlsx` über die LV-Nummer zu, aus deren Blättern *MGG-Werke* und
+*Grove-Werke*. Abweichungen zwischen Tabelle und Regel weist
+`docs/titel-normalisierung.md` gesondert aus.
+
 **Ableitungsregeln** (`scripts/normalize_titles.py`):
 
 - Der MGG-Titel wird ohne Anführungszeichen und ohne vorangestellte MGG-
@@ -770,9 +784,10 @@ selbst Grove folgt, also keine eigenständige Quelle ist.
   den Titel, nicht über die Teilnummer. Die Teilnummer im LV deckt sich nicht
   verlässlich mit der Pars-Zählung in MGG, weil der LV mitunter eine
   Überschrift als eigene Zeile führt (Abschnitt 17). Aus demselben Grund
-  ordnet das Skript 28 Teile neu zu, bei denen `Werke_MK.xlsx` über die
+  ordnete das Skript 28 Teile neu zu, bei denen `Werke_MK.xlsx` über die
   Nummer einen benachbarten Teil getroffen hatte (etwa LV 74-4
-  „Secchi vedransi“, dort „Io vo fuggendo“).
+  „Secchi vedransi“, dort „Io vo fuggendo“). Nach Entfernen der
+  Überschriftzeile bei LV 74 sind es noch 23.
 - Für die zwölf untextierten Bicinien nennt MGG nur den Sammeltitel; sie
   bleiben ohne normalisierten Titel.
 
@@ -785,14 +800,69 @@ Titel zu wählen. Ebenso verworfen wurde, Titel ohne Treffer automatisch aus
 dem Drucktitel zu normalisieren (u/v, i/j, Abkürzungen): Das wäre eine eigene
 Edition und keine Übernahme einer zitierfähigen Quelle.
 
-**Preis.** 303 Zeilen bleiben ohne normalisierten Titel, überwiegend die
+**Preis.** 280 Zeilen bleiben ohne normalisierten Titel, überwiegend die
 Abschnitte von Offizien, Matthäuspassion, Bußpsalmen, Stabat mater und
 Litanei, die MGG nicht einzeln nennt; 492 Werke behalten deshalb den Titel des
 frühesten Drucks. Die normalisierte Schreibung ist die der MGG, mit deren
 Eigenheiten und gelegentlichen Fehlern (LV 122-2 „Cum dederit delictis
 suis“). Alle offenen und auffälligen Fälle stehen in
 `docs/titel-normalisierung.md`, ebenso die Abweichungen bei Stimmenzahl und
-Erstdruck gegenüber MGG und Grove, die `Werke_MK.xlsx` ausweist.
+Erstdruck gegenüber MGG und Grove.
+
+---
+
+## 22. Eigener Gesamttitel als Zeile `N`, erster Teil als `N-1`
+
+**Entscheidung.** Bei mehrteiligen Werken gibt es in `Werke.xlsx` zwei
+Fälle, die jetzt unterschiedlich erfasst werden:
+
+- **Der erste Teil trägt zugleich den Titel des Gesamtwerks**, etwa
+  LV 74 „Non ha tante serene“. Die Zeile `N` ist dann Gesamtwerk und erster
+  Teil in einem, die Teilzählung beginnt mit `N-2`. So war es bisher für
+  alle Werke.
+- **Das Gesamtwerk hat einen eigenen Titel**, der nicht der Anfang des
+  ersten Teils ist, etwa die Offizien LV 530 bis 533 („Officium Natalis
+  Christi“) oder LV 1061. Die Zeile `N` trägt dann nur den Gesamttitel, der
+  erste Teil steht als eigene Zeile `N-1` (bei LV 530 der Introitus „Puer
+  natus est nobis“). LV 534, die Matthäuspassion, war schon vorher so
+  erfasst.
+
+**Befund.** Bisher stand bei den Offizien in der Zeile `N` der Titel des
+Introitus als Drucktitel, als normalisierter Titel aber der Offiziumstitel
+aus MGG. Dieselbe Zeile beschrieb also zwei verschiedene Dinge, und der
+Introitus erschien in der Teilliste des Werks nicht als eigener Teil.
+
+**Begründung.** Gesamtwerk und Teil sind nach Abschnitt 18 eigene Werke mit
+`isPartOf`/`hasPart`. Fällt der Titel des ersten Teils mit dem Gesamttitel
+zusammen, wäre eine zusätzliche Zeile `N-1` eine reine Dublette. Hat das
+Gesamtwerk dagegen einen eigenen Titel, braucht der erste Teil einen eigenen
+Datensatz, sonst geht er als Teil verloren. Der Import musste dafür nicht
+geändert werden: `N-1` wird wie jeder andere Teil an `work:N` gehängt.
+
+**Alternativen.** Einheitlich für alle mehrteiligen Werke eine Zeile `N-1`
+anzulegen hätte bei rund 350 Werken eine Zeile erzeugt, deren Titel mit dem
+des Gesamtwerks identisch wäre. Eine eigene Spalte, die den Fall kennzeichnet,
+wurde verworfen, weil die Nummernsyntax ihn bereits eindeutig ausdrückt und
+der Import dafür keine zusätzliche Regel braucht.
+
+**Weitere Korrekturen im selben Arbeitsgang.** Die Zeilen 370-2 bis 370-13
+sind entfernt. „Al dolce suon“ ist ein Gemeinschaftszyklus, und diese
+Zeilen waren die Abschnitte der übrigen Beteiligten. Die Namen in ihrer
+Spalte Textdichter (Gioseffo Guami, Simon Gatto, Massimo Troiano u. a.)
+waren keine Textdichter, sondern die Komponisten dieser Abschnitte. Damit
+entfallen zehn Personen aus `persons.json`. Die Teile von LV 534 tragen
+jetzt den Erstdruck 1575-3/I, der bisher nur an der Zeile `534` stand.
+
+**Preis.** Weil die Registry Zeilen über LV-Nummer und Erstdruck
+wiedererkennt (Abschnitt 7), behalten die Zeilen 531 bis 533 ihre interne ID,
+bezeichnen aber jetzt das Offizium statt des Introitus; der Introitus erhält
+als `N-1` eine neue ID. Bei LV 530 ist es ebenso. Die 36 Teile von LV 534
+erhalten wegen des nachgetragenen Erstdrucks neue IDs, ihre alten verwaisen,
+ebenso die IDs der entfernten Zeilen. Insgesamt wurden 46 IDs neu vergeben.
+Wer eine der betroffenen IDs bereits zitiert hat, landet damit beim
+Gesamtwerk oder bei einer verwaisten Nummer. Nach einer förmlichen
+Veröffentlichung, etwa über Zenodo, wären solche Korrekturen nur noch mit
+einer Zuordnungsliste alter auf neue IDs vertretbar.
 
 ---
 
@@ -837,7 +907,7 @@ Erstdruck gegenüber MGG und Grove, die `Werke_MK.xlsx` ausweist.
   zurückgestellt, siehe Abschnitt 15.
 - Die MARC-artigen Teilfelder in `sourceDescription` sowie das RISM-Sigel der
   Handschriften sind unzerlegt bzw. ungeprüft, siehe Abschnitt 14.
-- 303 Katalogzeilen ohne normalisierten Titel, 87 mit stark vom Drucktitel
+- 280 Katalogzeilen ohne normalisierten Titel, 84 mit stark vom Drucktitel
   abweichendem Titel sowie die Abweichungen bei Stimmenzahl und Erstdruck
   gegenüber MGG warten auf fachliche Prüfung, siehe Abschnitt 21 und
   `docs/titel-normalisierung.md`.

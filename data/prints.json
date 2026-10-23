@@ -8,7 +8,7 @@
       "year": null,
       "no": null,
       "rism": null,
-      "entryCount": 1
+      "entryCount": 42
     },
     {
       "@id": "print:1575-3/III",
@@ -188,7 +188,7 @@
       "year": 1563,
       "no": 1,
       "rism": null,
-      "entryCount": 24
+      "entryCount": 23
     },
     {
       "@id": "print:1563-3",
@@ -323,7 +323,7 @@
       "year": 1565,
       "no": 11,
       "rism": null,
-      "entryCount": 52
+      "entryCount": 51
     },
     {
       "@id": "print:1566-7",
@@ -458,7 +458,7 @@
       "year": 1568,
       "no": 3,
       "rism": null,
-      "entryCount": 34
+      "entryCount": 33
     },
     {
       "@id": "print:1568-4",
@@ -521,7 +521,7 @@
       "year": 1569,
       "no": 14,
       "rism": null,
-      "entryCount": 20
+      "entryCount": 7
     },
     {
       "@id": "print:1570-4",
@@ -620,7 +620,7 @@
       "year": 1571,
       "no": 4,
       "rism": null,
-      "entryCount": 32
+      "entryCount": 30
     },
     {
       "@id": "print:1571-6",
@@ -692,7 +692,7 @@
       "year": 1574,
       "no": 4,
       "rism": null,
-      "entryCount": 80
+      "entryCount": 84
     },
     {
       "@id": "print:1575-4",
@@ -809,7 +809,7 @@
       "year": 1579,
       "no": 3,
       "rism": null,
-      "entryCount": 7
+      "entryCount": 6
     },
     {
       "@id": "print:1579-7",
@@ -953,7 +953,7 @@
       "year": 1584,
       "no": 6,
       "rism": null,
-      "entryCount": 133
+      "entryCount": 132
     },
     {
       "@id": "print:1584-7",
@@ -1007,7 +1007,7 @@
       "year": 1585,
       "no": 7,
       "rism": null,
-      "entryCount": 42
+      "entryCount": 41
     },
     {
       "@id": "print:1586-5",
@@ -1043,7 +1043,7 @@
       "year": 1587,
       "no": 8,
       "rism": null,
-      "entryCount": 33
+      "entryCount": 32
     },
     {
       "@id": "print:1587-9",
@@ -1124,7 +1124,7 @@
       "year": 1589,
       "no": 1,
       "rism": null,
-      "entryCount": 7
+      "entryCount": 6
     },
     {
       "@id": "print:1590-1",
@@ -1187,7 +1187,7 @@
       "year": 1597,
       "no": 1,
       "rism": null,
-      "entryCount": 13
+      "entryCount": 12
     },
     {
       "@id": "print:1599-4",
@@ -1205,7 +1205,7 @@
       "year": 1600,
       "no": 4,
       "rism": null,
-      "entryCount": 10
+      "entryCount": 11
     },
     {
       "@id": "print:1601-1",
@@ -1259,7 +1259,7 @@
       "year": 1610,
       "no": 1,
       "rism": null,
-      "entryCount": 6
+      "entryCount": 5
     },
     {
       "@id": "print:1619-1",
