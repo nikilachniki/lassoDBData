@@ -59,6 +59,10 @@
     "printAppearances": { "@id": "lasso:printAppearance", "@container": "@set" },
     "inPrint": { "@id": "lasso:inPrint", "@type": "@id" },
     "piece": "lasso:pieceInPrint",
+    "description": "dcterms:description",
+    "references": { "@id": "dcterms:bibliographicCitation", "@type": "@json" },
+    "rismCatalogue": { "@id": "lasso:rismFromCatalogue", "@type": "@id" },
+    "partbooks": "lasso:partbooks",
 
     "textAuthor": "lasso:textAuthorRaw",
     "textAuthorPerson": { "@id": "lasso:textAuthor", "@type": "@id" },

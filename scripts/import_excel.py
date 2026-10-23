@@ -86,6 +86,9 @@ PRINT_SOURCE = {
     "sheet": "Drucke",
 }
 RISM_CONFIRMED = "bestätigt"
+# Spalten aus dem Druckeverzeichnis im selben Blatt, siehe Abschnitt 26
+REFERENCE_PREFIX = "Verweis "
+RISM_CATALOGUE_COLUMN = "RISM laut Druckeverzeichnis"
 
 # LV-Nummer: Grundnummer, optionaler Teilsatz (1-2), optionale Fassung (74 (IV))
 RE_LV_PART = re.compile(r"^(\d+)-(\d+)$")
@@ -532,6 +535,37 @@ def read_print_rism(spec):
     return confirmed
 
 
+def read_print_descriptions(spec):
+    """Liefert Sigle -> Angaben aus dem Druckeverzeichnis (Abschnitt 26).
+
+    Die Spalten fuellt scripts/tex_drucke.py aus den TeX-Dateien. Die Verweise
+    stehen in einer Spalte je Verzeichnis ("Verweis RISM", "Verweis
+    Boetticher", ...) und werden zu einem Objekt mit einem Feld je Verzeichnis.
+    """
+    path = RAW_DIR / spec["file"]
+    workbook = openpyxl.load_workbook(path, data_only=True, read_only=True)
+    rows = workbook[spec["sheet"]].iter_rows(values_only=True)
+    header = [clean(c) for c in next(rows)]
+    descriptions = {}
+    for row in rows:
+        record = dict(zip(header, (clean(v) for v in row)))
+        if not record.get("Sigle"):
+            continue
+        descriptions[record["Sigle"]] = {
+            "description": record.get("Beschreibung"),
+            "references": {
+                column[len(REFERENCE_PREFIX):]: value
+                for column, value in record.items()
+                if column and column.startswith(REFERENCE_PREFIX) and value
+            },
+            "rismCatalogue": record.get(RISM_CATALOGUE_COLUMN),
+            "title": record.get("Titel"),
+            "partbooks": record.get("Stimmbücher"),
+        }
+    workbook.close()
+    return descriptions
+
+
 def attach_print_appearances(works, appearances):
     """Haengt die Drucknachweise als printAppearances an das jeweilige Werk.
 
@@ -859,12 +893,13 @@ def roman_to_int(numeral):
     return total
 
 
-def derive_prints(entries, appearances, rism):
+def derive_prints(entries, appearances, rism, descriptions):
     """Sammelt die Drucke als eigene Entitaet.
 
     Grundlage sind die Erstdrucke aus Werke.xlsx (entryCount) und alle Drucke
     aus den Drucknachweisen (workCount, auch Nachdrucke). rism und rismSeries
-    kommen aus den bestaetigten Zuordnungen im Blatt Drucke.
+    kommen aus den bestaetigten Zuordnungen im Blatt Drucke, Beschreibung,
+    Verweise, Titel und Stimmbuecher aus dem Druckeverzeichnis.
     """
     prints = {}
 
@@ -882,10 +917,16 @@ def derive_prints(entries, appearances, rism):
                 "dateApproximate": False,
                 "rism": None,
                 "rismSeries": [],
+                "description": None,
+                "references": {},
+                "rismCatalogue": None,
+                "title": None,
+                "partbooks": None,
                 "entryCount": 0,
                 "workCount": 0,
                 "works": set(),
             }
+            item.update(descriptions.get(siglum, {}))
             if siglum in rism:
                 item["rism"] = rism[siglum]["rism"]
                 item["rismSeries"] = rism[siglum]["rismSeries"]
@@ -1192,6 +1233,7 @@ def main():
     print("Lese {0} / {1}".format(spec["file"], spec["sheet"]))
     print_rism = read_print_rism(spec)
     print("  {0} Drucke mit bestaetigter RISM-Zuordnung".format(len(print_rism)))
+    print_descriptions = read_print_descriptions(spec)
     provenance.append(
         {
             "dataset": spec["id"],
@@ -1214,7 +1256,7 @@ def main():
     works = derive_works(entries, manuscripts)
     expressions = derive_expressions(entries, works)
     unattached = attach_print_appearances(works, appearances)
-    prints = derive_prints(entries, appearances, print_rism)
+    prints = derive_prints(entries, appearances, print_rism, print_descriptions)
     report_path, unclassified_count = write_unclassified_report(manuscripts)
 
     write_json(

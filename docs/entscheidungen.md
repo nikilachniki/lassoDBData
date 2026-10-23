@@ -1072,6 +1072,73 @@ Ergänzungen bei RISM, müsste neu aufgesetzt werden.
 
 ---
 
+## 26. Angaben zu den Drucken aus dem Druckeverzeichnis
+
+**Entscheidung.** Aus den TeX-Dateien des Druckeverzeichnisses
+(`texDateien/LVtex1.tex` bis `LVTEX9.TEX`) übernimmt
+`scripts/tex_drucke.py` je Druck vier Angaben in neue Spalten des Blatts
+*Drucke* von `raw/Drucke.xlsx`: die Überschrift unter der Sigle
+(*Beschreibung*, etwa „Sammlung mit Erstbelegen“), den Titel des Drucks
+(*Titel*), die Stimmbücher (*Stimmbücher*) und die Verweise auf andere
+Verzeichnisse, eine Spalte je Verzeichnis (*Verweis RISM* „1581 a [L 924“,
+*Verweis Boetticher* „1581 e“, …; nicht zuzuordnende Angaben in *Verweis
+sonstige*). Aus der RISM-Nummer im Verweis ermittelt das Skript über die
+Suche von RISM Online den Link zum Druck (*RISM laut Druckeverzeichnis*).
+Der Import übernimmt alles nach `prints.json` als `description`, `title`,
+`partbooks`, `references` (ein Feld je Verzeichnis) und `rismCatalogue`. Das
+Skript füllt nur leere Zellen. Die TeX-Dateien selbst werden nicht
+veröffentlicht; sie liegen nur lokal und stehen in `.gitignore`.
+
+**RISM-Link.** Gesucht wird die RISM-Nummer als Phrase, „[L 924“ als
+„A/I L 924“, „[LL 971 a“ als „A/I LL 971a“, „1565⁸“ als „B/I 1565/8“; nennt
+der Verweis beide Reihen, zuerst A/I. Übernommen wird ein Link nur bei
+genau einem Treffer. Er steht in einer eigenen Spalte neben der RISM-Zuordnung
+über den Inhalt (Abschnitt 23) und ersetzt deren Bestätigung nicht: Stimmen
+beide überein, ist das ein starkes Indiz, die Bestätigung bleibt eine
+redaktionelle Entscheidung. Damit ist der in Abschnitt 23 verworfene Weg über
+die RISM-Nummern des Druckeverzeichnisses doch gangbar geworden, weil jetzt
+die TeX-Fassung statt der fehlerhaften Texterkennung vorliegt.
+
+**Begründung.** Die Tabelle bleibt die gepflegte Quelle (Abschnitt 25); das
+Skript ist eine einmalige Hilfe beim Befüllen, kein Teil des Imports. Weil
+es bestehende Zellen nicht überschreibt, kann es nach einer Korrektur der
+TeX-Dateien erneut laufen, ohne Handarbeit in der Tabelle zu zerstören;
+Abweichungen meldet es nur. Die Angaben werden so diplomatisch wie möglich
+übernommen: Zeilenwechsel des Titelblatts als „|“, Trennstriche „=“ und
+Kürzungen („[sic]“, „⟨Drz⟩“) bleiben stehen, Nasalstriche und
+übergeschriebenes e werden als kombinierende Unicode-Zeichen wiedergegeben
+(m̄, uͤ), hochgestellte Ziffern als Hochzahlen (GA², RISM 1565⁸). Die
+Verweise werden je Verzeichnis getrennt, damit sie einzeln auswertbar
+sind; die Angabe selbst bleibt unzerlegt, da ihre Form je Verzeichnis
+wechselt. Das Verzeichnis wird am Anfang des Verweises erkannt, nach einer
+festen Liste im Skript; nennt ein Verweis zwei Verzeichnisse („EitnerV 1555;
+EitnerQL 1555“), wird er am Semikolon geteilt.
+
+**Lesart der Vorlage.** Die Dateien sind in DOS-Codepage 437 kodiert. In der
+Fraktur-Umschrift steht `*u` für übergeschriebenes e (uͤ), `"u` für ü.
+Zwei Fälle verlangen eine Festlegung: 1578-1 bis 1578-9 stehen in LVtex4 und
+LVTEX5; es gilt die spätere Datei, deren Abschnitte vollständiger sind. Die
+Teile mehrbändiger Drucke (1575-3/I–III, 1578-4/I–II, 1612-2/II) erhalten
+die Angaben des Gesamtdrucks, den das Verzeichnis nur einmal beschreibt. Bei
+Chorbüchern steht in *Stimmbücher* „Chorbuch“.
+
+**Alternativen.** Die Verweise als eine Liste in einer Zelle zu lassen, so
+die erste Fassung; verworfen, weil sich dann nicht nach einem Verzeichnis
+filtern oder sortieren lässt. Die bestätigte RISM-Zuordnung automatisch aus
+dem Link zu setzen; verworfen, siehe oben.
+
+**Preis.** Die Zuordnung der Absätze folgt ihrer Reihenfolge in der Vorlage
+(Verweise vor Titel vor Stimmbüchern). Steht dort Abweichendes, landet es
+im falschen Feld. Verzeichnisse, die nicht in der Liste stehen, und
+Schreibvarianten („Delmotte 34.“, „Vogel unter Lasso 65.“) landen in
+*Verweis sonstige*. Das Skript braucht für den RISM-Link einen Zugang zu
+RISM Online; der Stand ist der des Abrufs (23.10.2026). Einzelne Titel enthalten Zusätze des Verzeichnisses (Kolophon,
+„Titel nicht erhalten“). Sechs Drucke des Verzeichnisses fehlen im Blatt
+*Drucke* (1555-4, 1555-5, 1558-2, 1566-15, 1573-18, 1625-1), zwei Drucke des
+Blatts im Verzeichnis (1629-2, 1773-9).
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
@@ -1118,6 +1185,8 @@ Ergänzungen bei RISM, müsste neu aufgesetzt werden.
   gegenüber MGG warten auf fachliche Prüfung, siehe Abschnitt 21.
 - 75 RISM-Vorschläge im Blatt *Drucke* von `raw/Drucke.xlsx` warten auf
   Bestätigung, siehe Abschnitte 23 und 25.
+- Sechs Drucke des Druckeverzeichnisses fehlen im Blatt *Drucke*, zwei
+  Drucke des Blatts im Verzeichnis, siehe Abschnitt 26.
 - 311 Handschriften-Zeugnisse und die Zuordnung der 161 LV-Anhang-Werke
   warten auf fachliche Prüfung, siehe Abschnitt 14 und
   `docs/handschriften-ohne-zuordnung.md`.

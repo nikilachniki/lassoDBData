@@ -36,14 +36,14 @@
       "dataset": "drucknachweise",
       "file": "Drucke.xlsx",
       "sheet": "Drucknachweise",
-      "sha256": "bb1c5693b4f5219d4808fb18e0e1ce1849511b748a0c451ed673a9aad52ccfdd",
+      "sha256": "59f6ee7eb07a2145c525a698390e9edcaaf654ff96c208b50539201505f6a042",
       "entries": 7669
     },
     {
       "dataset": "drucke",
       "file": "Drucke.xlsx",
       "sheet": "Drucke",
-      "sha256": "bb1c5693b4f5219d4808fb18e0e1ce1849511b748a0c451ed673a9aad52ccfdd",
+      "sha256": "59f6ee7eb07a2145c525a698390e9edcaaf654ff96c208b50539201505f6a042",
       "entries": 0
     }
   ]

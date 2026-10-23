@@ -138,6 +138,13 @@ Im Blatt *Drucke* stehen für 75 Drucke RISM-Vorschläge (RISM-Status
 Zuordnung erst, wenn der RISM-Status auf „bestätigt“ steht. Begründung in
 `docs/entscheidungen.md`, Abschnitte 23 bis 25.
 
+Die Spalten *Beschreibung*, *Titel*, *Stimmbücher*, *Verweis …* (eine je
+Verzeichnis) und *RISM laut Druckeverzeichnis* im Blatt *Drucke* stammen aus
+dem Druckeverzeichnis. Sie werden mit `python scripts/tex_drucke.py` gefüllt;
+das Skript schreibt nur in leere Zellen, Korrekturen von Hand bleiben also
+erhalten. Die TeX-Dateien liegen lokal in `texDateien/` und werden nicht
+veröffentlicht (`.gitignore`). Siehe Abschnitt 26.
+
 ## Eine weitere Excel-Tabelle aufnehmen
 
 Tabellen mit abweichenden Spalten sind vorgesehen, solange sie fachlich
