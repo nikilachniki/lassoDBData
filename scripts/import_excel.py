@@ -12,10 +12,8 @@ im Mapping nicht vorkommen, gehen nicht verloren, sondern landen im Feld "extra"
 
 from __future__ import annotations
 
-import hashlib
 import json
 import re
-from datetime import date
 from pathlib import Path
 
 import jsonschema
@@ -25,17 +23,9 @@ ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = ROOT / "raw"
 OUT_DIR = ROOT / "data"
 SCHEMA_DIR = ROOT / "schema"
-REGISTRY_PATH = OUT_DIR / "id-registry.json"
+REGISTRY_PATH = ROOT / "scripts" / "id-registry.json"
 ENTRY_SCHEMA_PATH = SCHEMA_DIR / "entry.schema.json"
 MANUSCRIPT_SCHEMA_PATH = SCHEMA_DIR / "manuscript.schema.json"
-
-# Pfad, unter dem entries.json ihr Schema findet. Relativ statt als GitHub-URL,
-# damit die Pruefung im Editor auch offline funktioniert und nicht von der
-# Erreichbarkeit von GitHub abhaengt. Zeigt auf das Huellenschema, nicht direkt
-# auf entry.schema.json: dieses beschreibt einen einzelnen Eintrag, nicht die
-# Datei mit @context und items drumherum.
-ENTRIES_FILE_SCHEMA_RELATIVE = "../schema/entries-file.schema.json"
-MANUSCRIPTS_FILE_SCHEMA_RELATIVE = "../schema/manuscripts-file.schema.json"
 
 CONTEXT_URL = (
     "https://raw.githubusercontent.com/nikilachniki/lassoDBData/main/"
@@ -73,22 +63,17 @@ SOURCES = [
 # docs/entscheidungen.md, Abschnitt 23. Die Zeilen sind keine Datensaetze mit
 # eigener ID, sondern Angaben am Werk, deshalb kein Eintrag in der Registry.
 PRINT_APPEARANCE_SOURCE = {
-    "id": "drucknachweise",
     "file": "Drucke.xlsx",
     "sheet": "Drucknachweise",
 }
-# Drucke.xlsx, Blatt Drucke: eine Zeile je Druck mit der Zuordnung zu RISM.
-# Uebernommen wird sie nur bei RISM-Status "bestätigt"; Vorschlaege und
-# Kandidaten stehen dort zur Pruefung, siehe Abschnitt 25.
+# Drucke.xlsx, Blatt Drucke: eine Zeile je Druck mit den Angaben aus dem
+# Druckeverzeichnis, siehe Abschnitt 26.
 PRINT_SOURCE = {
-    "id": "drucke",
     "file": "Drucke.xlsx",
     "sheet": "Drucke",
 }
-RISM_CONFIRMED = "bestätigt"
-# Spalten aus dem Druckeverzeichnis im selben Blatt, siehe Abschnitt 26
 REFERENCE_PREFIX = "Verweis "
-RISM_CATALOGUE_COLUMN = "RISM laut Druckeverzeichnis"
+RISM_COLUMN = "RISM"
 
 # LV-Nummer: Grundnummer, optionaler Teilsatz (1-2), optionale Fassung (74 (IV))
 RE_LV_PART = re.compile(r"^(\d+)-(\d+)$")
@@ -99,6 +84,13 @@ RE_LV_PLAIN = re.compile(r"^(\d+)$")
 RE_PRINT = re.compile(r"^(\d{4})-(\d+)(?:/([IVX]+))?$")
 # Fuehrende Teilsatz-Markierung im Titel, z.B. "[2] Tengan dunque"
 RE_TITLE_PART = re.compile(r"^\[(\d+)\]\s*")
+# Teilfeld der Quellenart, z.B. "$b[6]"
+RE_SUBFIELD = re.compile(r"\$(\w)([^$]*)")
+# Stimmen ueber C, A, T, B hinaus, in der Quelle als Ziffer gezaehlt
+VOICE_NAMES = {
+    "5": "Quintus", "V": "Quintus", "6": "Sextus", "VI": "Sextus",
+    "7": "Septimus", "VII": "Septimus", "8": "Octavus", "VIII": "Octavus",
+}
 # Verweis auf eine Nummer im LV-Anhang im Freitext, z.B. "vgl. LVanh 98"
 RE_LVANH = re.compile(r"LVanh\.?\s*(\d+)", re.IGNORECASE)
 
@@ -129,7 +121,7 @@ MANUSCRIPT_SOURCES = [
             "Bibliothek": "library",
             "Signatur": "shelfmark",
             "Weitere Signatur": "shelfmarkAlt",
-            "Quellenart": "sourceDescription",
+            "Quellenart": "sourceType",
             "Provenienz": "provenance",
             "Bemerkung (Quelle)": "sourceNote",
             "Literatur": "literature",
@@ -196,11 +188,49 @@ def parse_voices(raw):
 
 
 def parse_title(raw):
-    """Trennt die Teilsatz-Markierung vom eigentlichen Titel."""
+    """Trennt die Teilsatz-Markierung vom eigentlichen Titel.
+
+    Liefert den Titel ohne Markierung und die Nummer aus der Markierung (oder
+    None). Die Markierung selbst wird nicht gespeichert, da sie der
+    Teilsatznummer der LV-Angabe entspricht; read_source prueft das.
+    """
     if not raw:
         return None, None
+    match = RE_TITLE_PART.match(raw)
     stripped = RE_TITLE_PART.sub("", raw).strip()
-    return (stripped or None), raw
+    return (stripped or None), (int(match.group(1)) if match else None)
+
+
+def parse_source_type(raw):
+    """Macht die Quellenart mit Teilfeldern lesbar.
+
+    Stimmbuecher stehen in der Quelle als "$a[Stimmbücher]$b[6]$c[C, A, T, B, 5, 6]":
+    $a Art, $b Anzahl der Stimmbuecher, $1 Gesamtzahl ("(von 5)"), $c die
+    vorhandenen Stimmen ("?" unbekannt), $d Zusatz. Daraus wird
+    "Stimmbücher (6): C, A, T, B, 5, 6". Eckige Klammern (vom Bearbeiter
+    ergaenzt) entfallen, auch um Klartext wie "[Chorbuch]".
+    """
+    def unwrap(value):
+        value = value.strip()
+        if value.startswith("[") and value.endswith("]") or value.startswith("(") and value.endswith(")"):
+            value = value[1:-1].strip()
+        return value
+
+    if not raw:
+        return raw
+    if "$" not in raw:
+        return unwrap(raw) if raw.startswith("[") else raw
+    fields = {key: unwrap(value) for key, value in RE_SUBFIELD.findall(raw)}
+    text = fields.get("a") or ""
+    count = " ".join(v for v in (fields.get("b"), fields.get("1")) if v and v != "?")
+    if count:
+        text += " ({0})".format(count)
+    if fields.get("c") and fields["c"] != "?":
+        voices = [VOICE_NAMES.get(v.strip(), v.strip()) for v in fields["c"].split(",")]
+        text += ": " + ", ".join(voices)
+    if fields.get("d"):
+        text += "; " + fields["d"]
+    return text.strip() or raw
 
 
 def natural_key(dataset, lv, first_print, seen):
@@ -328,7 +358,11 @@ def read_source(spec, registry):
         lv_parts = parse_lv(record.get("lv"))
         print_parts = parse_print(record.get("firstPrint"))
         voices, voices_raw = parse_voices(record.get("voices"))
-        title, title_raw = parse_title(record.get("title"))
+        title, title_part = parse_title(record.get("title"))
+        if title_part is not None and title_part != lv_parts["lvPart"]:
+            print("  Hinweis: Zeile {0}, Teilsatzmarke [{1}] im Titel passt nicht zu LV {2}".format(
+                row_no, title_part, lv_parts["lv"]
+            ))
         key = natural_key(
             spec["id"], lv_parts["lv"], print_parts["firstPrint"], seen_keys
         )
@@ -339,13 +373,11 @@ def read_source(spec, registry):
         entry = {
             "@id": "entry:{0:05d}".format(internal_id),
             "@type": "CatalogueEntry",
-            "id": internal_id,
             "lv": lv_parts["lv"],
             "lvBase": lv_parts["lvBase"],
             "lvPart": lv_parts["lvPart"],
             "lvVariant": lv_parts["lvVariant"],
             "title": title,
-            "titleRaw": title_raw,
             "normalizedTitle": record.get("normalizedTitle"),
             "normalizedTitleBasis": record.get("normalizedTitleBasis"),
             "voices": voices,
@@ -361,12 +393,6 @@ def read_source(spec, registry):
             "note": record.get("note"),
             "genre": record.get("genre"),
             "language": record.get("language"),
-            "source": {
-                "dataset": spec["id"],
-                "file": spec["file"],
-                "row": row_no,
-                "key": key,
-            },
         }
         if voices_raw:
             entry["voicesRaw"] = voices_raw
@@ -387,8 +413,7 @@ def read_manuscripts(spec, registry):
     LV-Nummer, verweist das Freitextfeld "Weitere Teile" manchmal auf eine
     Nummer im LV-Anhang (etwa "vgl. LVanh 98"); die wird hier erkannt, damit
     auch diese Stuecke spaeter zu einem Werk gruppiert werden koennen. Fehlen
-    beide, bleibt die Zeile unverknuepft, wird aber nicht verworfen, siehe
-    write_unclassified_report.
+    beide, bleibt die Zeile unverknuepft, wird aber nicht verworfen.
     """
     path = RAW_DIR / spec["file"]
     workbook = openpyxl.load_workbook(path, data_only=True, read_only=True)
@@ -404,7 +429,7 @@ def read_manuscripts(spec, registry):
     manuscripts = []
     seen_keys = set()
     new_ids = 0
-    for row_no, row in enumerate(rows, start=2):
+    for row in rows:
         record = {}
         extra = {}
         for column, value in zip(header, row):
@@ -450,7 +475,6 @@ def read_manuscripts(spec, registry):
         manuscript = {
             "@id": "manuscript:{0:05d}".format(internal_id),
             "@type": "ManuscriptWitness",
-            "id": internal_id,
             "lv": lv,
             "lvBase": lv_base,
             "lvPart": lv_part,
@@ -464,17 +488,11 @@ def read_manuscripts(spec, registry):
             "library": record.get("library"),
             "shelfmark": record.get("shelfmark"),
             "shelfmarkAlt": record.get("shelfmarkAlt"),
-            "sourceDescription": record.get("sourceDescription"),
+            "sourceType": parse_source_type(record.get("sourceType")),
             "provenance": record.get("provenance"),
             "sourceNote": record.get("sourceNote"),
             "literature": record.get("literature"),
             "note": note,
-            "source": {
-                "dataset": spec["id"],
-                "file": spec["file"],
-                "row": row_no,
-                "key": key,
-            },
         }
         if voices_raw:
             manuscript["voicesRaw"] = voices_raw
@@ -515,26 +533,6 @@ def read_print_appearances(spec):
     return appearances
 
 
-def read_print_rism(spec):
-    """Liefert Sigle -> RISM-Angaben aus dem Blatt Drucke, nur fuer bestaetigte.
-
-    Die Zuordnung zu RISM ist eine fachliche Feststellung; Vorschlaege
-    (RISM-Status leer oder "Vorschlag") werden deshalb nicht uebernommen.
-    """
-    path = RAW_DIR / spec["file"]
-    workbook = openpyxl.load_workbook(path, data_only=True, read_only=True)
-    rows = workbook[spec["sheet"]].iter_rows(values_only=True)
-    header = [clean(c) for c in next(rows)]
-    confirmed = {}
-    for row in rows:
-        record = dict(zip(header, (clean(v) for v in row)))
-        if record.get("Sigle") and record.get("RISM-Status") == RISM_CONFIRMED and record.get("RISM"):
-            series = [s.strip() for s in (record.get("RISM-Reihe") or "").split(";") if s.strip()]
-            confirmed[record["Sigle"]] = {"rism": record["RISM"], "rismSeries": series}
-    workbook.close()
-    return confirmed
-
-
 def read_print_descriptions(spec):
     """Liefert Sigle -> Angaben aus dem Druckeverzeichnis (Abschnitt 26).
 
@@ -558,7 +556,7 @@ def read_print_descriptions(spec):
                 for column, value in record.items()
                 if column and column.startswith(REFERENCE_PREFIX) and value
             },
-            "rismCatalogue": record.get(RISM_CATALOGUE_COLUMN),
+            "rism": record.get(RISM_COLUMN),
             "title": record.get("Titel"),
             "partbooks": record.get("Stimmbücher"),
         }
@@ -613,7 +611,7 @@ def derive_works(entries, manuscripts):
     selbst ueblich), oder eine Nummer aus dem LV-Anhang fuer Stuecke ganz
     ausserhalb des Haupt-LV-Katalogs. Handschriften ohne LV und ohne
     Anhangsnummer bleiben unverknuepft; sie stehen trotzdem in
-    manuscripts.json, siehe write_unclassified_report.
+    manuscripts.json.
 
     Eintraege mit Fassungskennzeichnung wie "74 (IV)" bilden kein eigenes
     Werk, sondern eine Expression (FRBR) des Werks mit der Grundnummer, siehe
@@ -697,7 +695,6 @@ def derive_works(entries, manuscripts):
         works[work["@id"]] = work  # eigener Namensraum (work:anh-*), keine Kollision mit LV-Schluesseln
 
     for work in works.values():
-        work["entryCount"] = len(work["entries"])
         work["voiceCounts"].sort()
 
     result = sorted(
@@ -893,13 +890,12 @@ def roman_to_int(numeral):
     return total
 
 
-def derive_prints(entries, appearances, rism, descriptions):
+def derive_prints(entries, appearances, descriptions):
     """Sammelt die Drucke als eigene Entitaet.
 
     Grundlage sind die Erstdrucke aus Werke.xlsx (entryCount) und alle Drucke
-    aus den Drucknachweisen (workCount, auch Nachdrucke). rism und rismSeries
-    kommen aus den bestaetigten Zuordnungen im Blatt Drucke, Beschreibung,
-    Verweise, Titel und Stimmbuecher aus dem Druckeverzeichnis.
+    aus den Drucknachweisen (auch Nachdrucke). Beschreibung, Verweise,
+    RISM-Link, Titel und Stimmbuecher kommen aus dem Druckeverzeichnis.
     """
     prints = {}
 
@@ -912,24 +908,16 @@ def derive_prints(entries, appearances, rism, descriptions):
                 "@type": "Print",
                 "siglum": siglum,
                 "year": parsed["firstPrintYear"],
-                "no": parsed["firstPrintNo"],
                 "part": parsed["part"],
                 "dateApproximate": False,
-                "rism": None,
-                "rismSeries": [],
                 "description": None,
                 "references": {},
-                "rismCatalogue": None,
+                "rism": None,
                 "title": None,
                 "partbooks": None,
                 "entryCount": 0,
-                "workCount": 0,
-                "works": set(),
             }
             item.update(descriptions.get(siglum, {}))
-            if siglum in rism:
-                item["rism"] = rism[siglum]["rism"]
-                item["rismSeries"] = rism[siglum]["rismSeries"]
             prints[siglum] = item
         return item
 
@@ -938,11 +926,8 @@ def derive_prints(entries, appearances, rism, descriptions):
             get(entry["firstPrint"])["entryCount"] += 1
     for appearance in appearances:
         item = get(appearance["siglum"])
-        item["works"].add((appearance["lv"], appearance["lvAnh"]))
         if appearance["approximate"]:
             item["dateApproximate"] = True
-    for item in prints.values():
-        item["workCount"] = len(item.pop("works"))
     return sorted(prints.values(), key=lambda p: print_sort_key(p["siglum"]))
 
 
@@ -976,8 +961,9 @@ def derive_persons(entries):
     Rohwerte ohne Zuordnung bleiben je eine eigene Person.
 
     Setzt an jedem Eintrag textAuthorPerson (Personen-ID) und
-    textAuthorUncertain (Rohwert mit nachgestelltem "?"). Der Rohwert selbst
-    bleibt in textAuthor unveraendert stehen.
+    textAuthorUncertain (Rohwert mit nachgestelltem "?"). Das "?" gehoert zur
+    Zuschreibung, nicht zur Person, und entfaellt deshalb im Personennamen.
+    Der Rohwert selbst bleibt in textAuthor unveraendert stehen.
     """
     person_by_raw = {}
     persons = {}
@@ -987,10 +973,8 @@ def derive_persons(entries):
             "@type": "Person",
             "preferredName": authority["preferredName"],
             "variantNames": [],
-            "role": "textAuthor",
-            "gnd": gnd,
-            "viaf": authority.get("viaf"),
-            "entryCount": 0,
+            "gnd": "https://d-nb.info/gnd/" + gnd,
+            "viaf": "https://viaf.org/viaf/" + authority["viaf"] if authority.get("viaf") else None,
         }
         persons[person["@id"]] = person
         for variant in authority["variants"]:
@@ -1008,6 +992,7 @@ def derive_persons(entries):
         entry["textAuthorUncertain"] = bool(name) and name.rstrip().endswith("?")
         if not name:
             continue
+        name = name.rstrip().rstrip("?").rstrip()
         used_raw.add(name)
         person = person_by_raw.get(name)
         if person is None:
@@ -1023,10 +1008,8 @@ def derive_persons(entries):
                     "@type": "Person",
                     "preferredName": name,
                     "variantNames": [],
-                    "role": "textAuthor",
                     "gnd": None,
                     "viaf": None,
-                    "entryCount": 0,
                 }
                 persons[person_id] = person
                 person_by_raw[name] = person
@@ -1039,13 +1022,13 @@ def derive_persons(entries):
                 )
         if name != person["preferredName"] and name not in person["variantNames"]:
             person["variantNames"].append(name)
-        person["entryCount"] += 1
         entry["textAuthorPerson"] = person["@id"]
 
     unused = sorted(set(person_by_raw) - used_raw)
     if unused:
         print("  Hinweis: Rohwerte aus personen_normdaten.json ohne Eintrag: {0}".format(unused))
-    result = [person for person in persons.values() if person["entryCount"] > 0]
+    used_ids = {entry["textAuthorPerson"] for entry in entries}
+    result = [person for person in persons.values() if person["@id"] in used_ids]
     for person in result:
         person["variantNames"].sort(key=str.lower)
     return sorted(result, key=lambda p: p["preferredName"].lower())
@@ -1067,13 +1050,13 @@ def validate_entries(entries):
     errors = []
     for entry in entries:
         for error in validator.iter_errors(entry):
-            errors.append((entry.get("id"), entry.get("@id"), error.message))
+            errors.append((entry.get("@id"), error.message))
 
     if errors:
         print()
         print("Schema-Pruefung fehlgeschlagen, {0} Fehler:".format(len(errors)))
-        for internal_id, entry_id, message in errors[:20]:
-            print("  id {0} ({1}): {2}".format(internal_id, entry_id, message))
+        for entry_id, message in errors[:20]:
+            print("  {0}: {1}".format(entry_id, message))
         if len(errors) > 20:
             print("  ... und {0} weitere".format(len(errors) - 20))
         raise SystemExit(1)
@@ -1095,13 +1078,13 @@ def validate_manuscripts(manuscripts):
     errors = []
     for manuscript in manuscripts:
         for error in validator.iter_errors(manuscript):
-            errors.append((manuscript.get("id"), manuscript.get("@id"), error.message))
+            errors.append((manuscript.get("@id"), error.message))
 
     if errors:
         print()
         print("Schema-Pruefung (Handschriften) fehlgeschlagen, {0} Fehler:".format(len(errors)))
-        for internal_id, manuscript_id, message in errors[:20]:
-            print("  id {0} ({1}): {2}".format(internal_id, manuscript_id, message))
+        for manuscript_id, message in errors[:20]:
+            print("  {0}: {1}".format(manuscript_id, message))
         if len(errors) > 20:
             print("  ... und {0} weitere".format(len(errors) - 20))
         raise SystemExit(1)
@@ -1109,48 +1092,6 @@ def validate_manuscripts(manuscripts):
     print("Schema-Pruefung (Handschriften) bestanden, {0} Zeugnisse gegen {1}.".format(
         len(manuscripts), MANUSCRIPT_SCHEMA_PATH.relative_to(ROOT)
     ))
-
-
-def write_unclassified_report(manuscripts):
-    """Schreibt eine Liste der Handschriften-Zeilen ohne LV- oder
-    Anhangsnummer nach docs/, damit sie spaeter von Hand zugeordnet werden
-    koennen, statt beim Import stillschweigend zu verschwinden.
-
-    Wird bei jedem Lauf ueberschrieben. Kein Ort fuer manuelle Ergaenzungen:
-    eine Zuordnung gehoert in raw/lasso_handschriften.xlsx selbst, als
-    LV-Nummer oder als Verweis auf eine LVanh-Nummer in "Weitere Teile".
-    """
-    unclassified = [m for m in manuscripts if m["lv"] is None and m["lvAnh"] is None]
-    lines = [
-        "# Handschriften ohne LV- oder Anhangsnummer",
-        "",
-        "Automatisch erzeugt von `scripts/import_excel.py`, bei jedem Import",
-        "ueberschrieben. Nicht von Hand bearbeiten. Eine Zuordnung gehoert in",
-        "`raw/lasso_handschriften.xlsx`, entweder als Eintrag in der Spalte",
-        "LV oder als Verweis auf eine LVanh-Nummer in der Spalte 'Weitere Teile'.",
-        "",
-        "{0} von {1} Handschriften-Zeugnissen sind (noch) keinem Werk zugeordnet.".format(
-            len(unclassified), len(manuscripts)
-        ),
-        "",
-        "| Titel | Ort | Bibliothek | Signatur | Stimmen |",
-        "| --- | --- | --- | --- | --- |",
-    ]
-    for manuscript in sorted(unclassified, key=lambda m: (m["title"] or "").lower()):
-        lines.append(
-            "| {0} | {1} | {2} | {3} | {4} |".format(
-                (manuscript["title"] or "").replace("|", "\\|"),
-                (manuscript["place"] or "").replace("|", "\\|"),
-                (manuscript["library"] or "").replace("|", "\\|"),
-                (manuscript["shelfmark"] or "").replace("|", "\\|"),
-                manuscript["voices"] if manuscript["voices"] is not None else "",
-            )
-        )
-
-    path = ROOT / "docs" / "handschriften-ohne-zuordnung.md"
-    with path.open("w", encoding="utf-8", newline="\n") as handle:
-        handle.write("\n".join(lines) + "\n")
-    return path, len(unclassified)
 
 
 def write_json(filename, payload):
@@ -1162,20 +1103,13 @@ def write_json(filename, payload):
     return path
 
 
-def file_digest(path):
-    """Pruefsumme der Quelldatei, damit die Herkunft nachvollziehbar bleibt."""
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
 def main():
     OUT_DIR.mkdir(exist_ok=True)
     registry = load_registry()
     known_before = len(registry["assigned"])
 
     entries = []
-    provenance = []
     for spec in SOURCES:
-        path = RAW_DIR / spec["file"]
         print("Lese {0} / {1}".format(spec["file"], spec["sheet"]))
         source_entries, new_ids = read_source(spec, registry)
         print(
@@ -1184,19 +1118,9 @@ def main():
             )
         )
         entries.extend(source_entries)
-        provenance.append(
-            {
-                "dataset": spec["id"],
-                "file": spec["file"],
-                "sheet": spec["sheet"],
-                "sha256": file_digest(path),
-                "entries": len(source_entries),
-            }
-        )
 
     manuscripts = []
     for spec in MANUSCRIPT_SOURCES:
-        path = RAW_DIR / spec["file"]
         print("Lese {0} / {1}".format(spec["file"], spec["sheet"]))
         source_manuscripts, new_ids = read_manuscripts(spec, registry)
         print(
@@ -1205,47 +1129,20 @@ def main():
             )
         )
         manuscripts.extend(source_manuscripts)
-        provenance.append(
-            {
-                "dataset": spec["id"],
-                "file": spec["file"],
-                "sheet": spec["sheet"],
-                "sha256": file_digest(path),
-                "entries": len(source_manuscripts),
-            }
-        )
 
     spec = PRINT_APPEARANCE_SOURCE
-    path = RAW_DIR / spec["file"]
     print("Lese {0} / {1}".format(spec["file"], spec["sheet"]))
     appearances = read_print_appearances(spec)
     print("  {0} Drucknachweise".format(len(appearances)))
-    provenance.append(
-        {
-            "dataset": spec["id"],
-            "file": spec["file"],
-            "sheet": spec["sheet"],
-            "sha256": file_digest(path),
-            "entries": len(appearances),
-        }
-    )
     spec = PRINT_SOURCE
     print("Lese {0} / {1}".format(spec["file"], spec["sheet"]))
-    print_rism = read_print_rism(spec)
-    print("  {0} Drucke mit bestaetigter RISM-Zuordnung".format(len(print_rism)))
     print_descriptions = read_print_descriptions(spec)
-    provenance.append(
-        {
-            "dataset": spec["id"],
-            "file": spec["file"],
-            "sheet": spec["sheet"],
-            "sha256": file_digest(RAW_DIR / spec["file"]),
-            "entries": len(print_rism),
-        }
-    )
+    print("  {0} Drucke".format(len(print_descriptions)))
 
-    entries.sort(key=lambda e: e["id"])
-    manuscripts.sort(key=lambda m: m["id"])
+    # Nach der laufenden Nummer in der @id, numerisch, damit die Reihenfolge
+    # auch ueber fuenf Stellen hinaus stimmt.
+    entries.sort(key=lambda e: int(e["@id"].split(":")[1]))
+    manuscripts.sort(key=lambda m: int(m["@id"].split(":")[1]))
     # Vor der Schema-Pruefung, weil derive_persons die Personenfelder an den
     # Eintraegen setzt und diese mitgeprueft werden sollen.
     persons = derive_persons(entries)
@@ -1256,62 +1153,22 @@ def main():
     works = derive_works(entries, manuscripts)
     expressions = derive_expressions(entries, works)
     unattached = attach_print_appearances(works, appearances)
-    prints = derive_prints(entries, appearances, print_rism, print_descriptions)
-    report_path, unclassified_count = write_unclassified_report(manuscripts)
+    prints = derive_prints(entries, appearances, print_descriptions)
+    unclassified_count = len([m for m in manuscripts if m["lv"] is None and m["lvAnh"] is None])
 
-    write_json(
-        "entries.json",
-        {
-            "$schema": ENTRIES_FILE_SCHEMA_RELATIVE,
-            "@context": CONTEXT_URL,
-            "items": entries,
-        },
-    )
-    write_json(
-        "manuscripts.json",
-        {
-            "$schema": MANUSCRIPTS_FILE_SCHEMA_RELATIVE,
-            "@context": CONTEXT_URL,
-            "items": manuscripts,
-        },
-    )
+    write_json("entries.json", {"@context": CONTEXT_URL, "items": entries})
+    write_json("manuscripts.json", {"@context": CONTEXT_URL, "items": manuscripts})
     write_json("works.json", {"@context": CONTEXT_URL, "items": works})
     write_json("expressions.json", {"@context": CONTEXT_URL, "items": expressions})
     write_json("prints.json", {"@context": CONTEXT_URL, "items": prints})
     write_json("persons.json", {"@context": CONTEXT_URL, "items": persons})
-    write_json(
-        "meta.json",
-        {
-            "generated": date.today().isoformat(),
-            "generator": "scripts/import_excel.py",
-            "context": CONTEXT_URL,
-            "counts": {
-                "entries": len(entries),
-                "manuscripts": len(manuscripts),
-                "manuscriptsUnclassified": unclassified_count,
-                "works": len(works),
-                "worksFromManuscriptsOnly": len(
-                    [w for w in works if not w["entries"] and w["manuscripts"]]
-                ),
-                "worksInAppendix": len([w for w in works if w["lvAnh"] is not None]),
-                "expressions": len(expressions),
-                "prints": len(prints),
-                "printAppearances": len(appearances) - len(unattached),
-                "printAppearancesUnattached": len(unattached),
-                "persons": len(persons),
-                "idsAssigned": len(registry["assigned"]),
-                "nextId": registry["nextId"],
-            },
-            "sources": provenance,
-        },
-    )
 
-    multi = [w for w in works if w["entryCount"] > 1]
+    multi = [w for w in works if len(w["entries"]) > 1]
     with_manuscripts = [w for w in works if w["manuscripts"]]
     print()
     print("Eintraege     : {0}".format(len(entries)))
-    print("Handschriften : {0}, davon {1} ohne Zuordnung ({2})".format(
-        len(manuscripts), unclassified_count, report_path.relative_to(ROOT)
+    print("Handschriften : {0}, davon {1} ohne Zuordnung".format(
+        len(manuscripts), unclassified_count
     ))
     print(
         "Werke         : {0}, davon {1} in mehreren Drucken, {2} mit Handschriften bezeugt".format(

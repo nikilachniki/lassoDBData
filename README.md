@@ -9,7 +9,7 @@ liegt getrennt in [lassoDB](https://github.com/nikilachniki/lassoDB).
 | Ordner    | Inhalt                                                          |
 | --------- | --------------------------------------------------------------- |
 | `raw/`    | Quelldateien des Imports: drei Excel-Tabellen und die GND-Zuordnung |
-| `scripts/`| Importskript, das aus `raw/` die Dateien in `data/` erzeugt      |
+| `scripts/`| Importskript, das aus `raw/` die Dateien in `data/` erzeugt, und die ID-Registry |
 | `schema/` | JSON-LD-Kontext und JSON-Schema                                  |
 | `data/`   | Erzeugte JSON-LD-Dateien, der eigentliche Datenbestand           |
 | `docs/`   | Begründung der Technologieentscheidungen                         |
@@ -34,7 +34,8 @@ Handschrift**, ebenfalls nicht das Werk selbst. Eine Handschriften-Quelle
 Stück kann in mehreren Handschriften überliefert sein.
 
 Eindeutig ist allein die **interne ID**, eine fortlaufende Nummer, für Drucke
-und Handschriften gemeinsam vergeben. Sie wird in `data/id-registry.json`
+und Handschriften gemeinsam vergeben. Sie steht in der `@id` des Datensatzes,
+etwa `entry:00001` oder `manuscript:01980`. Sie wird in `scripts/id-registry.json`
 festgehalten und bleibt über alle späteren Importe hinweg stabil. Einmal
 vergebene IDs werden nie neu vergeben, auch dann nicht, wenn ein Datensatz
 später entfällt. Nur so bleiben veröffentlichte Verweise gültig, wenn neue
@@ -46,9 +47,8 @@ eine Nummer aus dem LV-Anhang (Boetticher), etwa „vgl. LVanh 98“. Solche Wer
 tragen `lv: null` und stattdessen `lvAnh`, ihre `@id` beginnt mit `work:anh-`
 statt mit der LV-Nummer. Bleibt auch das aus, ist die Handschriften-Zeile
 keinem Werk zuzuordnen; sie geht dadurch nicht verloren, sondern erscheint in
-`manuscripts.json` mit `lv: null` und `lvAnh: null` sowie zusätzlich in
-[docs/handschriften-ohne-zuordnung.md](docs/handschriften-ohne-zuordnung.md),
-einer bei jedem Import neu erzeugten Liste für die spätere Zuordnung von Hand.
+`manuscripts.json` mit `lv: null` und `lvAnh: null`. Zuordnen lässt sie sich
+in `raw/lasso_handschriften.xlsx`, gefiltert nach leerer Spalte „LV“.
 
 Erzeugte Dateien:
 
@@ -58,10 +58,9 @@ Erzeugte Dateien:
   Überlieferung, ebenfalls eine Zeile der Quelle je Datensatz. Neben den
   RISM-Angaben trägt jedes Zeugnis, sofern in der Quelle vorhanden,
   `dating`, `link`, `shelfmarkAlt`, `provenance`, `sourceNote` und
-  `literature`, siehe Abschnitt 16 in `docs/entscheidungen.md`. Felder wie
-  `sourceDescription` (Spalte „Quellenart“) enthalten teils MARC-artige
-  Teilfelder und werden bislang unverändert als Zeichenkette übernommen, ohne
-  weitere Zerlegung.
+  `literature`, siehe Abschnitt 16 in `docs/entscheidungen.md`. `sourceType`
+  nennt die Quellenart, bei Stimmbüchern mit Anzahl und vorhandenen Stimmen,
+  etwa „Stimmbücher (6): C, A, T, B, Quintus, Sextus“ (Abschnitt 33).
 - `works.json` fasst Einträge und Handschriften-Zeugnisse über die LV-Nummer
   (oder die Anhangsnummer) zu Werken zusammen. `entries` und `manuscripts`
   verweisen dort getrennt auf die jeweiligen Zeugnisse, `expressions` auf die
@@ -82,7 +81,6 @@ Erzeugte Dateien:
   `preferredName` und `variantNames` zusammengeführt; die Einträge behalten
   den Rohwert in `textAuthor` und verweisen über `textAuthorPerson` auf die
   Person. Siehe Abschnitt 19 in `docs/entscheidungen.md`.
-- `meta.json` enthält Zählungen, Erzeugungsdatum und Prüfsummen der Quellen.
 
 Alle Dateien tragen einen Verweis auf `schema/context.jsonld` und sind damit als
 JSON-LD lesbar. Sie lassen sich mit Standardwerkzeugen nach RDF überführen, ohne
@@ -90,22 +88,11 @@ dass im Alltag ein Triple Store betrieben werden muss.
 
 ## Validierung
 
-`entries.json` trägt zusätzlich `$schema`, einen Verweis auf
-`schema/entries-file.schema.json`. Das ist die Hülle um die Datei, mit
-`@context` und `items`; die einzelnen Einträge darin sind über `$ref` an
-`schema/entry.schema.json` gebunden, das eigentliche Modell eines
-Katalogeintrags. Ein Editor mit JSON-Schema-Unterstützung, etwa VS Code,
-prüft `entries.json` damit beim Öffnen automatisch und live, ganz ohne
-Skriptaufruf.
-
-Das Importskript prüft zusätzlich jeden erzeugten Eintrag selbst gegen
-`entry.schema.json`, bevor es irgendetwas schreibt. Ein Mapping-Fehler bei
-einer künftigen zweiten Quelle bricht den Import damit sofort mit einer
-Fehlermeldung ab, statt still eine ungültige Datei zu erzeugen.
-
-Für `manuscripts.json` gilt dieselbe doppelte Prüfung, mit eigenem Modell in
-`schema/manuscript.schema.json` und eigener Hülle in
-`schema/manuscripts-file.schema.json`. `works.json`, `prints.json` und
+Das Importskript prüft jeden erzeugten Eintrag gegen
+`schema/entry.schema.json` und jedes Handschriften-Zeugnis gegen
+`schema/manuscript.schema.json`, bevor es irgendetwas schreibt. Ein
+Mapping-Fehler bricht den Import damit sofort mit einer Fehlermeldung ab,
+statt still eine ungültige Datei zu erzeugen. `works.json`, `prints.json` und
 `persons.json` sind dagegen nicht schemabewehrt; sie sind rein abgeleitet und
 werden bei jedem Import ohnehin vollständig neu berechnet.
 
@@ -129,17 +116,12 @@ Der Import liest genau diese Dateien aus `raw/`; alle werden von Hand gepflegt:
 | --- | --- | --- |
 | `Werke.xlsx` | LV-Katalog | eine Zeile je Werk in seinem Erstdruck |
 | `Drucke.xlsx` | Drucknachweise | eine Zeile je Werk und Druck, auch Nachdrucke |
-| `Drucke.xlsx` | Drucke | eine Zeile je Druck mit der Zuordnung zu RISM |
+| `Drucke.xlsx` | Drucke | eine Zeile je Druck mit den Angaben aus dem Druckeverzeichnis |
 | `lasso_handschriften.xlsx` | Werke | eine Zeile je Werk in einer Handschrift |
 | `personen_normdaten.json` | – | GND/VIAF-Zuordnung der Textdichter |
 
-Im Blatt *Drucke* stehen für 75 Drucke RISM-Vorschläge (RISM-Status
-„Vorschlag“), für weitere Kandidaten zur Prüfung. Übernommen wird eine
-Zuordnung erst, wenn der RISM-Status auf „bestätigt“ steht. Begründung in
-`docs/entscheidungen.md`, Abschnitte 23 bis 25.
-
 Die Spalten *Beschreibung*, *Titel*, *Stimmbücher*, *Verweis …* (eine je
-Verzeichnis) und *RISM laut Druckeverzeichnis* im Blatt *Drucke* stammen aus
+Verzeichnis) und *RISM* (Link auf RISM Online) im Blatt *Drucke* stammen aus
 dem Druckeverzeichnis. Sie werden mit `python scripts/tex_drucke.py` gefüllt;
 das Skript schreibt nur in leere Zellen, Korrekturen von Hand bleiben also
 erhalten. Die TeX-Dateien liegen lokal in `texDateien/` und werden nicht
@@ -200,10 +182,6 @@ Ausgabedatei, statt eines der bestehenden Modelle zu verbiegen.
   1979 Zeilen insgesamt, noch mit den 1209 Hauptzeilen ohne Bindestrich, noch
   mit den 137 Drucken oder den 1945 Werken. Vermutlich ein Überbleibsel aus
   einem früheren Stand der Quelldatei, nicht durch den Import verursacht.
-- `sourceDescription` in `manuscripts.json` (Spalte „Quellenart“) enthält
-  teils MARC-artige Teilfelder, etwa `$aStimmbücher$b1$c[5]`. Diese werden
-  bislang nicht in eigene Felder zerlegt, sondern unverändert als
-  Zeichenkette übernommen. Eine Zerlegung wäre ein eigener Arbeitsschritt.
 - `rismSiglum` in `manuscripts.json` wird unverändert übernommen, ohne
   Prüfung gegen eine RISM-Normdatei. Tippfehler oder veraltete Sigel fallen
   dadurch nicht automatisch auf.
@@ -212,9 +190,8 @@ Ausgabedatei, statt eines der bestehenden Modelle zu verbiegen.
   Teile“ der Handschriften-Tabelle, ohne fachliche Prüfung gegen die
   gedruckte LV-Anhang-Literatur. Eine Verifikation steht aus.
 - 311 Handschriften-Zeugnisse ließen sich weder einer LV- noch einer
-  Anhangsnummer zuordnen und stehen in
-  [docs/handschriften-ohne-zuordnung.md](docs/handschriften-ohne-zuordnung.md)
-  zur späteren manuellen Bearbeitung.
+  Anhangsnummer zuordnen und warten auf manuelle Zuordnung in
+  `raw/lasso_handschriften.xlsx`.
 
 ## Lizenz
 

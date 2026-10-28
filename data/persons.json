@@ -4,22 +4,10 @@
     {
       "@id": "person:a-beccuti-detto-il-coppetta",
       "@type": "Person",
-      "preferredName": "A. Beccuti, detto il Coppetta ?",
+      "preferredName": "A. Beccuti, detto il Coppetta",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:anfang-von-psalmus-130-nachdichtung-von-clement-marot",
-      "@type": "Person",
-      "preferredName": "Anfang von Psalmus 130, Nachdichtung von \nClement Marot",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-100214037",
@@ -28,30 +16,24 @@
       "variantNames": [
         "Minturno"
       ],
-      "role": "textAuthor",
-      "gnd": "100214037",
-      "viaf": "29685362",
-      "entryCount": 2
+      "gnd": "https://d-nb.info/gnd/100214037",
+      "viaf": "https://viaf.org/viaf/29685362"
     },
     {
       "@id": "person:asinari",
       "@type": "Person",
       "preferredName": "Asinari",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:b-tasso",
       "@type": "Person",
       "preferredName": "B. Tasso",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-118698753",
@@ -60,50 +42,40 @@
       "variantNames": [
         "B. Guarini"
       ],
-      "role": "textAuthor",
-      "gnd": "118698753",
-      "viaf": "54142932",
-      "entryCount": 2
+      "gnd": "https://d-nb.info/gnd/118698753",
+      "viaf": "https://viaf.org/viaf/54142932"
     },
     {
       "@id": "person:belleau",
       "@type": "Person",
       "preferredName": "Belleau",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:berno-von-cluny",
       "@type": "Person",
       "preferredName": "Berno von Cluny",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 2
+      "viaf": null
     },
     {
       "@id": "person:besalio",
       "@type": "Person",
       "preferredName": "Besalio",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:camilli",
       "@type": "Person",
       "preferredName": "Camilli",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-118731122",
@@ -114,40 +86,32 @@
         "Cl. Marot",
         "Marot"
       ],
-      "role": "textAuthor",
-      "gnd": "118731122",
-      "viaf": "59086239",
-      "entryCount": 19
+      "gnd": "https://d-nb.info/gnd/118731122",
+      "viaf": "https://viaf.org/viaf/59086239"
     },
     {
       "@id": "person:de-baif",
       "@type": "Person",
-      "preferredName": "de Baif?",
+      "preferredName": "de Baif",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:della-terza",
       "@type": "Person",
       "preferredName": "della Terza",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:f-spira",
       "@type": "Person",
       "preferredName": "F. Spira",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-118593234",
@@ -156,10 +120,8 @@
       "variantNames": [
         "Petrarca"
       ],
-      "role": "textAuthor",
-      "gnd": "118593234",
-      "viaf": "39382430",
-      "entryCount": 66
+      "gnd": "https://d-nb.info/gnd/118593234",
+      "viaf": "https://viaf.org/viaf/39382430"
     },
     {
       "@id": "person:gnd-118534947",
@@ -168,30 +130,24 @@
       "variantNames": [
         "François I roi de France"
       ],
-      "role": "textAuthor",
-      "gnd": "118534947",
-      "viaf": "88805531",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118534947",
+      "viaf": "https://viaf.org/viaf/88805531"
     },
     {
       "@id": "person:fulbert-v-chartres",
       "@type": "Person",
       "preferredName": "Fulbert v. Chartres",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:g-pontano",
       "@type": "Person",
       "preferredName": "G. Pontano",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-130088730",
@@ -202,20 +158,8 @@
         "Fiamme",
         "Gabriel Fiamma"
       ],
-      "role": "textAuthor",
-      "gnd": "130088730",
-      "viaf": "88878886",
-      "entryCount": 27
-    },
-    {
-      "@id": "person:gebet",
-      "@type": "Person",
-      "preferredName": "Gebet?",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/130088730",
+      "viaf": "https://viaf.org/viaf/88878886"
     },
     {
       "@id": "person:gnd-118719297",
@@ -224,10 +168,8 @@
       "variantNames": [
         "Guidiccione"
       ],
-      "role": "textAuthor",
-      "gnd": "118719297",
-      "viaf": "88331",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118719297",
+      "viaf": "https://viaf.org/viaf/88331"
     },
     {
       "@id": "person:gnd-118605933",
@@ -236,30 +178,24 @@
       "variantNames": [
         "Savonarola"
       ],
-      "role": "textAuthor",
-      "gnd": "118605933",
-      "viaf": "74117553",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118605933",
+      "viaf": "https://viaf.org/viaf/74117553"
     },
     {
       "@id": "person:greiter",
       "@type": "Person",
       "preferredName": "Greiter",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gr-nwald",
       "@type": "Person",
       "preferredName": "Grünwald",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-124384927",
@@ -268,10 +204,8 @@
       "variantNames": [
         "G. Guéroult"
       ],
-      "role": "textAuthor",
-      "gnd": "124384927",
-      "viaf": "202471443",
-      "entryCount": 3
+      "gnd": "https://d-nb.info/gnd/124384927",
+      "viaf": "https://viaf.org/viaf/202471443"
     },
     {
       "@id": "person:gnd-120054981",
@@ -280,50 +214,40 @@
       "variantNames": [
         "Pibrac"
       ],
-      "role": "textAuthor",
-      "gnd": "120054981",
-      "viaf": "39467880",
-      "entryCount": 7
+      "gnd": "https://d-nb.info/gnd/120054981",
+      "viaf": "https://viaf.org/viaf/39467880"
     },
     {
       "@id": "person:gnd-132638134",
       "@type": "Person",
       "preferredName": "Hans Sachs",
       "variantNames": [],
-      "role": "textAuthor",
-      "gnd": "132638134",
-      "viaf": "15937295",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/132638134",
+      "viaf": "https://viaf.org/viaf/15937295"
     },
     {
       "@id": "person:gnd-118553569",
       "@type": "Person",
       "preferredName": "Horaz",
       "variantNames": [],
-      "role": "textAuthor",
-      "gnd": "118553569",
-      "viaf": "100227522",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118553569",
+      "viaf": "https://viaf.org/viaf/100227522"
     },
     {
       "@id": "person:hoste-da-reggio",
       "@type": "Person",
-      "preferredName": "Hoste da Reggio?",
+      "preferredName": "Hoste da Reggio",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:h-tzer",
       "@type": "Person",
       "preferredName": "Hätzer",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-118794469",
@@ -332,20 +256,16 @@
       "variantNames": [
         "Sannazaro"
       ],
-      "role": "textAuthor",
-      "gnd": "118794469",
-      "viaf": "87990970",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118794469",
+      "viaf": "https://viaf.org/viaf/87990970"
     },
     {
       "@id": "person:jean-bouchet",
       "@type": "Person",
       "preferredName": "Jean Bouchet",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-118527649",
@@ -354,20 +274,16 @@
       "variantNames": [
         "du Bellay"
       ],
-      "role": "textAuthor",
-      "gnd": "118527649",
-      "viaf": "39447168",
-      "entryCount": 4
+      "gnd": "https://d-nb.info/gnd/118527649",
+      "viaf": "https://viaf.org/viaf/39447168"
     },
     {
       "@id": "person:gnd-118501070",
       "@type": "Person",
       "preferredName": "Johannes Agricola",
       "variantNames": [],
-      "role": "textAuthor",
-      "gnd": "118501070",
-      "viaf": "46803216",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118501070",
+      "viaf": "https://viaf.org/viaf/46803216"
     },
     {
       "@id": "person:gnd-118744658",
@@ -376,30 +292,24 @@
       "variantNames": [
         "Reuchlin"
       ],
-      "role": "textAuthor",
-      "gnd": "118744658",
-      "viaf": "66542815",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118744658",
+      "viaf": "https://viaf.org/viaf/66542815"
     },
     {
       "@id": "person:klieber",
       "@type": "Person",
       "preferredName": "Klieber",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:kn-pken",
       "@type": "Person",
       "preferredName": "Knöpken",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-118613200",
@@ -408,10 +318,8 @@
       "variantNames": [
         "Seneca"
       ],
-      "role": "textAuthor",
-      "gnd": "118613200",
-      "viaf": "90637919",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118613200",
+      "viaf": "https://viaf.org/viaf/90637919"
     },
     {
       "@id": "person:gnd-118503952",
@@ -421,72 +329,56 @@
         "Ariost",
         "Ariosto"
       ],
-      "role": "textAuthor",
-      "gnd": "118503952",
-      "viaf": "71386455",
-      "entryCount": 15
+      "gnd": "https://d-nb.info/gnd/118503952",
+      "viaf": "https://viaf.org/viaf/71386455"
     },
     {
       "@id": "person:gnd-124661122",
       "@type": "Person",
       "preferredName": "Ludwig Helmbold",
-      "variantNames": [
-        "Ludwig Helmbold?"
-      ],
-      "role": "textAuthor",
-      "gnd": "124661122",
-      "viaf": "69867276",
-      "entryCount": 3
+      "variantNames": [],
+      "gnd": "https://d-nb.info/gnd/124661122",
+      "viaf": "https://viaf.org/viaf/69867276"
     },
     {
       "@id": "person:luigi-cassola",
       "@type": "Person",
       "preferredName": "Luigi Cassola",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:m-d-angoul-me",
       "@type": "Person",
       "preferredName": "M. d'Angoulême",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:manrrique",
       "@type": "Person",
       "preferredName": "Manrrique",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:marsi",
       "@type": "Person",
       "preferredName": "Marsi",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-118575449",
       "@type": "Person",
       "preferredName": "Martin Luther",
       "variantNames": [],
-      "role": "textAuthor",
-      "gnd": "118575449",
-      "viaf": "14773105",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118575449",
+      "viaf": "https://viaf.org/viaf/14773105"
     },
     {
       "@id": "person:gnd-118750801",
@@ -496,90 +388,72 @@
         "Melin de Saint Gelais",
         "Saint Gelais"
       ],
-      "role": "textAuthor",
-      "gnd": "118750801",
-      "viaf": "64045845",
-      "entryCount": 3
+      "gnd": "https://d-nb.info/gnd/118750801",
+      "viaf": "https://viaf.org/viaf/64045845"
     },
     {
       "@id": "person:n-stopio",
       "@type": "Person",
       "preferredName": "N. Stopio",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:nach-villon",
       "@type": "Person",
       "preferredName": "nach Villon",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:nicetas-von-remesiana",
       "@type": "Person",
-      "preferredName": "Nicetas von Remesiana?",
+      "preferredName": "Nicetas von Remesiana",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-118588850",
       "@type": "Person",
       "preferredName": "Notker Balbulus",
       "variantNames": [],
-      "role": "textAuthor",
-      "gnd": "118588850",
-      "viaf": "27863792",
-      "entryCount": 2
+      "gnd": "https://d-nb.info/gnd/118588850",
+      "viaf": "https://viaf.org/viaf/27863792"
     },
     {
       "@id": "person:octavien-de-saint-gelais",
       "@type": "Person",
       "preferredName": "Octavien de Saint Gelais",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:olivier-de-magny",
       "@type": "Person",
       "preferredName": "Olivier de Magny",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:orlando-di-lasso",
       "@type": "Person",
-      "preferredName": "Orlando di Lasso?",
+      "preferredName": "Orlando di Lasso",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:p-du-val",
       "@type": "Person",
       "preferredName": "P. du Val",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 2
+      "viaf": null
     },
     {
       "@id": "person:gnd-118602519",
@@ -588,20 +462,16 @@
       "variantNames": [
         "Ronsard"
       ],
-      "role": "textAuthor",
-      "gnd": "118602519",
-      "viaf": "61551687",
-      "entryCount": 10
+      "gnd": "https://d-nb.info/gnd/118602519",
+      "viaf": "https://viaf.org/viaf/61551687"
     },
     {
       "@id": "person:pierre-grognet",
       "@type": "Person",
       "preferredName": "Pierre Grognet",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 2
+      "viaf": null
     },
     {
       "@id": "person:gnd-118658115",
@@ -610,100 +480,64 @@
       "variantNames": [
         "Bembo"
       ],
-      "role": "textAuthor",
-      "gnd": "118658115",
-      "viaf": "54144140",
-      "entryCount": 2
+      "gnd": "https://d-nb.info/gnd/118658115",
+      "viaf": "https://viaf.org/viaf/54144140"
     },
     {
       "@id": "person:ronconi",
       "@type": "Person",
       "preferredName": "Ronconi",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:s-brant",
       "@type": "Person",
       "preferredName": "S. Brant",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
-    },
-    {
-      "@id": "person:sch-fergedicht",
-      "@type": "Person",
-      "preferredName": "Schäfergedicht",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-124214169",
       "@type": "Person",
       "preferredName": "Stefano Tucci",
       "variantNames": [],
-      "role": "textAuthor",
-      "gnd": "124214169",
-      "viaf": "95293442",
-      "entryCount": 9
+      "gnd": "https://d-nb.info/gnd/124214169",
+      "viaf": "https://viaf.org/viaf/95293442"
     },
     {
       "@id": "person:tansillo",
       "@type": "Person",
       "preferredName": "Tansillo",
       "variantNames": [],
-      "role": "textAuthor",
       "gnd": null,
-      "viaf": null,
-      "entryCount": 1
+      "viaf": null
     },
     {
       "@id": "person:gnd-118622110",
       "@type": "Person",
       "preferredName": "Thomas von Aquin",
       "variantNames": [],
-      "role": "textAuthor",
-      "gnd": "118622110",
-      "viaf": "100910150",
-      "entryCount": 4
-    },
-    {
-      "@id": "person:tischgebet",
-      "@type": "Person",
-      "preferredName": "Tischgebet",
-      "variantNames": [],
-      "role": "textAuthor",
-      "gnd": null,
-      "viaf": null,
-      "entryCount": 3
+      "gnd": "https://d-nb.info/gnd/118622110",
+      "viaf": "https://viaf.org/viaf/100910150"
     },
     {
       "@id": "person:gnd-118626574",
       "@type": "Person",
       "preferredName": "Vergil",
       "variantNames": [],
-      "role": "textAuthor",
-      "gnd": "118626574",
-      "viaf": "8194433",
-      "entryCount": 3
+      "gnd": "https://d-nb.info/gnd/118626574",
+      "viaf": "https://viaf.org/viaf/8194433"
     },
     {
       "@id": "person:gnd-118807633",
       "@type": "Person",
       "preferredName": "Wipo von Burgund",
       "variantNames": [],
-      "role": "textAuthor",
-      "gnd": "118807633",
-      "viaf": "89474915",
-      "entryCount": 1
+      "gnd": "https://d-nb.info/gnd/118807633",
+      "viaf": "https://viaf.org/viaf/89474915"
     }
   ]
 }

@@ -91,13 +91,16 @@ weshalb die Ausgabedateien stabil sortiert und eingerückt geschrieben werden.
 
 ## 4. Quelldateien bleiben unverändert erhalten
 
-**Entscheidung.** Die Original-Excel-Dateien liegen unangetastet in `raw/`. Zu
-jeder Quelle wird in `data/meta.json` eine SHA-256-Prüfsumme festgehalten.
+**Entscheidung.** Die Original-Excel-Dateien liegen unangetastet in `raw/`.
+Welcher Stand der Quellen zu welchen Daten gehört, belegt Git: Quellen und
+erzeugte Daten werden im selben Commit versioniert (bis Abschnitt 32 stand
+dafür zusätzlich eine Prüfsumme je Quelle in `data/meta.json`).
 
 **Begründung.** Die Umwandlung soll jederzeit reproduzierbar und überprüfbar
 sein. Alle Normalisierungen geschehen ausschließlich im Importskript und
-sind dort nachlesbar. Rohwerte bleiben zusätzlich erhalten, etwa in den Feldern
-`titleRaw` und `voicesRaw`.
+sind dort nachlesbar. Rohwerte bleiben zusätzlich erhalten, wo die
+Normalisierung Information verwirft, etwa im Feld `voicesRaw`. Ein eigenes
+Feld für den unveränderten Titel entfiel später, siehe Abschnitt 28.
 
 ---
 
@@ -144,7 +147,8 @@ LV-Nummern zählt, erhält falsche Ergebnisse.
 ## 7. Interne fortlaufende Kennung mit dauerhafter Registry
 
 **Entscheidung.** Jeder Datensatz erhält eine fortlaufende Ganzzahl. Die
-Zuordnung wird in `data/id-registry.json` festgehalten. Einmal vergebene Nummern
+Zuordnung wird in `scripts/id-registry.json` festgehalten (bis Abschnitt 32
+unter `data/`). Einmal vergebene Nummern
 werden nie erneut vergeben, auch nicht, wenn ein Datensatz entfällt.
 
 **Alternativen.** Ein zusammengesetzter Schlüssel aus LV-Nummer und Drucksigle.
@@ -336,7 +340,7 @@ externen, nicht versionierten Webseite ab und kann bei deren Überarbeitung
 veralten. Der Text zur Datenbank beschreibt die Zusammenführung von Drucken
 und Handschriften bewusst als Zielzustand des Projekts, obwohl `entries.json`
 laut Abschnitt „Datenmodell“ im README bislang ausschließlich Einträge aus
-der gedruckten Überlieferung enthält (Quelle `Werke.xlsx`, siehe `meta.json`);
+der gedruckten Überlieferung enthält (Quelle `Werke.xlsx`);
 die zweite Tabelle mit den Handschriften ist als offener Punkt dort weiterhin
 vermerkt. Diese Vereinfachung ist eine bewusste redaktionelle Entscheidung
 des Projektinhabers, keine Aussage über den tatsächlichen Datenbestand.
@@ -374,8 +378,7 @@ drei Gruppen von Zeilen:
 2. 65 weitere LV-Zeichenketten (341 Zeilen), teils ganz neue Grundnummern wie
    105 und 106, teils zusätzliche Teilsätze bestehender Werke wie 26-2,
    kommen im Druckkatalog nicht vor. Für sie legt der Import jetzt neue
-   Werke an, die ausschließlich handschriftlich bezeugt sind
-   (`worksFromManuscriptsOnly` in `meta.json`).
+   Werke an, die ausschließlich handschriftlich bezeugt sind.
 3. 768 Zeilen tragen gar keine LV-Nummer. Davon verweisen 444 im Freitextfeld
    „Weitere Teile“ auf eine Nummer aus dem LV-Anhang (Boetticher), erkennbar
    am Muster „LVanh N“. Für diese 161 Anhangsnummern legt der Import
@@ -392,13 +395,13 @@ selbst ist sich über die Zuschreibung an Lasso also nicht sicher. Ein
 Werk-Eintrag würde das fälschlich als gesichert ausweisen, siehe die
 Unterscheidung von Werk und Bezeugung in Abschnitt 6. Die Zeilen selbst gehen
 trotzdem nicht verloren: Sie stehen weiterhin in `manuscripts.json` (mit
-`lv: null` und `lvAnh: null`) und zusätzlich, für die redaktionelle Arbeit
-besser auffindbar, in der bei jedem Import neu erzeugten Liste
-`docs/handschriften-ohne-zuordnung.md`.
+`lv: null` und `lvAnh: null`). Die zusätzliche, bei jedem Import erzeugte
+Liste `docs/handschriften-ohne-zuordnung.md` entfiel später (Abschnitt 36).
 
 **Was unverändert als Rohtext bleibt.** Die Spalte „Quellenart“ enthält
 teils MARC-artige Teilfelder (etwa `$aStimmbücher$b1$c[5]`) und wird ohne
-Zerlegung als `sourceDescription` übernommen. Das RISM-Sigel wird ohne
+Zerlegung als `sourceDescription` übernommen (seit Abschnitt 33 lesbar
+aufbereitet als `sourceType`). Das RISM-Sigel wird ohne
 Prüfung gegen eine Normdatei übernommen. Beides folgt demselben Muster wie
 die unnormalisierten Textdichter-Rohwerte in Abschnitt 8: die inhaltliche
 Aufbereitung ist ein eigener redaktioneller Arbeitsschritt, keine
@@ -1139,26 +1142,335 @@ Blatts im Verzeichnis (1629-2, 1773-9).
 
 ---
 
+## 27. Interne ID nur noch in der `@id`
+
+**Entscheidung.** Katalogeinträge und Handschriften-Zeugnisse tragen die
+laufende Nummer aus der Registry (Abschnitt 7) nicht mehr zusätzlich als
+Feld `id`, sondern nur noch in ihrer `@id`, etwa `entry:00001` oder
+`manuscript:01980`. Das Feld `id` und seine Abbildung auf
+`lasso:internalId` im JSON-LD-Kontext entfallen.
+
+**Alternative.** Beide Felder beibehalten, die Zahl also als `xsd:integer`
+neben der Kennung führen.
+
+**Begründung.** `id` war vollständig aus `@id` ableitbar und umgekehrt. Zwei
+Felder mit demselben Inhalt können auseinanderlaufen, und Lesern des
+Datensatzes ist nicht klar, welches maßgeblich ist. Gebraucht wurde die Zahl
+nur an zwei Stellen: zum Sortieren im Importskript und in der Oberfläche für
+den Ersatztitel „Handschrift N“ bei Zeugnissen ohne Ortsangabe und Titel.
+Beides liest die Nummer jetzt aus der `@id`. Die Vergabe und Stabilität der
+Nummern ändert sich nicht.
+
+**Preis.** Wer die Nummer als Zahl braucht, muss sie aus der `@id`
+herausschneiden. Die `@id` ist fünfstellig mit führenden Nullen; ab der
+Nummer 100000 würde eine rein alphabetische Sortierung falsch, deshalb
+sortiert der Import numerisch.
+
+---
+
+## 28. Kein eigenes Feld für den Titel mit Teilsatzmarke
+
+**Entscheidung.** Katalogeinträge tragen den Titel nur noch einmal, als
+`title` ohne die führende Teilsatzmarke (`[2] Tengan dunque` wird
+`Tengan dunque`). Das Feld `titleRaw`, das den Titel mitsamt Marke
+unverändert aus der Quelle wiedergab, entfällt. Der Import prüft stattdessen,
+dass die Marke zur Teilsatznummer der LV-Angabe passt, und meldet jede
+Abweichung.
+
+**Alternative.** `titleRaw` als Rohwert beibehalten, wie in Abschnitt 4
+ursprünglich vorgesehen.
+
+**Begründung.** Die Marke wiederholt die Teilsatznummer, die als `lvPart`
+ohnehin am Eintrag steht. Geprüft wurde das für alle 2043 Einträge: Bei
+2042 war `titleRaw` entweder gleich `title` oder `[N] ` vor `title` mit N
+gleich `lvPart`. Die eine Abweichung, LV 419-4 mit der Marke `[2]`
+(Druck 1571-4), war ein Fehler der Quelle; die LV-Angabe ist in
+`raw/Werke.xlsx` zu 419-2 korrigiert. `titleRaw` enthielt damit keine
+Information, die nicht schon in `title` und `lvPart` steht. Der unveränderte
+Zellinhalt bleibt in `raw/Werke.xlsx` erhalten und ist über LV-Nummer und
+Erstdruck auffindbar, das genügt der Nachprüfbarkeit nach Abschnitt 4. Die Prüfung im
+Import sorgt dafür, dass eine künftige Abweichung nicht stillschweigend
+verloren geht, sondern auffällt.
+
+**Preis.** Wer den Titel in der Form der Quelle braucht, muss die Marke aus
+`lvPart` wieder voranstellen oder die Quelldatei lesen. Durch die Korrektur
+erhält die Zeile ihre frühere interne ID `entry:00708` zurück, die ihr unter
+dem Schlüssel `419-2` schon bei der ersten Vergabe zugeteilt war;
+`entry:00710` (unter `419-4`) entfällt.
+
+---
+
+## 29. Keine Angaben zur Importherkunft am Datensatz
+
+**Entscheidung.** Katalogeinträge und Handschriften-Zeugnisse tragen kein
+Feld `source` mehr. Es nannte je Datensatz den Herkunftsdatensatz
+(`dataset`), die Quelldatei (`file`), die Zeile darin (`row`) und den
+Wiedererkennungsschlüssel der Registry (`key`). Die Felder und ihre
+Abbildungen im JSON-LD-Kontext entfallen.
+
+**Alternative.** `source` auf `dataset` und `row` kürzen, da `file` über
+`meta.json` und `key` über die ID-Registry ohnehin nachzuschlagen waren.
+
+**Begründung.** Die Daten werden in einem öffentlichen Repository
+veröffentlicht und sollen fachliche Aussagen über Lassos Werke und ihre
+Überlieferung enthalten. `source` beschrieb dagegen den Importvorgang, also
+interne Technik: Das Importskript schrieb das Feld, las es aber selbst nie,
+und die Oberfläche benutzte es nicht. Die Zeilennummer galt zudem nur für den
+Stand der Quelldatei im selben Commit, da sich die Zeilen der gepflegten
+Tabellen (Abschnitt 25) durch Einfügen oder Löschen verschieben.
+Nachprüfbar bleibt die Umwandlung trotzdem (Abschnitt 4): Die Quelldateien
+liegen im Repository, und jeder Eintrag ist
+dort über seine fachlichen Angaben wiederzufinden (LV-Nummer und Erstdruck,
+bei Handschriften RISM-Sigel und Signatur), aus denen auch der
+Registry-Schlüssel gebildet wird.
+
+**Preis.** Ein Datensatz verweist nicht mehr unmittelbar auf seine
+Tabellenzeile. Wer ihn in der Quelle sucht, muss nach den fachlichen Angaben
+filtern. Kommt eine zweite Tabelle desselben Typs hinzu (README, „Eine
+weitere Excel-Tabelle aufnehmen“), ist am Datensatz nicht mehr zu sehen, aus
+welcher er stammt; dann wäre zu entscheiden, ob das eine fachliche Angabe
+ist, die wieder ein Feld verdient.
+
+---
+
+## 30. Ungenutzte Zähl- und Konstantfelder entfernt
+
+**Entscheidung.** Entfallen sind `entryCount` an Werken und Personen,
+`workCount` und `no` an Drucken sowie `role` an Personen.
+
+**Begründung.** Die Zähler sind aus den Listen am Datensatz bzw. aus den
+Einträgen ableitbar, `no` steht schon in der Sigle, und `role` hatte überall
+denselben Wert `textAuthor`. Keines der Felder wurde von der Oberfläche
+gelesen. Geprüft wurden alle Felder aller Dateien; behalten wurde, was die
+Oberfläche nutzt, was der Import intern braucht (`lvVariant`) oder was einen
+Rohwert der Quelle trägt (`textAuthor`, `voicesRaw`).
+
+---
+
+## 31. Ein RISM-Link je Druck, aus dem Druckeverzeichnis
+
+**Entscheidung.** Drucke tragen nur noch ein Feld `rism`: den Link auf RISM
+Online, den `scripts/tex_drucke.py` aus der RISM-Nummer im Druckeverzeichnis
+ermittelt (Abschnitt 26, bisher `rismCatalogue`). Die Zuordnung über den
+Inhalt (Abschnitt 23) mit Vorschlag und Bestätigung entfällt, ebenso
+`rismSeries`. Im Blatt *Drucke* sind die Spalten *RISM*, *RISM-Reihe*,
+*RISM-Status*, *RISM-Grundlage* und *RISM-Kandidaten* gelöscht; *RISM laut
+Druckeverzeichnis* heißt jetzt *RISM*.
+
+**Begründung.** Zwei Wege zum selben Ergebnis. Von den 75 Vorschlägen der
+Inhaltszuordnung waren 61 identisch mit dem Link aus dem Druckeverzeichnis,
+keiner wich ab; bestätigt war keiner, `rism` war also überall leer. Der Link
+aus dem Druckeverzeichnis liegt dagegen für 427 von 477 Drucken vor und
+beruht auf der RISM-Nummer, die das Verzeichnis selbst nennt.
+
+**Preis.** 14 Vorschläge betrafen Drucke ohne Link im Druckeverzeichnis;
+sie sind nur noch in der Git-Historie von `raw/Drucke.xlsx` erhalten. Die in
+Abschnitt 26 vorgesehene redaktionelle Bestätigung entfällt.
+
+---
+
+## 32. `data/` enthält nur fachliche Daten
+
+**Entscheidung.** `data/meta.json` entfällt. Die ID-Registry liegt nicht mehr
+in `data/`, sondern als `scripts/id-registry.json` beim Importskript.
+
+**Begründung.** `data/` ist der veröffentlichte Datenbestand. `meta.json`
+enthielt Erzeugungsdatum, Zählungen und Prüfsummen der Quellen, also
+Angaben zum Importlauf; die Oberfläche las sie nicht, die Zählungen ergeben
+sich aus den Daten selbst, und den Stand der Quellen belegt Git
+(Abschnitt 4). Die Registry ist ebenfalls Importtechnik, muss aber
+versioniert bleiben, damit die IDs stabil bleiben (Abschnitt 7); sie gehört
+deshalb zum Skript, nicht zu den Daten.
+
+---
+
+## 33. Quellenart lesbar statt mit Teilfeldern
+
+**Entscheidung.** Das Feld `sourceDescription` heißt jetzt `sourceType`
+(Spalte „Quellenart“). Bei Stimmbüchern steht die Quellenart in der Tabelle
+mit Teilfeldern, etwa `$a[Stimmbücher]$b[6]$c[C, A, T, B, 5, 6]`; der Import
+macht daraus `Stimmbücher (6): C, A, T, B, Quintus, Sextus`. Die gezählten
+Stimmen 5 bis 8 (auch V bis VIII) werden als Quintus, Sextus, Septimus und
+Octavus ausgeschrieben, da eine bloße Ziffer nicht verständlich ist.
+Klartext wie „Partitur“ bleibt unverändert.
+
+**Lesart der Teilfelder** (aus den Werten erschlossen): `$a` Art der Quelle,
+`$b` Anzahl der Stimmbücher, `$1` Gesamtzahl bei unvollständigem Satz
+(„von 5“), `$c` die vorhandenen Stimmen (C, A, T, B = Cantus, Altus, Tenor,
+Bassus; 5, 6 bzw. V, VI = Quintus, Sextus; „?“ unbekannt), `$d` Zusatz. Eckige
+Klammern, nach bibliothekarischer Konvention Angaben des Bearbeiters,
+entfallen; eine unbekannte Anzahl („?“) wird weggelassen.
+
+**Begründung.** Rund 30 % der Zeilen trugen die Teilfelder, die übrigen
+Klartext. In der Oberfläche erschien die Teilfeld-Form unverständlich. Ein
+lesbarer Text in einem Feld genügt; eine Zerlegung in eigene Felder wäre
+mehr, als gebraucht wird. Der Name `sourceDescription` klang zudem nach
+Importherkunft (vgl. Abschnitt 29), gemeint ist die Quellenart.
+
+**Korrekturen der Quelle.** In `raw/lasso_handschriften.xlsx` waren 22 Zellen
+fehlerhaft gesetzt und sind berichtigt: fehlendes `$c` (11), `$b2]` statt
+`$b[2]` (8), `$[c ?]` statt `$c[?]` (2), `$c ?]` statt `$c[?]` (1).
+
+**Preis.** Die Unterscheidung zwischen Angaben der Quelle und des
+Bearbeiters (eckige Klammern) geht in den Daten verloren; sie bleibt in der
+Tabelle erhalten.
+
+---
+
+## 34. Textgattungen aus der Spalte „Textdichter“ in die Textprovenienz
+
+**Entscheidung.** In `raw/Werke.xlsx` standen in der Spalte „Textdichter“
+Angaben, die keine Personen sind, und wurden deshalb zu Personen in
+`persons.json`. Sie stehen jetzt in „Textprovenienz“: „Tischgebet“
+(LV 579 zweimal, LV 1073), „Gebet?“ (LV 1044) und „Schäfergedicht“
+(LV 1047). „Anfang von Psalmus 130, Nachdichtung von Clement Marot“ (LV 155)
+ist geteilt in den Textdichter „Clément Marot“, eine der in
+`raw/personen_normdaten.json` erfassten Schreibweisen und damit mit der GND
+verknüpft, und die Textprovenienz „nach Psalmus 130 (Anfang)“; das „nach“
+kennzeichnet wie in den übrigen Zeilen der Spalte die freie Bearbeitung,
+hier Marots Nachdichtung. „nach Villon“
+(LV 766) bleibt als Textdichter stehen: Es nennt eine Person, nur mit
+Einschränkung.
+
+**Begründung.** Eine Person ist ein Mensch, der den Text verfasst hat; eine
+Gattung oder Herkunft des Textes gehört in die Textprovenienz. In allen
+Fällen war die Textprovenienz leer, es wurde nichts überschrieben.
+
+---
+
+## 35. Unsichere Zuschreibung am Eintrag, nicht im Personennamen
+
+**Entscheidung.** Ein nachgestelltes „?“ im Rohwert des Textdichters
+(„de Baif?“) markiert eine unsichere Zuschreibung. Der Import setzt dafür
+wie bisher `textAuthorUncertain` am Eintrag (am Werk `uncertainTextAuthors`)
+und entfernt das „?“ jetzt beim Bilden der Person. Personen ohne
+GND-Zuordnung hießen bisher wie der Rohwert, mitsamt Fragezeichen. In
+`raw/personen_normdaten.json` lautet die Schreibweise für Helmbold deshalb
+„Ludwig Helmbold“ statt „Ludwig Helmbold?“.
+
+**Begründung.** Unsicher ist, ob die Person den Text verfasst hat, nicht die
+Person selbst. Die Oberfläche kann die Unsicherheit so einheitlich aus dem
+Feld darstellen statt aus dem Namen.
+
+**Weitere Prüfung der Personen.** Die Schreibweise „G.Guéroult“ kam in der
+Quelle nicht mehr vor und ist aus `raw/personen_normdaten.json` gestrichen.
+Der Rohwert „Saint Gelais“ (LV 761, „Puis que vivre en serviture“) bleibt
+Mellin de Saint-Gelais zugeordnet, nicht seinem Onkel Octavien: Der Text
+„Puisque vivre en servitude“, bekannt in der Vertonung von Pierre Sandrin,
+wird Mellin zugeschrieben (Katalog der Médiathèque de la Philharmonie de
+Paris; IMSLP, Kategorie Saint-Gelais, Mellin de).
+
+---
+
+## 36. Keine erzeugte Liste der Handschriften ohne Zuordnung
+
+**Entscheidung.** Der Import schreibt `docs/handschriften-ohne-zuordnung.md`
+nicht mehr; die Datei ist gelöscht. Die Anzahl der Zeilen ohne Zuordnung
+nennt er weiterhin in seiner Ausgabe.
+
+**Begründung.** Die Liste wiederholte, was in `manuscripts.json` steht
+(`lv` und `lvAnh` leer), und zugeordnet wird ohnehin in
+`raw/lasso_handschriften.xlsx`, wo sich die Zeilen über die leere Spalte „LV“
+filtern lassen. In `docs/` gehört die Begründung des Projekts, kein
+Nebenprodukt des Imports.
+
+---
+
+## 37. Keine Hüllenschemas und kein `$schema` in den Daten
+
+**Entscheidung.** `schema/entries-file.schema.json` und
+`schema/manuscripts-file.schema.json` sind gelöscht, ebenso der Verweis
+`$schema` am Anfang von `entries.json` und `manuscripts.json`. Die Schemas
+für den einzelnen Eintrag und das einzelne Zeugnis bleiben.
+
+**Begründung.** Die Hüllenschemas dienten nur dazu, dass ein Editor die
+Dateien beim Öffnen live prüft. Die Dateien werden aber nie von Hand
+bearbeitet, und der Import prüft jeden Datensatz ohnehin selbst gegen
+`entry.schema.json` und `manuscript.schema.json`, bevor er schreibt. `$schema`
+war damit ein technisches Feld in den veröffentlichten Daten ohne Nutzen.
+
+---
+
+## 38. Werk, Expression und Manifestation im Vokabular von FRBR Core
+
+**Entscheidung.** Der JSON-LD-Kontext bildet Werk, Fassung und Druck auf das
+Vokabular FRBR Core (`http://purl.org/vocab/frbr/core#`) ab statt auf
+projekteigene Begriffe: `Work` auf `frbr:Work`, `Expression` auf
+`frbr:Expression`, `Print` auf `frbr:Manifestation`, `realizationOf` auf
+`frbr:realizationOf` und die Liste `expressions` am Werk auf
+`frbr:realization`. Die Daten selbst ändern sich nicht.
+
+**Begründung.** Das Modell folgt seit Abschnitt 6 und 17 FRBR; die
+projekteigenen Begriffe bildeten genau diese Klassen und Beziehungen nach.
+Mit dem Standardvokabular ist das Modell auch für Dritte als FRBR erkennbar.
+
+**Alternative.** LRMoo, der Nachfolger von FRBRoo auf Grundlage von
+CIDOC CRM. Es verlangt Ereignisse zwischen Werk und Person (etwa
+„Expression Creation“ statt eines Feldes Textdichter), zu jedem Werk eine
+Expression, da eine Manifestation stets eine Expression verkörpert, und für
+vertonte Texte eigene Werke, die die Vertonung aufnimmt. Das hätte Import,
+Daten und Oberfläche umgebaut und Struktur verlangt, die die Quelle nicht
+hergibt.
+
+**Preis.** FRBR Core von 2005 wird nicht mehr gepflegt. Und FRBR sieht zu
+jedem Werk eine Expression vor, während das Projekt nur die neun
+gekennzeichneten Fassungen als Expression führt (Abschnitt 17); das Modell ist
+damit nicht vollständig ausgeführt, die Begriffe bleiben aber zutreffend.
+
+---
+
+## 39. Weitere Standardbegriffe im Kontext, GND und VIAF als Adresse
+
+**Entscheidung.** Wo ein Begriff aus den bereits verwendeten Vokabularen
+genau passt, ersetzt er den projekteigenen:
+
+| Feld | Begriff |
+| --- | --- |
+| `variantTitles` | `dcterms:alternative` |
+| `textAuthors`, `textAuthorPerson` | `schema:lyricist` |
+| `genre`, `genres` | `schema:genre` |
+| `dating` | `dcterms:date` |
+| `provenance` | `dcterms:provenance` |
+| `literature` | `dcterms:isReferencedBy` |
+| `link`, `rism` | `rdfs:seeAlso` |
+| `gnd`, `viaf` | `schema:sameAs` |
+
+`gnd` und `viaf` enthalten dafür die vollständige Adresse
+(`https://d-nb.info/gnd/118593234`, `https://viaf.org/viaf/39382430`) statt
+der bloßen Nummer; die Oberfläche verlinkt sie unmittelbar.
+
+**Lücke geschlossen.** Die mit Abschnitt 16 hinzugekommenen Felder der
+Handschriften (`dating`, `link`, `shelfmarkAlt`, `provenance`, `sourceNote`,
+`literature`) standen nicht im Kontext und wären von einem JSON-LD-Programm
+stillschweigend verworfen worden. Sie sind jetzt eingetragen; jedes Feld der
+Datendateien hat eine Abbildung.
+
+**Was projekteigen bleibt.** LV-Nummern, Stimmenzahl, Siglen, Gesamtausgabe,
+Stimmbücher, Textprovenienz, Bibliothek, Signatur und die Verknüpfung vom
+Werk zu Einträgen und Handschriften. Kein Standardbegriff trifft sie genau,
+und ein ungenauer wäre schlechter als ein eigener.
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
   gedacht, nicht für Katalogmetadaten. Sie wird erst einschlägig, wenn Notentexte
   selbst erfasst werden sollen.
-- **CIDOC-CRM und FRBRoo** zielen auf sammlungsübergreifende Interoperabilität
-  von Institutionen. Der Modellierungsaufwand steht für ein Projekt dieser Größe
-  in keinem Verhältnis. Die zugrunde liegende Unterscheidung von Werk und
-  Manifestation wurde gleichwohl übernommen, siehe Abschnitt 6, für
-  ausdrücklich gekennzeichnete Fassungen auch die Expression, siehe
-  Abschnitt 17.
+- **CIDOC-CRM, FRBRoo und LRMoo** zielen auf sammlungsübergreifende
+  Interoperabilität von Institutionen. Der Modellierungsaufwand steht für ein
+  Projekt dieser Größe in keinem Verhältnis. Die zugrunde liegende
+  Unterscheidung von Werk und Manifestation wurde gleichwohl übernommen, siehe
+  Abschnitt 6, für ausdrücklich gekennzeichnete Fassungen auch die Expression,
+  siehe Abschnitt 17, im Vokabular über FRBR Core, siehe Abschnitt 38.
 - **Triplestore und SPARQL** wurden aufgeschoben. Der JSON-LD-Kontext hält den
   Weg dorthin offen, ohne ihn jetzt gehen zu müssen.
 - **GND und VIAF** sind für Textdichter mittlerweile für 36 von 84 Rohwerten
   manuell verknüpft, siehe Abschnitt 15; die übrigen bleiben offen, teils
-  mangels eindeutigem GND-Treffer, teils schlicht noch ungeprüft. Das Feld
-  `rism` auf `Print`-Entitäten (Drucke) ist weiterhin leer. Das RISM-Sigel
-  der Handschriften (`rismSiglum`, Abschnitt 14) wird dagegen bereits
-  übernommen, allerdings ungeprüft als Rohtext, nicht gegen eine Normdatei
-  validiert.
+  mangels eindeutigem GND-Treffer, teils schlicht noch ungeprüft. Drucke
+  verweisen über `rism` auf RISM Online (Abschnitt 31). Das RISM-Sigel der
+  Handschriften (`rismSiglum`, Abschnitt 14) wird ungeprüft als Rohtext
+  übernommen, nicht gegen eine Normdatei validiert.
 
 ---
 
@@ -1178,18 +1490,14 @@ Blatts im Verzeichnis (1629-2, 1773-9).
   geprüft wurden, teils weil kein eindeutiger GND-Treffer vorlag. Zwei davon,
   „Berno von Cluny" und „Pierre Grognet", wurden geprüft und bewusst
   zurückgestellt, siehe Abschnitt 15.
-- Die MARC-artigen Teilfelder in `sourceDescription` sowie das RISM-Sigel der
-  Handschriften sind unzerlegt bzw. ungeprüft, siehe Abschnitt 14.
+- Das RISM-Sigel der Handschriften ist ungeprüft, siehe Abschnitt 14.
 - 280 Katalogzeilen ohne normalisierten Titel, 84 mit stark vom Drucktitel
   abweichendem Titel sowie die Abweichungen bei Stimmenzahl und Erstdruck
   gegenüber MGG warten auf fachliche Prüfung, siehe Abschnitt 21.
-- 75 RISM-Vorschläge im Blatt *Drucke* von `raw/Drucke.xlsx` warten auf
-  Bestätigung, siehe Abschnitte 23 und 25.
 - Sechs Drucke des Druckeverzeichnisses fehlen im Blatt *Drucke*, zwei
   Drucke des Blatts im Verzeichnis, siehe Abschnitt 26.
 - 311 Handschriften-Zeugnisse und die Zuordnung der 161 LV-Anhang-Werke
-  warten auf fachliche Prüfung, siehe Abschnitt 14 und
-  `docs/handschriften-ohne-zuordnung.md`.
+  warten auf fachliche Prüfung, siehe Abschnitt 14.
 
 ---
 

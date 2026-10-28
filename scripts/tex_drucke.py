@@ -45,7 +45,7 @@ CATALOGUES = [
 CATALOGUE_ALIASES = {"Fètis": "Fétis", "Eitner QL": "EitnerQL"}
 OTHER_REFERENCES = "sonstige"
 REFERENCE_PREFIX = "Verweis "
-RISM_LINK_COLUMN = "RISM laut Druckeverzeichnis"
+RISM_LINK_COLUMN = "RISM"
 
 COLUMNS = (
     ["Beschreibung", "Titel", "Stimmbücher"]
@@ -272,7 +272,6 @@ def main():
     rism_cache = {}
     rism_not_found = []
     rism_failed = []
-    rism_column = header.index("RISM") + 1
     for row in range(2, sheet.max_row + 1):
         siglum = sheet.cell(row=row, column=siglum_column).value
         if not siglum:
@@ -311,14 +310,6 @@ def main():
                 filled += 1
             elif cell.value != value:
                 conflicts.append((siglum, name))
-    # Abgleich mit der RISM-Zuordnung ueber den Inhalt (Abschnitt 23)
-    agree, disagree = [], []
-    for row in range(2, sheet.max_row + 1):
-        proposed = sheet.cell(row=row, column=rism_column).value
-        found = sheet.cell(row=row, column=column_of[RISM_LINK_COLUMN]).value
-        if proposed and found:
-            siglum = sheet.cell(row=row, column=siglum_column).value
-            (agree if proposed == found else disagree).append(siglum)
     workbook.save(XLSX_PATH)
 
     missing_fields = {
@@ -343,8 +334,6 @@ def main():
         print("  " + item)
     print("RISM Online nicht erreicht, bitte erneut ausfuehren: {0}".format(
         ", ".join(rism_failed) or "-"))
-    print("Abgleich mit Spalte RISM: {0} gleich, {1} verschieden ({2})".format(
-        len(agree), len(disagree), ", ".join(disagree) or "-"))
 
 
 if __name__ == "__main__":

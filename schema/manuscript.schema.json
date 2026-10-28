@@ -4,20 +4,15 @@
   "title": "Lasso-Werkverzeichnis, Handschriften-Zeugnis",
   "description": "Ein Zeugnis entspricht einem Lasso-Stueck in einer Handschrift, nicht dem Werk selbst. Dieselbe Komposition kann in mehreren Handschriften ueberliefert sein, und eine Handschrift kann mehrere Stuecke enthalten. Eindeutig ist allein die interne ID.",
   "type": "object",
-  "required": ["@id", "@type", "id", "title"],
+  "required": ["@id", "@type", "title"],
   "additionalProperties": true,
   "properties": {
     "@id": {
       "type": "string",
       "pattern": "^manuscript:[0-9]{5,}$",
-      "description": "JSON-LD Bezeichner, abgeleitet aus der internen ID."
+      "description": "JSON-LD Bezeichner mit der internen laufenden ID aus scripts/id-registry.json, fuenfstellig mit fuehrenden Nullen. Einmal vergeben, bleibt sie stabil."
     },
     "@type": { "const": "ManuscriptWitness" },
-    "id": {
-      "type": "integer",
-      "minimum": 1,
-      "description": "Interne laufende ID, aus derselben Registry wie bei entry.schema.json. Einmal vergeben, bleibt sie stabil."
-    },
     "lv": {
       "type": ["string", "null"],
       "description": "LV-Nummer wie in works.json, sofern die Handschrift einem Werk aus dem Haupt-LV-Katalog zugeordnet werden konnte. Zusammengesetzt aus lvBase und lvPart, etwa '105-2'."
@@ -59,9 +54,9 @@
       "type": ["string", "null"],
       "description": "Weitere oder fruehere Signatur derselben Quelle (Spalte 'Weitere Signatur'), etwa nach einer Neusignierung durch die Bibliothek."
     },
-    "sourceDescription": {
+    "sourceType": {
       "type": ["string", "null"],
-      "description": "Physische Beschreibung der Quelle (Spalte 'Quellenart'), unveraendert als Zeichenkette. Enthaelt teils MARC-artige Teilfelder wie $a/$b/$c, die hier nicht weiter zerlegt werden."
+      "description": "Quellenart (Spalte 'Quellenart'), etwa 'Partitur' oder 'Stimmbücher (6): C, A, T, B, Quintus, Sextus' (Anzahl der Stimmbuecher, vorhandene Stimmen)."
     },
     "provenance": {
       "type": ["string", "null"],
@@ -78,19 +73,6 @@
     "note": {
       "type": ["string", "null"],
       "description": "Freitext-Anmerkung zur Ueberlieferung dieses Stuecks in dieser Quelle (Spalte 'Weitere Teile'), etwa zu fehlenden Stimmen, Textabweichungen oder einem Verweis auf eine LVanh-Nummer."
-    },
-    "source": {
-      "type": "object",
-      "required": ["dataset", "file", "row", "key"],
-      "properties": {
-        "dataset": { "type": "string" },
-        "file": { "type": "string" },
-        "row": { "type": "integer" },
-        "key": {
-          "type": "string",
-          "description": "Fachlicher Wiedererkennungsschluessel fuer die ID-Registry."
-        }
-      }
     },
     "extra": {
       "type": "object",

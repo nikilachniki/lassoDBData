@@ -1,5 +1,5 @@
 {
-  "$comment": "Manuell kuratierte Zuordnung von Textdichter-Rohwerten zu Personen mit GND- und VIAF-Identifikator, geordnet nach GND. Jede Zuordnung wurde einzeln ueber die GND-Suche (lobid.org) anhand von Lebensdaten und Beruf geprueft, keine automatische Namensauflösung. preferredName ist die festgelegte Anzeigeform in natuerlicher Reihenfolge (Vorname Name), keine Uebernahme der GND-Ansetzung. variants listet die Rohwerte aus der Spalte Textdichter, exakt wie in der Quelle, die diese Person meinen; ein nachgestelltes '?' kennzeichnet eine unsichere Zuschreibung und wird beim Import als textAuthorUncertain ausgewiesen. Nicht jeder Rohwert steht hier: mehrdeutige, unsichere oder nicht identifizierbare Faelle (etwa Gattungsbezeichnungen wie 'Tischgebet' statt Personennamen, oder Namen ohne eindeutigen GND-Treffer) bleiben bewusst aussen vor, siehe docs/entscheidungen.md, Abschnitte 15 und 19.",
+  "$comment": "Manuell kuratierte Zuordnung von Textdichter-Rohwerten zu Personen mit GND- und VIAF-Identifikator, geordnet nach GND. Jede Zuordnung wurde einzeln ueber die GND-Suche (lobid.org) anhand von Lebensdaten und Beruf geprueft, keine automatische Namensauflösung. preferredName ist die festgelegte Anzeigeform in natuerlicher Reihenfolge (Vorname Name), keine Uebernahme der GND-Ansetzung. variants listet die Rohwerte aus der Spalte Textdichter, die diese Person meinen, wie in der Quelle, aber ohne nachgestelltes '?': das '?' kennzeichnet eine unsichere Zuschreibung, der Import entfernt es vor dem Abgleich und setzt textAuthorUncertain. Nicht jeder Rohwert steht hier: mehrdeutige oder nicht identifizierbare Faelle (etwa Namen ohne eindeutigen GND-Treffer) bleiben bewusst aussen vor, siehe docs/entscheidungen.md, Abschnitte 15, 19 und 35.",
   "118593234": { "preferredName": "Francesco Petrarca", "viaf": "39382430", "variants": ["Petrarca"] },
   "130088730": { "preferredName": "Gabriele Fiamma", "viaf": "88878886", "variants": ["Fiamma", "Fiamme", "Gabriel Fiamma"] },
   "124214169": { "preferredName": "Stefano Tucci", "viaf": "95293442", "variants": ["Stefano Tucci"] },
@@ -8,8 +8,8 @@
   "118731122": { "preferredName": "Clément Marot", "viaf": "59086239", "variants": ["Cl. Marot", "C.Marot", "Marot", "Clément Marot"] },
   "118527649": { "preferredName": "Joachim du Bellay", "viaf": "39447168", "variants": ["du Bellay"] },
   "118622110": { "preferredName": "Thomas von Aquin", "viaf": "100910150", "variants": ["Thomas von Aquin"] },
-  "124384927": { "preferredName": "Guillaume Guéroult", "viaf": "202471443", "variants": ["G. Guéroult", "G.Guéroult"] },
-  "124661122": { "preferredName": "Ludwig Helmbold", "viaf": "69867276", "variants": ["Ludwig Helmbold?"] },
+  "124384927": { "preferredName": "Guillaume Guéroult", "viaf": "202471443", "variants": ["G. Guéroult"] },
+  "124661122": { "preferredName": "Ludwig Helmbold", "viaf": "69867276", "variants": ["Ludwig Helmbold"] },
   "118626574": { "preferredName": "Vergil", "viaf": "8194433", "variants": ["Vergil"] },
   "118698753": { "preferredName": "Battista Guarini", "viaf": "54142932", "variants": ["B. Guarini"] },
   "118658115": { "preferredName": "Pietro Bembo", "viaf": "54144140", "variants": ["Bembo"] },

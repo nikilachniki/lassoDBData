@@ -4,20 +4,15 @@
   "title": "Lasso-Werkverzeichnis, Katalogeintrag",
   "description": "Ein Eintrag entspricht einem Werk in einem Druck, nicht einem Werk. Die LV-Nummer ist nicht eindeutig, da dieselbe Komposition in mehreren Drucken erscheinen kann. Eindeutig ist allein die interne ID.",
   "type": "object",
-  "required": ["@id", "@type", "id", "lv", "title"],
+  "required": ["@id", "@type", "lv", "title"],
   "additionalProperties": true,
   "properties": {
     "@id": {
       "type": "string",
       "pattern": "^entry:[0-9]{5,}$",
-      "description": "JSON-LD Bezeichner, abgeleitet aus der internen ID."
+      "description": "JSON-LD Bezeichner mit der internen laufenden ID aus scripts/id-registry.json, fuenfstellig mit fuehrenden Nullen. Einmal vergeben, bleibt sie stabil."
     },
     "@type": { "const": "CatalogueEntry" },
-    "id": {
-      "type": "integer",
-      "minimum": 1,
-      "description": "Interne laufende ID. Einmal vergeben, bleibt sie stabil."
-    },
     "lv": {
       "type": ["string", "null"],
       "description": "LV-Nummer nach Boetticher und Leuchtmann, wie in der Quelle."
@@ -31,10 +26,9 @@
       "type": ["string", "null"],
       "description": "Roemische Fassungsziffer aus einer LV-Angabe wie 74 (IV)."
     },
-    "title": { "type": ["string", "null"] },
-    "titleRaw": {
+    "title": {
       "type": ["string", "null"],
-      "description": "Titel unveraendert aus der Quelle, inklusive Teilsatzmarke."
+      "description": "Titel aus der Quelle ohne fuehrende Teilsatzmarke wie '[2] '; die Marke entspricht lvPart."
     },
     "normalizedTitle": {
       "type": ["string", "null"],
@@ -84,19 +78,6 @@
     "language": {
       "type": ["string", "null"],
       "description": "Sprache des vertonten Textes, unveraendert wie in der Quelle."
-    },
-    "source": {
-      "type": "object",
-      "required": ["dataset", "file", "row", "key"],
-      "properties": {
-        "dataset": { "type": "string" },
-        "file": { "type": "string" },
-        "row": { "type": "integer" },
-        "key": {
-          "type": "string",
-          "description": "Fachlicher Wiedererkennungsschluessel fuer die ID-Registry."
-        }
-      }
     },
     "extra": {
       "type": "object",
