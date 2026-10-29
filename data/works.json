@@ -104949,13 +104949,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:928-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Selig zu preisen ist der mann",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Beatus vir.",
+        "Selig zupreisen ist der mann",
         "Selig zu preisen ist der Mann"
       ],
       "voiceCounts": [
@@ -104978,11 +104976,9 @@
       "completeEditions": [
         "GA 2 XX,VI 1"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01606"
@@ -104993,43 +104989,6 @@
       "expressions": []
     },
     {
-      "@id": "work:928-2",
-      "@type": "Work",
-      "lv": "928-2",
-      "lvBase": 928,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:928",
-      "hasPart": [],
-      "preferredTitle": "Selig zu preisen ist der mann",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Selig zupreisen ist der mann"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 1"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01607"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:929",
       "@type": "Work",
       "lv": "929",
@@ -105037,14 +104996,10 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:929-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "O Herr ich klag es dir",
       "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Dne quid mult.iplicati"
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3
       ],
@@ -105065,11 +105020,9 @@
       "completeEditions": [
         "GA 2 XX,VI 2"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01608"
@@ -105080,41 +105033,6 @@
       "expressions": []
     },
     {
-      "@id": "work:929-2",
-      "@type": "Work",
-      "lv": "929-2",
-      "lvBase": 929,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:929",
-      "hasPart": [],
-      "preferredTitle": "O Herr ich klag es dir",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 2"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01609"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:930",
       "@type": "Work",
       "lv": "930",
@@ -105122,13 +105040,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:930-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Vernimm Herr meine Wort",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Verba mea auribus."
+        "Vernim Herr meine wort"
       ],
       "voiceCounts": [
         3
@@ -105150,11 +105066,9 @@
       "completeEditions": [
         "GA 2 XX,VI 3"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01610"
@@ -105165,43 +105079,6 @@
       "expressions": []
     },
     {
-      "@id": "work:930-2",
-      "@type": "Work",
-      "lv": "930-2",
-      "lvBase": 930,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:930",
-      "hasPart": [],
-      "preferredTitle": "Vernimm Herr meine Wort",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Vernim Herr meine wort"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 3"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01611"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:931",
       "@type": "Work",
       "lv": "931",
@@ -105209,13 +105086,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:931-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Auff dich mein lieber Herr und Gott",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Dne Deus meus."
+        "Auff dich mein lieber Herr vn Gott"
       ],
       "voiceCounts": [
         3
@@ -105237,11 +105112,9 @@
       "completeEditions": [
         "GA 2 XX,VI 4"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01612"
@@ -105252,43 +105125,6 @@
       "expressions": []
     },
     {
-      "@id": "work:931-2",
-      "@type": "Work",
-      "lv": "931-2",
-      "lvBase": 931,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:931",
-      "hasPart": [],
-      "preferredTitle": "Auff dich mein lieber Herr und Gott",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Auff dich mein lieber Herr vn Gott"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 4"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01613"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:932",
       "@type": "Work",
       "lv": "932",
@@ -105296,13 +105132,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:932-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Ich wil auß gantzem hertzen",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Confitebor tibi Domine."
+        "Ich will auß gantzem hertzen"
       ],
       "voiceCounts": [
         3
@@ -105324,11 +105158,9 @@
       "completeEditions": [
         "GA 2 XX,VI 5"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01614"
@@ -105339,43 +105171,6 @@
       "expressions": []
     },
     {
-      "@id": "work:932-2",
-      "@type": "Work",
-      "lv": "932-2",
-      "lvBase": 932,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:932",
-      "hasPart": [],
-      "preferredTitle": "Ich wil auß gantzem hertzen",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Ich will auß gantzem hertzen"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 5"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01615"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:933",
       "@type": "Work",
       "lv": "933",
@@ -105383,14 +105178,10 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:933-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Hilff lieber Herr",
       "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Saluum me fac Deus."
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3
       ],
@@ -105411,11 +105202,9 @@
       "completeEditions": [
         "GA 2 XX,VI 6"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01616"
@@ -105426,41 +105215,6 @@
       "expressions": []
     },
     {
-      "@id": "work:933-2",
-      "@type": "Work",
-      "lv": "933-2",
-      "lvBase": 933,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:933",
-      "hasPart": [],
-      "preferredTitle": "Hilff lieber Herr",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 6"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01617"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:934",
       "@type": "Work",
       "lv": "934",
@@ -105468,14 +105222,10 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:934-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Die thoren sprechen wol on schertzen",
       "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Dixit insipiens."
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3
       ],
@@ -105496,11 +105246,9 @@
       "completeEditions": [
         "GA 2 XX,VI 7"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01618"
@@ -105511,41 +105259,6 @@
       "expressions": []
     },
     {
-      "@id": "work:934-2",
-      "@type": "Work",
-      "lv": "934-2",
-      "lvBase": 934,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:934",
-      "hasPart": [],
-      "preferredTitle": "Die thoren sprechen wol on schertzen",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 7"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01619"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:935",
       "@type": "Work",
       "lv": "935",
@@ -105553,13 +105266,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:935-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Halt mich o Herr in deiner hut",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Conserua me Domine."
+        "Halt mich O Herr in deiner hut"
       ],
       "voiceCounts": [
         3
@@ -105581,11 +105292,9 @@
       "completeEditions": [
         "GA 2 XX,VI 8"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01620"
@@ -105596,43 +105305,6 @@
       "expressions": []
     },
     {
-      "@id": "work:935-2",
-      "@type": "Work",
-      "lv": "935-2",
-      "lvBase": 935,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:935",
-      "hasPart": [],
-      "preferredTitle": "Halt mich o Herr in deiner hut",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Halt mich O Herr in deiner hut"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 8"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01621"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:936",
       "@type": "Work",
       "lv": "936",
@@ -105640,14 +105312,10 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:936-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Herr der du meine stercke bist",
       "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Diligam te Domine."
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3
       ],
@@ -105668,11 +105336,9 @@
       "completeEditions": [
         "GA 2 XX,VI 9"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01622"
@@ -105683,41 +105349,6 @@
       "expressions": []
     },
     {
-      "@id": "work:936-2",
-      "@type": "Work",
-      "lv": "936-2",
-      "lvBase": 936,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:936",
-      "hasPart": [],
-      "preferredTitle": "Herr der du meine stercke bist",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 9"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01623"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:937",
       "@type": "Work",
       "lv": "937",
@@ -105725,13 +105356,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:937-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Der Herr erhöre deine klag",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Exaudiat te Dominus."
+        "Der Herr erho^ere deine klag"
       ],
       "voiceCounts": [
         3
@@ -105753,11 +105382,9 @@
       "completeEditions": [
         "GA 2 XX,VI 10"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01624"
@@ -105768,43 +105395,6 @@
       "expressions": []
     },
     {
-      "@id": "work:937-2",
-      "@type": "Work",
-      "lv": "937-2",
-      "lvBase": 937,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:937",
-      "hasPart": [],
-      "preferredTitle": "Der Herr erhöre deine klag",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Der Herr erho^ere deine klag"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 10"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01625"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:938",
       "@type": "Work",
       "lv": "938",
@@ -105812,13 +105402,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:938-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Mein Gott mein lieber treuer Gott",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Deus Deus meus respice."
+        "Mein Gott / mein lieber trewer Gott"
       ],
       "voiceCounts": [
         3
@@ -105840,11 +105428,9 @@
       "completeEditions": [
         "GA 2 XX,VI 11"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01626"
@@ -105855,43 +105441,6 @@
       "expressions": []
     },
     {
-      "@id": "work:938-2",
-      "@type": "Work",
-      "lv": "938-2",
-      "lvBase": 938,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:938",
-      "hasPart": [],
-      "preferredTitle": "Mein Gott mein lieber treuer Gott",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Mein Gott / mein lieber trewer Gott"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 11"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01627"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:939",
       "@type": "Work",
       "lv": "939",
@@ -105899,13 +105448,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:939-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Die welt und all ihr reichethumb",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Dni est terra."
+        "Die welt und all jhr reichethum"
       ],
       "voiceCounts": [
         3
@@ -105927,11 +105474,9 @@
       "completeEditions": [
         "GA 2 XX,VI 12"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01628"
@@ -105942,43 +105487,6 @@
       "expressions": []
     },
     {
-      "@id": "work:939-2",
-      "@type": "Work",
-      "lv": "939-2",
-      "lvBase": 939,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:939",
-      "hasPart": [],
-      "preferredTitle": "Die welt und all ihr reichethumb",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Die welt und all jhr reichethum"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 12"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01629"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:940",
       "@type": "Work",
       "lv": "940",
@@ -105986,14 +105494,10 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:940-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Schaff mir doch recht in sachen mein",
       "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Iudica me Domine."
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3
       ],
@@ -106014,11 +105518,9 @@
       "completeEditions": [
         "GA 2 XX,VI 13"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01630"
@@ -106029,41 +105531,6 @@
       "expressions": []
     },
     {
-      "@id": "work:940-2",
-      "@type": "Work",
-      "lv": "940-2",
-      "lvBase": 940,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:940",
-      "hasPart": [],
-      "preferredTitle": "Schaff mir doch recht in sachen mein",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 13"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01631"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:941",
       "@type": "Work",
       "lv": "941",
@@ -106071,13 +105538,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:941-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Herr Gott mein hort",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Ad te Domine clamaui."
+        "Herr Gott mein hord"
       ],
       "voiceCounts": [
         3
@@ -106099,11 +105564,9 @@
       "completeEditions": [
         "GA 2 XX,VI 14"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01632"
@@ -106114,43 +105577,6 @@
       "expressions": []
     },
     {
-      "@id": "work:941-2",
-      "@type": "Work",
-      "lv": "941-2",
-      "lvBase": 941,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:941",
-      "hasPart": [],
-      "preferredTitle": "Herr Gott mein hort",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Herr Gott mein hord"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 14"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01633"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:942",
       "@type": "Work",
       "lv": "942",
@@ -106158,13 +105584,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:942-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Ich wil dich Herr gebuerlich loben",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Exaltabo te Dne."
+        "Ich wil dich Herr gebu^erlich loben"
       ],
       "voiceCounts": [
         3
@@ -106186,11 +105610,9 @@
       "completeEditions": [
         "GA 2 XX,VI 15"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01634"
@@ -106201,43 +105623,6 @@
       "expressions": []
     },
     {
-      "@id": "work:942-2",
-      "@type": "Work",
-      "lv": "942-2",
-      "lvBase": 942,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:942",
-      "hasPart": [],
-      "preferredTitle": "Ich wil dich Herr gebuerlich loben",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Ich wil dich Herr gebu^erlich loben"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 15"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01635"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:943",
       "@type": "Work",
       "lv": "943",
@@ -106245,13 +105630,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:943-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "O selig dem der treuer Gott",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Beati quorum.",
+        "O selig dem der trewer Gott",
         "O selig dem der treue Gott"
       ],
       "voiceCounts": [
@@ -106274,11 +105657,9 @@
       "completeEditions": [
         "GA 2 XX,VI 16"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01636"
@@ -106289,43 +105670,6 @@
       "expressions": []
     },
     {
-      "@id": "work:943-2",
-      "@type": "Work",
-      "lv": "943-2",
-      "lvBase": 943,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:943",
-      "hasPart": [],
-      "preferredTitle": "O selig dem der treuer Gott",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "O selig dem der trewer Gott"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 16"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01637"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:944",
       "@type": "Work",
       "lv": "944",
@@ -106333,13 +105677,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:944-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Ich wil Gott unauffhoerlich preisen",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Benedicam Dominum."
+        "Ich wil Gott vnauffho^erlich preisen"
       ],
       "voiceCounts": [
         3
@@ -106361,11 +105703,9 @@
       "completeEditions": [
         "GA 2 XX,VI 17"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01638"
@@ -106376,43 +105716,6 @@
       "expressions": []
     },
     {
-      "@id": "work:944-2",
-      "@type": "Work",
-      "lv": "944-2",
-      "lvBase": 944,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:944",
-      "hasPart": [],
-      "preferredTitle": "Ich wil Gott unauffhoerlich preisen",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Ich wil Gott vnauffho^erlich preisen"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 17"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01639"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:945",
       "@type": "Work",
       "lv": "945",
@@ -106420,14 +105723,10 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:945-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Es zeugen des gottlosen wercke",
       "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Dixit iniustus."
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3
       ],
@@ -106443,11 +105742,9 @@
       "completeEditions": [
         "GA 2 XX,VI 18"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01640"
@@ -106458,41 +105755,6 @@
       "expressions": []
     },
     {
-      "@id": "work:945-2",
-      "@type": "Work",
-      "lv": "945-2",
-      "lvBase": 945,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:945",
-      "hasPart": [],
-      "preferredTitle": "Es zeugen des gottlosen wercke",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 18"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01641"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:946",
       "@type": "Work",
       "lv": "946",
@@ -106500,14 +105762,10 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:946-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Straff mich Herr nicht im eiffermut",
       "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Domine ne in furore."
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3
       ],
@@ -106528,11 +105786,9 @@
       "completeEditions": [
         "GA 2 XX,VI 19"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01642"
@@ -106543,41 +105799,6 @@
       "expressions": []
     },
     {
-      "@id": "work:946-2",
-      "@type": "Work",
-      "lv": "946-2",
-      "lvBase": 946,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:946",
-      "hasPart": [],
-      "preferredTitle": "Straff mich Herr nicht im eiffermut",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 19"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01643"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:947",
       "@type": "Work",
       "lv": "947",
@@ -106585,14 +105806,10 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:947-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Ich harr auff Gott mit gantzer gir",
       "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Expectans expectaui."
-      ],
+      "variantTitles": [],
       "voiceCounts": [
         3
       ],
@@ -106613,11 +105830,9 @@
       "completeEditions": [
         "GA 2 XX,VI 20"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01644"
@@ -106628,41 +105843,6 @@
       "expressions": []
     },
     {
-      "@id": "work:947-2",
-      "@type": "Work",
-      "lv": "947-2",
-      "lvBase": 947,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:947",
-      "hasPart": [],
-      "preferredTitle": "Ich harr auff Gott mit gantzer gir",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 20"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01645"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:948",
       "@type": "Work",
       "lv": "948",
@@ -106670,13 +105850,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:948-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Wie ein hirsch girlich schreyen thut",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Quemadmodum desiderat."
+        "Wie ein Hirsch girlich schreyen thut"
       ],
       "voiceCounts": [
         3
@@ -106698,11 +105876,9 @@
       "completeEditions": [
         "GA 2 XX,VI 21"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01646"
@@ -106713,43 +105889,6 @@
       "expressions": []
     },
     {
-      "@id": "work:948-2",
-      "@type": "Work",
-      "lv": "948-2",
-      "lvBase": 948,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:948",
-      "hasPart": [],
-      "preferredTitle": "Wie ein hirsch girlich schreyen thut",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Wie ein Hirsch girlich schreyen thut"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 21"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01647"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:949",
       "@type": "Work",
       "lv": "949",
@@ -106757,13 +105896,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:949-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Wir haben Herr mit unsern ohren",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Deus auribus nostris."
+        "Wir haben Herr mit vnsern ohren"
       ],
       "voiceCounts": [
         3
@@ -106785,11 +105922,9 @@
       "completeEditions": [
         "GA 2 XX,VI 22"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01648"
@@ -106800,43 +105935,6 @@
       "expressions": []
     },
     {
-      "@id": "work:949-2",
-      "@type": "Work",
-      "lv": "949-2",
-      "lvBase": 949,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:949",
-      "hasPart": [],
-      "preferredTitle": "Wir haben Herr mit unsern ohren",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Wir haben Herr mit vnsern ohren"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 22"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01649"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:950",
       "@type": "Work",
       "lv": "950",
@@ -106844,13 +105942,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:950-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Gott ist auf den wir immer hoffen",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Deus noster refugium."
+        "Gott ist auff den wir jmmer hoffen"
       ],
       "voiceCounts": [
         3
@@ -106872,11 +105968,9 @@
       "completeEditions": [
         "GA 2 XX,VI 23"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01650"
@@ -106887,43 +105981,6 @@
       "expressions": []
     },
     {
-      "@id": "work:950-2",
-      "@type": "Work",
-      "lv": "950-2",
-      "lvBase": 950,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:950",
-      "hasPart": [],
-      "preferredTitle": "Gott ist auf den wir immer hoffen",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Gott ist auff den wir jmmer hoffen"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 23"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01651"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:951",
       "@type": "Work",
       "lv": "951",
@@ -106931,13 +105988,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:951-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Groß ist der Herr im heilgen thron",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Magnus Dominus."
+        "Groß ist der Herr"
       ],
       "voiceCounts": [
         3
@@ -106959,11 +106014,9 @@
       "completeEditions": [
         "GA 2 XX,VI 24"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01652"
@@ -106974,43 +106027,6 @@
       "expressions": []
     },
     {
-      "@id": "work:951-2",
-      "@type": "Work",
-      "lv": "951-2",
-      "lvBase": 951,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:951",
-      "hasPart": [],
-      "preferredTitle": "Groß ist der Herr im heilgen thron",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Groß ist der Herr"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 24"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01653"
-      ],
-      "manuscripts": [],
-      "expressions": []
-    },
-    {
       "@id": "work:952",
       "@type": "Work",
       "lv": "952",
@@ -107018,13 +106034,11 @@
       "lvPart": null,
       "lvAnh": null,
       "isPartOf": null,
-      "hasPart": [
-        "work:952-2"
-      ],
+      "hasPart": [],
       "preferredTitle": "Der starcker Gott im himelreich",
       "preferredTitleBasis": "normalized",
       "variantTitles": [
-        "Deus Deorum Dns.",
+        "Der starker Gott im himelreich",
         "Der starcke Gott im himelreich"
       ],
       "voiceCounts": [
@@ -107047,11 +106061,9 @@
       "completeEditions": [
         "GA 2 XX,VI 25"
       ],
-      "genres": [
-        "Motette"
-      ],
+      "genres": [],
       "languages": [
-        "Latein"
+        "Deutsch"
       ],
       "entries": [
         "entry:01654"
@@ -107059,43 +106071,6 @@
       "manuscripts": [
         "manuscript:09513"
       ],
-      "expressions": []
-    },
-    {
-      "@id": "work:952-2",
-      "@type": "Work",
-      "lv": "952-2",
-      "lvBase": 952,
-      "lvPart": 2,
-      "lvAnh": null,
-      "isPartOf": "work:952",
-      "hasPart": [],
-      "preferredTitle": "Der starcker Gott im himelreich",
-      "preferredTitleBasis": "normalized",
-      "variantTitles": [
-        "Der starker Gott im himelreich"
-      ],
-      "voiceCounts": [
-        3
-      ],
-      "prints": [
-        "1588-2"
-      ],
-      "printAppearances": [],
-      "textAuthors": [],
-      "uncertainTextAuthors": [],
-      "textSources": [],
-      "completeEditions": [
-        "GA 2 XX,VI 25"
-      ],
-      "genres": [],
-      "languages": [
-        "Deutsch"
-      ],
-      "entries": [
-        "entry:01655"
-      ],
-      "manuscripts": [],
       "expressions": []
     },
     {

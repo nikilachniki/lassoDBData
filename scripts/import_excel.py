@@ -558,6 +558,7 @@ def read_print_descriptions(spec):
             },
             "rism": record.get(RISM_COLUMN),
             "title": record.get("Titel"),
+            "shortTitle": record.get("Kurztitel"),
             "partbooks": record.get("Stimmbücher"),
         }
     workbook.close()
@@ -895,7 +896,8 @@ def derive_prints(entries, appearances, descriptions):
 
     Grundlage sind die Erstdrucke aus Werke.xlsx (entryCount) und alle Drucke
     aus den Drucknachweisen (auch Nachdrucke). Beschreibung, Verweise,
-    RISM-Link, Titel und Stimmbuecher kommen aus dem Druckeverzeichnis.
+    RISM-Link, Titel und Stimmbuecher kommen aus dem Druckeverzeichnis, der
+    Kurztitel aus einer eigenen Spalte (Abschnitt 41).
     """
     prints = {}
 
@@ -914,6 +916,7 @@ def derive_prints(entries, appearances, descriptions):
                 "references": {},
                 "rism": None,
                 "title": None,
+                "shortTitle": None,
                 "partbooks": None,
                 "entryCount": 0,
             }

@@ -12,6 +12,7 @@
 
     "dcterms": "http://purl.org/dc/terms/",
     "frbr": "http://purl.org/vocab/frbr/core#",
+    "bibo": "http://purl.org/ontology/bibo/",
     "schema": "https://schema.org/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
@@ -58,6 +59,7 @@
     "description": "dcterms:description",
     "references": { "@id": "dcterms:bibliographicCitation", "@type": "@json" },
     "partbooks": "lasso:partbooks",
+    "shortTitle": "bibo:shortTitle",
 
     "textAuthor": "lasso:textAuthorRaw",
     "textAuthorPerson": { "@id": "schema:lyricist", "@type": "@id" },

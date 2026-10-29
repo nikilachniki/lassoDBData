@@ -1452,6 +1452,70 @@ und ein ungenauer wäre schlechter als ein eigener.
 
 ---
 
+## 40. LV 928–952 als einteilige deutsche Psalmen
+
+**Entscheidung.** In `raw/Werke.xlsx` standen LV 928 bis 952 (Druck 1588-2)
+je als zwei Zeilen: `N` mit einem lateinischen Psalmanfang („Beatus vir.“) und
+`N-2` mit dem deutschen Text („[2] Selig zupreisen ist der mann“). Je Psalm
+gibt es jetzt eine Zeile `N` mit dem deutschen Titel; die 25 Zeilen `N-2`
+sind entfernt. Die Sprache ist auf „Deutsch“ gesetzt, die Gattung („Motette“)
+geleert. Textprovenienz („nach Psalmus 1“), Stimmen und Gesamtausgabe
+bleiben.
+
+**Begründung.** Die lateinische Zeile ist die Überschrift, die den
+vertonten Psalm nennt, kein eigener Teil, wie „Sestina:“ bei LV 74
+(Abschnitt 21). Die Incipits sind die ungeraden Psalmen 1 bis 49 der
+Vulgata, gesungen wird der deutsche Text (Teutsche Psalmen nach Kaspar
+Ulenberg, 1588). MGG führt jedes Stück als ein Werk mit dem deutschen Titel,
+beide Zeilen trugen dieselbe Nummer der Gesamtausgabe, und die 25
+Handschriften wie der Drucknachweis verweisen nur auf `N`. Gattung
+„Motette“ und Sprache „Latein“ trafen auf ein deutsches Psalmlied nicht zu.
+
+**Preis.** Die 25 Werke `work:928-2` bis `work:952-2` und die Einträge der
+entfernten Zeilen entfallen; ihre internen Nummern bleiben in der Registry
+reserviert. Gattung und Textdichter (vermutlich Ulenberg) sind noch
+einzutragen.
+
+---
+
+## 41. Normalisierter Kurztitel je Druck
+
+**Entscheidung.** Das Blatt *Drucke* in `raw/Drucke.xlsx` erhält die Spalte
+„Kurztitel“, der Import übernimmt sie als `shortTitle` an den Druck, im
+Kontext abgebildet auf `bibo:shortTitle` (Bibliographic Ontology). Der
+Titel in diplomatischer Wiedergabe (`title`) bleibt unverändert.
+
+**Begründung.** Die Titelblattwiedergabe aus dem Druckeverzeichnis ist für
+die Beschreibung des Drucks gedacht, nicht als Bezeichnung: Sie enthält
+Stimmbuchangabe, Autorformel, Impressum, Privileg und Zeilentrenner und ist
+für Listen, Verweise und Suche zu lang. Ein Kurztitel benennt den Druck so,
+wie die Literatur es tut.
+
+**Regeln.** Der Kurztitel steht in der Sprache des Drucks und behält dessen
+Schreibung („a quatro voci“, „Dixsetieme livre“), normalisiert aber u/v und
+i/j nach heutigem Gebrauch, löst Ligaturen und Abkürzungen auf, setzt
+Großbuchstaben nur am Anfang, bei Eigennamen und deutschen Substantiven und
+berichtigt offensichtliche Druckfehler. Er umfasst Titel, Gattung,
+Besetzung und Buchzählung; Teile einer Reihe stehen als „Reihe. Teil“
+(„Sacrae cantiones quinque vocum. Liber primus“). Stimmbuch, Autorangabe,
+Herausgeber, Widmung, Impressum, Privileg und Zusätze wie „nuovamente
+ristampato“ entfallen. Lassos Name bleibt nur, wo er grammatisch zum Titel
+gehört („Mellange d'Orlande de Lassus“). Auflagen und Nachdrucke behalten
+einen abweichenden Wortlaut ihres Titels; der Kurztitel führt Ausgaben
+nicht zusammen, das leisten die Angaben zur Beziehung in `description`.
+
+**Entstehung.** Die Kurztitel wurden aus den Titelblättern mit
+Unterstützung eines Sprachmodells (Claude) erzeugt und gelten bis zur
+fachlichen Durchsicht als Entwurf. Ohne Titelblatt bleiben 1560-10, 1629-2
+und 1773-9 leer; für 1591-6 ist der Kurztitel aus dem im Verzeichnis
+rekonstruierten Titel gebildet.
+
+**Preis.** Die Spalte wird von Hand gepflegt; `scripts/tex_drucke.py` füllt
+sie nicht, neue Drucke brauchen einen eigenen Eintrag. Bei langen
+Sammeltiteln ist die Kürzung eine Ermessensentscheidung.
+
+---
+
 ## Bewusst nicht übernommene Standards
 
 - **MEI**, die Music Encoding Initiative, ist für die Codierung von Notentext
@@ -1494,6 +1558,8 @@ und ein ungenauer wäre schlechter als ein eigener.
 - 280 Katalogzeilen ohne normalisierten Titel, 84 mit stark vom Drucktitel
   abweichendem Titel sowie die Abweichungen bei Stimmenzahl und Erstdruck
   gegenüber MGG warten auf fachliche Prüfung, siehe Abschnitt 21.
+- Die 474 Kurztitel der Drucke sind ein Entwurf und warten auf fachliche
+  Durchsicht, siehe Abschnitt 41.
 - Sechs Drucke des Druckeverzeichnisses fehlen im Blatt *Drucke*, zwei
   Drucke des Blatts im Verzeichnis, siehe Abschnitt 26.
 - 311 Handschriften-Zeugnisse und die Zuordnung der 161 LV-Anhang-Werke
